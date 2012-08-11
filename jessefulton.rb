@@ -6,7 +6,7 @@
   set :public_folder,  Proc.new { File.join(root, "_site") }
   set :email_username, ENV['SENDGRID_USERNAME']
   set :email_password, ENV['SENDGRID_PASSWORD']
-  set :email_address,  'Flatterline <contact@flatterline.com>'
+  set :email_address,  'Fubar <bar@foo.com>'
   set :email_service,  ENV['SENDGRID_ADDRESS']
   set :email_domain,   ENV['SENDGRID_DOMAIN']
 
@@ -29,15 +29,15 @@
 
 ## Error Handling
   not_found do
-    if @not_found.nil?
-      @not_found = true
-      send_email params, 'views/error_email_template.txt.erb', "Missing Page"
-    end
+    #if @not_found.nil?
+    #  @not_found = true
+    #  send_email params, 'views/error_email_template.txt.erb', "Missing Page"
+    #end
     File.read("_site/404.html")
   end
 
   error 500..510 do
-    send_email params, 'views/error_email_template.txt.erb', "Internal Error"
+    # send_email params, 'views/error_email_template.txt.erb', "Internal Error"
     File.read("_site/500.html")
   end
 
@@ -72,15 +72,6 @@
     redirect url, 301
   end
 
-  # Redirects for Ad links
-  get %r{^\/(ruby|rails|ruby-on-rails|ruby-on-rails-development|ruby-development|rails-development)} do
-    redirect "/services/ruby-on-rails-development", 301
-  end
-
-  get %r{^\/code-audits?} do
-    redirect "/services/code-audits", 301
-  end
-
   ############################################################
   # GET routes
   ############################################################
@@ -96,36 +87,7 @@
     end
   end
 
-  # Dynamic contact form
-  get '/contact-form' do
-    @errors = {}
-    @title = "Ready to start developing? Contact us today."
-    erb :contact_form
-  end
 
-  # RSS Feed
-  get '/feed' do
-    if request.user_agent =~ /FeedBurner/
-      content_type 'application/atom+xml', :charset => 'utf-8'
-      File.read("_site/feed/index.xml")
-    else
-      redirect 'http://feeds.feedburner.com/flatterline', 301
-    end
-  end
-
-  get %r{^\/blog\/(feed|feed\/atom|blog\/feed)$} do
-    redirect 'feed', 301
-  end
-
-
-  # Blitz.io routes
-  get '/mu-3dd0acec-2383268f-097a0ad7-4e11727c' do
-    '42'
-  end
-
-  get '/mu-1b15f325-41eb9c2d-c6972725-c56f1bfb' do
-    '42'
-  end
 
   # Catch All
   get "/*" do |title|
@@ -136,31 +98,10 @@
     end
   end
 
-  ############################################################
-  # POST routes
-  ############################################################
-  # Dynamic contact form
-  post '/contact-form/?' do
-    @title = "Ready to start developing? Contact us today."
-
-    if (@errors = validate(params)).empty?
-      begin
-        send_email params, 'views/contact_email_template.txt.erb', "Contact form received from #{params[:name]}"
-        @sent = true
-        @title = "Thanks!"
-
-      rescue => e
-        puts e
-        @failure = "Ooops, it looks like something went wrong while attempting to contact us. Mind trying again now or later? :)"
-      end
-    end
-
-    erb :contact_form
-  end
 
 ## Helper Methods ##
   def send_email(params, template, subject)
-    from = "Flatterline <morecowbell@flatterline.com>"
+    from = "Fubar <bar@foo.com>"
     if params[:name] && params[:email]
       from = params[:name] + " <" + params[:email] + ">"
     end
@@ -173,7 +114,7 @@
       Pony.mail(
         :from    => from,
         :to      => settings.email_address,
-        :subject => "[Flatterline] #{subject}",
+        :subject => "[abc] #{subject}",
         :body    => ERB.new(File.read(template)).result(binding),
         :port    => '587',
         :via     => :smtp,

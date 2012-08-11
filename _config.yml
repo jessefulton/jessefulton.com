@@ -1,5 +1,5 @@
 blog_dir: blog
-domain: http://flatterline.com
+domain: http://jessefulton.com
 exclude: \*.sass, \*.scss, Gemfile, Gemfile.lock, Procfile, README.md, \*.rb, \*.yml, bin
 lsi: true
 markdown: rdiscount
