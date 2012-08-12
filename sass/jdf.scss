@@ -85,7 +85,8 @@ body {
 	width:100%;
 	min-height: 100%;
 	padding-bottom: 16px;
-	background: transparent url(images/construction.gif) repeat fixed 0 100%;
+	/*background: transparent url(images/construction.gif) repeat fixed 0 100%;*/
+	background: transparent url(images/H-6_S-20_FADE.png) repeat-x fixed 0 100%;
 	
 	text-align:center;
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -212,8 +213,6 @@ text-align: left;
 
 
 
-
-
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Myriad Pro", Futura, "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-weight: bold;
@@ -276,7 +275,16 @@ h4, h5, h6 { color: #d1d1d1; background-color: #14050c; }
 
 #main h5 { margin: 16px; font-style:italic; font-weight: normal; }
 
-#main .content {
+
+.portfolio #main .content {
+	background-color: transparent;
+	padding: 0;
+	clear: both;
+	float: left;
+	width: 100%;
+}
+
+#main .content, .portfolio.project #main .content {
 		color: #d1d1d1;
 		background-color: #000000;
 		padding: 16px;
