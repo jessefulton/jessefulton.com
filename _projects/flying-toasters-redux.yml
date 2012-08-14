@@ -11,10 +11,14 @@ thumbnail:
   height: 159px
 
 layout:    project
+collaborators:
+  - Will Eastcott
+  - Lao Akili
 description:
-  FPO Flying Toasters
+  Passive interactivity... non-interactive interactivity
 published: true
 short:
   Flying Toasters Redux
 title:     Flying Toasters Redux
 website:   http://flyingtoasters.herokuapp.com/
+# website:   http://flying-toasters.com/

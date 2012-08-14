@@ -56,30 +56,26 @@ $(document).ready(function () {
     	return false;
     });
     
-    $(".tiny-thumbs li img").click(function() {
+    $(".tiny-thumbs li a").click(function() {
     	$(".tiny-thumbs li").removeClass("active");
     	$(this).closest("li").addClass("active");
     
     	if ($(this).hasClass("type-image")) {
-			var newSrc = $(this).attr("src").replace("_t.", "_m.");
-			var w, h;
-			var classesStr = $(this).attr("className");
-			var classes = classesStr.split(" ");
-			for (var i=0; i < classes.length; i++) {
-				if (classes[i].indexOf("width-") == 0) {
-					w = (classes[i].replace("width-", ""));
-				}
-				if (classes[i].indexOf("height-") == 0) {
-					h = (classes[i].replace("height-", ""));
-				}
-			}
-			
-			$('#main-media-link').attr("href", newSrc.replace("_m.", "_l."));
+			var newSrc = $(this).attr("data-med-src"); // $(this).attr("src").replace("_t.", "_m.");
+			var largeSrc = $(this).attr("data-large-src") || newSrc.replace("_m.", "_l.");
+			var w = $(this).attr("data-med-width"),
+				h = $(this).attr("data-med-height");
+
+
+			$('#main-media-link').attr("href", largeSrc);
 			
 			$("#media-space img").fadeOut(500, function() {
-				$("#media-space img").attr("src", newSrc);
-				if (w) { $("#media-space img").attr("width", w); }
-				if (h) { $("#media-space img").attr("height", h); }
+				console.log(w + ", " + h);
+				$("#media-space img").attr({
+					"src": newSrc,
+					"width": parseInt(w),
+					"height": parseInt(h)
+				});
 				$("#media-space img").fadeIn(500);
 			});	
 		}

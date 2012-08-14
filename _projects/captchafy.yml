@@ -10,7 +10,7 @@ thumbnail:
   width: 224px
   height: 160px
 visuals:
-  - {type: image, width: 536px, height: 356px, src: /images/portfolio/free-walls/captchafy_covers_m.jpg, tiny: /images/portfolio/free-walls/captchafy_covers_t.jpg }
+  - {type: image, width: 536px, height: 356px, src: /images/portfolio/webpagesforhumans/captchafy_covers.jpg }
 layout:    project
 project_description:
   About

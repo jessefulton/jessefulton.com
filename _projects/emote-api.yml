@@ -9,8 +9,9 @@ thumbnail:
   height: 160px
 layout:    project
 project_description:
-  The <a href="http://jessefulton.com/playground/emote-api">EmoTe API</a> is a web service based on the [Synesketch](http://www.synesketch.krcadinac.com/wiki/index.php?title=Main_Page) Java API, which calculates the various types and levels of emotions in a given passage of text.
-  I wrote this PHP port of the Synesketch Java API, focusing on the `synesketch.emotion` package. I then exposed that functionality via a web API for platform-agnostic consumption.
+  The <a href="http://www.emotivetext.com">EmoTe API</a> (aka EmotiveText.com) is a web service based on the <a href="http://www.synesketch.krcadinac.com/wiki/index.php?title=Main_Page">Synesketch</a> Java API, which calculates the various types and levels of emotions in a given passage of text.
+  
+  I wrote this PHP port of the Synesketch Java API, focusing on the <code>synesketch.emotion</code> package. I then exposed that functionality via a web API for platform-agnostic consumption.
 
   This web API will allow artists, developers, and anybody else to create machines and software which can "feel." Since it is exposed as web service, any device with an internet connection can retrieve the processed data without adding any additional hardware or software.
 
@@ -18,4 +19,4 @@ published: true
 short:
   EmoTe API
 title:     EmoTe API
-website:   http://emoteapi.com/
+website:   http://www.emotivetext.com/

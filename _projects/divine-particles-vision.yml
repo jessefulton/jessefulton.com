@@ -1,3 +1,5 @@
+# TODO: rename this to "VJ" or "Live Video Art" - add felix culpa, darc, etc.
+
 date: 2010
 description:
   VJ and videographer for Divine Particles Vision
@@ -20,7 +22,7 @@ thumbnail:
 layout:    project
 project_description:
   VJ and videographer for Quantum Hysteria
-published: true
+published: false
 #short:
 #  Quantum Hesteria
 title: Divine Particles Vision

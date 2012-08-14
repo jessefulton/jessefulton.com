@@ -15,6 +15,7 @@
 ## Configuration ##
   configure :production do
     require 'newrelic_rpm'
+    config.middleware.use 'NoWWW'
   end
 
   IP_BLACKLIST = %w(122.255.96.164 91.196.216.20)
@@ -40,6 +41,32 @@
     # send_email params, 'views/error_email_template.txt.erb', "Internal Error"
     File.read("_site/500.html")
   end
+
+
+
+#
+###### NoWWW (via http://trevorturk.com/2009/11/05/no-www-rack-middleware/)
+#
+
+class NoWWW
+
+  STARTS_WITH_WWW = /^www\./i
+  
+  def initialize(app)
+    @app = app
+  end
+  
+  def call(env)
+    if env['HTTP_HOST'] =~ STARTS_WITH_WWW
+      [301, { 'Location' => Rack::Request.new(env).url.sub(/www\./i, '') }, ['Redirecting...']]
+    else
+      @app.call(env)
+    end
+  end
+  
+end
+
+
 
 ## GET requests ##
   ############################################################
