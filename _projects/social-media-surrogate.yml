@@ -6,7 +6,7 @@ thumbnail:
   width: 224px
   height: 160px
 layout: project
-project_description:
+description:
   Social Media Surrogate is a conceptual online performance. The performance begins with a 	computer script analyzing a user's previous online activity on a social network (such as Facebook 	or Twitter) to create a data model representative that person's online behavior, interactions and communication style.
   
   A second script then uses this data model to autonomously generate content and continuously evolve and adapt itself based upon the user's listed interests, current events (such as news feeds and friend's activity), and the user's friends' interests.
