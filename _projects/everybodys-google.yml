@@ -1,12 +1,14 @@
 date: 2012
 description:
-  Everybody's Google
+  "Everybody's Google is a piece of software which programmatically controls a set of Google user accounts and navigates them through the World Wide Web. Four new Google accounts were created, each representing a particular set of stereotypes: a young man living in London who is interested in technology and gambling; a teenage girl from Atlanta interested in fashion, celebrities, and pop music; a middle-aged conservative Christian businessman from rural Virginia; and a liberal, Californian mom-to-be, interested in women's rights."
 thumbnail:
   url: /images/portfolio/everybodys-google/viz_s.jpg
   title: Everybody's Google
   alt: Everybody's Google
   width: 224px
   height: 160px
+visuals:
+  - {type: image, width: 536px, height: 402px, src: /images/portfolio/everybodys-google/viz_m.jpg }
 layout:    project
 title:  Everybody's Google
 published: true

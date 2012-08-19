@@ -1,16 +1,14 @@
 date: 2012
-description:
-  "Air Quest: A Civic Action Game"
-video:
-  id: 38009492
 thumbnail:
   url: /images/portfolio/air-quest/game-map_s.jpg
   title: Air Quest
   alt: Air Quest
   width: 224px
   height: 160px
+visuals:
+  - {type: image, width: 536px, height: 402px, src: /images/portfolio/air-quest/game-map_m.jpg }
 layout:    project
-project_description:
+description:
   Air Quest is an iPad & iPhone game with a purpose. The UC Berkeley Social Apps lab developed this game encourage civic action with regards to air quality conditions in California and across the country. Working with a team across the UCS campuses, I was the lead game developer for the project.
 published: true
 short:

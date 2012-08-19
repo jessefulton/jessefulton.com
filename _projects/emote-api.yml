@@ -1,6 +1,4 @@
 date: 2009
-description:
-  Emotive Text
 thumbnail:
   url: /images/portfolio/na.png
   title: No image available
@@ -8,8 +6,8 @@ thumbnail:
   width: 224px
   height: 160px
 layout:    project
-project_description:
-  The <a href="http://www.emotivetext.com">EmoTe API</a> (aka EmotiveText.com) is a web service based on the <a href="http://www.synesketch.krcadinac.com/wiki/index.php?title=Main_Page">Synesketch</a> Java API, which calculates the various types and levels of emotions in a given passage of text.
+description:
+  The <a href="http://www.emotivetext.com">EmoTe API</a> (now <a href="http://emotivetext.com">EmotiveText.com</a>) is a web service based on the <a href="http://www.synesketch.krcadinac.com/wiki/index.php?title=Main_Page">Synesketch</a> Java API, which calculates the various types and levels of emotions in a given passage of text.
   
   I wrote this PHP port of the Synesketch Java API, focusing on the <code>synesketch.emotion</code> package. I then exposed that functionality via a web API for platform-agnostic consumption.
 

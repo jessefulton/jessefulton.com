@@ -1,5 +1,7 @@
 description:
-  Foo bar
+  "CAPTCHA-fy! served as the manifesto for the Ocular Character Recognition project, linking the concepts of Webpages for Humans and the Serendipity Engine to the ideas within the project as a whole. Each manifesto was handmade and hand-bound. The covers to the booklets were identical - each with the computer-generated \"CAPTCHA-fy!\" text block printed onto a piece of thick, dark drawing paper. The block prints were created by etching a digital image into a linoleum block using a laser cutter. This created very crisp, pristine, and machine-like lines which contrasted well with the hand-made, DIY aesthetic. The inner pages were low-quality xerox copies, further reinforcing this conﬂicting man-made/machined aesthetic.
+
+  The JavaScript library was used to generate the cover image and some of the internal pages of the CAPTCHA-fy! booklets. A high-resolution version of the CAPTCHA-ﬁed cover text was etched into a block of linoleum using a laser cutter. The images for the inner pages where laid out using Adobe InDesign and then copied at a low-quality setting on a standard Xerox machine."
 date: 2011 &ndash;
 exhibits:
   I've Got Something on Your Mind, DANM MFA show, UCSC
@@ -12,7 +14,5 @@ thumbnail:
 visuals:
   - {type: image, width: 536px, height: 356px, src: /images/portfolio/webpagesforhumans/captchafy_covers.jpg }
 layout:    project
-project_description:
-  About
 published: true
 title:     CAPTCHA-fy!

@@ -1,5 +1,3 @@
-description:
-  Foo bar
 date: 2011 &ndash;
 #exhibits:
 #  - Oakes College, Santa Cruz CA
@@ -19,7 +17,7 @@ visuals:
   - {type: image, width: 536px, height: 356px, src: /images/portfolio/free-walls/os-2_m.jpg, tiny: /images/portfolio/free-walls/os-2_t.jpg }
   - {type: image, width: 536px, height: 356px, src: /images/portfolio/free-walls/os-3_m.jpg, tiny: /images/portfolio/free-walls/os-3_t.jpg }
 layout:    project
-project_description:
+description:
   The Free Walls Project is a collaborative effort with Daniel Christopher and Tony Cutrono, currently in an early prototyping stage.
 
   A mobile "wall" is brought to various public spaces where people are invited to draw, paint, and collage. The wall is then mounted to a bicycle trailer which is ridden throughout the local community, displaying the final image. The images are also digitally scanned and will be documented and mapped on a website which allows exploration of the works both geographically and over time.
