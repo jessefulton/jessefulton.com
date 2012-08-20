@@ -6,6 +6,13 @@ bodyclass: portfolio project
 
 <header id="title">
 	<h2>{{ page.title }}{% if page.date %} <span class="date">({{ page.date }})</span>{% endif %}</h2>
+	{% if page.collaborators %}
+		With: <ul class="collaborators">
+		{% for collaborator in page.collaborators %}
+			<li>{{ collaborator }}<li>
+		{% endfor %}
+		</ul
+	{% endif %}
 </header>
 
 
