@@ -1,8 +1,6 @@
 date: 2012
 description:
-  "It is a web application which generates the \"Human Web\" - a series of navigable CAPTCHA-ﬁed webpages. When users ﬁrst visit the site, they can enter a URL into a form which brings them to the CAPTCHA-ﬁed HTML page for that URL. From this point on, any links clicked within the page will continue to be CAPTCHA-ﬁed by the web server.
-  
-  CAPTCHA-fy is the term I use to distort text to the point where it become unreadable by Optical Character Recognition. This technique is the only reason why CAPTCHAs work."
+  "Webpages for Humans is a web application that creates a version of the Internet which is only readable by humans. Screen-scraping technology is used to generate images of webpages which are then processed by Optical Character Recognition software to find machine-readable text on the page. This text is then \"<em><strong>CAPTCHA-fied</strong></em>\" to create a distorted and manipulated rendering of that webpage. This previously machine-readable text, is distorted using the same algorithms used in CAPTCHA tests to ensure the computer programs can no longer decipher them."
 thumbnail:
   url: /images/portfolio/webpagesforhumans/nytimes_s.png
   title: Webpages for Humans
