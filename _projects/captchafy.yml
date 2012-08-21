@@ -6,13 +6,13 @@ date: 2011 &ndash;
 exhibits:
   I've Got Something on Your Mind, DANM MFA show, UCSC
 thumbnail:
-  url: /images/portfolio/webpagesforhumans/captchafy_covers.jpg
+  url: /images/portfolio/webpagesforhumans/captchafy_covers_s.jpg
   title: CAPTCHA-fy!
   alt: CAPTCHA-fy!
   width: 224px
-  height: 160px
+  height: 149px
 visuals:
-  - {type: image, width: 536px, height: 356px, src: /images/portfolio/webpagesforhumans/captchafy_covers.jpg }
+  - {type: image, width: 536px, height: 356px, src: /images/portfolio/webpagesforhumans/captchafy_covers_m.jpg }
 layout:    project
 published: true
 title:     CAPTCHA-fy!
