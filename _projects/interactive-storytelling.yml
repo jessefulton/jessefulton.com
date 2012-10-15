@@ -8,12 +8,7 @@ thumbnail:
   width: 224px
   height: 160px
 layout:    project
-description:
-  The Mechatronics Research Group consisted of three students in the Digital Arts + New Media program at the University of California Santa Cruz. We are currently investigating possibilities of various installations concerned with the relationship between air quality and asthma and their socio-political effects.
-
-  We are currently researching and prototyping projects using web-based systems, computer vision, and physical computing. The videos above demonstrate a few of the prototypes and proof-of-concepts I have been working on within the group.
-
-  Code for the drawing machine can be found on github. Images of finished prints can be seen at Flickr.
-published: false
+description: "Documentation of custom software and hardware created to tell interactive stories. The setup is based upon the Reactable: using a rear DI interface, the Reactivision software, and a custom Processing sketch."
+published: true
 title:     Interactive Storytelling
-website:   https://vimeo.com/29676828
+website:   https://vimeo.com/29669344

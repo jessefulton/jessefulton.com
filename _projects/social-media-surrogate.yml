@@ -12,6 +12,6 @@ description:
   A second script then uses this data model to autonomously generate content and continuously evolve and adapt itself based upon the user's listed interests, current events (such as news feeds and friend's activity), and the user's friends' interests.
   
   Once this second script has begun running, the physical person associated with the account discontinues using it and allows the Social Media Surrogate to control their online persona indefinitely.
-published: true
+published: false
 title: Social Media Surrogate
 website: http://socialmediasurrogate.net
