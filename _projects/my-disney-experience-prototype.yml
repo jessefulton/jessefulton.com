@@ -1,0 +1,18 @@
+date: 2009
+thumbnail:
+  url: /images/portfolio/na.png
+  title: No image available
+  alt: No image available
+  width: 224px
+  height: 160px
+layout:    project
+description:
+  Foo
+
+  http://www.nytimes.com/2013/01/07/business/media/at-disney-parks-a-bracelet-meant-to-build-loyalty-and-sales.html?pagewanted=all&_r=0
+published: true
+short:
+  My Disney Experience
+title:     My Disney Experience
+company: Disney Internet Group
+website: none
