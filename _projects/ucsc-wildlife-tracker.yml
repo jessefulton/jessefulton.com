@@ -1,6 +1,6 @@
 date: 2011
 description:
-  UCSC Facebook Game
+  UCSC Facebook Game. Collaboration between Environmental Studies and DANM program.
 thumbnail:
   url: /images/portfolio/na.png
   title: No image available
@@ -10,4 +10,7 @@ thumbnail:
 layout:    project
 title:     UCSC Wildlife Tracker
 website:   https://apps.facebook.com/140369602412/
-published: false
+collaborators:
+  - UCSC Environmental Studies Department
+  - UCSC Digital Arts + New Media Program
+published: true

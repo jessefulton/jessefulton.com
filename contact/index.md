@@ -11,7 +11,8 @@ title: Contact
 	</p>
 	-->
 	<p>
-		<em>Please do not contact me if you are in need of a web developer or software engineer.</em>
+		<em>Please do not contact me if you are in need of a "traditional" web developer/engineer.<br />
+    Homey don't play <a href="http://web.archive.org/web/20100215134843/http://jessefulton.com/portfolio/index/category/type/web-development">that</a> anymore.</em>
 	</p>
 	<p>
 		Please <strong>do</strong> contact me if you are an artist or innovator looking for <em>collaborators</em> and/or <em>researchers</em>.
