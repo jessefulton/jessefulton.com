@@ -6,9 +6,6 @@ bodyclass: portfolio project
 
 <header id="title">
 	<h2>{{ page.title }}{% if page.date %} <span class="date">({{ page.date }})</span>{% endif %}</h2>
-	{% if page.company %}
-  <div class="company">(For {{ page.company }})</div>
-  {% endif %}
   {% if page.collaborators %}
     <div class="collaborators">
       (With {{ page.collaborators | array_to_sentence_string }})
@@ -55,6 +52,10 @@ bodyclass: portfolio project
 	
 <div class="item-content-wrapper no-role no-importance">
 	<div class="item-content description">
+   {% if page.company %}
+     <div class="company">(At {{ page.company }})</div>
+   {% endif %}
+
 		{{ page.description | simple_format }}
 		<!-- {{ page.project_description | simple_format }} -->
 	</div>

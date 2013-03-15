@@ -1,6 +1,16 @@
 date: 2012
 description:
-  The Serendipity Engine
+  The Serendipity Engine is a non-interactive installation which
+  serendipitously dispenses "<a href="/portfolio/captchafy">CAPTCHA-fied</a>"
+  book pages at random intervals from the ceiling above the viewer.
+  In the same sense that technology companies
+  are trying to feed us information before we ask for it, The Serendipity
+  Engine shows us the effects of digitization on cultural artifacts without
+  our asking.
+  
+
+  Documentation coming soon. More information can be found in 
+  <a href="/thesis.html">my MFA thesis</a>.
 thumbnail:
   url: /images/portfolio/na.png
   title: No image available

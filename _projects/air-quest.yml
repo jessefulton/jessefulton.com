@@ -6,13 +6,29 @@ thumbnail:
   width: 224px
   height: 160px
 visuals:
-  - {type: image, width: 536px, height: 402px, src: /images/portfolio/air-quest/game-map_m.jpg }
+  - {
+      type: image,
+      width: 536px,
+      height: 402px,
+      src: /images/portfolio/air-quest/game-map_m.jpg 
+    }
 layout:    project
 description:
-  Air Quest a game being developed by the UC Berkeley <a href="http://socialappslab.com/">Social Apps Lab</a>. It is an iPad & iPhone game being developed to encourage civic action regarding air quality conditions in California and across the US. Working with a team across multiple University of California campuses, I was the lead game developer for the project, building each level and the flow of the game in Unity 3D.
+  <a href="socialappslab.com/airquest/">Air Quest</a> is an iOS game being developed by the 
+  UC Berkeley <a href="http://socialappslab.com/">Social Apps Lab</a> to educate players about 
+  global air quality conditions in order to encourage civic action.
+  
+  Gameplay focuses on a young man named Keane living near Fresno, California - an area 
+  having some of the worst air quality in the US - who uncovers a series of pollution 
+  sources and ways to address those and change public 
+  policy in order to improve the local air quality.
+  
+  Working with a team across multiple University of California campuses, I 
+  was the lead developer for the project, building a prototype of the full game
+  (six "mini-game" style levels and cutscenes) in Unity 3D.
 published: true
 short:
   Air Quest
 title:     Air Quest
-company: University of California
-website:   http://socialappslab.com/airquest/
+collaborators:
+  - UC Berkeley Social Apps Lab
