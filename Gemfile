@@ -1,4 +1,5 @@
 source 'http://rubygems.org'
+ruby "1.9.2-p320"
 
 gem 'heroku'
 gem 'newrelic_rpm'
