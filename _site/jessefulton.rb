@@ -1,6 +1,7 @@
 ## Required libraries ##
   require 'rubygems'
   require 'sinatra'
+  require 'yaml'
 
 ## Global Settings ##
   set :public_folder,  Proc.new { File.join(root, "_site") }
