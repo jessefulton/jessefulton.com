@@ -12,6 +12,9 @@
 
   set :protection, :except => :frame_options
 
+
+  config = YAML.load_file('_config.yml')
+
 ## Configuration ##
   configure :production do
     require 'newrelic_rpm'
