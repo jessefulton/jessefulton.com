@@ -1,0 +1,23 @@
+{
+  "locals": {
+    "name": "The next big thing",
+    "url": "http://jessefulton.com/",
+    "description": "Jesse Fulton - Artist, Programmer, Hacker",
+    "keywords": "net art, .net art, internet art, digital artist, new media, software, technology"
+  },
+  "plugins": [
+    "wintersmith-stylus"
+  ],
+  "require": {
+    "moment": "moment",
+    "_": "underscore",
+    "typogr": "typogr"
+  },
+  "jade": {
+    "pretty": true
+  },
+  "markdown": {
+    "smartLists": true,
+    "smartypants": true
+  }
+}

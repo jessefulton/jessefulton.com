@@ -1,0 +1,68 @@
+mixin btn(text, href)
+  a.btn.btn-primary(href="#{href}")= text
+
+mixin projectPreview(proj)
+    -var thumb = proj.metadata.thumbnail
+    h2: a(href="#{proj.url}")
+        != proj.title.replace('<br/>', '')
+    .thumbnail: a(href="#{proj.url}")
+        if thumb
+            img(src=proj.url + thumb.src, title=proj.metadata.title, alt=proj.metadata.title, width=thumb.width, height=thumb.height)
+        else
+            img(src="/media/images/na.png", title=proj.metadata.title, alt=proj.metadata.title, width="224px", height="160px")
+
+
+mixin projectHeader()
+    header(id="title")
+        h2 #{page.metadata.title} 
+            if page.metadata.date
+            span.date (!{typogr(page.metadata.date.toString()).typogrify()})
+        if page.metadata.collaborators
+            .collaborators !{typogr(page.metadata.collaborators).typogrify()}
+
+
+mixin projectMedia()
+    if page.metadata.video
+        iframe(src="http://player.vimeo.com/video/" + page.metadata.video, width="500", height="413", frameborder="0", webkitAllowFullScreen, mozallowfullscreen, allowFullScreen)
+    else
+        - var firstImage = page.metadata.image || (page.metadata.images ? page.metadata.images[0]: null);
+        if firstImage
+            .visuals
+                #media-space
+                    #click-to-hover click to expand
+                    a#main-media-link(href="#")
+                        img(src=firstImage.src, width=firstImage.width, height=firstImage.height)
+                if page.metadata.images
+                    .tiny-thumbs
+                        h3 Media
+                        ul
+                            each image in page.metadata.images
+                                li: a(href="javascript:void(0);", data-med-src=page.url + image.src, data-med-width=image.width, data-med-height=image.height, class="type-image")
+                                    img.type-image(src=page.url + image.tiny, width="38px", height="38px")
+                            
+
+
+
+mixin projectDescription()
+    .item-content-wrapper.no-role.no-importance
+        .item-content.description
+            != typogr(page.html).typogrify()
+    .meta
+        dl
+            if page.metadata.externalURL
+                dt URL
+                dd: a(href="#{page.metadata.externalURL}") #{page.metadata.externalURL}
+
+
+mixin thumb(src, href)
+  a.thumbnail(href=href)
+    img(src=src)
+
+mixin video(src)
+  div.thumbnail.video.
+    <iframe width="620" height="349" 
+       src="#{src}" frameborder="0"
+       allowfullscreen></iframe>
+
+mixin title(id, t)
+  h2: a(href="##{id}")!= t

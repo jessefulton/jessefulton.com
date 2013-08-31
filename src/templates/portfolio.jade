@@ -1,0 +1,29 @@
+extends layout
+
+block localVars
+    - bodyClass = "portfolio"
+
+block append head
+    link(rel='stylesheet', href='/styles/main.css')
+
+block content
+    include mixins
+
+
+    - var projects = _.chain(contents.portfolio._.directories).map(function (item) {
+    -         return item["index.md"] || item["index.json"];
+    -     }).compact().sortBy(function (descr) {
+    -         return -1 * parseInt(descr.metadata.date);
+    -         //return -1;
+    -         //return page.metadata.ordering.indexOf(descr.metadata.id);
+    -     }).value();
+
+
+    .breadcrumbs
+        a(id="breadcrumbs-present-and-future", href="/portfolio/") portfolio
+
+    .content.row
+        .items
+            each proj in projects
+                .item
+                    +projectPreview(proj)
