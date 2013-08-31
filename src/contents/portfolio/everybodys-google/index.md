@@ -7,8 +7,6 @@ externalURL: http://everybodysgoogle.com/
 
 thumbnail:
   src: images/viz_s.jpg
-  title: Everybody's Google
-  alt: Everybody's Google
   width: 224px
   height: 160px
 

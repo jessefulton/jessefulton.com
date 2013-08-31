@@ -5,11 +5,11 @@ $(document).ready(function () {
 	$('#main-media-link').lightBox({
     	overlayBgColor: '#000',
     	overlayOpacity: 0.9,
-    	imageBlank: '/js/jquery/plugins/jquery.lightbox-0.5/images/lightbox-blank.gif',
-    	imageLoading: '/js/jquery/plugins/jquery.lightbox-0.5/images/lightbox-ico-loading.gif',
-    	imageBtnClose: '/js/jquery/plugins/jquery.lightbox-0.5/images/lightbox-btn-close.gif',
-    	imageBtnPrev: '/js/jquery/plugins/jquery.lightbox-0.5/images/lightbox-btn-prev.gif',
-    	imageBtnNext: '/js/jquery/plugins/jquery.lightbox-0.5/images/lightbox-btn-next.gif',
+    	imageBlank: '/scripts/jquery/plugins/jquery.lightbox-0.5/images/lightbox-blank.gif',
+    	imageLoading: '/scripts/jquery/plugins/jquery.lightbox-0.5/images/lightbox-ico-loading.gif',
+    	imageBtnClose: '/scripts/jquery/plugins/jquery.lightbox-0.5/images/lightbox-btn-close.gif',
+    	imageBtnPrev: '/scripts/jquery/plugins/jquery.lightbox-0.5/images/lightbox-btn-prev.gif',
+    	imageBtnNext: '/scripts/jquery/plugins/jquery.lightbox-0.5/images/lightbox-btn-next.gif',
     	containerResizeSpeed: 500
     });
 	

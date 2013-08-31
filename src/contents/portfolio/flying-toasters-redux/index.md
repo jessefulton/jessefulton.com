@@ -9,8 +9,6 @@ collaborators: with Will Eastcott & Lao Akili
 #  GAFFTA (Where 2.0)
 thumbnail:
   src: images/screen_s.png
-  title: Flying Toasters Redux
-  alt: Flying Toasters Redux
   width: 224px
   height: 159px
 

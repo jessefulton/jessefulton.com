@@ -3,12 +3,12 @@ title: Ad Takeover
 id: ad-takeover
 template: project.jade
 date: 2011
+
 thumbnail:
   src: images/ad-takeover_s.jpg
-  title: Ad Takeover
-  alt: Ad Takeover
   width: 224px
   height: 115px
+  
 externalURL: http://adtakeover.org/
 ---
 

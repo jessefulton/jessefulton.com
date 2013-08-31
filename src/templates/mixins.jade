@@ -7,7 +7,8 @@ mixin projectPreview(proj)
         != proj.title.replace('<br/>', '')
     .thumbnail: a(href="#{proj.url}")
         if thumb
-            img(src=proj.url + thumb.src, title=proj.metadata.title, alt=proj.metadata.title, width=thumb.width, height=thumb.height)
+            - var thumbSrc = (thumb.src.substring(0,4) == "http") ?  thumb.src : (proj.url + thumb.src);
+                img(src=thumbSrc, title=proj.metadata.title, alt=proj.metadata.title, width=thumb.width, height=thumb.height)
         else
             img(src="/media/images/na.png", title=proj.metadata.title, alt=proj.metadata.title, width="224px", height="160px")
 
