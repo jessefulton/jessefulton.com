@@ -1,7 +1,7 @@
 ---
 title: M2S
 id: m2s
-template: project.jade
+# template: project.jade
 date: 2010
 
 thumbnail:

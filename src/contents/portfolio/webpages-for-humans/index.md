@@ -2,7 +2,7 @@
 title: Webpages for Humans
 id: webpages-for-humans
 template: project.jade
-date: 2012
+date: 2012--2013
 
 thumbnail:
   src: images/nytimes_s.png

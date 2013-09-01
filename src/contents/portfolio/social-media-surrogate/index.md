@@ -1,7 +1,7 @@
 ---
 title: Social Media Surrogate
 id: social-media-surrogate
-template: project.jade
+# template: project.jade
 date: 2010
 
 # exhibits:

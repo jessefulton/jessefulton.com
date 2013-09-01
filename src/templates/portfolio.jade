@@ -11,9 +11,18 @@ block content
 
 
     - var projects = _.chain(contents.portfolio._.directories).map(function (item) {
-    -         return item["index.md"] || item["index.json"];
+    -         var obj = (item["index.md"] || item["index.json"]);
+    -         if (obj && obj.metadata && !obj.metadata.template) {
+    -             // strip out the pages with no template specified
+    -             obj = null;
+    -         }
+    -         return obj;
     -     }).compact().sortBy(function (descr) {
-    -         return -1 * parseInt(descr.metadata.date);
+    -         var dateStr = descr.metadata.date.toString();
+    -         var startDate = parseInt(dateStr.split("--")[0], 10);
+    -         var endDate = parseInt(dateStr.split("--")[1], 10) || 0;
+    - console.log(dateStr + " : " + startDate + ", " + (endDate/1000.0));
+    -         return -1 * (startDate + (endDate*.00001));
     -         //return -1;
     -         //return page.metadata.ordering.indexOf(descr.metadata.id);
     -     }).value();
