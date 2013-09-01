@@ -6,8 +6,6 @@ block title
 block localVars
     - bodyClass = "portfolio"
 
-block append head
-    link(rel='stylesheet', href='/styles/main.css')
 
 block content
     include mixins
@@ -34,8 +32,8 @@ block content
     .breadcrumbs
         a(id="breadcrumbs-present-and-future", href="/portfolio/") portfolio
 
-    .content.row
-        .items
-            each proj in projects
-                .item
+    .content.columns
+        each proj in projects
+            .row
+                .large-12.panel
                     +projectPreview(proj)

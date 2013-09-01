@@ -1,12 +1,13 @@
 int PIXEL_SIZE = 8;
-int SQUARES_PER_FRAME = 10;
-color[] COLORS = [color(255,255,255), color(41,41,41), color(137,137,137), color(0,0,0), color(226,226,226)];
+int SQUARES_PER_FRAME = 100;
+//color[] COLORS = [color(255,255,255), color(41,41,41), color(137,137,137), color(0,0,0), color(226,226,226)];
+color[] COLORS = [color(255,255,255), color(255,240,240), color(240,255,255), color(255,255,240), color(240,240,240)];
 //color[] COLORS = [color(1,0,0), color(255,59,139), color(41,232,255)];
 
 void setup() {
   frameRate(1);
   noStroke();
-  resizeSketch(window.innerWidth, 56); //, PIXEL_SIZE);
+  resizeSketch(window.innerWidth, window.innerHeight); //, PIXEL_SIZE);
 
   /*
   size(window.innerWidth, 56); //, PIXEL_SIZE);
