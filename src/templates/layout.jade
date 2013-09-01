@@ -1,5 +1,7 @@
+doctype html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"
+
 !!! 5
-html(lang='en')
+html(xmlns="http://www.w3.org/1999/xhtml", lang="en", xml:lang="en")
     head
         block head
             meta(charset='utf-8')
@@ -31,20 +33,6 @@ html(lang='en')
     - var bodyClass = page.metadata.bodyClass || "";
     block localVars
     body(class="#{bodyClass}")
-    
-    
-        script(src="http://processingjs.org/js/processing.min.js")
-        
-    div(style="width:100%;height:56px;overflow:hidden;position:fixed;top:0;left:0;z-index:99998;")
-            canvas(width="90%", height="56px", id="static-canvas", style="width:90%;height:56px;", data-processing-sources="/scripts/static.pde")
-    
-        script
-            $(function() {
-                $(window).resize(function() {
-                    var pjs = Processing.getInstanceById('static-canvas');
-                    pjs.resizeSketch(window.innerWidth, 56);
-                } );
-            })
     
         header(id="tabs")
             ul.navigation

@@ -1,0 +1,8 @@
+extends layout
+
+block content
+    .content.row
+        h1 #{page.metadata.title}
+
+        .intro.notice
+            != typogr(page.html).typogrify()
