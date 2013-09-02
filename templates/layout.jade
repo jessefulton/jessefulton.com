@@ -38,6 +38,7 @@ head
                 font-family: 'Quattrocento Sans', sans-serif;
                 //font-family: 'Arvo', serif;
                 font-family: 'Josefin Slab', serif;
+                height: 100%;
             }
             h1, h2 {
                 font-family: 'Arvo', serif;
@@ -64,13 +65,18 @@ head
                 width: 100%;
                 text-align:left;
                 margin-top: 2em;
+                min-height: 100%;
+                //margin-bottom: -24em;
             }
         
     
             footer {
                 background-color: #222222;
                 color: #ddd;
-            }    
+                //height: 24em;
+            }
+            
+            footer, .push { clear: both; }
 
             footer h1, footer h2, footer h3, footer h4 {
                 color: #ddd;
@@ -125,24 +131,25 @@ body(class="#{bodyClass}")
             #main
                 block content
                     p There's no content yet...
-    
-        footer
-            .row(style="margin-left:0;")
-                .large-4.large-offset-3.columns
-                    h3 About
-                    p(style='text-align:justify').
-                        I am a Creative Technologist in the purest sense. I have 10+ years of software development experience as well as having exhibited and performed as an artist. I have a very technical background but apply it to creative pursuits including physical computing, projection, and experiential design.
-                    p.
-                        Check out my CV or my profile on LinkedIn.
-                .large-3.columns
-                    h3 Contact
-                    p(style='text-align:justify').
-                        My interests are extremely diverse and I am currently looking for an environment which is mentally challenging, artistically stimulating, and open & collaborative. I am currently based out of Los Angeles, but am open to travel and relocation. 
-                    p.
-                        I am currently available for freelance and consulting opportunities.
-                .large-2.columns
-                    p(style="text-align:right")
-                        img(src="/styles/images/name-pixels-com.png", width="126px", height="268px")
+        .push
+            
+    footer.footer
+        .row(style="margin-left:0;")
+            .large-4.large-offset-3.columns
+                h3 About
+                p(style='text-align:justify').
+                    I am a Creative Technologist in the purest sense. I have 10+ years of software development experience as well as having exhibited and performed as an artist. I have a very technical background but apply it to creative pursuits including physical computing, projection, and experiential design.
+                p.
+                    Check out my CV or my profile on LinkedIn.
+            .large-3.columns
+                h3 Contact
+                p(style='text-align:justify').
+                    My interests are extremely diverse and I am currently looking for an environment which is mentally challenging, artistically stimulating, and open & collaborative. I am currently based out of Los Angeles, but am open to travel and relocation. 
+                p.
+                    I am currently available for freelance and consulting opportunities.
+            .large-2.columns
+                p(style="text-align:right")
+                    img(src="/styles/images/name-pixels-com.png", width="126px", height="268px")
                 
     block scripts
 
@@ -209,5 +216,15 @@ body(class="#{bodyClass}")
                 }
             });
 
+        script.
+            $(function() {
+                // Sticky Footer Foundation fix
+                // via https://gist.github.com/spilliams/2697774
+                var stickyFooter = function() {
+                    $(".footer, .push").height($(".footer .row").height()+"px");
+                    $("#wrapper").css({'margin-bottom':(-1*$(".footer .row").height())+"px"});
+                }
+                window.onresize = stickyFooter;
+            });
             
 </html>
