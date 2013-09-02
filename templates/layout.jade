@@ -67,6 +67,7 @@ head
                 margin-top: 2em;
                 min-height: 100%;
                 //margin-bottom: -24em;
+                transition: all 1s ease-out;
             }
         
     
@@ -183,17 +184,22 @@ body(class="#{bodyClass}")
         script.
             $(function() {
                 if ($.support.pjax) {
-                    $(document).pjax('a[data-pjax]', '#main', {
-                        "fragment": "#main",
-                        "timeout": 3000
+                    var container = $("#main");
+
+                    $(document).on('click', 'a[data-pjax]', function(event) {
+                        $("#main").fadeOut(250, function() {
+                            $.pjax.click(event, {
+                                container: container,
+                                "fragment": "#main",
+                                "timeout": 3000
+                            });
+                        });
+                        return false;
+
                     });
-                    
-                    $(document).on('pjax:send', function() {
-                       console.log("PJAX Send");
-                    });
-                    
+
                     $(document).on('pjax:complete', function() {
-                       console.log("PJAX complete");
+                       $("#main").fadeIn(250);
                     });
                     
                     /*
