@@ -123,9 +123,8 @@ head
     
     
     
-    script(type='text/javascript', src='/scripts/jquery/jquery-1.3.2.min.js')
-    script(type='text/javascript', src='/scripts/playground/processing-js/processing.js')
-    script(type='text/javascript', src='/scripts/playground/processing-js/init.js')
+    script(type='text/javascript', src='/scripts/vendor/jquery.js')
+    script(type='text/javascript', src='/scripts/processing-js/processing.js')
 body
     #stuff
                 
@@ -134,35 +133,8 @@ body
         p: a(href='thesis.pdf', title='MFA Thesis Draft') Words
         p.ext: a(href='/', title='Jesse Fulton') jessefulton.com
 
-    canvas#static-canvas(width='100%', height='100%', style="width:100%;height:100%;position:absolute;top:0;left:0;z-index:0;")
-
-    script#static-script(type='application/processing', id="static-script").
-        //<![CDATA[
-        int PIXEL_SIZE = 8;
-        int SQUARES_PER_FRAME = 400;
-        color[] COLORS = [color(255,255,255), color(41,41,41), color(137,137,137), color(0,0,0), color(226,226,226)];
-        void setup() {
-            size(window.innerWidth, window.innerHeight);
-            frameRate(10);
-            noStroke();
-            for(int i=0; i < width; i+=PIXEL_SIZE) {
-                for(int j=0; j < height; j+=PIXEL_SIZE) {
-                    fill(COLORS[round(random(0,COLORS.length-1))]);
-                    rect(i,j,PIXEL_SIZE,PIXEL_SIZE);
-                }
-            }
-        }
-
-        void draw() {
-            for(int i=0; i < SQUARES_PER_FRAME; i++) {
-                fill(COLORS[round(random(0,COLORS.length-1))]);
-                int x = round(random(0,width)/PIXEL_SIZE) * PIXEL_SIZE;
-                int y = round(random(0,height)/PIXEL_SIZE) * PIXEL_SIZE;
-                rect(x,y,PIXEL_SIZE,PIXEL_SIZE);
-            }
-        }
-        //]]>
-        
+    canvas#static-canvas(width='100%', height='100%', style="width:100%;height:100%;position:absolute;top:0;left:0;z-index:0;", data-processing-sources="background.pde")
+       
     script.
         //-
             $(window).resize(function() {

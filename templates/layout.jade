@@ -33,7 +33,7 @@ head
         script(type="text/javascript", src="/scripts/vendor/custom.modernizr.js")
         script(src="http://processingjs.org/js/processing.min.js")
             
-        style
+        style.
             html, body {
                 font-family: 'Quattrocento Sans', sans-serif;
                 //font-family: 'Arvo', serif;
@@ -95,11 +95,11 @@ body(class="#{bodyClass}")
         .row(style="margin-left:0;")
             #nav.large-3.columns.panel
                 ul.side-nav
-                    li.active: a(href="#") Link 1
-                    li: a(href="#") Link 2
+                    li.active: a(href="/portfolio/", data-pjax) Work
+                    li: a(href="/contact/", data-pjax) Contact
                     li.divider
-                    li: a(href="/thesis", title="DANM MFA Thesis") MFA Thesis
-                    li: a(href="#") Link 2
+                    li: a(href="/thesis/", title="DANM MFA Thesis") MFA Thesis
+
     
             #main.large-9.columns
                 block content
@@ -146,21 +146,66 @@ body(class="#{bodyClass}")
                 
     block scripts
 
-        script
-            document.write('<script src=' +
-            ('__proto__' in {} ? '/scripts/vendor/zepto' : '/scripts/vendor/jquery') +
-            '.js><\/script>')
-
+        //
+            script.
+                document.write('<script src=' +
+                ('__proto__' in {} ? '/scripts/vendor/zepto' : '/scripts/vendor/jquery') +
+                '.js><\/script>')
+        
+        script(src="/scripts/vendor/jquery.js")
+        
         script(src="/scripts/foundation.min.js")
 
-        script
+        script.
             $(document).foundation();
             
-        script
+        script.
             $(function() {
+                // TODO: this should only be called at the end of a resize
                 $(window).resize(function() {
+                    console.log("resizing");
                     var pjs = Processing.getInstanceById('static-canvas');
-                    pjs.resizeSketch(window.innerWidth, window.innerHeight);
+                    if (pjs) {
+                        pjs.resizeSketch(window.innerWidth, window.innerHeight);
+                    }
                 } );
             })
+            
+
+        script(src="/scripts/vendor/jquery.pjax.js")
+        script.
+            $(function() {
+                if ($.support.pjax) {
+                    $(document).pjax('a[data-pjax]', '#main', {
+                        "fragment": "#main",
+                        "timeout": 3000
+                    });
+                    
+                    $(document).on('pjax:send', function() {
+                       console.log("PJAX Send");
+                    });
+                    
+                    $(document).on('pjax:complete', function() {
+                       console.log("PJAX complete");
+                    });
+                    
+                    $(document).on('pjax:timeout', function(event) {
+                        // Prevent default timeout redirection behavior
+                        event.preventDefault();
+                        
+                        console.log("pjax timeout");
+                        return false;
+                    });
+                    
+                    $(document).on('pjax:error', function(event) {
+                        // Prevent default timeout redirection behavior
+                        event.preventDefault();
+                        
+                        console.log("pjax error");
+                        return false;
+                    });
+                }
+            });
+
+            
 </html>
