@@ -3,7 +3,7 @@ mixin btn(text, href)
 
 mixin projectPreview(proj)
     -var thumb = proj.metadata.thumbnail
-    h2: a(href="#{proj.url}")
+    h2: a(href="#{proj.url}", data-pjax)
         != proj.title.replace('<br/>', '')
     .thumbnail: a(href="#{proj.url}")
         if thumb
