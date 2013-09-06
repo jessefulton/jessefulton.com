@@ -1,5 +1,8 @@
 extends layout
 
+block title
+    = page.metadata.title + " | " + locals.title
+
 block localVars
     - bodyClass = "portfolio"
 

@@ -1,4 +1,5 @@
 {
   "template": "portfolio.jade",
-  "bodyClass": "portfolio"
+  "bodyClass": "portfolio",
+  "title": "Portfolio"
 }
