@@ -16,7 +16,7 @@ images:
     - { width: 536px, height: 356px, src: images/oakes-1_m.jpg, tiny: images/oakes-1_t.jpg }
     - { width: 536px, height: 356px, src: images/crit-1_m.jpg, tiny: images/crit-1_t.jpg }
     - { width: 536px, height: 356px, src: images/crit-2_m.jpg, tiny: images/crit-2_t.jpg }
-    - { width: 239px, height: 360px, src: images/os-1_m.jpg, tiny: images/os-1_t.jpg }
+#    - { width: 239px, height: 360px, src: images/os-1_m.jpg, tiny: images/os-1_t.jpg }
     - { width: 536px, height: 356px, src: images/os-2_m.jpg, tiny: images/os-2_t.jpg }
     - { width: 536px, height: 356px, src: images/os-3_m.jpg, tiny: images/os-3_t.jpg }
 

@@ -114,6 +114,15 @@ head
                 border-radius: 3px;
             }
         
+            .project-preview {
+                margin-top: 2.975em;
+                border-top: 1px solid #CCC;
+            }
+            .project-preview:nth-of-type(1) {
+                margin-top: 0;
+                border-top: 0;
+            }
+            
 - var bodyClass = page.metadata.bodyClass || "";
 block localVars
 
@@ -129,7 +138,8 @@ body(class="#{bodyClass}")
             #nav.large-3.columns
                 ul.side-nav
                     li.active: a(href="/portfolio/", data-pjax) Work
-                    // li: a(href="/contact/", data-pjax) Contact
+                    li.show-for-small: a(href="/contact/", data-pjax) Contact
+                    li.show-for-small: a(href="/about/", data-pjax) About
                     li: a(href="http://www.google.com/recaptcha/mailhide/d?k=01aYxFPWtuAKCOp9PE2ZwnuA==&amp;c=tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8=", onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501aYxFPWtuAKCOp9PE2ZwnuA\75\75\46c\75tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;") Contact
                     // li.divider
                     li: a(href="/thesis/", data-pjax="no", title="DANM MFA Thesis") MFA Thesis
@@ -161,7 +171,7 @@ body(class="#{bodyClass}")
                     p There's no content yet...
         .push
             
-    footer.footer
+    footer.footer.hide-for-small
         .row(style="margin-left:0;")
             .large-4.large-offset-3.columns
                 h3 About

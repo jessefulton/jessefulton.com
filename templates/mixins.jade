@@ -32,16 +32,15 @@ mixin projectMedia()
         if firstImage
             .visuals
                 #media-space
-                    #click-to-hover click to expand
-                    a#main-media-link(href="#")
-                        img(src=firstImage.src, width=firstImage.width, height=firstImage.height)
-                if page.metadata.images
-                    .tiny-thumbs
-                        h3 Media
-                        ul
-                            each image in page.metadata.images
-                                li: a(href="javascript:void(0);", data-med-src=page.url + image.src, data-med-width=image.width, data-med-height=image.height, class="type-image")
-                                    img.type-image(src=page.url + image.tiny, width="38px", height="38px")
+                    if page.metadata.images
+                        .slideshow-wrapper
+                            .preloader
+                            ul(data-orbit)               
+                                each image in page.metadata.images
+                                    li
+                                        img(src="#{page.url + image.src}")
+                                        if image.caption
+                                            .orbit-caption #{image.caption}
                             
 
 
