@@ -12,11 +12,15 @@ block append head
 block content
     include mixins
     
-    .breadcrumbs
-        a(id="breadcrumbs-present-and-future", href="/portfolio/") portfolio
-        span  &gt; #{page.title}
+    
+    .row
+        row.columns
+            .large-12
+                .breadcrumbs
+                    a(id="breadcrumbs-present-and-future", data-pjax, href="/portfolio/") portfolio
+                    span #{page.title}
 
-    .content.panel
-        +projectHeader()
-        +projectMedia()
-        +projectDescription()
+            .large-12.content
+                +projectHeader()
+                +projectMedia()
+                +projectDescription()

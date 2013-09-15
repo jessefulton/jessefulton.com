@@ -29,11 +29,12 @@ block content
     -     }).value();
 
 
-    .breadcrumbs
-        a(id="breadcrumbs-present-and-future", href="/portfolio/") portfolio
+    .row
+        row.columns
+            .large-12
+                .breadcrumbs portfolio
 
-    .content.columns
-        each proj in projects
-            .row
-                .large-12.panel
+                
+            each proj in projects
+                .large-12.project-preview
                     +projectPreview(proj)

@@ -11,6 +11,8 @@ mixin projectPreview(proj)
                 img(src=thumbSrc, title=proj.metadata.title, alt=proj.metadata.title, width=thumb.width, height=thumb.height)
         else
             img(src="/media/images/na.png", title=proj.metadata.title, alt=proj.metadata.title, width="224px", height="160px")
+    .description
+        != typogr(proj.html).typogrify()
 
 
 mixin projectHeader()

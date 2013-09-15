@@ -1,5 +1,5 @@
 ---
-title: CE Interfaces
+title: Consumer Electronics Interfaces
 id: consumer-electronics-interfaces
 template: project.jade
 date: 2012
