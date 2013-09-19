@@ -2,17 +2,19 @@ mixin btn(text, href)
   a.btn.btn-primary(href="#{href}")= text
 
 mixin projectPreview(proj)
-    -var thumb = proj.metadata.thumbnail
-    h2: a(href="#{proj.url}", data-pjax)
-        != proj.title.replace('<br/>', '')
-    .thumbnail: a(href="#{proj.url}")
-        if thumb
-            - var thumbSrc = (thumb.src.substring(0,4) == "http") ?  thumb.src : (proj.url + thumb.src);
-                img(src=thumbSrc, title=proj.metadata.title, alt=proj.metadata.title, width=thumb.width, height=thumb.height)
-        else
-            img(src="/media/images/na.png", title=proj.metadata.title, alt=proj.metadata.title, width="224px", height="160px")
-    .description
-        != typogr(proj.html).typogrify()
+    .row
+        -var thumb = proj.metadata.thumbnail
+        .large-12.columns
+            h2: a(href="#{proj.url}", data-pjax)
+                != proj.title.replace('<br/>', '')
+        .thumbnail.large-4.columns: a(href="#{proj.url}")
+            if thumb
+                - var thumbSrc = (thumb.src.substring(0,4) == "http") ?  thumb.src : (proj.url + thumb.src);
+                    img(src=thumbSrc, title=proj.metadata.title, alt=proj.metadata.title, width=thumb.width, height=thumb.height)
+            else
+                img(src="/media/images/na.png", title=proj.metadata.title, alt=proj.metadata.title, width="224px", height="160px")
+        .description.large-8.columns
+            != typogr(proj.html).typogrify()
 
 
 mixin projectHeader()

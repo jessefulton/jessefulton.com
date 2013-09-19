@@ -43,7 +43,6 @@ head
             }
             a,
             .side-nav li a {
-                //color:#2ba6cb;
                 color:#000;
                 text-decoration:none;
                 line-height:inherit;
@@ -53,6 +52,8 @@ head
                 color: #000;
                 text-decoration: underline;
             }
+
+            footer a, footer a:hover { color:#2ba6cb; }
 
             h1, h2 {
                 font-family: 'Arvo', serif;
@@ -83,6 +84,7 @@ head
                 //margin-bottom: -24em;
                 transition: all 1s ease-out;
             }
+
             .side-nav li {
                 font-size: 1.25em;
             }
@@ -118,10 +120,15 @@ head
                 margin-top: 2.975em;
                 border-top: 1px solid #CCC;
             }
-            .project-preview:nth-of-type(1) {
+            #main > .row > .columns > div:nth-of-type(2)
+            , .project-preview:nth-of-type(1) {
                 margin-top: 0;
                 border-top: 0;
             }
+
+            .portfolio .project-preview .thumbnail { text-align: center; }            
+
+            .orbit-container .orbit-slides-container img { margin: 0 auto; }
             
 - var bodyClass = page.metadata.bodyClass || "";
 block localVars
@@ -173,21 +180,37 @@ body(class="#{bodyClass}")
             
     footer.footer.hide-for-small
         .row(style="margin-left:0;")
-            .large-4.large-offset-3.columns
+            .large-2.columns
+                p(style="text-align:right")
+                    img(src="/styles/images/name-pixels-com.png", width="126px", height="268px")
+            .large-4.large-offset-1.columns
                 h3 About
                 p(style='text-align:justify').
                     I am a Creative Technologist in the purest sense. I have 10+ years of software development experience as well as having exhibited and performed as an artist. I have a very technical background but apply it to creative pursuits including physical computing, projection, and experiential design.
                 p.
                     Check out my CV or my profile on LinkedIn.
-            .large-3.columns
-                h3 Contact
-                p(style='text-align:justify').
-                    My interests are extremely diverse and I am currently looking for an environment which is mentally challenging, artistically stimulating, and open & collaborative. I am currently based out of Los Angeles, but am open to travel and relocation. 
-                p.
-                    I am currently available for freelance and consulting opportunities.
-            .large-2.columns
-                p(style="text-align:right")
-                    img(src="/styles/images/name-pixels-com.png", width="126px", height="268px")
+            .large-5.columns
+                .row
+                    h3 Contact
+                    p(style='text-align:justify')
+                        | I am currently available and willing to travel for freelance 
+                        | and consulting opportunities.
+                        | <a href="http://www.google.com/recaptcha/mailhide/d?k=01aYxFPWtuAKCOp9PE2ZwnuA==&amp;c=tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8=", onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501aYxFPWtuAKCOp9PE2ZwnuA\75\75\46c\75tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;">Email me</a>.
+
+
+                .row
+                    h3 Meta
+                    
+                    ul.small-block-grid-7
+                        li: a(href="http://linkedin.com/in/jessefulton"): img(src="/media/images/icons/linkedin.png")
+                        li: a(href="https://github.com/jessefulton"): img(src="https://identicons.github.com/jessefulton.png")
+                        li: a(href="http://instagram.com/theswa"): img(src="/media/images/icons/instagram.png")
+                        li: a(href="https://vimeo.com/jessefulton"): img(src="/media/images/icons/vimeo.png")
+                        li: a(href="http://www.flickr.com/photos/jessefulton"): img(src="/media/images/icons/flickr.png")
+                        li: a(href="https://twitter.com/jessefulton"): img(src="/media/images/icons/twitter.png")
+                        li: a(href="http://blog.jessefulton.com"): img(src="/media/images/icons/tumblr.png")
+
+
                 
     block scripts
 
@@ -207,14 +230,22 @@ body(class="#{bodyClass}")
             
         script.
             $(function() {
-                // TODO: this should only be called at the end of a resize
-                $(window).resize(function() {
+
+                var resizePJS = function() {
                     console.log("resizing");
                     var pjs = Processing.getInstanceById('static-canvas');
                     if (pjs) {
                         pjs.resizeSketch(window.innerWidth, window.innerHeight);
                     }
-                } );
+                };
+                
+                if (typeof(window.orientation) === "undefined" ) {
+                    $(window).resize(resizePJS);
+                }
+                else {
+                    //$(window).on("onorientationchange", resizePJS);
+                }
+
             })
             
 
@@ -243,7 +274,20 @@ body(class="#{bodyClass}")
                     });
 
                     $(document).on('pjax:complete', function() {
-                       $("#main").fadeIn(250);
+
+                        $("#main .slideshow-wrapper").on("orbit:ready", function(evt) {
+                            console.log("orbit ready");
+                            var orbit = this;
+                            console.log(arguments);
+                            
+                            setTimeout(function() { 
+                                $(orbit).find('[data-orbit-slide="1"]').eq(0).click();
+                                //orbit.compute_dimensions();
+                            }, 350);
+                        });
+
+                        $("#main").fadeIn(250, function() { });
+                        $("#main .slideshow-wrapper").foundation("orbit");
                     });
                     
                     /*
