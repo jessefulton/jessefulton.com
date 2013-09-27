@@ -4,7 +4,7 @@ id: social-media-surrogate
 # template: project.jade
 date: 2010
 
-tags: [ featured, performance, ucsc, exhibited, machine-learning, privacy, twitter, facebook, social-media, nlp, python ]
+tags: [ performance, ucsc, exhibited, machine-learning, privacy, twitter, facebook, social-media, nlp, python ]
 
 
 # exhibits:
@@ -16,10 +16,12 @@ thumbnail:
 image:
   src: images/social-media-surrogate_m.png
   width: 536px
-  height: 391
+  height: 391px
   
 externalURL: http://socialmediasurrogate.net
 ---
+
+FPO BriefDescription
 
 Social Media Surrogate is conceptual software which analyzes a user's previous online activity on a social network (such as Facebook 	or Twitter) to create a data model representative that person's online behavior, interactions and communication style. After analysis, a script uses this data model to autonomously generate social media content and continuously evolve and adapt itself based upon the user's listed interests, current events (such as news feeds and friend's activity), and the user's friends' interests.
 

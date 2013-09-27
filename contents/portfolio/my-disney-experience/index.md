@@ -14,6 +14,8 @@ thumbnail:
   height: 160px
 ---
 
+FPO BriefDescription
+
 My last project while working at [Disney Internet Group](http://dimgpressroom.com/) was creating the first prototype for what would become "My Disney Experience" - the web/mobile based interface for customers to manage their MyMagic+ accounts.  
 
 This application radically changes the way guests experience trips to the Disney parks - before, during, and after their trip. The technologies being introduced allow Disney to highly customize and tailor even the most minute detail of their vacation with Disney in order to improve guest satisfaction and enhance the magic of Disney.

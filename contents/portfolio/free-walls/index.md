@@ -27,6 +27,8 @@ images:
 externalURL: http://www.flickr.com/photos/jessefulton/sets/72157629021647557/
 ---
 
+FPO BriefDescription
+
 The Free Walls Project was a collaborative effort with Daniel Christopher and Tony Cutrono, exploring ideas of what constitutes "public art," and who can create it.
 
 Engaging with the Santa Cruz community, a mobile wall was brought to various public spaces where people are invited to draw, paint, and collage. The wall was then transported and displayed throughout the local community as a living work in progress, with new additions being made by unsuspecting citizens at every stop.

@@ -19,8 +19,10 @@ images:
   - { src: images/nytimes_m.png, width: 536px, height: 356px }  
 ---
 
+FPO BriefDescription
+
 <i>CAPTCHA-fy!</i> served as the manifesto for Ocular Character Recognition, part of
-  my <a href="/thesis.html">Master's thesis</a> which condenses the thesis' core
+  my <a href="/thesis/" data-pjax="no">Master's thesis</a> which condenses the thesis' core
   ideas surrounding digital culture into a 12-page hand-made pamphlet.
   The document connects the concepts of 
   <a href="/portfolio/webpages-for-humans/">Webpages for Humans</a>

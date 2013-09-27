@@ -20,6 +20,8 @@ images:
 externalURL: http://themonthlychallenge.com/
 ---
 
+FPO BriefDescription
+
 The Monthly Challenge was a project designed to help people try new things each month.Participants devised monthly goals to nudge them out of their "comfort zone" and documented their progress in an online community of blogs and journals. The site has been inactive since September 1, 2009.
 
 My personal challenges on the site consisted of many failures, but I believe that is oneof the reasons why it was so successful - friends and strangers have adapted this model to create their own versions of The Monthly Challenge.

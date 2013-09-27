@@ -23,7 +23,8 @@ head
             
         // link(rel='stylesheet', href='/styles/main.css')
         //link(rel='stylesheet', href='/styles/foundation.css')
-        link(rel='stylesheet', href='//cdn.jsdelivr.net/foundation/4.3.1/css/foundation.min.css')
+        //link(rel='stylesheet', href='//cdn.jsdelivr.net/foundation/4.3.1/css/foundation.min.css')
+        link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.1/css/foundation.min.css')
         
         //- TODO: remove unused fonts...
         
@@ -31,8 +32,10 @@ head
         
         link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic')
         
-        script(type="text/javascript", src="/scripts/vendor/custom.modernizr.js")
-        script(src="http://processingjs.org/js/processing.min.js")
+        //script(type="text/javascript", src="/scripts/vendor/custom.modernizr.js")
+        script(src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js")
+        //script(src="http://processingjs.org/js/processing.min.js")
+        script(src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing.min.js")
             
         style.
             html, body {
@@ -95,6 +98,7 @@ head
                 background-color: #222222;
                 color: #ddd;
                 //height: 24em;
+                margin-top: 8ex;
             }
             
             footer, .push { clear: both; }
@@ -129,9 +133,35 @@ head
                 border-top: 0;
             }
 
+            .meta { font-size: 80%; }
+            .meta .large-6 dl {
+                background-color: rgba(0,0,0,.1);
+                -webkit-border-radius: 5px;
+                border-radius: 5px;
+                padding: 0.9375em;
+            }
+            
+            /*
+            .listing .description {
+                white-space: word;
+                overflow:hidden;
+                height: 180px;
+            }
+            
+            .listing .description:after{
+                content:'...';
+            }
+            */
+            
+
             .portfolio .project-preview .thumbnail { text-align: center; }            
 
             .orbit-container .orbit-slides-container img { margin: 0 auto; }
+            
+            .visuals { padding: 0.9375em }
+            #media-space { text-align: center; }
+            
+            .more { text-align:right; }
             
 - var bodyClass = page.metadata.bodyClass || "";
 block localVars
@@ -148,17 +178,18 @@ body(class="#{bodyClass}")
             #nav.large-3.columns
                 ul.side-nav
                     li: a(href="/", data-pjax) Featured
-                    li.divider
+                    // li.divider
                     li: a(href="/portfolio/", data-pjax) All
-                    li: a(href="/portfolio/tag/digital/", data-pjax) Digital
-                    li: a(href="/portfolio/tag/physical/", data-pjax) Physical
-                    li: a(href="/portfolio/tag/performance/", data-pjax) Performance
-                    li: a(href="/portfolio/tag/web/", data-pjax) Web
-                    li: a(href="/portfolio/tag/art/", data-pjax) Art
-                    li: a(href="/portfolio/tag/software/", data-pjax) Software
-                    li: a(href="/portfolio/tag/hardware/", data-pjax) Hardware
-                    li: a(href="/portfolio/tag/mobile/", data-pjax) Mobile
-                    li: a(href="/portfolio/tag/research/", data-pjax) Research
+                    //-
+                        li: a(href="/portfolio/tag/digital/", data-pjax) Digital
+                        li: a(href="/portfolio/tag/physical/", data-pjax) Physical
+                        li: a(href="/portfolio/tag/performance/", data-pjax) Performance
+                        li: a(href="/portfolio/tag/web/", data-pjax) Web
+                        li: a(href="/portfolio/tag/art/", data-pjax) Art
+                        li: a(href="/portfolio/tag/software/", data-pjax) Software
+                        li: a(href="/portfolio/tag/hardware/", data-pjax) Hardware
+                        li: a(href="/portfolio/tag/mobile/", data-pjax) Mobile
+                        li: a(href="/portfolio/tag/research/", data-pjax) Research
                     li.divider
                     li.show-for-small: a(href="/contact/", data-pjax) Contact
                     li.show-for-small: a(href="/about/", data-pjax) About
@@ -182,7 +213,7 @@ body(class="#{bodyClass}")
                 p.
                     I am a Creative Technologist in the purest sense. I have 10+ years of software development experience as well as having exhibited and performed as an artist. I have a very technical background but apply it to creative pursuits including physical computing, projection, and experiential design.
                 p.
-                    Check out my CV or my profile on LinkedIn. Read my thesis from UCSC.
+                    Check out my <a href="/media/resume/jessefulton-resume.pdf" data-pjax="no">CV</a> or <a href="http://linkedin.com/in/jessefulton">my profile on LinkedIn</a>. Read my <a href="/thesis/thesis.pdf" data-pjax="no" title="DANM MFA Thesis">thesis</a> from UCSC.
             .large-4.large-offset-1.columns
                 .row
                     h3 Contact
@@ -208,16 +239,7 @@ body(class="#{bodyClass}")
 
                 
     block scripts
-
-        //
-            script.
-                document.write('<script src=' +
-                ('__proto__' in {} ? '/scripts/vendor/zepto' : '/scripts/vendor/jquery') +
-                '.js><\/script>')
-        
-        script(src="/scripts/vendor/jquery.js")
-        
-        //script(src="/scripts/foundation.min.js")
+        script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js")
         script(src="//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.1/js/foundation.min.js")
 
         script.
@@ -244,7 +266,8 @@ body(class="#{bodyClass}")
             })
             
 
-        script(src="/scripts/vendor/jquery.pjax.js")
+        //script(src="/scripts/vendor/jquery.pjax.js")
+        script(src="//cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.7.0/jquery.pjax.min.js")
         script.
             $(function() {
                 if ($.support.pjax) {
@@ -304,7 +327,7 @@ body(class="#{bodyClass}")
                     */
                 }
             });
-
+            
         script.
             $(function() {
                 // Sticky Footer Foundation fix

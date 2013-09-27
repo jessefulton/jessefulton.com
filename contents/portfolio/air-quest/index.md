@@ -17,6 +17,8 @@ image:
     src: images/game-map_m.jpg
 ---
 
+FPO BriefDescription
+
 [Air Quest](http://socialappslab.com/airquest/) is an iOS game being developed by the UC Berkeley [Social Apps Lab](http://socialappslab.com/) to educate players about global air quality conditions in order to encourage civic action.
 
 Gameplay focuses on a young man named Keane living near Fresno, California - an area having some of the worst air quality in the US - who uncovers a series of pollution sources and ways to address those and change public policy in order to improve the local air quality.

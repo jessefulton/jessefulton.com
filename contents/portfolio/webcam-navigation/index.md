@@ -17,6 +17,8 @@ thumbnail:
 externalURL: http://projects.jessefulton.com/playground/camera-based-navigation.html
 ---
 
+FPO BriefDescription
+
 This was a proof-of-concept to show that web page navigation may be accomplished through the use of a copmuter's built-in web camera.
   
 I updated an existing flash motion-tracking project to expose camera image data to JavaScript. I then used that data to manipulate the web browser, giving the user control of their environment via their webcam. By moving your hand up or down, you can have the browser scroll in that same direction.
