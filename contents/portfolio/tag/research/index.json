@@ -1,6 +1,6 @@
 {
   "template": "portfolio.jade",
   "bodyClass": "portfolio tagged web",
-  "title": "Portfolio - Featured Work",
-  "tags": ["featured"]
+  "title": "Portfolio (Research)",
+  "tags": ["research"]
 }
