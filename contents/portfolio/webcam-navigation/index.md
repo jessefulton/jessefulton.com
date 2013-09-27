@@ -4,6 +4,9 @@ id: webcam-navigation
 template: project.jade
 date: 2009
 
+tags: [ featured, web, computer-vision, research, software, mechatronics, flash, hack ]
+
+
 video: 6876564
 
 thumbnail:

@@ -3,6 +3,8 @@ title: Ad Takeover
 id: ad-takeover
 date: 2011
 
+tags: [web, advertising, art, privacy, tactical-media, javascript]
+
 thumbnail:
   src: images/ad-takeover_s.jpg
   width: 224px

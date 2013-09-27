@@ -5,6 +5,9 @@ template: project.jade
 date: 2009
 collaborators: "@ Walt Disney Parks & Resorts Online (Glendale, CA)"
 
+tags: [ featured, physical, touchscreen, interfaces, prototype, software, multi-device, connected-experiences ]
+
+
 thumbnail:
   src: images/logo.png
   width: 224px

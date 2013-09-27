@@ -4,7 +4,7 @@ id: wildlife-tracker
 template: project.jade
 date: 2011
 
-tags: [web]
+tags: [ web, games, ucsc, research, nodejs, facebook ]
 
 thumbnail:
   src: images/2_s.jpg

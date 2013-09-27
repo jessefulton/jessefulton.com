@@ -4,6 +4,9 @@ id: ocular-character-recognition
 template: project.jade
 date: 2011--
 
+tags: [ computer-vision, ocr, research, hardware, software, microcontrollers, mechatronics, openFrameworks, nodejs, phantomjs, generative, exhibited ]
+
+
 # exhibits:
 #  - I've Got Something on Your Mind, DANM MFA show, UCSC
 #  - WebBiennial 2012

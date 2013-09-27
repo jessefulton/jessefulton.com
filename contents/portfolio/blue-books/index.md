@@ -3,6 +3,9 @@ title: Let There Be Fees
 id: blue-books
 template: project.jade
 date: 2011
+
+tags: [ art, performance, tactical-media, exhibited, ucsc ]
+
 thumbnail:
     src: images/blue-books.gif
     width: 132px

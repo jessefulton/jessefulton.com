@@ -13,6 +13,22 @@ block content
     include mixins
     
     
+    - var related = _.chain(contents.portfolio._.directories).map(function (item) {
+    -         var obj = (item["index.md"] || item["index.json"]);
+    -         if (obj && obj.metadata && !obj.metadata.template) {
+    -             // strip out the pages with no template specified
+    -             obj = null;
+    -         }
+    -         if (obj == page) { obj = null; }
+    -         return obj;
+    -     }).compact().sortBy(function (item) {
+    -         var overlap = _.intersection(page.metadata.tags, item.metadata.tags);
+    -         return -1 * overlap.length;
+    -     }).first(3).value();
+    - console.log(related);
+
+
+    
     .row
         row.columns
             .large-12

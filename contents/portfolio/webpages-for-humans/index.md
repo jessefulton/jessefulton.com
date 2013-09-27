@@ -4,6 +4,9 @@ id: webpages-for-humans
 template: project.jade
 date: 2012--2013
 
+tags: [ featured, computer-vision, ocr, research,software, web, generative, exhibited, privacy ]
+
+
 thumbnail:
   src: images/nytimes_s.png
   width: 224px

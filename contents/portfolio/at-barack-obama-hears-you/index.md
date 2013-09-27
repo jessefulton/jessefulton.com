@@ -3,7 +3,7 @@ title: "@BarackObama Hears You"
 id: at-barack-obama-hears-you
 date: 2009
 template: project.jade
-tags: [web]
+tags: [ web, art, twitter, social-media, api, sentiment-analysis, javascript, exhibited ]
 
 thumbnail:
     src: images/obama_s.png

@@ -4,6 +4,8 @@ id: consumer-electronics-interfaces
 template: project.jade
 date: 2012
 collaborators: "@ Huge (Los Angeles, CA)"
+
+tags: [hardware, software, interfaces, freelance]
 ---
 
 

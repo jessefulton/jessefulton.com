@@ -4,6 +4,9 @@ id: Sminoe
 template: project.jade
 date: 2010
 
+tags: [ games, hardware, software, microcontrollers, hack ]
+
+
 thumbnail:
   src: images/simone_s.jpg
   width: 224px

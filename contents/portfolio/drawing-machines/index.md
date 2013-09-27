@@ -5,6 +5,9 @@ template: project.jade
 bodyClass: portfolio project
 collaborators: with <a href="http://levigoldman.com">Levi Goldman</a>
 date: "2011--"
+
+tags: [ featured, collaboration, physical, computer-vision, research, hardware, software, installation, microcontrollers, mechatronics, max-msp-jitter, processing, exhibited, art ]
+
 thumbnail:
     src: images/prototype1_s.jpg
     width: 224px

@@ -4,6 +4,9 @@ id: interactive-storytelling
 template: project.jade
 date: 2011
 
+tags: [ physical, computer-vision, interfaces, research, hardware, software, installation, mechatronics, processing ]
+
+
 video: 29669344
 thumbnail:
   src: images/screencap_s.jpg

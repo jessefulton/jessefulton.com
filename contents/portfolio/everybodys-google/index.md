@@ -3,6 +3,9 @@ title:  Everybody's Google
 id: everybodys-google
 template: project.jade
 date: 2012
+
+tags: [research, thesis, machine-learning, web, software, privacy, google, webgl, threejs, javascript, nodejs]
+
 externalURL: http://everybodysgoogle.com/
 
 thumbnail:

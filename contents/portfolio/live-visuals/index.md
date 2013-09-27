@@ -3,6 +3,10 @@ title: Live Visuals
 id: live-visuals
 template: project.jade
 date: 2010--
+
+tags: [ video, vj, performance, exhibited, art ]
+
+
 thumbnail:
     src: http://farm8.staticflickr.com/7199/6873417867_ed75779920_z.jpg
     width: 224px

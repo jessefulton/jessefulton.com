@@ -4,6 +4,9 @@ id: the-serendipity-engine
 template: project.jade
 date: 2012
 
+tags: [ thesis, exhibited, ucsc, physical, computer-vision, hardware, software, microcontrollers, mechatronics, arduino ]
+
+
 ---
 
 The connection between Ocular Character Recognition and Everybody's Google.

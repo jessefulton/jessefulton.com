@@ -4,9 +4,13 @@ id: free-walls
 template: project.jade
 date: 2011--2012
 collaborators: with <a href="http://danielchristopher.net/">Daniel Christopher</a> & <a href="http://tonyluccacutrono.tumblr.com/">Tony Cutrono</a>
+
+tags: [ ucsc, performance, social, collaboration, exhibited, art ]
+
 #exhibits:
 #  - Oakes College, Santa Cruz CA
 #  - Open Studios, UCSC
+
 thumbnail:
     src: images/oakes-2_s.jpg
     width: 224px

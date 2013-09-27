@@ -4,6 +4,9 @@ id: m2s
 # template: project.jade
 date: 2010
 
+tags: [ video, vj, interfaces, physical, hardware, software, microcontrollers, max-msp-jitter, arduino, exhibited ]
+
+
 thumbnail:
   src: images/m2sv1-1_s.png
   width: 224px

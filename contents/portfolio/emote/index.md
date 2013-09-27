@@ -3,6 +3,9 @@ title: EmoTe
 id: emote
 template: project.jade
 date: 2009
+
+tags: [web, api, sentiment-analysis]
+
 externalURL: http://www.emotivetext.com/
 ---
 

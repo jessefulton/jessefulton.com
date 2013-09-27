@@ -51,11 +51,24 @@ mixin projectDescription()
     .item-content-wrapper.no-role.no-importance
         .item-content.description
             != typogr(page.html).typogrify()
-    .meta
-        dl
+    .meta.row
             if page.metadata.externalURL
-                dt URL
-                dd: a(href="#{page.metadata.externalURL}") #{page.metadata.externalURL}
+                .large-6.columns
+                    dl(style="border-top:1px solid grey;")
+                        dt URL
+                        dd(style="overflow-wrap:break-word;")
+                            a(href="#{page.metadata.externalURL}", style="overflow-wrap: break-word;") !{typogr(page.metadata.externalURL).typogrify()}
+
+
+            if related && related.length
+                .large-6.columns
+                    dl(style="border-top:1px solid grey;")
+                        dt Related Projects
+                        dd
+                            ul(style="list-style-position: inside;")
+                                each relatedProject in related
+                                    li: a(href="#{relatedProject.url}") #{relatedProject.metadata.title}
+
 
 
 mixin thumb(src, href)

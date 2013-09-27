@@ -4,6 +4,9 @@ id: legend-of-awesome
 template: project.jade
 date: 2011
 
+tags: [ games, hack, javascript ]
+
+
 thumbnail:
   src: images/screen_s.png
   width: 224px

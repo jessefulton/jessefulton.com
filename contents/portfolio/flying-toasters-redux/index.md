@@ -5,6 +5,8 @@ template: project.jade
 date: 2012
 collaborators: with Will Eastcott & Lao Akili
 
+tags: [ featured, collaboration, web, software, webgl, nodejs, hack, exhibited ]
+
 #exhibits:
 #  GAFFTA (Where 2.0)
 thumbnail:

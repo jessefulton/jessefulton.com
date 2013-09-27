@@ -4,6 +4,9 @@ id: airquest
 template: project.jade
 collaborators: "@ <a href='http://socialappslab.com/'>Social Apps Lab</a>"
 date: 2012
+
+tags: [research, ios, games, education, ucsc, ucsb, unity3d]
+
 thumbnail:
     src: images/game-map_s.jpg
     width: 224px

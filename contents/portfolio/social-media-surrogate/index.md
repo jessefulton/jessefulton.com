@@ -4,6 +4,9 @@ id: social-media-surrogate
 # template: project.jade
 date: 2010
 
+tags: [ featured, performance, ucsc, exhibited, machine-learning, privacy, twitter, facebook, social-media, nlp, python ]
+
+
 # exhibits:
 #  - UCSC Open Studios, Fall 2010
 thumbnail:

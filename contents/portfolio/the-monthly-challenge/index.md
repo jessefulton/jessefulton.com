@@ -4,6 +4,9 @@ id: the-monthly-challenge
 template: project.jade
 date: 2008--2009
 
+tags: [ web, performance, art, social-media ]
+
+
 thumbnail:
   src: images/tmc-1_s.jpg
   width: 224px
