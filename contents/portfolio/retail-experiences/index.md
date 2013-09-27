@@ -4,6 +4,8 @@ id: retail-experiences
 template: project.jade
 date: 2012--2013
 
+tags: [featured, physical, retail, c++, cinder, touchscreen, mobile, ios, freelance]
+
 collaborators: "@ <a href='http://hugekingcoyle.com/'>Huge/KingCoyle</a> (Portland, OR)"
 
 thumbnail:

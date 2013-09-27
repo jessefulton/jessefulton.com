@@ -4,6 +4,8 @@ id: wildlife-tracker
 template: project.jade
 date: 2011
 
+tags: [web]
+
 thumbnail:
   src: images/2_s.jpg
   width: 224px

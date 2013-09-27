@@ -37,10 +37,12 @@ head
         style.
             html, body {
                 font-family: 'Quattrocento Sans', sans-serif;
+                font-family: 'Ubuntu', sans-serif;
                 //font-family: 'Arvo', serif;
-                font-family: 'Josefin Slab', serif;
+                //font-family: 'Josefin Slab', serif;
                 height: 100%;
             }
+            #nav, .breadcrumbs { font-family: 'Josefin Slab', serif; }
             a,
             .side-nav li a {
                 color:#000;
@@ -59,7 +61,7 @@ head
                 font-family: 'Arvo', serif;
             }
             h3, h4, h5, h6 {
-                font-family: 'Ubuntu', sans-serif;
+                font-family: 'Arvo', sans-serif;
             }
             #canvas-container{
                 width:100%;
@@ -82,7 +84,7 @@ head
                 margin-top: 2em;
                 min-height: 100%;
                 //margin-bottom: -24em;
-                transition: all 1s ease-out;
+                //transition: all 1s ease-out;
             }
 
             .side-nav li {
@@ -102,8 +104,9 @@ head
             }
             
             footer p {
-                font-family: 'Ubuntu', sans-serif;
+                font-family: 'Quattrocento Sans', sans-serif;
                 font-size: .9em;
+                line-height: 3ex;
             }
             #main {
                 padding: .9375em;
@@ -144,38 +147,26 @@ body(class="#{bodyClass}")
         .row(style="margin-left:0;")
             #nav.large-3.columns
                 ul.side-nav
-                    li.active: a(href="/portfolio/", data-pjax) Work
+                    li: a(href="/", data-pjax) Featured
                     li.show-for-small: a(href="/contact/", data-pjax) Contact
                     li.show-for-small: a(href="/about/", data-pjax) About
+                    li: a(href="/portfolio/tag/digital/", data-pjax) Digital
+                    li: a(href="/portfolio/tag/physical/", data-pjax) Physical
+                    li: a(href="/portfolio/tag/performance/", data-pjax) Performance
+                    li: a(href="/portfolio/tag/web/", data-pjax) Web
+                    li: a(href="/portfolio/tag/art/", data-pjax) Art
+                    li: a(href="/portfolio/tag/software/", data-pjax) Software
+                    li: a(href="/portfolio/tag/hardware/", data-pjax) Hardware
+                    li: a(href="/portfolio/tag/mobile/", data-pjax) Mobile
+                    li.divider
                     li: a(href="http://www.google.com/recaptcha/mailhide/d?k=01aYxFPWtuAKCOp9PE2ZwnuA==&amp;c=tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8=", onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501aYxFPWtuAKCOp9PE2ZwnuA\75\75\46c\75tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;") Contact
-                    // li.divider
                     li: a(href="/thesis/", data-pjax="no", title="DANM MFA Thesis") MFA Thesis
 
     
             #main.large-9.columns
                 block content
                     p There's no content yet...
-    
-        //-
-            header(id="tabs")
-                ul.navigation
-                    li(id="menu-portfolio")
-                        a(href="/portfolio/")
-                            span Work
-                    li(id="menu-blog")
-                        a(href="http://blog.jessefulton.com/")
-                            span Blog
-                    li(id="menu-contact")
-                        a(href="/contact/")
-                            span Contact
-                div(id="headerlogo")
-                    a(href="/")
-                        span Home
 
-
-            #main
-                block content
-                    p There's no content yet...
         .push
             
     footer.footer.hide-for-small
@@ -185,31 +176,32 @@ body(class="#{bodyClass}")
                     img(src="/styles/images/name-pixels-com.png", width="126px", height="268px")
             .large-4.large-offset-1.columns
                 h3 About
-                p(style='text-align:justify').
+                p.
                     I am a Creative Technologist in the purest sense. I have 10+ years of software development experience as well as having exhibited and performed as an artist. I have a very technical background but apply it to creative pursuits including physical computing, projection, and experiential design.
                 p.
-                    Check out my CV or my profile on LinkedIn.
-            .large-5.columns
+                    Check out my CV or my profile on LinkedIn. Read my thesis from UCSC.
+            .large-4.large-offset-1.columns
                 .row
                     h3 Contact
-                    p(style='text-align:justify')
+                    p
                         | I am currently available and willing to travel for freelance 
-                        | and consulting opportunities.
+                        | and consulting opportunities. Please visit
+                        | <a href="http://eklekt.com">eklekt.com</a> for more information.
                         | <a href="http://www.google.com/recaptcha/mailhide/d?k=01aYxFPWtuAKCOp9PE2ZwnuA==&amp;c=tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8=", onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501aYxFPWtuAKCOp9PE2ZwnuA\75\75\46c\75tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;">Email me</a>.
 
 
                 .row
                     h3 Meta
                     
-                    ul.small-block-grid-7
+                    ul.small-block-grid-8
                         li: a(href="http://linkedin.com/in/jessefulton"): img(src="/media/images/icons/linkedin.png")
                         li: a(href="https://github.com/jessefulton"): img(src="https://identicons.github.com/jessefulton.png")
+                        li: a(href="https://delicious.com/jfulton"): img(src="/media/images/icons/delicious.png")
                         li: a(href="http://instagram.com/theswa"): img(src="/media/images/icons/instagram.png")
                         li: a(href="https://vimeo.com/jessefulton"): img(src="/media/images/icons/vimeo.png")
                         li: a(href="http://www.flickr.com/photos/jessefulton"): img(src="/media/images/icons/flickr.png")
                         li: a(href="https://twitter.com/jessefulton"): img(src="/media/images/icons/twitter.png")
                         li: a(href="http://blog.jessefulton.com"): img(src="/media/images/icons/tumblr.png")
-
 
                 
     block scripts

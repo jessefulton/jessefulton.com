@@ -1,0 +1,6 @@
+{
+  "template": "portfolio.jade",
+  "bodyClass": "portfolio tagged web",
+  "title": "Portfolio - Web",
+  "tags": ["web"]
+}

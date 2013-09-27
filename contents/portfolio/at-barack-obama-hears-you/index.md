@@ -1,8 +1,10 @@
 ---
 title: "@BarackObama Hears You"
 id: at-barack-obama-hears-you
-template: project.jade
 date: 2009
+template: project.jade
+tags: [web]
+
 thumbnail:
     src: images/obama_s.png
     width: 224px

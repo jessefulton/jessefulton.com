@@ -18,21 +18,30 @@ block content
     -             obj = null;
     -         }
     -         return obj;
-    -     }).compact().sortBy(function (descr) {
+    -     }).compact().filter(function(item) {
+    -         if (page.metadata.tags) {
+    -             var overlap = _.intersection(page.metadata.tags, item.metadata.tags);
+    -             return !!overlap.length;
+    -         }
+    -         return true;
+    -     }).sortBy(function (descr) {
     -         var dateStr = descr.metadata.date.toString();
     -         var startDate = parseInt(dateStr.split("--")[0], 10);
     -         var endDate = parseInt(dateStr.split("--")[1], 10) || 0;
-    - console.log(dateStr + " : " + startDate + ", " + (endDate/1000.0));
     -         return -1 * (startDate + (endDate*.00001));
-    -         //return -1;
-    -         //return page.metadata.ordering.indexOf(descr.metadata.id);
     -     }).value();
 
 
     .row
         row.columns
             .large-12
-                .breadcrumbs: span portfolio
+                .breadcrumbs
+                    span portfolio
+                        - var tag = "";
+                        - if (page.metadata.tags) {
+                        -   tag = ": " + page.metadata.tags.join(", ");
+                        - }
+                        = tag
 
                 
             each proj in projects
