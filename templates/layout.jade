@@ -149,14 +149,30 @@ block localVars
 
 body(class="#{bodyClass}")
 
+    nav.top-bar(data-options="scrolltop:false").show-for-small
+        ul.title-area
+            li.name
+                h1: a(href="javascript:void(0)" data-pjax="no") jessefulton.com
+            li.toggle-topbar.menu-icon: a(href="javascript:void(0)" data-pjax="no"): span Menu
+        secion.top-bar-section
+            ul.left
+                li.divider
+                li: a(href="/", data-pjax) Featured
+                li.divider
+                li: a(href="/portfolio/", data-pjax) All
+                li.divider
+                li: a(href="#section-about", data-pjax="no") About
+                li.divider
+                li: a(href="#section-contact", data-pjax="no") Contact
+                li.divider
+                
     #wrapper
     
         div#canvas-container
             canvas(width="100%", height="100%", id="static-canvas", style="width:90%;height:100%;", data-processing-sources="/scripts/static.pde")
-    
-    
+
         .row(style="margin-left:0;")
-            #nav.large-3.columns
+            #nav.large-3.columns.hide-for-small
                 ul.side-nav
                     li: a(href="/", data-pjax) Featured
                     // li.divider
@@ -172,10 +188,8 @@ body(class="#{bodyClass}")
                         li: a(href="/portfolio/tag/mobile/", data-pjax) Mobile
                         li: a(href="/portfolio/tag/research/", data-pjax) Research
                     li.divider
-                    li.show-for-small: a(href="#section-about", data-pjax="no") About
-                    li.show-for-small: a(href="#section-contact", data-pjax="no") Contact
-                    li.hide-for-small: a(href="http://www.google.com/recaptcha/mailhide/d?k=01aYxFPWtuAKCOp9PE2ZwnuA==&amp;c=tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8=", onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501aYxFPWtuAKCOp9PE2ZwnuA\75\75\46c\75tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;") Contact
-                    li.hide-for-small: a(href="/thesis/", data-pjax="no", title="DANM MFA Thesis") MFA Thesis
+                    li: a(href="http://www.google.com/recaptcha/mailhide/d?k=01aYxFPWtuAKCOp9PE2ZwnuA==&amp;c=tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8=", onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501aYxFPWtuAKCOp9PE2ZwnuA\75\75\46c\75tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;") Contact
+                    li: a(href="/thesis/", data-pjax="no", title="DANM MFA Thesis") MFA Thesis
 
     
             #main.large-9.columns
