@@ -171,6 +171,16 @@ body(class="#{bodyClass}")
                 $('.listing').mixitup();
      
             
+                $(document).on('click', '.f-dropdown', function(){
+                    console.log("clicked");
+                    if ($(this).hasClass('open')) {
+                        $(this).trigger('mouseenter').trigger('mouseleave');
+                        //console.log("foo");
+                        //$('a[data-dropdown="'+$(this).attr('id')+'"]').trigger('click');
+                    }
+                    
+                });
+            
                 if ($.support.pjax) {
                     var container = $("#main");
 

@@ -54,11 +54,12 @@ block content
             // show the tag cloud if we are on the "all" page only
             if !page.metadata.tags
                 .large-12.tag-cloud
-                    h3 Search by tag:
-                    p: span.filter.active(data-filter="all") [Show All]
-                    ul
-                        each tag in sortedTags
-                            li.filter(data-filter="#{tag}"): span(data-weight="#{tagCloud[tag]}") #{tag} (#{tagCloud[tag]})
+                    h3: a.tiny.button.secondary(href="javascript:void(0)", data-dropdown="tagdrop", data-pjax="no", data-options="is_hover:true") Filter Projects
+                    #tagdrop.f-dropdown.content.medium(data-dropdown-content)
+                        p: span.filter.active(data-filter="all") [Show All]
+                        ul
+                            each tag in sortedTags
+                                li.filter(data-filter="#{tag}"): span(data-weight="#{tagCloud[tag]}") #{tag} (#{tagCloud[tag]})
                         
             each proj in projects
                 div(class="mix #{proj.metadata.tags.join(' ')}")
