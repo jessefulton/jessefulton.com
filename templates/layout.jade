@@ -152,12 +152,10 @@ body(class="#{bodyClass}")
     nav.top-bar(data-options="scrolltop:false").show-for-small
         ul.title-area
             li.name
-                h1: a(href="javascript:void(0)" data-pjax="no") jessefulton.com
+                h1: a(href="/") jessefulton.com
             li.toggle-topbar.menu-icon: a(href="javascript:void(0)" data-pjax="no"): span Menu
         secion.top-bar-section
             ul.left
-                li.divider
-                li: a(href="/", data-pjax) Featured
                 li.divider
                 li: a(href="/portfolio/", data-pjax) All
                 li.divider
@@ -175,7 +173,6 @@ body(class="#{bodyClass}")
             #nav.large-3.columns.hide-for-small
                 ul.side-nav
                     li: a(href="/", data-pjax) Featured
-                    // li.divider
                     li: a(href="/portfolio/", data-pjax) All
                     //-
                         li: a(href="/portfolio/tag/digital/", data-pjax) Digital
@@ -194,7 +191,7 @@ body(class="#{bodyClass}")
     
             #main.large-9.columns
                 block content
-                    p There's no content yet...
+                    p ...
 
         .push
             
