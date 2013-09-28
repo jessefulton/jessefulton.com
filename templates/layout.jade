@@ -141,9 +141,16 @@ body(class="#{bodyClass}")
         
         script(src="//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.1/js/foundation.min.js")
         script.
-            $(document).foundation();
+
             
+        script(src="/scripts/vendor/jquery.mixitup.min.js")
+        script(src="//cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.7.0/jquery.pjax.min.js")
+
         script.
+
+            $(document).foundation();
+
+            // When window is resized, adjust & reload the processing sketch
             $(function() {
 
                 var resizePJS = function() {
@@ -156,27 +163,20 @@ body(class="#{bodyClass}")
                 if (typeof(window.orientation) === "undefined" ) {
                     $(window).resize(resizePJS);
                 }
+                // iOS Safari is firing resize on scroll, so disable redraw/size adjust...
                 else {
                     //$(window).on("onorientationchange", resizePJS);
                 }
 
             })
-            
-        script(src="/scripts/vendor/jquery.mixitup.min.js")
-        script(src="//cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.7.0/jquery.pjax.min.js")
 
-        script.
+
             $(function() {
- 
+                // initialize project filtering
                 $('.listing').mixitup({
-                    effects: ['scale',], //'fade','blur'],
-                    listEffects: null,
-                    easing: 'snap', //'windback',
+                    effects: ['scale'],
+                    easing: 'snap',
                     layoutMode: 'list',
-                    targetDisplayGrid: 'inline-block',
-                    targetDisplayList: 'block',
-                    gridClass: '',
-                    listClass: '',
                     transitionSpeed: 1000,
                 });
      
@@ -187,6 +187,8 @@ body(class="#{bodyClass}")
                     }                    
                 });
             
+            
+                // initialize pjax
                 if ($.support.pjax) {
                     var container = $("#main");
 
@@ -229,11 +231,11 @@ body(class="#{bodyClass}")
 
                 }
             });
+
             
-        script.
+            // Sticky Footer Foundation fix
+            // via https://gist.github.com/spilliams/2697774
             $(function() {
-                // Sticky Footer Foundation fix
-                // via https://gist.github.com/spilliams/2697774
                 var stickyFooter = function() {
                     $(".footer, .push").height($(".footer .row").height()+"px");
                     $("#wrapper").css({'margin-bottom':(-1*$(".footer .row").height())+"px"});
