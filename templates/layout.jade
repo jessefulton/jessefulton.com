@@ -239,6 +239,18 @@ body(class="#{bodyClass}")
 
                 
     block scripts
+        script.
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-1024545-5']);
+            _gaq.push(['_setDomainName', 'jessefulton.com']);
+            _gaq.push(['_trackPageview']);
+            
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
         script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js")
         script(src="//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.1/js/foundation.min.js")
 
@@ -292,7 +304,6 @@ body(class="#{bodyClass}")
                     });
 
                     $(document).on('pjax:complete', function() {
-
                         $("#main .slideshow-wrapper").on("orbit:ready", function(evt) {
                             console.log("orbit ready");
                             var orbit = this;
@@ -306,6 +317,11 @@ body(class="#{bodyClass}")
 
                         $("#main").fadeIn(250, function() { });
                         $("#main .slideshow-wrapper").foundation("orbit");
+                        
+                        if( window._gaq ) {
+                            _gaq.push(['_trackPageview', window.location.href]);
+                        }
+
                     });
                     
                     /*
