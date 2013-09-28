@@ -20,30 +20,19 @@ void setup() {
   noStroke();
   resizeSketch(window.innerWidth, window.innerHeight); //, PIXEL_SIZE);
 
-  /*
-  size(window.innerWidth, 56); //, PIXEL_SIZE);
-  fill(color(0,0,0));
-  rect(0,0,width,height);
-  */
+  rotateColors(random(360));
+  updateGrid();
 }
 
-void rotateColors() {
+void rotateColors(int amt) {
     float hue1 = hue(COLORS[0]);
     float hue2 = hue(COLORS[1]);
-    COLORS[0] = color(hue1 + COLOR_ROTATION_AMT, saturation(COLORS[0]), brightness(COLORS[0]));
-    COLORS[1] = color(hue2 + COLOR_ROTATION_AMT, saturation(COLORS[1]), brightness(COLORS[1]));
+    COLORS[0] = color(hue1 + amt, saturation(COLORS[0]), brightness(COLORS[0]));
+    COLORS[1] = color(hue2 + amt, saturation(COLORS[1]), brightness(COLORS[1]));
 }
 
 void draw() {
   background(0,0);
-    /*
-  for(int i=0; i < SQUARES_PER_FRAME; i++) {
-    fill(COLORS[round(random(0,COLORS.length-1))]);
-    int x = round(random(0,width)/PIXEL_SIZE) * PIXEL_SIZE;
-    int y = round(random(0,height)/PIXEL_SIZE) * PIXEL_SIZE;
-    rect(x,y,PIXEL_SIZE,PIXEL_SIZE); 
-  }
-  */
   
   for(int i=0; i < gridPixels.size(); i++) {
       int colorIdx = gridPixels.get(i);
@@ -53,7 +42,7 @@ void draw() {
       rect(x*PIXEL_SIZE, y*PIXEL_SIZE, PIXEL_SIZE, PIXEL_SIZE); 
   }
   
-  rotateColors();
+  rotateColors(COLOR_ROTATION_AMT);
   updateGrid();
 }
 
