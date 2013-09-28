@@ -1,10 +1,11 @@
 {
   "locals": {
     "name": "Jesse Fulton",
-    "title": "Jesse Fulton - Artist, Hacker, Programmer",
+    "title": "Jesse Fulton - Creative Technologist",
     "url": "http://jessefulton.com/",
-    "description": "Jesse Fulton - Artist, Programmer, Hacker",
-    "keywords": "net art, .net art, internet art, digital artist, new media, software, technology"
+    "owner": "Jesse Fulton",
+    "description": "Jesse Fulton is a Los Angeles based creative technologist with over ten years of software development experience, as well as having exhibited and performed as an artist.",
+    "keywords": "net art, .net art, internet art, digital artist, new media, software, technology, creative technologist, experiential design, ucsc, danm, digital art, los angeles, LA, research, prototype, consultant, consulting, technologist, programmer, developer, creative coder, creative coding"
   },
   "plugins": [
     "wintersmith-stylus"
