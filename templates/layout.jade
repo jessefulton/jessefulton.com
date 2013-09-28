@@ -21,30 +21,21 @@ head
             = moment().format('Do [of] MMMM, YYYY.')
 
             
-        // link(rel='stylesheet', href='/styles/main.css')
-        //link(rel='stylesheet', href='/styles/foundation.css')
-        //link(rel='stylesheet', href='//cdn.jsdelivr.net/foundation/4.3.1/css/foundation.min.css')
         link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.1/css/foundation.min.css')
         
         //- TODO: remove unused fonts...
         
-        link(rel='stylesheet', type='text/css' href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic|Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic|Quattrocento+Sans:400,400italic,700,700italic')
+        link(rel='stylesheet', type='text/css' href='http://fonts.googleapis.com/css?family=Arvo:400,700,400italic,700italic|Ubuntu:300,400,500,700,300italic,400italic,500italic,700italic|Quattrocento+Sans:400,400italic,700,700italic|Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic')
         
-        link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Josefin+Slab:100,300,400,600,700,100italic,300italic,400italic,600italic,700italic')
-        
-        //script(type="text/javascript", src="/scripts/vendor/custom.modernizr.js")
         script(src="//cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js")
-        //script(src="http://processingjs.org/js/processing.min.js")
         script(src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.1/processing.min.js")
             
         style.
             html, body {
-                font-family: 'Quattrocento Sans', sans-serif;
                 font-family: 'Ubuntu', sans-serif;
-                //font-family: 'Arvo', serif;
-                //font-family: 'Josefin Slab', serif;
                 height: 100%;
             }
+            
             #nav, .breadcrumbs { font-family: 'Josefin Slab', serif; }
             a,
             .side-nav li a {
@@ -53,6 +44,7 @@ head
                 line-height:inherit;
                 font-weight: 700;
             }
+            
             a:hover, a:focus {
                 color: #000;
                 text-decoration: underline;
@@ -63,9 +55,11 @@ head
             h1, h2 {
                 font-family: 'Arvo', serif;
             }
+            
             h3, h4, h5, h6 {
                 font-family: 'Arvo', sans-serif;
             }
+            
             #canvas-container{
                 width:100%;
                 height:100%;
@@ -76,18 +70,18 @@ head
                 right:100%;
                 z-index:-1;
             }
+
             .panel {
                 background-color:rgba(255,255,255,0.7);
                 padding-top:0;
                 padding-bottom:0;
             }
+
             #wrapper {
                 width: 100%;
                 text-align:left;
                 margin-top: 2em;
                 min-height: 100%;
-                //margin-bottom: -24em;
-                //transition: all 1s ease-out;
             }
 
             .side-nav li {
@@ -97,7 +91,6 @@ head
             footer {
                 background-color: #222222;
                 color: #ddd;
-                //height: 24em;
                 margin-top: 8ex;
             }
             
@@ -116,7 +109,6 @@ head
                 padding: .9375em;
                 background-color: rgba(255, 255, 255, 0.75);
                 border: 1px solid #f6f6f6;
-                //border: 1px solid #dcdcdc;
                 -moz-border-radius: 3px;
                 -khtml-border-radius: 3px;
                 -webkit-border-radius: 3px;
@@ -136,24 +128,13 @@ head
             .meta { font-size: 80%; }
             .meta .large-6 dl {
                 background-color: rgba(0,0,0,.1);
+                -moz-border-radius: 5px;
+                -khtml-border-radius: 5px;
                 -webkit-border-radius: 5px;
                 border-radius: 5px;
                 padding: 0.9375em;
             }
             
-            /*
-            .listing .description {
-                white-space: word;
-                overflow:hidden;
-                height: 180px;
-            }
-            
-            .listing .description:after{
-                content:'...';
-            }
-            */
-            
-
             .portfolio .project-preview .thumbnail { text-align: center; }            
 
             .orbit-container .orbit-slides-container img { margin: 0 auto; }
@@ -191,10 +172,10 @@ body(class="#{bodyClass}")
                         li: a(href="/portfolio/tag/mobile/", data-pjax) Mobile
                         li: a(href="/portfolio/tag/research/", data-pjax) Research
                     li.divider
-                    li.show-for-small: a(href="/contact/", data-pjax) Contact
-                    li.show-for-small: a(href="/about/", data-pjax) About
-                    li: a(href="http://www.google.com/recaptcha/mailhide/d?k=01aYxFPWtuAKCOp9PE2ZwnuA==&amp;c=tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8=", onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501aYxFPWtuAKCOp9PE2ZwnuA\75\75\46c\75tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;") Contact
-                    li: a(href="/thesis/", data-pjax="no", title="DANM MFA Thesis") MFA Thesis
+                    li.show-for-small: a(href="#section-about", data-pjax="no") About
+                    li.show-for-small: a(href="#section-contact", data-pjax="no") Contact
+                    li.hide-for-small: a(href="http://www.google.com/recaptcha/mailhide/d?k=01aYxFPWtuAKCOp9PE2ZwnuA==&amp;c=tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8=", onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501aYxFPWtuAKCOp9PE2ZwnuA\75\75\46c\75tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;") Contact
+                    li.hide-for-small: a(href="/thesis/", data-pjax="no", title="DANM MFA Thesis") MFA Thesis
 
     
             #main.large-9.columns
@@ -203,39 +184,41 @@ body(class="#{bodyClass}")
 
         .push
             
-    footer.footer.hide-for-small
+    footer.footer
         .row(style="margin-left:0;")
-            .large-2.columns
+            .large-2.columns.hide-for-small
                 p(style="text-align:right")
                     img(src="/styles/images/name-pixels-com.png", width="126px", height="268px")
-            .large-4.large-offset-1.columns
+            #section-about.large-4.large-offset-1.columns
                 h3 About
                 p.
                     I am a Creative Technologist in the purest sense. I have 10+ years of software development experience as well as having exhibited and performed as an artist. I have a very technical background but apply it to creative pursuits including physical computing, projection, and experiential design.
                 p.
                     Check out my <a href="/media/resume/jessefulton-resume.pdf" data-pjax="no">CV</a> or <a href="http://linkedin.com/in/jessefulton">my profile on LinkedIn</a>. Read my <a href="/thesis/thesis.pdf" data-pjax="no" title="DANM MFA Thesis">thesis</a> from UCSC.
-            .large-4.large-offset-1.columns
+            #section-contact.large-4.large-offset-1.columns
                 .row
-                    h3 Contact
-                    p
-                        | I am currently available and willing to travel for freelance 
-                        | and consulting opportunities. Please visit
-                        | <a href="http://eklekt.com">eklekt.com</a> for more information.
-                        | <a href="http://www.google.com/recaptcha/mailhide/d?k=01aYxFPWtuAKCOp9PE2ZwnuA==&amp;c=tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8=", onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501aYxFPWtuAKCOp9PE2ZwnuA\75\75\46c\75tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;">Email me</a>.
+                    .columns
+                        h3 Contact
+                        p
+                            | I am currently available and willing to travel for freelance 
+                            | and consulting opportunities. Please visit
+                            | <a href="http://eklekt.com">eklekt.com</a> for more information.
+                            | <a href="http://www.google.com/recaptcha/mailhide/d?k=01aYxFPWtuAKCOp9PE2ZwnuA==&amp;c=tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8=", onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501aYxFPWtuAKCOp9PE2ZwnuA\75\75\46c\75tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;">Email me</a>.
 
 
                 .row
-                    h3 Meta
-                    
-                    ul.small-block-grid-8
-                        li: a(href="http://linkedin.com/in/jessefulton"): img(src="/media/images/icons/linkedin.png")
-                        li: a(href="https://github.com/jessefulton"): img(src="https://identicons.github.com/jessefulton.png")
-                        li: a(href="https://delicious.com/jfulton"): img(src="/media/images/icons/delicious.png")
-                        li: a(href="http://instagram.com/theswa"): img(src="/media/images/icons/instagram.png")
-                        li: a(href="https://vimeo.com/jessefulton"): img(src="/media/images/icons/vimeo.png")
-                        li: a(href="http://www.flickr.com/photos/jessefulton"): img(src="/media/images/icons/flickr.png")
-                        li: a(href="https://twitter.com/jessefulton"): img(src="/media/images/icons/twitter.png")
-                        li: a(href="http://blog.jessefulton.com"): img(src="/media/images/icons/tumblr.png")
+                    .columns
+                        h3 Meta
+                        
+                        ul.small-block-grid-8
+                            li: a(href="http://linkedin.com/in/jessefulton"): img(src="/media/images/icons/linkedin.png")
+                            li: a(href="https://github.com/jessefulton"): img(src="https://identicons.github.com/jessefulton.png")
+                            li: a(href="https://delicious.com/jfulton"): img(src="/media/images/icons/delicious.png")
+                            li: a(href="http://instagram.com/theswa"): img(src="/media/images/icons/instagram.png")
+                            li: a(href="https://vimeo.com/jessefulton"): img(src="/media/images/icons/vimeo.png")
+                            li: a(href="http://www.flickr.com/photos/jessefulton"): img(src="/media/images/icons/flickr.png")
+                            li: a(href="https://twitter.com/jessefulton"): img(src="/media/images/icons/twitter.png")
+                            li: a(href="http://blog.jessefulton.com"): img(src="/media/images/icons/tumblr.png")
 
                 
     block scripts
@@ -252,8 +235,10 @@ body(class="#{bodyClass}")
             })();
 
         script(src="//cdnjs.cloudflare.com/ajax/libs/jquery/1.10.2/jquery.min.js")
+        
+        
+        
         script(src="//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.1/js/foundation.min.js")
-
         script.
             $(document).foundation();
             
@@ -278,8 +263,8 @@ body(class="#{bodyClass}")
             })
             
 
-        //script(src="/scripts/vendor/jquery.pjax.js")
         script(src="//cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.7.0/jquery.pjax.min.js")
+
         script.
             $(function() {
                 if ($.support.pjax) {
@@ -318,29 +303,13 @@ body(class="#{bodyClass}")
                         $("#main").fadeIn(250, function() { });
                         $("#main .slideshow-wrapper").foundation("orbit");
                         
+                        //google analytics call on page change
                         if( window._gaq ) {
                             _gaq.push(['_trackPageview', window.location.href]);
                         }
 
                     });
-                    
-                    /*
-                    $(document).on('pjax:timeout', function(event) {
-                        // Prevent default timeout redirection behavior
-                        event.preventDefault();
-                        
-                        console.log("pjax timeout");
-                        return false;
-                    });
-                    
-                    $(document).on('pjax:error', function(event) {
-                        // Prevent default timeout redirection behavior
-                        event.preventDefault();
-                        
-                        console.log("pjax error");
-                        return false;
-                    });
-                    */
+
                 }
             });
             
