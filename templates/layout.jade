@@ -58,9 +58,12 @@ body(class="#{bodyClass}")
 
         .row(style="margin-left:0;")
             #nav.large-3.columns.hide-for-small
+                h1: a(href="/") jessefulton.com
+
                 ul.side-nav
-                    li: a(href="/", data-pjax) Featured
-                    li: a(href="/portfolio/", data-pjax) All
+                    li.divider
+                    li: a(href="/", data-pjax) Featured Work
+                    li: a(href="/portfolio/", data-pjax) All Projects
                     //-
                         li: a(href="/portfolio/tag/digital/", data-pjax) Digital
                         li: a(href="/portfolio/tag/physical/", data-pjax) Physical
@@ -71,9 +74,8 @@ body(class="#{bodyClass}")
                         li: a(href="/portfolio/tag/hardware/", data-pjax) Hardware
                         li: a(href="/portfolio/tag/mobile/", data-pjax) Mobile
                         li: a(href="/portfolio/tag/research/", data-pjax) Research
-                    li.divider
-                    li: a(href="http://www.google.com/recaptcha/mailhide/d?k=01aYxFPWtuAKCOp9PE2ZwnuA==&amp;c=tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8=", onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501aYxFPWtuAKCOp9PE2ZwnuA\75\75\46c\75tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;") Contact
                     li: a(href="/thesis/", data-pjax="no", title="DANM MFA Thesis") MFA Thesis
+                    li: a(href="http://www.google.com/recaptcha/mailhide/d?k=01aYxFPWtuAKCOp9PE2ZwnuA==&amp;c=tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8=", onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501aYxFPWtuAKCOp9PE2ZwnuA\75\75\46c\75tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;") Contact
 
     
             #main.large-9.columns
@@ -145,7 +147,6 @@ body(class="#{bodyClass}")
             $(function() {
 
                 var resizePJS = function() {
-                    console.log("resizing");
                     var pjs = Processing.getInstanceById('static-canvas');
                     if (pjs) {
                         pjs.resizeSketch(window.innerWidth, window.innerHeight);
@@ -161,17 +162,19 @@ body(class="#{bodyClass}")
 
             })
             
-
+        script(src="/scripts/vendor/jquery.mixitup.min.js")
         script(src="//cdnjs.cloudflare.com/ajax/libs/jquery.pjax/1.7.0/jquery.pjax.min.js")
 
         script.
             $(function() {
+ 
+                $('.listing').mixitup();
+     
+            
                 if ($.support.pjax) {
                     var container = $("#main");
 
-                    //$(document).on('click', 'a[data-pjax]', function(evt) {
                     $(document).on('click', 'a', function(evt) {
-                        console.log($(this).attr("href"));
                         if ( $(this).attr("href").toLowerCase().indexOf("http") === 0 
                             || $(this).data("pjax") === "no") {
                             return true;
@@ -189,9 +192,7 @@ body(class="#{bodyClass}")
 
                     $(document).on('pjax:complete', function() {
                         $("#main .slideshow-wrapper").on("orbit:ready", function(evt) {
-                            console.log("orbit ready");
                             var orbit = this;
-                            console.log(arguments);
                             
                             setTimeout(function() { 
                                 $(orbit).find('[data-orbit-slide="1"]').eq(0).click();
@@ -201,7 +202,8 @@ body(class="#{bodyClass}")
 
                         $("#main").fadeIn(250, function() { });
                         $("#main .slideshow-wrapper").foundation("orbit");
-                        
+                        $('.listing').mixitup();
+
                         //google analytics call on page change
                         if( window._gaq ) {
                             _gaq.push(['_trackPageview', window.location.href]);

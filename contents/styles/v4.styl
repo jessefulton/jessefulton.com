@@ -1,115 +1,153 @@
+@import 'nib'
+
 html, body
-  font-family: 'Ubuntu', sans-serif
-  height: 100%
+    font-family 'Ubuntu', sans-serif
+    height 100%
 
 #nav, .breadcrumbs
-  font-family: 'Josefin Slab', serif
+    font-family 'Josefin Slab', serif
+
+#nav
+    margin-top -2em
+
+    h1
+        font-size 100%
+        padding .875em 0
 
 .breadcrumbs > *
-  font-size: 0.95em
+    font-size 0.95em
 
 a,
 .side-nav li a
-  color: #000
-  text-decoration: none
-  line-height: inherit
-  font-weight: 700
+    color #000
+    text-decoration none
+    line-height inherit
+    font-weight 700
 
 a:hover, a:focus
-  color: #000
-  text-decoration: underline
+    color #000
+    text-decoration underline
 
-footer a, footer a:hover
-  color: #2ba6cb
+
 
 h1, h2
-  font-family: 'Arvo', serif
+    font-family 'Arvo', serif
 
 h3, h4, h5, h6
-  font-family: 'Arvo', sans-serif
+    font-family 'Arvo', sans-serif
+
 
 #canvas-container
-  width: 100%
-  height: 100%
-  overflow: hidden
-  position: fixed
-  top: 0
-  left: 0
-  bottom: 100%
-  right: 100%
-  z-index: -1
+    width 100%
+    height 100%
+    overflow hidden
+    position fixed
+    top 0
+    left 0
+    bottom 100%
+    right 100%
+    z-index -1
+
 
 .panel
-  background-color: rgba(255,255,255,0.7)
-  padding-top: 0
-  padding-bottom: 0
+    background-color rgba(255,255,255,0.7)
+    padding-top 0
+    padding-bottom 0
+
 
 #wrapper
-  width: 100%
-  text-align: left
-  margin-top: 2em
-  min-height: 100%
+    width 100%
+    text-align left
+    margin-top 2em
+    min-height 100%
+
 
 .side-nav li
-  font-size: 1.25em
+    font-size 1.25em
 
-footer
-  background-color: #222222
-  color: #ddd
-  margin-top: 8ex
 
 footer, .push
-  clear: both
+    clear both
 
-footer h1, footer h2, footer h3, footer h4
-  color: #ddd
 
-footer p
-  font-family: 'Quattrocento Sans', sans-serif
-  font-size: .9em
-  line-height: 3ex
+footer
+    background-color #222222
+    color #ddd
+    margin-top 8ex
+
+    a, a:hover
+        color #2ba6cb
+
+    h1, h2, h3, h4
+        color #ddd
+
+    p
+        font-family 'Quattrocento Sans', sans-serif
+        font-size .9em
+        line-height 3ex
 
 #main
-  padding: .9375em
-  background-color: rgba(255, 255, 255, 0.75)
-  border: 1px solid #f6f6f6
-  -moz-border-radius: 3px
-  -khtml-border-radius: 3px
-  -webkit-border-radius: 3px
-  border-radius: 3px
+    padding .9375em
+    background-color rgba(255, 255, 255, 0.75)
+    border 1px solid #DADADA
+    border-radius 3px
+
 
 .project-preview
-  margin-top: 2.975em
-  border-top: 1px solid #CCC
+    margin-top 2.975em
+    border-top 1px solid #CCC
+
 
 #main > .row > .columns > div:nth-of-type(2)
 , .project-preview:nth-of-type(1)
-  margin-top: 0
-  border-top: 0
+    margin-top 0
+    border-top 0
+
 
 .meta
-  font-size: 80%
+    font-size 80%
 
-.meta .large-6 dl
-  background-color: rgba(0,0,0,.1)
-  -moz-border-radius: 5px
-  -khtml-border-radius: 5px
-  -webkit-border-radius: 5px
-  border-radius: 5px
-  padding: 0.9375em
+    .large-6 dl
+        background-color rgba(0,0,0,.1)
+        -moz-border-radius 5px
+        -khtml-border-radius 5px
+        -webkit-border-radius 5px
+        border-radius 5px
+        padding 0.9375em
+
 
 .portfolio .project-preview .thumbnail
-  text-align: center
+    text-align center
+
 
 .orbit-container .orbit-slides-container img
-  margin: 0 auto
+    margin 0 auto
+
 
 .visuals
-  padding: 0.9375em
+    padding 0.9375em
+
 
 #media-space
-  text-align: center
+    text-align center
+
 
 .more
-  text-align: right
-
+    text-align right
+    
+.no-js .tag-cloud
+    display none
+    
+.tag-cloud
+    font-size 75%
+    .filter
+        display inline
+        cursor pointer
+        &:hover
+            text-decoration underline
+    .active
+        font-weight 700
+    
+html.js .listing.all .mix
+    display none
+    opacity 0

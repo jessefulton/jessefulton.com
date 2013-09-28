@@ -10,7 +10,6 @@ block localVars
 block content
     include mixins
 
-
     - var projects = _.chain(contents.portfolio._.directories).map(function (item) {
     -         var obj = (item["index.md"] || item["index.json"]);
     -         if (obj && obj.metadata && !obj.metadata.template) {
@@ -30,10 +29,19 @@ block content
     -         var endDate = parseInt(dateStr.split("--")[1], 10) || 0;
     -         return -1 * (startDate + (endDate*.00001));
     -     }).value();
+    - var allTags = _.chain(projects).pluck('metadata').pluck('tags').flatten().value(); //uniq().invoke('sort').value();
+    - //allTags = (_.uniq(_.flatten(allTags)));
+    - var tagCloud = _.chain(allTags).reduce(function(a, v) {
+    -     a[v] = (a[v] || 0) + 1;
+    -     return a;
+    - }, {}).value();
+    - // todo: groupBy keys, sort those groupings alphabetically?
+    - var sortedTags = _.keys(tagCloud).sort();
+
 
 
     .row
-        .columns.listing
+        .columns.listing(class="#{ !page.metadata.tags ? 'all' : ''}")
             .large-12
                 .breadcrumbs
                     span portfolio
@@ -43,7 +51,16 @@ block content
                         - }
                         != tag
 
-                
+            // show the tag cloud if we are on the "all" page only
+            if !page.metadata.tags
+                .large-12.tag-cloud
+                    h3 Search by tag:
+                    p: span.filter.active(data-filter="all") [Show All]
+                    ul
+                        each tag in sortedTags
+                            li.filter(data-filter="#{tag}"): span(data-weight="#{tagCloud[tag]}") #{tag} (#{tagCloud[tag]})
+                        
             each proj in projects
-                .large-12.project-preview
-                    +projectPreview(proj)
+                div(class="mix #{proj.metadata.tags.join(' ')}")
+                    .large-12.project-preview
+                        +projectPreview(proj)
