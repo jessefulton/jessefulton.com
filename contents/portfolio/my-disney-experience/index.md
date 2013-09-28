@@ -14,7 +14,7 @@ thumbnail:
   height: 160px
 ---
 
-FPO BriefDescription
+The first prototype for what would become "My Disney Experience" - the web/mobile based interface for Disney's connected experience for theme park guests.
 
 My last project while working at [Disney Internet Group](http://dimgpressroom.com/) was creating the first prototype for what would become "My Disney Experience" - the web/mobile based interface for customers to manage their MyMagic+ accounts.  
 

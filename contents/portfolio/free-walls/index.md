@@ -24,10 +24,11 @@ images:
     - { width: 536px, height: 356px, src: images/os-2_m.jpg, tiny: images/os-2_t.jpg }
     - { width: 536px, height: 356px, src: images/os-3_m.jpg, tiny: images/os-3_t.jpg }
 
-externalURL: http://www.flickr.com/photos/jessefulton/sets/72157629021647557/
+links:
+    "Photo Gallery": http://www.flickr.com/photos/jessefulton/sets/72157629021647557/
 ---
 
-FPO BriefDescription
+A collaborative research project exploring ideas of what constitutes "public art," who can create it, and how these feelings & beliefs affect our relationship to our communities.
 
 The Free Walls Project was a collaborative effort with Daniel Christopher and Tony Cutrono, exploring ideas of what constitutes "public art," and who can create it.
 

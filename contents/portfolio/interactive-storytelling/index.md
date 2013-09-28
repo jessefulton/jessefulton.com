@@ -13,10 +13,13 @@ thumbnail:
   width: 224px
   height: 150px
 
-externalURL: https://vimeo.com/29676828
+links:
+    "Video (part 1)": https://vimeo.com/29669344
+    "Video (part 2)": https://vimeo.com/29676828
+
 ---
 
-FPO BriefDescription
+Prototype interface for an interactive story. Consisted of a custom-built rear DI table, four unique physical "avatar" pieces, and a custom Processing sketch running the display/interactivity.
 
 As part of the summer research for the [DANM Mechatronics Research Group]("http://danm.ucsc.edu/research/mechatronics/idl2011"), I decided to build an interface for interacting with and communicating the stories of a group of asthmatic children at Johns Hopkins Hospital.
 

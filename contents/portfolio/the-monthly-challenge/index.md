@@ -17,11 +17,12 @@ images:
   - {width: 536px, height: 386px, src: images/tmc-2_m.jpg, tiny: images/tmc-2_t.jpg }
   - {type: image, width: 536px, height: 386px, src: images/tmc-3_m.jpg, tiny: images/tmc-3_t.jpg }
   
-externalURL: http://themonthlychallenge.com/
+links:
+    "TheMonthlyChallenge.com": http://themonthlychallenge.com/
 ---
 
-FPO BriefDescription
+A journal documenting a series of month-long, self-imposed personal challenges with diverse focuses.
 
-The Monthly Challenge was a project designed to help people try new things each month.Participants devised monthly goals to nudge them out of their "comfort zone" and documented their progress in an online community of blogs and journals. The site has been inactive since September 1, 2009.
+The Monthly Challenge was a project designed to help people try new things each month. Participants devised monthly goals to nudge them out of their "comfort zone" and documented their progress in an online community of blogs and journals. The site has been inactive since September 1, 2009.
 
 My personal challenges on the site consisted of many failures, but I believe that is oneof the reasons why it was so successful - friends and strangers have adapted this model to create their own versions of The Monthly Challenge.

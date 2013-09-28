@@ -18,7 +18,6 @@ images:
     - { width: 536px, height: 357px, src: images/m2sv1-glue_m.jpg, tiny: images/m2sv1-glue_t.jpg }
     - { width: 536px, height: 357px, src: images/m2sv1-top-down_m.jpg, tiny: images/m2sv1-top-down_t.jpg }
 
-externalURL: https://vimeo.com/29669344
 ---
 
 FPO BriefDescription

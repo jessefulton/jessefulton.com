@@ -13,12 +13,13 @@ thumbnail:
     width: 224px
     height: 154px
 video: 31821503
+
 links:
     "Photo Gallery": http://www.flickr.com/photos/jessefulton/sets/72157629021647557/
     "Video Gallery": https://vimeo.com/album/2511210
 ---
 
-FPO BriefDescription
+Build a machine and then teach it how to draw.
 
 The Mechatronics Research Group consisted of three students in the Digital Arts + New Media program at the University of California Santa Cruz. We are currently investigating possibilities of various installations concerned with the relationship between air quality and asthma and their socio-political effects.
 

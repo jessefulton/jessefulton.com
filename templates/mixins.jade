@@ -17,7 +17,7 @@ mixin projectPreview(proj)
             - var endOfFirstParagraph = proj.html.indexOf("</p>");
             - var theHtml = proj.html.substr(0, endOfFirstParagraph);
             != typogr(theHtml).typogrify()
-            p.more: a(href="#{proj.url}", data-pjax) (project details...)
+            p.more: a(href="#{proj.url}", data-pjax) project details &#8594;
             
 
 

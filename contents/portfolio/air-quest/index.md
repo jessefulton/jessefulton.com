@@ -15,11 +15,14 @@ image:
     width: 536px
     height: 402px
     src: images/game-map_m.jpg
+    
+links:
+    "Project Page": http://socialappslab.com/airquest/
 ---
 
-FPO BriefDescription
+*Air Quest* is an iOS game developed in Unity3D at the UC Berkeley Social Apps Lab. It consists of six "mini-game" style levels connected by a storyline focused on actions being taken to improve and address worsening global air quality conditions.
 
-[Air Quest](http://socialappslab.com/airquest/) is an iOS game being developed by the UC Berkeley [Social Apps Lab](http://socialappslab.com/) to educate players about global air quality conditions in order to encourage civic action.
+*[Air Quest](http://socialappslab.com/airquest/)* is an iOS game being developed by the UC Berkeley [Social Apps Lab](http://socialappslab.com/) to educate players about global air quality conditions in order to encourage civic action.
 
 Gameplay focuses on a young man named Keane living near Fresno, California - an area having some of the worst air quality in the US - who uncovers a series of pollution sources and ways to address those and change public policy in order to improve the local air quality.
 

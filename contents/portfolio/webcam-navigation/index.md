@@ -14,10 +14,11 @@ thumbnail:
   width: 224px
   height: 160px
 
-externalURL: http://projects.jessefulton.com/playground/camera-based-navigation.html
+links:
+    "Demo": http://projects.jessefulton.com/playground/camera-based-navigation.html
 ---
 
-FPO BriefDescription
+Proof-of-concept demonstration of web page navigation via webcam.
 
 This was a proof-of-concept to show that web page navigation may be accomplished through the use of a copmuter's built-in web camera.
   
