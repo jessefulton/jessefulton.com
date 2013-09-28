@@ -31,7 +31,7 @@ block content
     -     }).value();
     - var allTags = _.chain(projects).pluck('metadata').pluck('tags').flatten().value(); //uniq().invoke('sort').value();
     - //allTags = (_.uniq(_.flatten(allTags)));
-    - var tagCloud = _.chain(allTags).reduce(function(a, v) {
+    - var tagCloud = _.chain(_.without(allTags, "featured")).reduce(function(a, v) {
     -     a[v] = (a[v] || 0) + 1;
     -     return a;
     - }, {}).value();

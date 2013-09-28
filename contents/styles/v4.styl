@@ -141,12 +141,15 @@ footer
 .tag-cloud
     font-size 75%
     .filter
-        display inline
+        display inline-block
+        margin-right 1em
         cursor pointer
         &:hover
             text-decoration underline
     .active
         font-weight 700
+    ul
+        text-align center
     
 html.js .listing.all .mix
     display none
