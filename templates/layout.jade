@@ -168,7 +168,17 @@ body(class="#{bodyClass}")
         script.
             $(function() {
  
-                $('.listing').mixitup();
+                $('.listing').mixitup({
+                    effects: ['scale',], //'fade','blur'],
+                    listEffects: null,
+                    easing: 'snap', //'windback',
+                    layoutMode: 'list',
+                    targetDisplayGrid: 'inline-block',
+                    targetDisplayList: 'block',
+                    gridClass: '',
+                    listClass: '',
+                    transitionSpeed: 1000,
+                });
      
                 // close the dropdown when content inside is clicked
                 $(document).on('click', '.f-dropdown', function(){
