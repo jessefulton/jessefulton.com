@@ -8,6 +8,9 @@
       "name": "Jesse Fulton"
     } 
   ],
+  "scripts": {
+    "postinstall": "./node_modules/wintersmith/bin/wintersmith build --output ./build"
+  },
   "dependencies": {
     "underscore": "~1.5.1",
     "wintersmith-stylus": "~0.4.0",
