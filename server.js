@@ -1,4 +1,6 @@
-var newrelic = require('newrelic');
+if (process.env.NODE_ENV == 'production') {
+	require('newrelic');
+}
 
 var connect = require('connect'),
     http = require('http');
