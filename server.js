@@ -6,6 +6,15 @@ var port = process.env.PORT || 3000;
 var oneDay = 86400000;
 
 connect()
+	.use(function(req, res, next) {
+		if (req.headers.host === 'www.jessefulton.com') {
+			res.writeHead(301, {'Location': 'jessefulton.com/' + req.url}); 
+			return res.end();
+		}
+		else {
+			return next();
+		}
+	})
     .use(connect.static(__dirname + '/build'))
     .listen(port);
 
