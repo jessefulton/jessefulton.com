@@ -9,6 +9,7 @@
     }
   ],
   "scripts": {
+    "dev": "./node_modules/wintersmith/bin/wintersmith preview",
     "postinstall": "./node_modules/wintersmith/bin/wintersmith build --output ./build"
   },
   "dependencies": {
