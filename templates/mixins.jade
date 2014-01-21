@@ -31,10 +31,14 @@ mixin projectHeader()
 
 
 mixin projectMedia()
-    if page.metadata.video
+    if page.metadata.video && page.metadata.video.youtube
         .visuals
             #media-space.flex-video
-                iframe(src="http://player.vimeo.com/video/" + page.metadata.video, width="500", height="413", frameborder="0", webkitAllowFullScreen, mozallowfullscreen, allowFullScreen)
+                iframe(src="//www.youtube.com/embed/" + page.metadata.video.youtube, width="560", height="315", frameborder="0", webkitAllowFullScreen, mozallowfullscreen, allowFullScreen)
+    else if page.metadata.video
+        .visuals
+            #media-space.flex-video
+                iframe(src="//player.vimeo.com/video/" + page.metadata.video, width="500", height="413", frameborder="0", webkitAllowFullScreen, mozallowfullscreen, allowFullScreen)
     else
         - var firstImage = page.metadata.image || (page.metadata.images ? page.metadata.images[0]: null);
         if firstImage

@@ -1,8 +1,8 @@
 colorMode(HSB, 360, 100.0, 100.0, 1.0);
 
-int PIXEL_SIZE = 80;
-int SQUARES_PER_FRAME = 2;
-int COLOR_ROTATION_AMT = 2;
+int PIXEL_SIZE = 40;
+int SQUARES_PER_FRAME = 8;
+int COLOR_ROTATION_AMT = 4;
 
 color[] COLORS = [
     color(0,10,100), // primary 1

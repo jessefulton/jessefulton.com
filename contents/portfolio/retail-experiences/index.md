@@ -12,11 +12,14 @@ thumbnail:
   src: images/portland.png
   width: 224px
   height: 157px
+
+video:
+    youtube: lsI0RUqKFsw
 ---
 
 Pilot touchsceen experience that allowed customers in-store customization of shoes in 15-20 minutes, and purchase via mobile POS.
 
-I lead the technology team in the design and installation of a retail experience for a system used to help create custom-designed shoes in 15 minutes at a sporting goods store in Portland, Oregon.
+I led the technology team in the design and installation of a retail experience for a system used to help create custom-designed shoes in 15 minutes at a sporting goods store in Portland, Oregon.
 
 We delivered a full experience which allowed customers to digitally design, purchase, and leave the store with customized sneakers in less than 30 minutes.  Deliverables included a Cinder/c++ touchscreen application, a node.js/mongodb API integrated with many external services, an <abbr title="Front of House">FOH</abbr>/<abbr title="Back of House">BOH</abbr> iOS application used by store employees, as well as the networking and physical installation of the project.
 
