@@ -4,6 +4,9 @@
 
 head
     block head
+        - var generated = moment().format('Do [of] MMMM, YYYY.');
+        <!-- Site last generated on the #{generated} -->
+
         meta(charset='utf-8')
         meta(name="description", content=locals.description)
         meta(name="keywords", content=locals.keywords)
@@ -15,13 +18,7 @@ head
                 = locals.title
 
         link(rel="icon", type="image/x-icon", href="/favicon.ico")
-        
-       
-        // 
-            | Site last generated on the 
-            = moment().format('Do [of] MMMM, YYYY.')
-
-            
+                    
         link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/foundation/4.3.1/css/foundation.min.css')
         link(rel='stylesheet', href='/styles/v4.css')
 
@@ -100,7 +97,7 @@ body(class="#{bodyClass}")
                     .columns
                         h3 Contact
                         p
-                            | I bring awesome to <a href="http://eyegroove.com">Eyegroove</a>,
+                            | I make the awesome at <a href="http://www.juxt.com">JUXT</a>,
                             | work with artists &amp; technologists at <a href="http://codame.com">CODAME</a>,
                             | and freelance at <a href="http://eklekt.com">eklekt.com</a>. For more information,
                             | check out my <a href="/media/resume/jessefulton-resume.pdf" data-pjax="no">r&eacute;sum&eacute;</a>, my <a href="http://linkedin.com/in/jessefulton">LinkedIn profile</a>, or 
