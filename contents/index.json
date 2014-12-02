@@ -1,6 +1,0 @@
-{
-  "template": "portfolio.jade",
-  "bodyClass": "portfolio featured homepage",
-  "title": "Featured Work",
-  "tags": ["featured"]
-}

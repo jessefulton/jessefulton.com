@@ -1,8 +1,30 @@
 extends layout
 
 block content
-    .content
-        h1 #{page.metadata.title}
+    //- .row
+    //-     .large-12.column.profile
+    //-         img(src="#{page.metadata.image.src}", style="width:100%;height:100%", width="100%", height="100%")
 
-        .intro.notice
-            != typogr(page.html).typogrify()
+    .row
+        //- .large-12.column.content(style="position:absolute;top:0;left:0;bottom:0;right:0")
+        .large-12.column.content(style="position:relative;min-height:100%")
+            h1 #{page.metadata.title}
+            h2 #{page.metadata.caption}
+            //- .intro.notice(style="position:relative;padding-bottom:100px")
+            .intro.notice
+                != typogr(page.html).typogrify()
+
+    .row
+        //- .medium-12.large-9.column(style="position:fixed;bottom:0;background-color:#FFF;max-height:100px")
+        .large-12.column
+            .bottom
+                hr
+                ul.small-block-grid-8
+                    li: a(href="http://linkedin.com/in/jessefulton"): img(src="/media/images/icons/linkedin.png")
+                    li: a(href="https://github.com/jessefulton"): img(src="https://identicons.github.com/jessefulton.png")
+                    li: a(href="https://delicious.com/jfulton"): img(src="/media/images/icons/delicious.png")
+                    li: a(href="http://instagram.com/theswa"): img(src="/media/images/icons/instagram.png")
+                    li: a(href="https://vimeo.com/jessefulton"): img(src="/media/images/icons/vimeo.png")
+                    li: a(href="http://www.flickr.com/photos/jessefulton"): img(src="/media/images/icons/flickr.png")
+                    li: a(href="https://twitter.com/jessefulton"): img(src="/media/images/icons/twitter.png")
+                    li: a(href="http://blog.jessefulton.com"): img(src="/media/images/icons/tumblr.png")

@@ -2,96 +2,98 @@ mixin btn(text, href)
   a.btn.btn-primary(href="#{href}")= text
 
 mixin projectPreview(proj)
-    .row
         -var thumb = proj.metadata.thumbnail
-        .large-12.columns
-            h2: a(href="#{proj.url}", data-pjax)
-                != proj.title.replace('<br/>', '')
-        .thumbnail.large-4.columns: a(href="#{proj.url}")
+        .thumbnail.large-12: a(href="#{proj.url}")
             if thumb
                 - var thumbSrc = (thumb.src.substring(0,4) == "http") ?  thumb.src : (proj.url + thumb.src);
-                    img(src=thumbSrc, title=proj.metadata.title, alt=proj.metadata.title, width=thumb.width, height=thumb.height)
+                    img(src=thumbSrc, title=proj.metadata.title, alt=proj.metadata.title)
             else
                 img(src="/media/images/na.png", title=proj.metadata.title, alt=proj.metadata.title, width="224px", height="160px")
-        .description.large-8.columns
-            - var endOfFirstParagraph = proj.html.indexOf("</p>");
-            - var theHtml = proj.html.substr(0, endOfFirstParagraph);
-            != typogr(theHtml).typogrify()
-            p.more: a(href="#{proj.url}", data-pjax) project details &#8594;
             
 
 
 mixin projectHeader()
-    header(id="title")
-        h2 #{page.metadata.title} 
-            if page.metadata.date
-            span.date (!{typogr(page.metadata.date.toString()).typogrify()})
-        if page.metadata.collaborators
-            .collaborators !{typogr(page.metadata.collaborators).typogrify()}
+    .row
+        .large-12.column
+            header(id="title")
+                h2 #{page.metadata.title} 
+                if page.metadata.date || page.metadata.collaborators
+                    .metadata
+                    //- if page.metadata.collaborators
+                    //-     .collaborators !{typogr(page.metadata.collaborators).typogrify()}
+                    if page.metadata.date
+                        .date (!{typogr(page.metadata.date.toString()).typogrify()})
 
 
 mixin projectMedia()
-    if page.metadata.video && page.metadata.video.youtube
-        .visuals
-            #media-space.flex-video
-                iframe(src="//www.youtube.com/embed/" + page.metadata.video.youtube, width="560", height="315", frameborder="0", webkitAllowFullScreen, mozallowfullscreen, allowFullScreen)
-    else if page.metadata.video
-        .visuals
-            #media-space.flex-video
-                iframe(src="//player.vimeo.com/video/" + page.metadata.video, width="500", height="413", frameborder="0", webkitAllowFullScreen, mozallowfullscreen, allowFullScreen)
-    else
-        - var firstImage = page.metadata.image || (page.metadata.images ? page.metadata.images[0]: null);
-        if firstImage
-            .visuals
-                #media-space
-                    if page.metadata.images
-                        .slideshow-wrapper
-                            .preloader
-                            ul(data-orbit)               
-                                each image in page.metadata.images
-                                    li
-                                        img(src="#{page.url + image.src}")
-                                        if image.caption
-                                            .orbit-caption #{image.caption}
-                    else
-                        img(src="#{page.url + firstImage.src}")
-                        
-                            
+    .row
+        .large-10.small-centered.column
+            if page.metadata.video && page.metadata.video.youtube
+                .visuals
+                    #media-space.flex-video
+                        iframe(src="//www.youtube.com/embed/" + page.metadata.video.youtube, width="560", height="315", frameborder="0", webkitAllowFullScreen, mozallowfullscreen, allowFullScreen)
+            else if page.metadata.video
+                .visuals
+                    #media-space.flex-video
+                        iframe(src="//player.vimeo.com/video/" + page.metadata.video, width="500", height="413", frameborder="0", webkitAllowFullScreen, mozallowfullscreen, allowFullScreen)
+            else
+                - var firstImage = page.metadata.image || (page.metadata.images ? page.metadata.images[0]: null);
+                if firstImage
+                    .visuals
+                        #media-space
+                            if page.metadata.images
+                                .slideshow-wrapper
+                                    .preloader
+                                    ul(data-orbit)               
+                                        each image in page.metadata.images
+                                            li
+                                                img(src="#{page.url + image.src}")
+                                                if image.caption
+                                                    .orbit-caption #{image.caption}
+                            else
+                                img(src="#{page.url + firstImage.src}")
+                                
+                                    
 
 
 
 mixin projectDescription()
-    .item-content-wrapper.no-role.no-importance
-        .item-content.description
-            - var endOfFirstParagraph = page.html.indexOf("</p>");
-            - var theHtml = page.html.substr(endOfFirstParagraph, page.html.length-1);
-            != typogr(theHtml).typogrify()
-    .meta.row
-        //-
-            if page.metadata.externalURL
-                .large-6.columns
-                    dl
-                        dt URL
-                        dd(style="overflow-wrap:break-word;")
-                            a(href="#{page.metadata.externalURL}", style="overflow-wrap: break-word;") !{typogr(page.metadata.externalURL).typogrify()}
+    if page.metadata.collaborators
+        .row
+            .large-10.small-centered.column.collaborators !{typogr(page.metadata.collaborators).typogrify()}
+    .row
+        .large-10.small-centered.column
+            .item-content-wrapper.no-role.no-importance
+                .item-content.description
+                    - var endOfFirstParagraph = page.html.indexOf("</p>");
+                    - var theHtml = page.html.substr(endOfFirstParagraph, page.html.length-1);
+                    != typogr(theHtml).typogrify()
+            .meta.row
+                //-
+                    if page.metadata.externalURL
+                        .large-6.columns
+                            dl
+                                dt URL
+                                dd(style="overflow-wrap:break-word;")
+                                    a(href="#{page.metadata.externalURL}", style="overflow-wrap: break-word;") !{typogr(page.metadata.externalURL).typogrify()}
 
-        if page.metadata.links
-            .large-6.columns
-                dl
-                    dt External Links
-                    dd(style="overflow-wrap:break-word;")
-                        ul(style="list-style-position: inside;")                        
-                            each url, txt in page.metadata.links
-                                li: a(href="#{url}", style="overflow-wrap: break-word;") !{typogr(txt).typogrify()}
+                if page.metadata.links
+                    .large-6.columns
+                        dl
+                            dt External Links
+                            dd(style="overflow-wrap:break-word;")
+                                ul(style="list-style-position: inside;")                        
+                                    each url, txt in page.metadata.links
+                                        li: a(href="#{url}", style="overflow-wrap: break-word;") !{typogr(txt).typogrify()}
 
-        if related && related.length
-            .large-6.columns
-                dl
-                    dt Related Projects
-                    dd
-                        ul(style="list-style-position: inside;")
-                            each relatedProject in related
-                                li: a(href="#{relatedProject.url}") #{relatedProject.metadata.title}
+                if related && related.length
+                    .large-6.columns
+                        dl
+                            dt Related Projects
+                            dd
+                                ul(style="list-style-position: inside;")
+                                    each relatedProject in related
+                                        li: a(href="#{relatedProject.url}") #{relatedProject.metadata.title}
 
 
 

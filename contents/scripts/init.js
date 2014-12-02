@@ -24,28 +24,28 @@ $(function() {
 });
 
 
-// Processing
-// -----------
-// 
-// When window is resized, adjust & reload the processing sketch
-$(function() {
+// // Processing
+// // -----------
+// // 
+// // When window is resized, adjust & reload the processing sketch
+// $(function() {
 
-    var resizePJS = function() {
-        var pjs = Processing.getInstanceById('static-canvas');
-        if (pjs) {
-            pjs.resizeSketch(window.innerWidth, window.innerHeight);
-        }
-    };
+//     var resizePJS = function() {
+//         var pjs = Processing.getInstanceById('static-canvas');
+//         if (pjs) {
+//             pjs.resizeSketch(window.innerWidth, window.innerHeight);
+//         }
+//     };
     
-    if (typeof(window.orientation) === "undefined" ) {
-        $(window).resize(resizePJS);
-    }
-    // iOS Safari is firing resize on scroll, so disable redraw/size adjust...
-    else {
-        //$(window).on("onorientationchange", resizePJS);
-    }
+//     if (typeof(window.orientation) === "undefined" ) {
+//         $(window).resize(resizePJS);
+//     }
+//     // iOS Safari is firing resize on scroll, so disable redraw/size adjust...
+//     else {
+//         //$(window).on("onorientationchange", resizePJS);
+//     }
 
-})
+// })
 
 // Mixitup jQuery plugin
 // ---------------------

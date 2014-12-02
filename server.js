@@ -9,7 +9,7 @@ var oneDay = 86400000;
 
 connect()
 	.use(function(req, res, next) {
-		if (req.headers.host === 'www.jessefulton.com') {
+		if (req.headers.host !== 'jessefulton.com') {
 			res.writeHead(301, {'Location': 'http://jessefulton.com' + req.url}); 
 			return res.end();
 		}
