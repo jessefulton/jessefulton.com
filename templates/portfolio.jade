@@ -22,7 +22,7 @@ block content
     -             var overlap = _.intersection(page.metadata.tags, item.metadata.tags);
     -             return !!overlap.length;
     -         }
-    -         return true;
+    -         return !item.metadata.unlisted;
     -     }).sortBy(function (descr) {
     -         var dateStr = descr.metadata.date.toString();
     -         var startDate = parseInt(dateStr.split("--")[0], 10);
@@ -41,8 +41,11 @@ block content
 
 
     .row
-        .columns.listing(class="#{ !page.metadata.tags ? 'all' : ''}")
-            .large-12
+        .large-12.column
+            h2 Work
+    .row
+        .large-12.columns.listing(class="#{ !page.metadata.tags ? 'all' : ''}")
+            //- .large-12
                 .breadcrumbs
                     span portfolio
                         - var tag = "";
@@ -52,7 +55,7 @@ block content
                         != tag
 
             // show the tag cloud if we are on the "all" page only
-            if !page.metadata.tags
+            //- if !page.metadata.tags
                 .large-12.tag-cloud
                     h3: a.tiny.button.secondary(href="javascript:void(0)", data-dropdown="tagdrop", data-pjax="no", data-options="is_hover:true") Filter Projects
                     #tagdrop.f-dropdown.content.medium(data-dropdown-content)
@@ -61,7 +64,7 @@ block content
                             each tag in sortedTags
                                 li.filter(data-filter="#{tag}"): span(data-weight="#{tagCloud[tag]}") #{tag} (#{tagCloud[tag]})
                         
-            each proj in projects
-                div(class="mix #{proj.metadata.tags.join(' ')}")
-                    .large-12.project-preview
+            for proj, i in projects
+                - var isLast = (i === (projects.length -1)) ? "end" : "";
+                div.large-4.medium-4.small-6.project-preview.columns(class="mix #{proj.metadata.tags.join(' ')} #{isLast}")
                         +projectPreview(proj)

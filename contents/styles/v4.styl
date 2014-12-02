@@ -1,24 +1,40 @@
 @import 'nib'
 
 html, body
-    font-family 'Ubuntu', sans-serif
+    // font-family 'Roboto Slab', serif
+    // font-weight 100
+    font-family Georgia, 'Times New Roman', serif
+    // font-family 'Ubuntu', sans-serif
     height 100%
+p
+    font-size 1.125em
+    line-height 1.575em
 
-#nav, .breadcrumbs
-    font-family 'Josefin Slab', serif
+
+ul
+    list-style-type square
+    list-style-position inside
+    
+#nav, .breadcrumbs, .metadata
+    // font-family 'Roboto Slab', serif
+    // font-weight 700
+    font-family 'Muli', sans-serif
 
 #nav
-    margin-top -2em
+    // margin-top -2em
+    position fixed
 
     h1
         font-size 100%
         padding .875em 0
-
+        a
+            color #00204A    
 .breadcrumbs > *
     font-size 0.95em
 
 a,
 .side-nav li a
+    // color #00204A
     color #000
     text-decoration none
     line-height inherit
@@ -31,11 +47,34 @@ a:hover, a:focus
 
 
 h1, h2
-    font-family 'Arvo', serif
+    // font-family Futura, 'Muli', sans-serif
+    font-family 'Muli', sans-serif
+    // font-weight 400
+    text-transform uppercase
+
+    // color #00204A
+    // a
+    //     color #00204A
 
 h3, h4, h5, h6
-    font-family 'Arvo', sans-serif
+    font-family 'Muli', sans-serif
+    // font-weight 400
+    // font-family Futura, 'Muli', sans-serif
 
+    // color #00204A
+    // a
+    //     color #00204A
+
+// @media screen and (min-width: 600px)
+
+// small screens only
+// @media only screen and (max-width: 460px)
+
+// medium screens only
+@media only screen and (max-width: 768px)
+    #wrapper
+        h1, h2, h3, h4, h5, h6, .metadata.date
+            text-align center
 
 #canvas-container
     width 100%
@@ -58,7 +97,7 @@ h3, h4, h5, h6
 #wrapper
     width 100%
     text-align left
-    margin-top 2em
+    // margin-top 2em
     min-height 100%
 
 
@@ -66,58 +105,158 @@ h3, h4, h5, h6
     font-size 1.25em
 
 
-footer, .push
-    clear both
+// footer, .push
+//     clear both
 
 
-footer
-    background-color #222222
-    color #ddd
-    margin-top 8ex
+// footer
+//     background-color #222222
+//     color #ddd
+//     margin-top 8ex
 
-    a, a:hover
-        color #2ba6cb
+//     a, a:hover
+//         color #2ba6cb
 
-    h1, h2, h3, h4
-        color #ddd
+//     h1, h2, h3, h4
+//         color #ddd
 
-    p
-        font-family 'Quattrocento Sans', sans-serif
-        font-size .9em
-        line-height 3ex
+//     p
+//         font-family 'Quattrocento Sans', sans-serif
+//         font-size .9em
+//         line-height 3ex
 
 #main
-    padding .9375em
+    padding 0 .9375em .9375em .9375em
     background-color rgba(255, 255, 255, 0.75)
-    border 1px solid #DADADA
-    border-radius 3px
+    // border 1px solid #DADADA
+    // border-radius 3px
 
 
 .project-preview
     margin-top 2.975em
-    border-top 1px solid #CCC
+    // border-top 1px solid #CCC
+    min-height 150px
+    position relative
+    // padding-bottom 33.3333333%
+    
+
+    // small screens only
+    @media only screen and (max-width: 460px)
+        min-height 100px
+        margin-top 2em
 
 
-#main > .row > .columns > div:nth-of-type(2)
-, .project-preview:nth-of-type(1)
-    margin-top 0
-    border-top 0
+// #main > .row > .columns > div:nth-of-type(2)
+// .project-preview:nth-of-type(1)
+// .project-preview:nth-of-type(2)
+// .project-preview:nth-of-type(3)
+//     margin-top 0
+//     border-top 0
+ 
+@media only screen and (min-width: 768px)
+    .metadata
+        margin-top -1.6875em
+        margin-bottom 1.6875em
 
+@media only screen and (max-width: 768px)
+    .metadata
+        margin-top -1em
+        margin-bottom 1em
+
+
+    // .item-content-wrapper p
+    //     text-align justify
+    //     line-break loose
+    //     hyphens auto
+
+.collaborators
+    font-family 'Muli', sans-serif
+    font-variant small-caps
+    letter-spacing normal
+    font-weight 300
+    margin 1em 0 0 0 
 
 .meta
     font-size 80%
+    font-family 'Muli', sans-serif
+    font-weight 300
+    letter-spacing -0.1em
+    color #666
+    
+    a
+        color #666
+    
+    dt
+        font-family 'Muli', sans-serif
+        font-variant small-caps
+        font-size 120%
+        letter-spacing normal
+        font-weight 300
+        // font-family 'Roboto Slab', serif
+        // font-weight 700
+        // letter-spacing normal
+        // border-top solid 1px
 
     .large-6 dl
-        background-color rgba(0,0,0,.1)
-        -moz-border-radius 5px
-        -khtml-border-radius 5px
-        -webkit-border-radius 5px
-        border-radius 5px
-        padding 0.9375em
+        // background-color rgba(0,0,0,.1)
+        // -moz-border-radius 5px
+        // -khtml-border-radius 5px
+        // -webkit-border-radius 5px
+        // border-radius 5px
+        padding 0.9375em 0 0 0
 
 
-.portfolio .project-preview .thumbnail
+.project-preview .thumbnail
     text-align center
+    position relative
+    width 100%
+    height 100%
+    // overflow hidden
+    padding-bottom 100%
+    
+    // img
+    //     position absolute
+    //     min-height 100%
+    //     width auto
+    a
+        width 100%
+        height 100%
+        display block
+        background-size cover
+        background-position center
+        background-repeat no-repeat
+        position absolute
+        overflow hidden
+        
+        span
+            display block
+            position relative
+            top 100%
+            width 100%
+            height 100%
+            opacity 0
+            transition opacity 0.25s linear, top 0.2s linear
+            background-color rgba(0,0,0,0.8)
+            color #EED
+            text-overflow ellipsis
+            font-family 'Muli', sans-serif
+            // font-weight 400
+            text-transform uppercase
+            line-height 4ex
+            padding-top 25%
+            padding 25% 1em 0 1em
+
+
+            // display: table-cell; 
+            // vertical-align: middle; 
+            // text-align: center;
+
+        @media only screen and (min-width: 461px)
+
+            &:hover span
+                opacity 1
+                top 0px
+        
 
 
 .orbit-container .orbit-slides-container img
@@ -125,13 +264,34 @@ footer
 
 
 .visuals
+    padding 0.9375em 0 0 0
+
+.profile
     padding 0.9375em
-
-
+    
 #media-space
     text-align center
 
+.back
+    @media only screen and (min-width: 768px)
+        position fixed
+        left 0
+        top 3em
+        font-size 90%
+    a
+        font-family 'Muli', sans-serif
+        font-weight 300
+        text-transform uppercase
+        
+        &::before
+            content '< '
 
+    @media only screen and (max-width: 768px)
+        margin-top 1em
+
+.listing
+    margin-top -2em
+    
 .more
     text-align right
     
@@ -154,3 +314,45 @@ footer
 html.js .listing.all .mix
     display none
     opacity 0
+    
+
+
+// foundation orbit overrides
+.orbit-slide-number
+.orbit-timer
+.orbit-bullets
+    display none
+    
+
+
+.orbit-next
+.orbit-prev
+    opacity 0
+    transition opacity 0.25s ease-out
+
+.orbit-container:hover
+    .orbit-next
+    .orbit-prev
+        opacity 1.0
+        
+.flex-video
+    margin-bottom 0
+    
+
+
+nav.top-bar
+    transition top .4s linear
+    top 0
+    
+body.home nav.top-bar
+    top -50px
+
+
+// body
+//     #main
+//         opacity 1
+//         transition opacity 1s linear
+//     &.loading
+//         #main
+//             opacity 0
+//         

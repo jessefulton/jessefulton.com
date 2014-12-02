@@ -24,28 +24,28 @@ $(function() {
 });
 
 
-// Processing
-// -----------
-// 
-// When window is resized, adjust & reload the processing sketch
-$(function() {
+// // Processing
+// // -----------
+// // 
+// // When window is resized, adjust & reload the processing sketch
+// $(function() {
 
-    var resizePJS = function() {
-        var pjs = Processing.getInstanceById('static-canvas');
-        if (pjs) {
-            pjs.resizeSketch(window.innerWidth, window.innerHeight);
-        }
-    };
+//     var resizePJS = function() {
+//         var pjs = Processing.getInstanceById('static-canvas');
+//         if (pjs) {
+//             pjs.resizeSketch(window.innerWidth, window.innerHeight);
+//         }
+//     };
     
-    if (typeof(window.orientation) === "undefined" ) {
-        $(window).resize(resizePJS);
-    }
-    // iOS Safari is firing resize on scroll, so disable redraw/size adjust...
-    else {
-        //$(window).on("onorientationchange", resizePJS);
-    }
+//     if (typeof(window.orientation) === "undefined" ) {
+//         $(window).resize(resizePJS);
+//     }
+//     // iOS Safari is firing resize on scroll, so disable redraw/size adjust...
+//     else {
+//         //$(window).on("onorientationchange", resizePJS);
+//     }
 
-})
+// })
 
 // Mixitup jQuery plugin
 // ---------------------
@@ -97,7 +97,7 @@ $(function() {
 
         });
 
-        $(document).on('pjax:complete', function() {
+        $(document).on('pjax:complete', function(evt, xhr, status, data) {
             $("#main .slideshow-wrapper").on("orbit:ready", function(evt) {
                 var orbit = this;
                 
@@ -106,6 +106,20 @@ $(function() {
                     //orbit.compute_dimensions();
                 }, 350);
             });
+
+            console.log(data);
+            if (data.url.match(/\/portfolio\/$/)) {
+                $("body").attr("class", "portfolio");
+            }
+            else if (data.url.match(/\/portfolio\/.+$/)) {
+                $("body").attr("class", "project");
+            }
+            else {
+                $("body").attr("class", "home");   
+            }
+
+            // console.log("BODY CLASS:" + document.getElementById("main").getAttribute("data-body-class"));
+            //$("#main").attr('data-body-class'));
 
             $("#main").fadeIn(250, function() { });
             $("#main .slideshow-wrapper").foundation("orbit");

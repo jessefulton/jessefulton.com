@@ -6,6 +6,7 @@ date: 2012
 collaborators: "@ Huge (Los Angeles, CA)"
 
 tags: [hardware, software, interfaces, freelance]
+unlisted: true
 ---
 
 Creating rich user interfaces and incredible experiences on limited hardware.
