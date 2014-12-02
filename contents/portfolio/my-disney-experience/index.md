@@ -3,7 +3,7 @@ title: My Disney Experience
 id: my-disney-experience
 template: project.jade
 date: 2009
-collaborators: "@ Walt Disney Parks & Resorts Online (Glendale, CA)"
+collaborators: "@ Walt Disney Parks Resorts"
 
 tags: [ featured, physical, touchscreen, interfaces, prototype, software, multi-device, connected-experiences ]
 

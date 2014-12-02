@@ -22,7 +22,7 @@ block content
     -             var overlap = _.intersection(page.metadata.tags, item.metadata.tags);
     -             return !!overlap.length;
     -         }
-    -         return true;
+    -         return !item.metadata.unlisted;
     -     }).sortBy(function (descr) {
     -         var dateStr = descr.metadata.date.toString();
     -         var startDate = parseInt(dateStr.split("--")[0], 10);

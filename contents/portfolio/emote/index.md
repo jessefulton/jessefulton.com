@@ -6,6 +6,8 @@ date: 2009
 
 tags: [web, api, sentiment-analysis]
 
+unlisted: true
+
 links:
     "EmotiveText.com": http://www.emotivetext.com/
     "EmotiveText.com on Github": https://github.com/jessefulton/emotivetext.com

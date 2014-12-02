@@ -72,8 +72,9 @@ h3, h4, h5, h6
 
 // medium screens only
 @media only screen and (max-width: 768px)
-    h1, h2, h3, h4, h5, h6
-        text-align center
+    #wrapper
+        h1, h2, h3, h4, h5, h6, .metadata.date
+            text-align center
 
 #canvas-container
     width 100%
@@ -104,25 +105,25 @@ h3, h4, h5, h6
     font-size 1.25em
 
 
-footer, .push
-    clear both
+// footer, .push
+//     clear both
 
 
-footer
-    background-color #222222
-    color #ddd
-    margin-top 8ex
+// footer
+//     background-color #222222
+//     color #ddd
+//     margin-top 8ex
 
-    a, a:hover
-        color #2ba6cb
+//     a, a:hover
+//         color #2ba6cb
 
-    h1, h2, h3, h4
-        color #ddd
+//     h1, h2, h3, h4
+//         color #ddd
 
-    p
-        font-family 'Quattrocento Sans', sans-serif
-        font-size .9em
-        line-height 3ex
+//     p
+//         font-family 'Quattrocento Sans', sans-serif
+//         font-size .9em
+//         line-height 3ex
 
 #main
     padding 0 .9375em .9375em .9375em
@@ -134,13 +135,14 @@ footer
 .project-preview
     margin-top 2.975em
     // border-top 1px solid #CCC
-    height 150px
+    min-height 150px
     position relative
+    // padding-bottom 33.3333333%
     
 
     // small screens only
     @media only screen and (max-width: 460px)
-        height 100px
+        min-height 100px
         margin-top 2em
 
 
@@ -151,9 +153,21 @@ footer
 //     margin-top 0
 //     border-top 0
  
-.metadata
-    margin-top -3ex
-    margin-bottom 1ex
+@media only screen and (min-width: 768px)
+    .metadata
+        margin-top -1.6875em
+        margin-bottom 1.6875em
+
+@media only screen and (max-width: 768px)
+    .metadata
+        margin-top -1em
+        margin-bottom 1em
+
+
+    // .item-content-wrapper p
+    //     text-align justify
+    //     line-break loose
+    //     hyphens auto
 
 .collaborators
     font-family 'Muli', sans-serif
@@ -192,16 +206,56 @@ footer
         padding 0.9375em 0 0 0
 
 
-.portfolio .project-preview .thumbnail
+.project-preview .thumbnail
     text-align center
     position relative
+    width 100%
+    height 100%
     // overflow hidden
-    // padding-bottom 100%
+    padding-bottom 100%
     
     // img
     //     position absolute
     //     min-height 100%
     //     width auto
+    a
+        width 100%
+        height 100%
+        display block
+        background-size cover
+        background-position center
+        background-repeat no-repeat
+        position absolute
+        overflow hidden
+        
+        span
+            display block
+            position relative
+            top 100%
+            width 100%
+            height 100%
+            opacity 0
+            transition opacity 0.25s linear, top 0.2s linear
+            background-color rgba(0,0,0,0.8)
+            color #EED
+            text-overflow ellipsis
+            font-family 'Muli', sans-serif
+            // font-weight 400
+            text-transform uppercase
+            line-height 4ex
+            padding-top 25%
+            padding 25% 1em 0 1em
+
+
+            // display: table-cell; 
+            // vertical-align: middle; 
+            // text-align: center;
+
+        @media only screen and (min-width: 461px)
+
+            &:hover span
+                opacity 1
+                top 0px
         
 
 
@@ -218,13 +272,17 @@ footer
 #media-space
     text-align center
 
-.back a
-    font-family 'Muli', sans-serif
-    font-weight 300
-    text-transform uppercase
-    
-    &::before
-        content '< '
+.back
+    a
+        font-family 'Muli', sans-serif
+        font-weight 300
+        text-transform uppercase
+        
+        &::before
+            content '< '
+
+    @media only screen and (max-width: 768px)
+        margin-top 1em
 
 .listing
     margin-top -2em
@@ -274,3 +332,22 @@ html.js .listing.all .mix
         
 .flex-video
     margin-bottom 0
+    
+
+
+nav.top-bar
+    transition top .4s linear
+    top 0
+    
+body.home nav.top-bar
+    top -50px
+
+
+// body
+//     #main
+//         opacity 1
+//         transition opacity 1s linear
+//     &.loading
+//         #main
+//             opacity 0
+//         

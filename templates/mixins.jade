@@ -2,32 +2,29 @@ mixin btn(text, href)
   a.btn.btn-primary(href="#{href}")= text
 
 mixin projectPreview(proj)
-        -var thumb = proj.metadata.thumbnail
-        .thumbnail.large-12: a(href="#{proj.url}")
-            if thumb
-                - var thumbSrc = (thumb.src.substring(0,4) == "http") ?  thumb.src : (proj.url + thumb.src);
-                    img(src=thumbSrc, title=proj.metadata.title, alt=proj.metadata.title)
-            else
-                img(src="/media/images/na.png", title=proj.metadata.title, alt=proj.metadata.title, width="224px", height="160px")
+        - var thumb = proj.metadata.thumbnail;
+        - var thumbSrc ="/media/images/na.png";
+        - if (thumb) thumbSrc = (thumb.src.substring(0,4) == "http") ?  thumb.src : (proj.url + thumb.src);
+        - var medThumbSrc = thumbSrc.replace('_s.', '_m.');
+        //- .thumbnail.large-12: a(href="#{proj.url}", style="background-image:url(#{thumbSrc})")
+        .thumbnail.large-12: a(href="#{proj.url}", style="background-image:url(#{medThumbSrc}),url(#{thumbSrc})")
+            span #{proj.title}
+
             
 
 
 mixin projectHeader()
     .row
-        .large-12.column
+        .small-12.column
             header(id="title")
                 h2 #{page.metadata.title} 
-                if page.metadata.date || page.metadata.collaborators
-                    .metadata
-                    //- if page.metadata.collaborators
-                    //-     .collaborators !{typogr(page.metadata.collaborators).typogrify()}
-                    if page.metadata.date
-                        .date (!{typogr(page.metadata.date.toString()).typogrify()})
+                if page.metadata.date
+                    .metadata.date (!{typogr(page.metadata.date.toString()).typogrify()})
 
 
 mixin projectMedia()
     .row
-        .large-10.small-centered.column
+        .medium-10.small-centered.column
             if page.metadata.video && page.metadata.video.youtube
                 .visuals
                     #media-space.flex-video
@@ -60,9 +57,9 @@ mixin projectMedia()
 mixin projectDescription()
     if page.metadata.collaborators
         .row
-            .large-10.small-centered.column.collaborators !{typogr(page.metadata.collaborators).typogrify()}
+            .medium-10.small-centered.column.collaborators !{typogr(page.metadata.collaborators).typogrify()}
     .row
-        .large-10.small-centered.column
+        .medium-10.small-centered.column
             .item-content-wrapper.no-role.no-importance
                 .item-content.description
                     - var endOfFirstParagraph = page.html.indexOf("</p>");
@@ -77,8 +74,8 @@ mixin projectDescription()
                                 dd(style="overflow-wrap:break-word;")
                                     a(href="#{page.metadata.externalURL}", style="overflow-wrap: break-word;") !{typogr(page.metadata.externalURL).typogrify()}
 
-                if page.metadata.links
-                    .large-6.columns
+                .medium-6.small-12.columns
+                    if page.metadata.links
                         dl
                             dt External Links
                             dd(style="overflow-wrap:break-word;")
@@ -86,8 +83,9 @@ mixin projectDescription()
                                     each url, txt in page.metadata.links
                                         li: a(href="#{url}", style="overflow-wrap: break-word;") !{typogr(txt).typogrify()}
 
-                if related && related.length
-                    .large-6.columns
+                .medium-6.small-12.columns
+                    if related && related.length
+
                         dl
                             dt Related Projects
                             dd

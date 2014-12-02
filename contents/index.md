@@ -7,6 +7,7 @@ image:
   height: 800px
   src: /media/images/swa.png
 caption: Creative/Technologist
+bodyClass: home
 ---
 
 
