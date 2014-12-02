@@ -4,8 +4,8 @@
     "title": "Jesse Fulton - Creative/Technologist",
     "url": "http://jessefulton.com/",
     "owner": "Jesse Fulton",
-    "description": "Jesse Fulton is a Los Angeles based creative technologist with over ten years of software development experience, as well as having exhibited and performed as an artist.",
-    "keywords": "net art, .net art, internet art, digital artist, new media, software, technology, creative technologist, experiential design, ucsc, danm, digital art, los angeles, LA, research, prototype, consultant, consulting, technologist, programmer, developer, creative coder, creative coding"
+    "description": "Jesse Fulton is a creative/technologist based out of San Francisco",
+    "keywords": "net art, .net art, internet art, digital artist, new media, software, technology, creative technologist, experiential design, ucsc, danm, digital art, los angeles, LA, San Francisco, SF, SFO, Bay Area, digital marketing, research, prototype, consultant, consulting, technologist, programmer, developer, creative coder, creative coding"
   },
   "plugins": [
     "wintersmith-stylus"

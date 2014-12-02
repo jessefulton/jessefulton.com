@@ -1,26 +1,43 @@
 ---
 title: Jesse Fulton
+#title: Creative/Technologist
 id: home
 template: contact.jade
 image:
   width: 800px
   height: 800px
   src: /media/images/swa.png
-caption: Creative/Technologist
+caption: Creative / Technologist
 bodyClass: home
 ---
 
+I am a creative/technologist based out of San Francisco.
+In the past, I've wanted to be a photojournalist, an alpine skier,
+a teacher, a restaurateur, an artist, a nomad - however, I've
+always been a technologist. I'm currently the Director
+of Technology at [JUXT](http://www.juxt.com).
 
-<!-- Jesse Fulton has been writing code for as long as he can remember and has over 10 years of professional software development experience. For the majority of his career, he has been leading interdisciplinary teams working on groundbreaking projects for Fortune 500 companies including Nike, The Walt Disney Company, and MasterCard. Jesse has extensive experience in front-end and back-end web technologies, and has also developed mobile applications, retail experiences, and video games.
+I've got a lifetime of technical chops, and use them to create
+[art and interactive experiences](/portfolio/). I've exhibited
+and performed at the Zero1 Festival, The Creators Project
+San Francisco, and Eyebeam Art+Technology Center.
 
-A true creative technologist, Jesse has exhibited artworks and performed at the Zero1 Festival, The Creators Project San Francisco, and Eyebeam Art+Technology Center. He holds a double degree in Computer Science and Psychology from the Johns Hopkins University and an MFA in Digital Arts and New Media from the University of California Santa Cruz.  -->
+I like it when stuff happens.
 
-I am a Creative Technologist in the purest sense. I have 10+ years of software development experience as well as having exhibited and performed as an artist. I have a very technical background but apply it to creative pursuits including physical computing, projection, and experiential design.
+<!--
+I've been fascinated by computers and technology for as long as I can remember.
 
-I make the awesome at [JUXT](http://www.juxt.com),
-work with artists &amp; technologists at [CODAME](http://codame.com),
-and freelance at [eklekt.com](http://eklekt.com). For more information,
-check out [my portfolio](/portfolio/),
-<a href="/media/resume/jessefulton-resume.pdf" data-pjax="no">my r&eacute;sum&eacute;</a>,
-or 
-<a href="http://www.google.com/recaptcha/mailhide/d?k=01aYxFPWtuAKCOp9PE2ZwnuA==&amp;c=tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8=", onclick="window.open('http://www.google.com/recaptcha/mailhide/d?k\07501aYxFPWtuAKCOp9PE2ZwnuA\75\75\46c\75tffQd1_HmEeNZW9FtjAzBum7SyX5nK-FMswbWQEQBh8\075', '', 'toolbar=0,scrollbars=0,location=0,statusbar=0,menubar=0,resizable=0,width=500,height=300'); return false;">email me</a>.
+I consider programming to be an art form.
+
+I've studied graphic design, Japanese, journalism.
+
+
+I'm currently the Director of Technology at [JUXT](http://www.juxt.com).
+I occasionally help out the artists &amp; technologists at [CODAME](http://codame.com). 
+And when I have free time, I like to work on [side projects](http://eklekt.com) and [personal projects](/portfolio/).
+
+
+
+He holds a double degree in Computer Science and Psychology from the Johns Hopkins University and an MFA in Digital Arts and New Media from the University of California Santa Cruz.
+
+-->
