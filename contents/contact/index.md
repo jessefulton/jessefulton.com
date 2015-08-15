@@ -1,7 +1,8 @@
 ---
 title: Contact me
 id: contact
-template: contact.jade
+# template: contact.jade
+draft: true
 ---
 
 I used to focus on <a href="http://web.archive.org/web/20100215134843/http://jessefulton.com/portfolio/index/category/type/web-development">web development</a> but have since branched out far beyond that. I am continuing to focus on experiential design, multi-channel marketing, and museum & event installations. I'm also interested in meeting other artists and innovators.
