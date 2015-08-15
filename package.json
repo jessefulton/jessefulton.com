@@ -3,10 +3,6 @@
   "version": "5.0.0",
   "author": "Jesse Fulton",
   "description": "The personal website and portfolio of Jesse Fulton",
-  "engines": {
-    "node": "0.10.22",
-    "npm":"1.3.14"
-  },
   "contributors": [
     {
       "name": "Jesse Fulton"
