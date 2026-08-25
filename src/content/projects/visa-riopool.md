@@ -10,6 +10,9 @@ year: 2016
 featured: false
 archive: true
 showOnTimeline: true
+heroImage: "/media/projects/visa-riopool/RioPOOL_hero_LG.jpg"
+gallery:
+  - "/media/projects/visa-riopool/RioPOOL_hero_LG.jpg"
 cloudinaryVideo: "https://res.cloudinary.com/jessefulton/video/upload/v1/projects/Visa%20RioPOOL%20Case%20Study.mp4"
 tags: ["real-time-api", "social-ux", "high-concurrency", "olympics", "gaming"]
 metrics:

@@ -34,6 +34,8 @@ if (entry.data.gallery && Array.isArray(entry.data.gallery)) {
   });
 }
 
+const hasMedia = Boolean(entry.data.cloudinaryVideo || galleryImages.length > 0);
+
 // Query all projects for previous/next navigation
 const allProjects = await getCollection('projects');
 const currentIndex = allProjects.findIndex(p => p.slug === entry.slug);
@@ -88,37 +90,15 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
       </p>
     </header>
 
-    <!-- Video Reel Player (Cloudinary Hosted Video) -->
-    {entry.data.cloudinaryVideo && (
+    <!-- Unified Media Carousel Section (Video Reel First + Images) -->
+    {hasMedia && (
       <section class="mb-12">
-        <div class="rounded-xl border border-charcoal bg-obsidian overflow-hidden shadow-2xl">
-          <div class="font-mono text-xs text-gold uppercase tracking-wider px-4 py-2.5 border-b border-charcoal flex items-center justify-between bg-charcoal/40">
-            <span class="flex items-center gap-2">
-              <span class="inline-block w-2 h-2 rounded-full bg-cyan animate-pulse"></span>
-              // CASE STUDY HIGHLIGHT REEL
-            </span>
-            <span class="text-titanium-muted text-[10px]">VIDEO STREAM // HD</span>
-          </div>
-          <div class="aspect-video w-full bg-black flex items-center justify-center">
-            <video 
-              controls 
-              playsinline
-              preload="metadata"
-              poster={entry.data.heroImage}
-              class="w-full h-full object-contain"
-            >
-              <source src={entry.data.cloudinaryVideo} type="video/mp4" />
-              Your browser does not support the video tag.
-            </video>
-          </div>
-        </div>
-      </section>
-    )}
-
-    <!-- Visual Media Carousel Section -->
-    {galleryImages.length > 0 && (
-      <section class="mb-12">
-        <ProjectCarousel images={galleryImages} title={entry.data.title} />
+        <ProjectCarousel 
+          videoUrl={entry.data.cloudinaryVideo}
+          poster={entry.data.heroImage}
+          images={galleryImages} 
+          title={entry.data.title} 
+        />
       </section>
     )}
 

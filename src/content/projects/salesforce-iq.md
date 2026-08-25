@@ -10,6 +10,9 @@ year: 2015
 featured: false
 archive: true
 showOnTimeline: true
+heroImage: "/media/projects/salesforce-iq/sfiq-005.png"
+gallery:
+  - "/media/projects/salesforce-iq/sfiq-005.png"
 cloudinaryVideo: "https://res.cloudinary.com/jessefulton/video/upload/v1/projects/Dreamforce_IQ_Game.mp4"
 tags: ["multiplayer", "touchscreens", "dreamforce", "experiential", "websockets"]
 metrics:

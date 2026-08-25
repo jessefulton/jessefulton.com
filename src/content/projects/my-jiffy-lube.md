@@ -10,6 +10,9 @@ year: 2020
 featured: true
 archive: true
 showOnTimeline: true
+heroImage: "/media/projects/my-jiffy-lube/121693711_3542294332496101_608837742739006196_n.jpg"
+gallery:
+  - "/media/projects/my-jiffy-lube/121693711_3542294332496101_608837742739006196_n.jpg"
 tags: ["mobile", "telemetry", "iot", "service-design", "automotive", "product-strategy"]
 metrics:
   - "National Fleet & Consumer Rollout"

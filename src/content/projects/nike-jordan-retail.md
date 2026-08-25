@@ -10,8 +10,9 @@ year: 2014
 featured: true
 archive: true
 showOnTimeline: true
-heroImage: "/media/projects/nike-jordan-retail/swooshid-portland.png"
+heroImage: "/media/projects/nike-jordan-retail/Screenshot_2024-01-09_112328.jpg"
 gallery:
+  - "/media/projects/nike-jordan-retail/Screenshot_2024-01-09_112328.jpg"
   - "/media/projects/nike-jordan-retail/swooshid-portland.png"
   - "/media/projects/nike-jordan-retail/lunarepic-blackburn.jpg"
 cloudinaryVideo: "https://res.cloudinary.com/jessefulton/video/upload/v1/projects/Nike%20Swoosh%20ID.mp4"

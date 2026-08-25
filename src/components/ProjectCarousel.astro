@@ -1,43 +1,95 @@
 ---
+export interface MediaItem {
+  type: 'video' | 'image';
+  src: string;
+  poster?: string;
+  label?: string;
+}
+
 interface Props {
+  media?: MediaItem[];
   images?: string[];
+  videoUrl?: string;
+  poster?: string;
   title: string;
 }
 
-const { images = [], title } = Astro.props;
-const hasImages = images.length > 0;
-const isMulti = images.length > 1;
+const { media, images = [], videoUrl, poster, title } = Astro.props;
+
+// Build unified media items array (video first if present)
+const items: MediaItem[] = [];
+
+if (media && media.length > 0) {
+  items.push(...media);
+} else {
+  if (videoUrl) {
+    items.push({
+      type: 'video',
+      src: videoUrl,
+      poster: poster || images[0],
+      label: 'Video Reel'
+    });
+  }
+  
+  images.forEach((img, idx) => {
+    items.push({
+      type: 'image',
+      src: img,
+      label: `Visual ${idx + 1}`
+    });
+  });
+}
+
+const hasMedia = items.length > 0;
+const isMulti = items.length > 1;
 const carouselId = `carousel-${Math.random().toString(36).substring(2, 9)}`;
 ---
 
-{hasImages && (
-  <div class="project-carousel mb-10 w-full" id={carouselId} data-total={images.length}>
+{hasMedia && (
+  <div class="project-carousel mb-12 w-full" id={carouselId} data-total={items.length}>
     <!-- Main Display Viewport -->
     <div class="relative w-full aspect-video sm:aspect-[16/9] max-h-[520px] rounded-xl overflow-hidden border border-charcoal bg-obsidian/90 group shadow-2xl">
       
       <!-- Slide Track -->
       <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
-        {images.map((img, idx) => (
+        {items.map((item, idx) => (
           <div 
             class={`carousel-slide absolute inset-0 w-full h-full flex items-center justify-center transition-opacity duration-300 ${idx === 0 ? 'opacity-100 z-10' : 'opacity-0 z-0 pointer-events-none'}`}
             data-index={idx}
+            data-type={item.type}
           >
-            <img 
-              src={img} 
-              alt={`${title} - Visual ${idx + 1}`}
-              class="w-full h-full object-contain sm:object-cover bg-charcoal/20 select-none"
-              loading={idx === 0 ? 'eager' : 'lazy'}
-            />
+            {item.type === 'video' ? (
+              <div class="w-full h-full bg-black flex items-center justify-center">
+                <video 
+                  controls 
+                  playsinline
+                  preload="metadata"
+                  poster={item.poster}
+                  class="w-full h-full object-contain"
+                  aria-label={`${title} Video Reel`}
+                >
+                  <source src={item.src} type="video/mp4" />
+                  Your browser does not support HTML5 video.
+                </video>
+              </div>
+            ) : (
+              <img 
+                src={item.src} 
+                alt={`${title} - ${item.label || `Visual ${idx + 1}`}`}
+                class="w-full h-full object-contain sm:object-cover bg-charcoal/20 select-none"
+                loading={idx === 0 ? 'eager' : 'lazy'}
+              />
+            )}
           </div>
         ))}
       </div>
 
       <!-- Cyber Grid Overlay Corner Accents -->
       <div class="absolute top-2 left-2 font-mono text-[9px] text-titanium-muted/40 pointer-events-none z-20 hidden sm:block">
-        ┌ SYSTEM VISUAL STREAM //
+        ┌ SYSTEM MEDIA STREAM //
       </div>
       <div class="absolute bottom-2 right-2 font-mono text-[9px] text-titanium-muted/40 pointer-events-none z-20 hidden sm:block">
-        // 4K ARCHIVE STREAM ┘
+        // ARCHIVE PLAYBACK ┘
       </div>
 
       {isMulti && (
@@ -46,45 +98,71 @@ const carouselId = `carousel-${Math.random().toString(36).substring(2, 9)}`;
           <div class="absolute top-3 right-3 z-20 font-mono text-xs px-2.5 py-1 rounded bg-obsidian/85 border border-charcoal/80 text-titanium backdrop-blur-md">
             <span class="current-slide-num text-gold font-bold">01</span>
             <span class="text-titanium-muted"> / </span>
-            <span class="text-titanium-muted">{String(images.length).padStart(2, '0')}</span>
+            <span class="text-titanium-muted">{String(items.length).padStart(2, '0')}</span>
           </div>
 
           <!-- Navigation Arrow Buttons -->
           <button 
             type="button"
-            class="prev-btn absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-obsidian/80 border border-charcoal text-titanium hover:text-gold hover:border-gold hover:bg-obsidian transition-all flex items-center justify-center backdrop-blur-sm opacity-80 hover:opacity-100 focus:outline-none"
-            aria-label="Previous image"
+            class="prev-btn absolute left-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-obsidian/80 border border-charcoal text-titanium hover:text-gold hover:border-gold hover:bg-obsidian transition-all flex items-center justify-center backdrop-blur-sm opacity-80 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gold"
+            aria-label="Previous slide"
           >
-            <span class="font-mono text-base font-bold">‹</span>
+            <span class="font-mono text-base font-bold" aria-hidden="true">‹</span>
           </button>
 
           <button 
             type="button"
-            class="next-btn absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-obsidian/80 border border-charcoal text-titanium hover:text-gold hover:border-gold hover:bg-obsidian transition-all flex items-center justify-center backdrop-blur-sm opacity-80 hover:opacity-100 focus:outline-none"
-            aria-label="Next image"
+            class="next-btn absolute right-3 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-obsidian/80 border border-charcoal text-titanium hover:text-gold hover:border-gold hover:bg-obsidian transition-all flex items-center justify-center backdrop-blur-sm opacity-80 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-gold"
+            aria-label="Next slide"
           >
-            <span class="font-mono text-base font-bold">›</span>
+            <span class="font-mono text-base font-bold" aria-hidden="true">›</span>
           </button>
         </>
       )}
     </div>
 
-    <!-- Thumbnail Strip (Only shown if multiple images) -->
+    <!-- Thumbnail Strip (Only shown if multiple media items) -->
     {isMulti && (
-      <div class="flex items-center gap-3 mt-3 overflow-x-auto pb-2 custom-scrollbar">
-        {images.map((img, idx) => (
+      <div class="flex items-center gap-3 mt-3 overflow-x-auto pb-2 custom-scrollbar" role="tablist" aria-label="Media gallery thumbnails">
+        {items.map((item, idx) => (
           <button
             type="button"
+            role="tab"
+            aria-selected={idx === 0 ? 'true' : 'false'}
             class={`thumb-btn relative flex-shrink-0 w-20 h-14 sm:w-24 sm:h-16 rounded-lg overflow-hidden border transition-all duration-200 ${idx === 0 ? 'border-gold ring-2 ring-gold/30 opacity-100' : 'border-charcoal opacity-50 hover:opacity-100 hover:border-titanium-muted'}`}
             data-index={idx}
-            aria-label={`View image ${idx + 1}`}
+            aria-label={`View ${item.type === 'video' ? 'video reel' : `image ${idx + 1}`}`}
           >
-            <img 
-              src={img} 
-              alt={`${title} thumb ${idx + 1}`}
-              class="w-full h-full object-cover"
-              loading="lazy"
-            />
+            {item.type === 'video' ? (
+              <div class="w-full h-full bg-obsidian relative flex items-center justify-center">
+                {item.poster ? (
+                  <img 
+                    src={item.poster} 
+                    alt=""
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                ) : (
+                  <div class="w-full h-full bg-charcoal/40"></div>
+                )}
+                <!-- Video Play Overlay Badge -->
+                <div class="absolute inset-0 bg-obsidian/50 flex items-center justify-center">
+                  <div class="w-6 h-6 rounded-full bg-gold/90 text-obsidian flex items-center justify-center text-[10px] font-bold pl-0.5 shadow">
+                    ▶
+                  </div>
+                </div>
+                <div class="absolute bottom-1 right-1 font-mono text-[8px] px-1 py-0.2 rounded bg-obsidian/90 text-gold border border-gold/40">
+                  VIDEO
+                </div>
+              </div>
+            ) : (
+              <img 
+                src={item.src} 
+                alt=""
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
+            )}
           </button>
         ))}
       </div>
@@ -112,12 +190,17 @@ const carouselId = `carousel-${Math.random().toString(36).substring(2, 9)}`;
         currentIndex = (idx + total) % total;
 
         slides.forEach((slide, i) => {
+          const video = slide.querySelector('video');
           if (i === currentIndex) {
             slide.classList.remove('opacity-0', 'z-0', 'pointer-events-none');
             slide.classList.add('opacity-100', 'z-10');
           } else {
             slide.classList.remove('opacity-100', 'z-10');
             slide.classList.add('opacity-0', 'z-0', 'pointer-events-none');
+            // Pause inactive video to prevent audio clash
+            if (video && !video.paused) {
+              video.pause();
+            }
           }
         });
 
@@ -125,10 +208,12 @@ const carouselId = `carousel-${Math.random().toString(36).substring(2, 9)}`;
           if (i === currentIndex) {
             thumb.classList.add('border-gold', 'ring-2', 'ring-gold/30', 'opacity-100');
             thumb.classList.remove('border-charcoal', 'opacity-50');
+            thumb.setAttribute('aria-selected', 'true');
             thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
           } else {
             thumb.classList.remove('border-gold', 'ring-2', 'ring-gold/30', 'opacity-100');
             thumb.classList.add('border-charcoal', 'opacity-50');
+            thumb.setAttribute('aria-selected', 'false');
           }
         });
 

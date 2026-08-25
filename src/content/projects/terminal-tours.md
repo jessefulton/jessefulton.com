@@ -10,8 +10,9 @@ year: 2016
 featured: false
 archive: true
 showOnTimeline: true
-heroImage: "/media/projects/terminal-tours/featured-Image10055234.jpg"
+heroImage: "/media/projects/terminal-tours/Screenshot_2024-01-09_112526.jpg"
 gallery:
+  - "/media/projects/terminal-tours/Screenshot_2024-01-09_112526.jpg"
   - "/media/projects/terminal-tours/featured-Image10055234.jpg"
   - "/media/projects/terminal-tours/10055234-TT_Interact2.jpg"
 cloudinaryVideo: "https://res.cloudinary.com/jessefulton/video/upload/v1/projects/Hostile%20Takeover%20Case%20Study.mp4"

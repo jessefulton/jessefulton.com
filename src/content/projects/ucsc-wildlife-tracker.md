@@ -12,7 +12,10 @@ showOnTimeline: true
 heroImage: "/media/projects/ucsc-wildlife-tracker/3_m.jpg"
 gallery:
   - "/media/projects/ucsc-wildlife-tracker/3_m.jpg"
+  - "/media/projects/ucsc-wildlife-tracker/3_l.jpg"
   - "/media/projects/ucsc-wildlife-tracker/buzzard_m.jpg"
+  - "/media/projects/ucsc-wildlife-tracker/buzzard_l.jpg"
+  - "/media/projects/ucsc-wildlife-tracker/2_s.jpg"
 tags: ["ecological-data", "crowdsourcing", "ucsc", "research", "danm", "gamification"]
 ---
 

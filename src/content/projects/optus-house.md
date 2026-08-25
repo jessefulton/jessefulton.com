@@ -10,6 +10,9 @@ year: 2017
 featured: false
 archive: true
 showOnTimeline: true
+heroImage: "/media/projects/optus-house/Screenshot_2024-01-09_130927-crop.jpg"
+gallery:
+  - "/media/projects/optus-house/Screenshot_2024-01-09_130927-crop.jpg"
 cloudinaryVideo: "https://res.cloudinary.com/jessefulton/video/upload/v1/projects/Optus%20House%20Case%20Study.mp4"
 tags: ["smart-home", "iot", "spatial-systems", "experiential", "connected-devices"]
 metrics:
