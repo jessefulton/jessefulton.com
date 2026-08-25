@@ -73,12 +73,14 @@ const carouselId = `carousel-${Math.random().toString(36).substring(2, 9)}`;
                 </video>
               </div>
             ) : (
-              <img 
-                src={item.src} 
-                alt={`${title} - ${item.label || `Visual ${idx + 1}`}`}
-                class="w-full h-full object-contain sm:object-cover bg-charcoal/20 select-none"
-                loading={idx === 0 ? 'eager' : 'lazy'}
-              />
+              <div class="w-full h-full bg-obsidian flex items-center justify-center p-2 sm:p-4">
+                <img 
+                  src={item.src} 
+                  alt={`${title} - ${item.label || `Visual ${idx + 1}`}`}
+                  class="w-full h-full object-contain select-none"
+                  loading={idx === 0 ? 'eager' : 'lazy'}
+                />
+              </div>
             )}
           </div>
         ))}
