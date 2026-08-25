@@ -5,49 +5,51 @@ import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
 const projects = await getCollection('projects');
-// Sort projects by year descending
-const sortedProjects = projects.sort((a, b) => {
-  const yearA = typeof a.data.year === 'number' ? a.data.year : parseInt(String(a.data.year)) || 0;
-  const yearB = typeof b.data.year === 'number' ? b.data.year : parseInt(String(b.data.year)) || 0;
-  return yearB - yearA;
-});
+const sortedProjects = projects
+  .filter(p => !p.data.unlisted)
+  .sort((a, b) => {
+    const yearA = typeof a.data.year === 'number' ? a.data.year : parseInt(String(a.data.year)) || 2020;
+    const yearB = typeof b.data.year === 'number' ? b.data.year : parseInt(String(b.data.year)) || 2020;
+    return yearB - yearA;
+  });
 
 const categoryConfig: Record<string, { label: string; color: string; border: string }> = {
-  'frontier-ai': { label: 'FRONTIER AI & SYSTEMS', color: 'text-cyan', border: 'border-cyan/40 bg-cyan/10' },
+  'frontier-ai': { label: 'FRONTIER AI', color: 'text-cyan', border: 'border-cyan/40 bg-cyan/10' },
   'venture-strategy': { label: 'VENTURE & STRATEGY', color: 'text-gold', border: 'border-gold/40 bg-gold/10' },
   'experiential-spatial': { label: 'EXPERIENTIAL & SPATIAL', color: 'text-magenta', border: 'border-magenta/40 bg-magenta/10' },
-  'creative-tech': { label: 'CREATIVE TECH & ART', color: 'text-lime', border: 'border-lime/40 bg-lime/10' },
+  'creative-tech': { label: 'CREATIVE TECH', color: 'text-lime', border: 'border-lime/40 bg-lime/10' },
 };
 ---
 
 <BaseLayout 
-  title="Project & Venture Archive // Jesse Fulton"
-  description="Comprehensive 20-year archive spanning Frontier AI systems, venture architecture, voice interaction design, and creative technology."
+  title="Archive & Work Retrospective // Jesse Fulton"
+  description="Filterable archive of 30+ case studies, ventures, and experimental systems spanning 2004–2026."
 >
   <Header />
 
-  <main class="max-w-7xl mx-auto px-6 py-12 md:py-16">
-    <!-- Header Area -->
-    <div class="border-b border-charcoal pb-10 mb-12">
-      <div class="font-mono text-xs text-gold tracking-widest uppercase mb-2">
-        // 20-YEAR RETROSPECTIVE & WORKS
+  <main class="max-w-6xl mx-auto px-6 py-12 md:py-16">
+    <!-- Header Section -->
+    <header class="border-b border-charcoal pb-10 mb-12">
+      <div class="font-mono text-xs text-cyan tracking-widest uppercase mb-2">
+        // 20-YEAR CASE ARCHIVE
       </div>
       <h1 class="text-4xl md:text-5xl font-display font-bold text-titanium tracking-tight mb-4">
         Project & Venture Archive
       </h1>
-      <p class="text-titanium-muted max-w-3xl text-base font-light leading-relaxed">
-        Explore work spanning frontier AI evaluation harnesses, conversational companion design, high-stakes enterprise product strategy, and experimental software art.
+      <p class="text-titanium-muted max-w-2xl text-base font-light leading-relaxed">
+        A searchable, filterable repository of executive client engagements, conversational AI companions, developer platforms, and spatial interactive installations.
       </p>
-    </div>
+    </header>
 
-    <!-- Filter Buttons & Controls -->
-    <div class="flex flex-wrap items-center justify-between gap-4 mb-10">
-      <div class="flex flex-wrap gap-2" id="filter-buttons">
+    <!-- Filter Controls & Search Bar -->
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 mb-12">
+      <!-- Domain Filter Tabs -->
+      <div class="flex flex-wrap gap-2" id="filter-tabs">
         <button 
           data-filter="all" 
-          class="filter-btn active font-mono text-xs px-3.5 py-1.5 rounded border border-gold bg-gold text-obsidian font-semibold transition-all duration-200"
+          class="filter-btn font-mono text-xs px-3.5 py-1.5 rounded border border-gold bg-gold text-obsidian font-semibold transition-all duration-200"
         >
-          [ ALL WORKS ({sortedProjects.length}) ]
+          [ ALL ({sortedProjects.length}) ]
         </button>
         <button 
           data-filter="frontier-ai" 
@@ -90,44 +92,69 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" id="projects-grid">
       {sortedProjects.map((project) => {
         const cat = categoryConfig[project.data.category] || { label: project.data.category, color: 'text-titanium', border: 'border-charcoal bg-charcoal/20' };
+        const thumbnail = project.data.heroImage || project.data.gallery?.[0];
+
         return (
           <a 
             href={`/portfolio/${project.slug}`}
             data-category={project.data.category}
             data-tags={project.data.tags.join(' ').toLowerCase()}
             data-title={project.data.title.toLowerCase()}
-            class="project-card rounded-xl border border-charcoal bg-charcoal/20 p-6 backdrop-blur-sm hover:border-gold/50 hover:bg-charcoal/40 transition-all duration-300 flex flex-col justify-between group"
+            class="project-card rounded-xl border border-charcoal bg-charcoal/20 overflow-hidden backdrop-blur-sm hover:border-gold/50 hover:bg-charcoal/35 transition-all duration-300 flex flex-col justify-between group"
           >
             <div>
-              <!-- Top Metadata -->
-              <div class="flex items-center justify-between gap-2 mb-4">
-                <span class={`font-mono text-[10px] px-2.5 py-1 rounded border ${cat.border} ${cat.color} font-medium`}>
-                  {cat.label}
-                </span>
-                <span class="font-mono text-xs text-titanium-muted">
-                  {project.data.year}
-                </span>
-              </div>
-
-              <!-- Title & Byline -->
-              <h2 class="text-xl font-display font-bold text-titanium mb-2 group-hover:text-gold transition-colors">
-                {project.data.title}
-              </h2>
-
-              {project.data.client && (
-                <div class="font-mono text-xs text-titanium-muted mb-3">
-                  Client: {project.data.client}
+              <!-- Visual Hero Thumbnail -->
+              {thumbnail ? (
+                <div class="w-full aspect-video overflow-hidden bg-obsidian border-b border-charcoal relative">
+                  <img 
+                    src={thumbnail} 
+                    alt={project.data.title} 
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-2 left-3 font-mono text-[10px] px-2 py-0.5 rounded bg-obsidian/80 border border-charcoal/80 text-titanium backdrop-blur-sm">
+                    {project.data.year}
+                  </div>
+                </div>
+              ) : (
+                <div class="w-full aspect-video bg-gradient-to-br from-charcoal/50 to-obsidian border-b border-charcoal flex items-center justify-center relative p-6">
+                  <div class="font-mono text-xs text-titanium-muted/40 uppercase tracking-widest text-center">
+                    // {cat.label}
+                  </div>
+                  <div class="absolute bottom-2 left-3 font-mono text-[10px] px-2 py-0.5 rounded bg-obsidian/80 border border-charcoal/80 text-titanium backdrop-blur-sm">
+                    {project.data.year}
+                  </div>
                 </div>
               )}
 
-              <!-- Description -->
-              <p class="text-xs text-titanium/80 font-light leading-relaxed line-clamp-3 mb-6">
-                {project.data.briefDescription}
-              </p>
+              <div class="p-6">
+                <!-- Top Metadata -->
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class={`font-mono text-[10px] px-2.5 py-0.5 rounded border ${cat.border} ${cat.color} font-medium`}>
+                    {cat.label}
+                  </span>
+                  {project.data.client && (
+                    <span class="font-mono text-[11px] text-titanium-muted truncate max-w-[140px]">
+                      {project.data.client}
+                    </span>
+                  )}
+                </div>
+
+                <!-- Title & Byline -->
+                <h2 class="text-xl font-display font-bold text-titanium mb-2 group-hover:text-gold transition-colors line-clamp-2">
+                  {project.data.title}
+                </h2>
+
+                <!-- Description -->
+                <p class="text-xs text-titanium/80 font-light leading-relaxed line-clamp-3 mb-4">
+                  {project.data.briefDescription}
+                </p>
+              </div>
             </div>
 
             <!-- Footer / Tags -->
-            <div class="pt-4 border-t border-charcoal/60">
+            <div class="px-6 pb-6 pt-2 border-t border-charcoal/50">
               <div class="flex flex-wrap gap-1.5 mb-3">
                 {project.data.tags.slice(0, 3).map(tag => (
                   <span class="font-mono text-[10px] px-2 py-0.5 rounded bg-obsidian border border-charcoal text-titanium-muted">
@@ -138,7 +165,7 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
 
               <div class="flex items-center justify-between font-mono text-xs text-titanium-muted group-hover:text-gold transition-colors">
                 <span>VIEW CASE STUDY</span>
-                <span class="group-hover:translate-x-1 transition-transform">→</span>
+                <span class="transform group-hover:translate-x-1 transition-transform">→</span>
               </div>
             </div>
           </a>
@@ -146,9 +173,9 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
       })}
     </div>
 
-    <!-- Empty State -->
+    <!-- Empty Filter State -->
     <div id="no-results" class="hidden text-center py-20">
-      <div class="font-mono text-xs text-magenta mb-2">// NO MATCHING RECORDS</div>
+      <div class="font-mono text-xs text-magenta mb-2">// NO MATCHING CASE STUDIES</div>
       <p class="text-titanium-muted text-sm">Try searching for a different keyword or select another category filter.</p>
     </div>
 
@@ -158,29 +185,26 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
 </BaseLayout>
 
 <script>
-  // Client-side real-time filtering & search
+  // Real-time filtering and search
   document.addEventListener('DOMContentLoaded', () => {
     const filterButtons = document.querySelectorAll('.filter-btn');
     const searchInput = document.getElementById('archive-search') as HTMLInputElement | null;
-    const cards = document.querySelectorAll('.project-card') as NodeListOf<HTMLElement>;
+    const projectCards = document.querySelectorAll('.project-card') as NodeListOf<HTMLElement>;
     const noResults = document.getElementById('no-results');
 
-    let activeFilter = 'all';
+    let activeCategory = 'all';
     let searchQuery = '';
 
-    function updateGrid() {
+    function filterProjects() {
       let visibleCount = 0;
 
-      cards.forEach(card => {
+      projectCards.forEach((card) => {
         const category = card.dataset.category || '';
         const tags = card.dataset.tags || '';
         const title = card.dataset.title || '';
 
-        const matchesCategory = activeFilter === 'all' || category === activeFilter;
-        const matchesSearch = searchQuery === '' || 
-          title.includes(searchQuery) || 
-          tags.includes(searchQuery) || 
-          category.includes(searchQuery);
+        const matchesCategory = activeCategory === 'all' || category === activeCategory;
+        const matchesSearch = searchQuery === '' || title.includes(searchQuery) || tags.includes(searchQuery);
 
         if (matchesCategory && matchesSearch) {
           card.classList.remove('hidden');
@@ -199,9 +223,9 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
       }
     }
 
-    filterButtons.forEach(btn => {
+    filterButtons.forEach((btn) => {
       btn.addEventListener('click', () => {
-        filterButtons.forEach(b => {
+        filterButtons.forEach((b) => {
           b.classList.remove('bg-gold', 'text-obsidian', 'border-gold', 'font-semibold');
           b.classList.add('border-charcoal', 'bg-charcoal/30', 'text-titanium/80');
         });
@@ -209,15 +233,15 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
         btn.classList.remove('border-charcoal', 'bg-charcoal/30', 'text-titanium/80');
         btn.classList.add('bg-gold', 'text-obsidian', 'border-gold', 'font-semibold');
 
-        activeFilter = btn.getAttribute('data-filter') || 'all';
-        updateGrid();
+        activeCategory = btn.getAttribute('data-filter') || 'all';
+        filterProjects();
       });
     });
 
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         searchQuery = (e.target as HTMLInputElement).value.toLowerCase().trim();
-        updateGrid();
+        filterProjects();
       });
     }
   });

@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
+import ProjectCarousel from '../../components/ProjectCarousel.astro';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
@@ -23,6 +24,15 @@ const categoryLabels: Record<string, { label: string; color: string; border: str
 };
 
 const catInfo = categoryLabels[entry.data.category] || { label: entry.data.category, color: 'text-titanium', border: 'border-charcoal bg-charcoal/20' };
+
+// Collect gallery images
+const galleryImages: string[] = [];
+if (entry.data.heroImage) galleryImages.push(entry.data.heroImage);
+if (entry.data.gallery && Array.isArray(entry.data.gallery)) {
+  entry.data.gallery.forEach(img => {
+    if (!galleryImages.includes(img)) galleryImages.push(img);
+  });
+}
 
 // Query all projects for previous/next navigation
 const allProjects = await getCollection('projects');
@@ -78,6 +88,40 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
       </p>
     </header>
 
+    <!-- Video Reel Player (Cloudinary Hosted Video) -->
+    {entry.data.cloudinaryVideo && (
+      <section class="mb-12">
+        <div class="rounded-xl border border-charcoal bg-obsidian overflow-hidden shadow-2xl">
+          <div class="font-mono text-xs text-gold uppercase tracking-wider px-4 py-2.5 border-b border-charcoal flex items-center justify-between bg-charcoal/40">
+            <span class="flex items-center gap-2">
+              <span class="inline-block w-2 h-2 rounded-full bg-cyan animate-pulse"></span>
+              // CASE STUDY HIGHLIGHT REEL
+            </span>
+            <span class="text-titanium-muted text-[10px]">VIDEO STREAM // HD</span>
+          </div>
+          <div class="aspect-video w-full bg-black flex items-center justify-center">
+            <video 
+              controls 
+              playsinline
+              preload="metadata"
+              poster={entry.data.heroImage}
+              class="w-full h-full object-contain"
+            >
+              <source src={entry.data.cloudinaryVideo} type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Visual Media Carousel Section -->
+    {galleryImages.length > 0 && (
+      <section class="mb-12">
+        <ProjectCarousel images={galleryImages} title={entry.data.title} />
+      </section>
+    )}
+
     <!-- Content Grid (Body + Specs Sidebar) -->
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
       
@@ -88,7 +132,7 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
 
       <!-- Specifications Sidebar -->
       <aside class="lg:col-span-4 space-y-6">
-        <div class="rounded-xl border border-charcoal bg-charcoal/20 p-6 backdrop-blur-sm space-y-6">
+        <div class="rounded-xl border border-charcoal bg-charcoal/20 p-6 backdrop-blur-sm space-y-6 sticky top-24">
           <div class="font-mono text-xs text-gold uppercase tracking-wider pb-3 border-b border-charcoal/80 flex items-center justify-between">
             <span>// PROJECT SPECS</span>
             <span>SYS_METADATA</span>
@@ -139,10 +183,10 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
           <!-- Industries -->
           {entry.data.industries && entry.data.industries.length > 0 && (
             <div>
-              <div class="font-mono text-[11px] text-titanium-muted uppercase mb-2">Industries</div>
-              <div class="flex flex-wrap gap-1.5">
+              <div class="font-mono text-[11px] text-titanium-muted uppercase mb-1">Domain & Industries</div>
+              <div class="flex flex-wrap gap-1">
                 {entry.data.industries.map(ind => (
-                  <span class="font-mono text-[11px] px-2 py-0.5 rounded bg-obsidian border border-charcoal text-titanium-muted">
+                  <span class="font-mono text-[11px] px-2 py-0.5 rounded bg-charcoal/40 text-titanium-muted">
                     {ind}
                   </span>
                 ))}
@@ -152,39 +196,58 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
 
           <!-- Tags -->
           <div>
-            <div class="font-mono text-[11px] text-titanium-muted uppercase mb-2">Technical & Strategic Tags</div>
+            <div class="font-mono text-[11px] text-titanium-muted uppercase mb-2">Technical Capabilities</div>
             <div class="flex flex-wrap gap-1.5">
-              {entry.data.tags.map(tag => (
-                <span class="font-mono text-[11px] px-2 py-0.5 rounded bg-charcoal/50 border border-charcoal text-titanium/80">
-                  #{tag}
+              {entry.data.tags.map(t => (
+                <span class="font-mono text-xs px-2 py-0.5 rounded bg-obsidian border border-charcoal text-titanium-muted">
+                  #{t}
                 </span>
               ))}
             </div>
           </div>
 
+          <!-- External Links / Primary Link -->
+          {entry.data.primaryLink && (
+            <div class="pt-4 border-t border-charcoal/60">
+              <a 
+                href={entry.data.primaryLink} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="font-mono text-xs px-4 py-2.5 rounded bg-gold text-obsidian font-semibold hover:bg-gold-hover transition-colors flex items-center justify-center gap-2 w-full shadow-glow-gold"
+              >
+                <span>OPEN EXTERNAL SYSTEM</span>
+                <span>↗</span>
+              </a>
+            </div>
+          )}
         </div>
       </aside>
 
     </div>
 
-    <!-- Bottom Navigation -->
-    <nav class="mt-16 pt-8 border-t border-charcoal flex justify-between items-center font-mono text-xs text-titanium-muted">
+    <!-- Bottom Navigation (Previous / Next Case Study) -->
+    <nav class="border-t border-charcoal mt-20 pt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
       {prevProject ? (
-        <a href={`/portfolio/${prevProject.slug}`} class="hover:text-gold transition-colors flex items-center gap-2">
-          ← [ PREV: {prevProject.data.title} ]
+        <a 
+          href={`/portfolio/${prevProject.slug}`} 
+          class="rounded-xl border border-charcoal bg-charcoal/20 p-6 hover:border-gold/50 transition-colors group text-left"
+        >
+          <div class="font-mono text-xs text-titanium-muted mb-1">← PREVIOUS CASE STUDY</div>
+          <div class="font-display font-bold text-lg text-titanium group-hover:text-gold transition-colors">{prevProject.data.title}</div>
         </a>
       ) : <div />}
 
-      <a href="/portfolio" class="hover:text-cyan transition-colors">
-        [ ALL ARCHIVES ]
-      </a>
-
       {nextProject ? (
-        <a href={`/portfolio/${nextProject.slug}`} class="hover:text-gold transition-colors flex items-center gap-2">
-          [ NEXT: {nextProject.data.title} ] →
+        <a 
+          href={`/portfolio/${nextProject.slug}`} 
+          class="rounded-xl border border-charcoal bg-charcoal/20 p-6 hover:border-gold/50 transition-colors group text-right sm:col-start-2"
+        >
+          <div class="font-mono text-xs text-titanium-muted mb-1">NEXT CASE STUDY →</div>
+          <div class="font-display font-bold text-lg text-titanium group-hover:text-gold transition-colors">{nextProject.data.title}</div>
         </a>
       ) : <div />}
     </nav>
+
   </main>
 
   <Footer />

@@ -250,9 +250,11 @@ const categoryThemes: Record<string, { color: string; bg: string; border: string
                     <div class={`pt-3 border-t border-charcoal/50 flex ${isEven ? 'lg:justify-end' : 'lg:justify-start'}`}>
                       <a 
                         href={item.link} 
+                        target={item.link.startsWith('http') ? '_blank' : undefined}
+                        rel={item.link.startsWith('http') ? 'noopener noreferrer' : undefined}
                         class="font-mono text-xs text-gold hover:text-white transition-colors flex items-center gap-1.5"
                       >
-                        <span>[ {item.entityType === 'project' ? 'VIEW CASE STUDY' : (item.entityType === 'role' ? 'VIEW ROLE DETAILS' : 'VIEW DETAILS')} → ]</span>
+                        <span>[ {item.entityType === 'project' ? 'VIEW CASE STUDY →' : (item.entityType === 'role' ? 'VIEW ROLE DETAILS →' : (item.link.endsWith('.pdf') ? 'VIEW PATENT PDF ↗' : 'VIEW OFFICIAL ENTRY ↗'))} ]</span>
                       </a>
                     </div>
                   )}

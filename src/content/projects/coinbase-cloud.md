@@ -1,33 +1,31 @@
 ---
-title: "Coinbase Cloud — Product Strategy & DX"
-byline: "Enterprise Developer Platform Strategy & Executive Workshopping"
-briefDescription: "Led executive product strategy and developer experience workshopping for Coinbase Cloud, turning complex blockchain infrastructure into intuitive enterprise APIs."
+title: "Coinbase Cloud — Developer Platform & DX Architecture"
+byline: "Architecting developer primitives and infrastructure securing $30B+ in digital assets."
+briefDescription: "Led product and developer experience design for Coinbase Cloud, supporting 60,000+ infrastructure clusters and 25+ protocols across enterprise web3 development teams."
 category: "venture-strategy"
-client: "Coinbase Cloud"
-employer: "YML / Code & Theory"
-role: "Executive Product Strategist"
-industries: ["Fintech", "Crypto Infrastructure", "Enterprise SaaS"]
-achievements: ["Executive Stakeholder Alignment", "Developer Experience Roadmap"]
-tags: ["Product Strategy", "Executive Workshops", "Developer Experience", "APIs", "Blockchain Infrastructure"]
-year: 2022
+client: "Coinbase"
+employer: "Coinbase"
+role: "Product Manager — Developer Platform"
+year: 2021
 featured: true
 archive: true
-metrics: ["Enterprise DX", "Multi-Stakeholder Alignment", "API Simplification"]
+showOnTimeline: true
+heroImage: "/media/projects/coinbase-cloud/marketing-landing-page.png"
+gallery:
+  - "/media/projects/coinbase-cloud/marketing-landing-page.png"
+  - "/media/projects/coinbase-cloud/platform-landing-page.png"
+tags: ["developer-experience", "apis", "web3", "infrastructure", "product-strategy", "platform"]
+metrics:
+  - "60,000+ Node Clusters Supported"
+  - "$30B+ Assets Secured"
+  - "25+ Enterprise Protocols"
+primaryLink: "https://coinbase.com/cloud"
 ---
 
-## Executive Context & Challenge
+As Product Manager for Coinbase Cloud, Jesse led the unified developer platform vision, building APIs, SDKs, and cluster management primitives for global web3 engineering teams.
 
-As Coinbase expanded from a consumer crypto exchange into an enterprise infrastructure provider, Coinbase Cloud needed to position its suite of node management, staking, and blockchain data APIs for global financial institutions, crypto startups, and Web3 developers. The challenge was aligning disparate product teams around a unified developer journey and commercial narrative.
-
-## Strategic Mandate & Solution
-
-Led the strategic product discovery, developer journey mapping, and executive alignment workshops:
-
-- **Executive Alignment Workshops:** Facilitated high-stakes strategy sessions bringing together Coinbase product leadership, engineering directors, and marketing teams to establish unified product tiers.
-- **Developer-Centric API Simplification:** Mapped the end-to-end developer onboarding funnel, identifying friction points in API credential provisioning, SDK integration, and documentation telemetry.
-- **Go-to-Market Narrative:** Formulated the strategic product narrative that framed Coinbase Cloud as the reliable, institutional-grade backbone for the decentralized web.
-
-## Key Takeaways & Impact
-
-- Unified fragmented enterprise tooling into a cohesive, developer-first product platform.
-- Accelerated enterprise customer onboarding and reduced developer activation time.
+### Platform Vision & Developer Transformation
+Following Coinbase's acquisition of Bison Trails, the challenge lay in replatforming and unifying high-availability staking, node infrastructure, and cryptographic data services under a developer-first interface:
+- **Unified DX:** Designed multi-protocol documentation, API explorer consoles, and telemetry endpoints.
+- **Enterprise Scale:** Supported mission-critical node infrastructure powering leading exchanges, custodians, and fintech institutions.
+- **Strategic Product Alignment:** Bridged distributed protocol engineering teams with enterprise client needs to deliver compliant, resilient developer tooling.

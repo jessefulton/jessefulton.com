@@ -8,131 +8,225 @@ const roles = await getCollection('roles');
 const sortedRoles = roles.sort((a, b) => a.data.order - b.data.order);
 
 const achievements = await getCollection('achievements');
-const patents = achievements.filter(a => a.data.type === 'patent');
+const patents = [
+  {
+    number: 'US10031921',
+    title: 'Methods and systems for storage of media item metadata',
+    year: 2018,
+    url: 'https://patentimages.storage.googleapis.com/79/7f/89/eddaa4e967dd7b/US10031921.pdf',
+    desc: 'Utility patent for efficient metadata indexing, state persistence, and storage pipelines in distributed media systems.'
+  },
+  {
+    number: 'US10002642',
+    title: 'Methods and devices for generating media items',
+    year: 2018,
+    url: 'https://patentimages.storage.googleapis.com/4d/9d/8e/0797db550ad9eb/US10002642.pdf',
+    desc: 'Interactive runtime mechanisms for compositing dynamic multimedia elements with real-time hardware telemetry.'
+  },
+  {
+    number: 'US9268787',
+    title: 'Methods and devices for synchronizing and sharing media items',
+    year: 2016,
+    url: 'https://patentimages.storage.googleapis.com/44/84/f5/f17376b186928e/US9268787.pdf',
+    desc: 'Distributed peer synchronization and real-time state sharing architectures across heterogeneous mobile devices.'
+  },
+  {
+    number: 'US9207857',
+    title: 'Methods and devices for presenting interactive media items',
+    year: 2015,
+    url: 'https://patentimages.storage.googleapis.com/cb/31/8d/9e75b31776b79c/US9207857.pdf',
+    desc: 'Responsive presentation systems for time-synced interactive multimedia overlays and live touch feedback.'
+  },
+  {
+    number: 'US9207844',
+    title: 'Methods and devices for touch-based media creation',
+    year: 2015,
+    url: 'https://patentimages.storage.googleapis.com/76/f7/bf/9e0762caa6e457/US9207844.pdf',
+    desc: 'Touch-first gesture mapping and tactile video shader manipulation algorithms for mobile creative tools.'
+  },
+  {
+    number: 'US9116912',
+    title: 'Methods and devices for modifying pre-existing media items',
+    year: 2015,
+    url: 'https://patentimages.storage.googleapis.com/b6/b2/05/30b15e82006751/US9116912.pdf',
+    desc: 'Non-destructive pipeline architectures for real-time video filter synthesis and audio-reactive timeline warping.'
+  }
+];
+
 const awards = achievements.filter(a => a.data.type === 'award');
-const speaking = achievements.filter(a => a.data.type === 'speaking');
 ---
 
 <BaseLayout 
-  title="Executive Experience & Pedigree // Jesse Fulton"
-  description="Twenty years of multidisciplinary leadership across business strategy (HEC Paris), creative direction (AKQA), enterprise product strategy (Coinbase Cloud), and frontier AI engineering (Thrive AI Health)."
+  title="Pedigree & Leadership // Jesse Fulton"
+  description="Leadership pedigree, executive roles, 6 utility patents, and international innovation awards."
 >
   <Header />
 
   <main class="max-w-6xl mx-auto px-6 py-12 md:py-16">
     <!-- Header Section with View Switcher -->
-    <header class="border-b border-charcoal pb-10 mb-12">
-      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
-        <div>
-          <div class="font-mono text-xs text-gold tracking-widest uppercase mb-2">
-            // LEADERSHIP & CAREER CHRONOLOGY
-          </div>
-          <h1 class="text-4xl md:text-5xl font-display font-bold text-titanium tracking-tight mb-4">
-            Executive Experience
-          </h1>
-          <p class="text-titanium-muted max-w-2xl text-base font-light leading-relaxed">
-            A 20-year trajectory bridging venture strategy, executive creative direction, enterprise developer platforms, and frontier AI systems.
-          </p>
+    <header class="border-b border-charcoal pb-10 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
+      <div>
+        <div class="font-mono text-xs text-gold tracking-widest uppercase mb-2">
+          // LEADERSHIP & PEDIGREE
         </div>
+        <h1 class="text-4xl md:text-5xl font-display font-bold text-titanium tracking-tight mb-4">
+          Experience & Impact
+        </h1>
+        <p class="text-titanium-muted max-w-2xl text-base font-light leading-relaxed">
+          Over 18 years of technical executive leadership across venture design, distributed developer platforms, conversational AI companions, and connected spatial experiences.
+        </p>
+      </div>
 
-        <!-- View Switcher Toggle -->
-        <div class="flex bg-charcoal/40 border border-charcoal rounded-lg p-1 w-fit">
-          <a 
-            href="/experience" 
-            class="font-mono text-xs px-4 py-2 rounded bg-gold text-obsidian font-semibold transition-all shadow-glow-gold"
-          >
-            [ CARDS VIEW ]
-          </a>
-          <a 
-            href="/experience/timeline" 
-            class="font-mono text-xs px-4 py-2 rounded text-titanium/80 hover:text-titanium hover:bg-charcoal/50 transition-all"
-          >
-            [ TIMELINE VIEW ]
-          </a>
-        </div>
+      <!-- View Switcher -->
+      <div class="flex items-center gap-2 p-1.5 rounded-lg border border-charcoal bg-obsidian">
+        <a 
+          href="/experience" 
+          class="font-mono text-xs px-3.5 py-1.5 rounded bg-gold text-obsidian font-semibold transition-colors shadow-glow-gold"
+        >
+          [ CARDS VIEW ]
+        </a>
+        <a 
+          href="/experience/timeline" 
+          class="font-mono text-xs px-3.5 py-1.5 rounded text-titanium-muted hover:text-titanium hover:bg-charcoal/40 transition-colors"
+        >
+          [ TIMELINE VIEW ]
+        </a>
       </div>
     </header>
 
-    <!-- Leadership Roles Cards List -->
-    <section class="mb-20">
-      <div class="font-mono text-xs text-cyan uppercase tracking-wider mb-8 flex items-center gap-2">
+    <!-- Quick Jump Sub-Navigation -->
+    <div class="flex flex-wrap gap-3 mb-16 pb-4 border-b border-charcoal/60 font-mono text-xs">
+      <a href="#roles" class="px-3 py-1 rounded bg-charcoal/30 text-titanium hover:border-gold hover:text-gold border border-charcoal transition-colors">
+        ↓ EXECUTIVE ROLES ({sortedRoles.length})
+      </a>
+      <a href="#patents" class="px-3 py-1 rounded bg-charcoal/30 text-gold hover:border-gold border border-charcoal transition-colors">
+        ↓ 6 US PATENTS
+      </a>
+      <a href="#awards" class="px-3 py-1 rounded bg-charcoal/30 text-magenta hover:border-magenta border border-charcoal transition-colors">
+        ↓ HONORS & AWARDS ({awards.length})
+      </a>
+      <a href="#education" class="px-3 py-1 rounded bg-charcoal/30 text-lime hover:border-lime border border-charcoal transition-colors">
+        ↓ ACADEMIC FOUNDATION
+      </a>
+    </div>
+
+    <!-- Career Milestones List -->
+    <section id="roles" class="space-y-12 mb-20">
+      <div class="font-mono text-xs text-cyan uppercase tracking-wider mb-6 flex items-center gap-2">
         <span class="w-2 h-2 rounded-full bg-cyan"></span>
-        <span>// CAREER POSITIONS & MANDATES</span>
+        <span>// EXECUTIVE & LEADERSHIP POSITIONS</span>
       </div>
 
-      <div class="space-y-8">
-        {sortedRoles.map((role) => (
-          <div class="rounded-xl border border-charcoal bg-charcoal/20 p-8 backdrop-blur-sm hover:border-gold/40 transition-all duration-300">
-            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4 pb-4 border-b border-charcoal/60">
-              <div>
-                <h2 class="text-2xl font-display font-bold text-titanium">
-                  {role.data.title}
-                </h2>
-                <div class="text-gold font-mono text-sm mt-0.5">
-                  {role.data.company} <span class="text-titanium-muted">({role.data.location})</span>
-                </div>
+      {sortedRoles.map(role => (
+        <article class="rounded-xl border border-charcoal bg-charcoal/20 p-8 backdrop-blur-sm hover:border-gold/50 transition-all duration-300">
+          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-charcoal/60 mb-6">
+            <div>
+              <div class="font-mono text-xs text-gold uppercase tracking-wider mb-1">
+                {role.data.period} // {role.data.location}
               </div>
-              <div class="font-mono text-xs px-3 py-1 rounded bg-obsidian border border-charcoal text-cyan font-medium w-fit">
-                {role.data.period}
+              <h2 class="text-2xl md:text-3xl font-display font-bold text-titanium">
+                {role.data.company}
+              </h2>
+              <div class="text-lg text-titanium/80 font-light mt-0.5">
+                {role.data.title}
               </div>
             </div>
-
-            <p class="text-sm text-titanium/85 font-light leading-relaxed mb-6">
-              {role.data.summary}
-            </p>
-
-            <!-- Highlights -->
-            <div class="space-y-2 mb-6">
-              {role.data.highlights.map(h => (
-                <div class="text-xs text-titanium-muted flex items-start gap-2.5">
-                  <span class="text-gold font-mono">▹</span>
-                  <span>{h}</span>
-                </div>
-              ))}
-            </div>
-
-            <!-- Associated Project Links -->
-            {role.data.associatedProjects && role.data.associatedProjects.length > 0 && (
-              <div class="pt-4 border-t border-charcoal/50 flex flex-wrap items-center gap-2">
-                <span class="font-mono text-[11px] text-titanium-muted">KEY CASE STUDIES:</span>
-                {role.data.associatedProjects.map(slug => (
-                  <a 
-                    href={`/portfolio/${slug}`}
-                    class="font-mono text-[11px] px-2.5 py-1 rounded bg-obsidian border border-charcoal text-titanium hover:border-gold hover:text-gold transition-colors"
-                  >
-                    [ {slug.replace(/-/g, ' ').toUpperCase()} → ]
-                  </a>
-                ))}
-              </div>
-            )}
           </div>
-        ))}
-      </div>
+
+          <p class="text-sm text-titanium/90 leading-relaxed mb-6 font-light">
+            {role.data.summary}
+          </p>
+
+          <div>
+            <div class="font-mono text-xs text-titanium-muted uppercase tracking-wider mb-3">
+              Key Strategic Milestones:
+            </div>
+            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
+              {role.data.highlights.map(h => (
+                <li class="font-mono text-xs text-titanium/80 flex items-start gap-2 bg-obsidian/60 p-2.5 rounded border border-charcoal/80">
+                  <span class="text-cyan">⚡</span>
+                  <span>{h}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </article>
+      ))}
     </section>
 
-    <!-- Patents & Intellectual Property -->
-    <section id="patents" class="mb-20 border-t border-charcoal pt-16">
-      <div class="font-mono text-xs text-gold uppercase tracking-wider mb-8 flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-gold"></span>
-        <span>// INTELLECTUAL PROPERTY & PATENTS</span>
+    <!-- 6 US Patents Section with Clickable PDF Links -->
+    <section id="patents" class="border-t border-charcoal pt-16 mb-20">
+      <div class="font-mono text-xs text-gold uppercase tracking-wider mb-8 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-gold"></span>
+          <span>// INTELLECTUAL PROPERTY & PATENTS (6 US PATENTS)</span>
+        </div>
+        <span class="text-titanium-muted">USPTO OFFICIAL REGISTRY</span>
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {patents.map(p => (
-          <div class="rounded-xl border border-charcoal bg-obsidian p-6">
-            <div class="font-mono text-xs text-gold mb-2">{p.data.patentNumber}</div>
-            <h3 class="text-lg font-display font-bold text-titanium mb-2">{p.data.title}</h3>
-            <p class="text-xs text-titanium-muted leading-relaxed mb-4">{p.data.description}</p>
-            <div class="font-mono text-[11px] text-cyan">{p.data.organization} // {p.data.year}</div>
-          </div>
+          <a 
+            href={p.url} 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="rounded-xl border border-charcoal bg-obsidian p-6 hover:border-gold transition-all duration-300 group flex flex-col justify-between"
+          >
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-mono text-xs px-2.5 py-1 rounded bg-gold/10 border border-gold/40 text-gold font-bold">
+                  {p.number}
+                </span>
+                <span class="font-mono text-xs text-titanium-muted">{p.year}</span>
+              </div>
+              <h3 class="text-base font-display font-bold text-titanium group-hover:text-gold transition-colors mb-2">
+                {p.title}
+              </h3>
+              <p class="text-xs text-titanium-muted leading-relaxed mb-4">
+                {p.desc}
+              </p>
+            </div>
+            <div class="pt-3 border-t border-charcoal/60 flex items-center justify-between font-mono text-[11px] text-titanium-muted group-hover:text-gold transition-colors">
+              <span>VIEW PATENT PDF (USPTO)</span>
+              <span>↗</span>
+            </div>
+          </a>
         ))}
+      </div>
+    </section>
 
+    <!-- Honors & Awards Section with Direct Links -->
+    <section id="awards" class="border-t border-charcoal pt-16 mb-20">
+      <div class="font-mono text-xs text-magenta uppercase tracking-wider mb-8 flex items-center justify-between">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-magenta"></span>
+          <span>// HONORS & INTERNATIONAL RECOGNITION</span>
+        </div>
+        <span class="text-titanium-muted">OFFICIAL ARCHIVE</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         {awards.map(a => (
-          <div class="rounded-xl border border-charcoal bg-obsidian p-6">
-            <div class="font-mono text-xs text-magenta mb-2">HONOR & RECOGNITION</div>
-            <h3 class="text-lg font-display font-bold text-titanium mb-2">{a.data.title}</h3>
-            <p class="text-xs text-titanium-muted leading-relaxed mb-4">{a.data.description}</p>
-            <div class="font-mono text-[11px] text-titanium-muted">{a.data.organization} // {a.data.year}</div>
+          <div class="rounded-xl border border-charcoal bg-obsidian p-6 flex flex-col justify-between">
+            <div>
+              <div class="font-mono text-xs text-magenta mb-2">HONOR & RECOGNITION</div>
+              <h3 class="text-lg font-display font-bold text-titanium mb-2">{a.data.title}</h3>
+              <p class="text-xs text-titanium-muted leading-relaxed mb-4">{a.data.description}</p>
+            </div>
+            <div class="pt-4 border-t border-charcoal/60 flex items-center justify-between">
+              <span class="font-mono text-[11px] text-titanium-muted">{a.data.organization} // {a.data.year}</span>
+              {a.data.link && (
+                <a 
+                  href={a.data.link} 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="font-mono text-xs text-gold hover:underline flex items-center gap-1"
+                >
+                  <span>OFFICIAL ENTRY</span>
+                  <span>↗</span>
+                </a>
+              )}
+            </div>
           </div>
         ))}
       </div>
@@ -147,7 +241,7 @@ const speaking = achievements.filter(a => a.data.type === 'speaking');
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div class="rounded-xl border border-charcoal bg-charcoal/20 p-6">
-          <div class="font-mono text-xs text-gold mb-1">MSIE (MSc in Innovation & Entrepreneurship)</div>
+          <div class="font-mono text-xs text-gold mb-1">MSc (Innovation & Entrepreneurship)</div>
           <h3 class="text-xl font-display font-bold text-titanium mb-2">HEC Paris</h3>
           <p class="text-xs text-titanium-muted leading-relaxed">
             Executive venture strategy, unit economics, startup design, and sustainable business model architecture.
@@ -161,8 +255,25 @@ const speaking = achievements.filter(a => a.data.type === 'speaking');
             Graduate fellowship research in computational aesthetics, software art, physical computing, and expressive systems.
           </p>
         </div>
+
+        <div class="rounded-xl border border-charcoal bg-charcoal/20 p-6">
+          <div class="font-mono text-xs text-lime mb-1">BA (Computer Science)</div>
+          <h3 class="text-xl font-display font-bold text-titanium mb-2">Johns Hopkins University</h3>
+          <p class="text-xs text-titanium-muted leading-relaxed">
+            Algorithms, data structures, software engineering, systems programming, and computer graphics foundations.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-charcoal bg-charcoal/20 p-6">
+          <div class="font-mono text-xs text-magenta mb-1">BA (Psychology)</div>
+          <h3 class="text-xl font-display font-bold text-titanium mb-2">Johns Hopkins University</h3>
+          <p class="text-xs text-titanium-muted leading-relaxed">
+            Cognitive psychology, human perception, behavioral decision-making, and user interaction mental models.
+          </p>
+        </div>
       </div>
     </section>
+
   </main>
 
   <Footer />

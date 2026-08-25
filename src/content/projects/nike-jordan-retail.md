@@ -1,19 +1,31 @@
 ---
-title: "Nike & Jordan — Spatial Retail Installations"
-byline: "Interactive Storefronts, Motion Tracking & Immersive Digital Retail"
-briefDescription: "Designed and deployed high-impact interactive retail experiences, motion-sensing video walls, and custom physical computing installations for Nike and Jordan Brand."
+title: "Nike & Jordan — Connected Physical Retail Systems"
+byline: "Bridging digital customization and physical store environments at flagship global scale."
+briefDescription: "Architected connected retail experiences at Huge and AKQA, including the in-store Nike SwooshID interactive customization wall and the Nike LunarEpic treadmill-synced audio-visual installation."
 category: "experiential-spatial"
-client: "Nike / Jordan Brand"
-employer: "AKQA"
-role: "Director of Creative Technology"
-industries: ["Retail", "Fashion & Apparel", "Spatial Computing", "Experiential"]
-tags: ["Interactive Retail", "Computer Vision", "Motion Tracking", "Spatial Audio", "C++ / OpenFrameworks"]
-year: 2018
-featured: false
+client: "Nike / Jordan"
+employer: "Huge / AKQA"
+role: "Solutions Architect & Associate Technical Director"
+year: 2014
+featured: true
 archive: true
-metrics: ["Flagship Retail Deployment", "Computer Vision", "Spatial Computing"]
+showOnTimeline: true
+heroImage: "/media/projects/nike-jordan-retail/swooshid-portland.png"
+gallery:
+  - "/media/projects/nike-jordan-retail/swooshid-portland.png"
+  - "/media/projects/nike-jordan-retail/lunarepic-blackburn.jpg"
+cloudinaryVideo: "https://res.cloudinary.com/jessefulton/video/upload/v1/projects/Nike%20Swoosh%20ID.mp4"
+tags: ["retail-tech", "spatial-experiences", "iot", "in-store-customization", "touch-interfaces"]
+metrics:
+  - "Nike Flagship Store Launch (Portland, OR)"
+  - "Direct-to-Shoe In-Store Customization Pipeline"
+  - "Interactive Cadence-Synced Audio/Visual System"
 ---
 
-## Overview
+Nike SwooshID brought digital footwear customization into the physical retail footprint at Nike's flagship store in Portland, OR.
 
-Architected and engineered custom physical-digital retail experiences for Nike and Jordan Brand flagship locations. Combined real-time computer vision, depth sensing, and responsive spatial audio to create immersive brand engagement moments for retail visitors.
+### Spatial Interface Engineering
+Jesse designed and engineered the integrated display wall touch application and backend inventory dispatch system:
+- **Embedded Touch Surfaces:** Touch screens embedded directly behind shoe wall fixtures allowed shoppers to customize colors, textures, and laser-engraved IDs.
+- **Store Inventory & POS Pipeline:** Transmitted completed custom render assets directly to the in-store fabrication lab, enabling same-day shoe pickup.
+- **LunarEpic Audio/Visual Installation:** Synced treadmill pace telemetry with real-time dynamic soundscapes and Apple Music integration in Nike NYC stores.

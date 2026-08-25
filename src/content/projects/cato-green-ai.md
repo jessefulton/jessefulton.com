@@ -1,33 +1,25 @@
 ---
-title: "Cato — Green AI & Bare-Metal Cloud"
-byline: "Sustainable Data Infrastructure, Second-Life Hardware & Rack Systems"
-briefDescription: "Architected industrial brand systems and hardware infrastructure for sustainable AI computing, spanning power distribution, cooling, server deployment, and bare-metal second-life hardware clouds."
+title: "Cato Digital — Bare Metal Cloud & Green AI Infrastructure"
+byline: "Decarbonizing AI compute through second-life bare-metal server clouds and zero-emission data centers."
+briefDescription: "Served as Chief of Staff & Infrastructure Strategist at Cato Digital, overseeing commercial data center turnups, bare-metal cloud platform architecture, and sustainable AI infrastructure."
 category: "frontier-ai"
-client: "Cato Data Infrastructure"
-employer: "Cato"
-role: "Venture & Systems Strategist"
-industries: ["Data Infrastructure", "Green AI", "Hardware Engineering", "Cloud Computing"]
-achievements: ["Bare-Metal Cloud Architecture", "Industrial Brand System"]
-tags: ["Green AI", "Data Centers", "Hardware Infrastructure", "Bare Metal", "ECL Rack Systems"]
+employer: "Cato Digital"
+role: "Chief of Staff & Head of Product / Infrastructure Strategy"
 year: 2024
 featured: true
 archive: true
-metrics: ["Second-Life Hardware", "High-Efficiency Cooling", "Bare-Metal Cloud"]
+showOnTimeline: true
+tags: ["green-ai", "data-centers", "bare-metal", "hardware-lifecycle", "clean-tech", "venture-strategy"]
+metrics:
+  - "Decarbonized AI Compute Workloads"
+  - "Multi-Megawatt ECL Turnup"
+  - "Second-Life Enterprise GPU Cloud"
 ---
 
-## Executive Context & Challenge
+Cato Digital pioneered the circular economy for compute infrastructure, repurposing enterprise-grade datacenter equipment to deliver low-cost, low-carbon bare metal cloud capacity for AI training and inference.
 
-The explosive growth of large-scale AI model training and inference has created an unprecedented energy and silicon demand crisis. Data centers are constrained by grid capacity, thermal dissipation limits, and rapid hardware obsolescence cycles. Cato was founded to solve this bottleneck through sustainable, high-efficiency physical infrastructure and second-life silicon utilization.
-
-## Architectural Mandate & Solution
-
-Led the systems strategy and industrial branding architecture to translate Cato's complex mechanical, electrical, and compute innovations into a cohesive commercial ecosystem:
-
-- **End-to-End Infrastructure Deployment:** Structured systems spanning utility-scale power delivery, high-efficiency closed-loop liquid cooling, and modular server rack assemblies designed for rapid field deployment.
-- **Second-Life Bare-Metal Cloud:** Architected the product strategy for a bare-metal cloud platform that salvages, reconditions, and redeploys enterprise compute hardware—extending silicon lifespan while reducing AI inference costs by up to 60%.
-- **Industrial Brand & Visual Systems:** Developed the comprehensive technical identity and visual design system (ECL Rack Branding) for Cato's hardware products, bridging physical industrial design with digital management consoles.
-
-## Key Takeaways & Impact
-
-- Positioned Cato at the forefront of the **Green AI** revolution, connecting sustainability directly with operational cost advantages for AI labs.
-- Created an integrated brand and architectural framework that communicates hardware-level authority to enterprise infrastructure buyers.
+### Executive & Technical Remit
+As Chief of Staff and strategic product lead:
+- **Bare Metal Orchestration:** Spearheaded the software stack and API layer enabling automated provisioning of second-life GPU and CPU servers.
+- **Physical Datacenter Turnup:** Coordinated power delivery, networking fabric, and hydrogen-cooled containerized datacenters with ECL.
+- **Venture Alignment:** Drove customer discovery with frontier AI labs and managed compute clusters to demonstrate unit economic viability.

@@ -26,6 +26,7 @@ const projects = defineCollection({
     showOnTimeline: z.boolean().default(true),
     heroImage: z.string().optional(),
     gallery: z.array(z.string()).optional(),
+    cloudinaryVideo: z.string().optional(),
     vimeoId: z.string().optional(),
     youtubeId: z.string().optional(),
     primaryLink: z.string().url().optional(),

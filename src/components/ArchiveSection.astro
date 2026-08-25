@@ -34,69 +34,84 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
   </div>
 
   <!-- Featured Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
     {featuredWorks.map((work) => {
       const cat = categoryConfig[work.data.category] || { label: work.data.category, color: 'text-titanium', border: 'border-charcoal bg-charcoal/20' };
+      const thumbnail = work.data.heroImage || work.data.gallery?.[0];
+
       return (
         <a 
           href={`/portfolio/${work.slug}`}
-          class="rounded-xl border border-charcoal bg-charcoal/20 p-8 backdrop-blur-sm hover:border-gold/50 hover:bg-charcoal/40 transition-all duration-300 group flex flex-col justify-between"
+          class="rounded-xl border border-charcoal bg-charcoal/20 overflow-hidden backdrop-blur-sm hover:border-gold/50 hover:bg-charcoal/35 transition-all duration-300 group flex flex-col justify-between"
         >
           <div>
-            <div class="flex items-center justify-between gap-2 mb-4">
-              <span class={`font-mono text-[10px] px-2.5 py-1 rounded border ${cat.border} ${cat.color} font-medium`}>
-                {cat.label}
-              </span>
-              <span class="font-mono text-xs text-titanium-muted">
-                {work.data.client || work.data.employer || work.data.year}
-              </span>
+            <!-- Visual Hero Banner -->
+            {thumbnail && (
+              <div class="w-full aspect-video overflow-hidden bg-obsidian border-b border-charcoal relative">
+                <img 
+                  src={thumbnail} 
+                  alt={work.data.title} 
+                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                  loading="lazy"
+                />
+                <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent"></div>
+                <div class="absolute bottom-2 left-3 font-mono text-[10px] px-2 py-0.5 rounded bg-obsidian/80 border border-charcoal/80 text-titanium backdrop-blur-sm">
+                  {work.data.year}
+                </div>
+              </div>
+            )}
+
+            <div class="p-8">
+              <div class="flex items-center justify-between gap-2 mb-4">
+                <span class={`font-mono text-[10px] px-2.5 py-1 rounded border ${cat.border} ${cat.color} font-medium`}>
+                  {cat.label}
+                </span>
+                <span class="font-mono text-xs text-titanium-muted">
+                  {work.data.client || work.data.employer || work.data.year}
+                </span>
+              </div>
+
+              <h3 class="text-2xl font-display font-bold text-titanium mb-3 group-hover:text-gold transition-colors">
+                {work.data.title}
+              </h3>
+
+              <p class="text-sm text-titanium/80 font-light leading-relaxed mb-6 line-clamp-3">
+                {work.data.briefDescription}
+              </p>
             </div>
-
-            <h3 class="text-2xl font-display font-bold text-titanium mb-3 group-hover:text-gold transition-colors">
-              {work.data.title}
-            </h3>
-
-            <p class="text-sm text-titanium/80 font-light leading-relaxed mb-6">
-              {work.data.briefDescription}
-            </p>
           </div>
 
-          <div class="pt-4 border-t border-charcoal/60 flex items-center justify-between font-mono text-xs text-titanium-muted">
-            <div class="flex gap-2">
+          <div class="px-8 pb-6 pt-4 border-t border-charcoal/60 flex items-center justify-between font-mono text-xs text-titanium-muted">
+            <div class="flex flex-wrap gap-2">
               {work.data.metrics && work.data.metrics.slice(0, 2).map(m => (
                 <span class="text-cyan">⚡ {m}</span>
               ))}
             </div>
-            <span class="text-gold group-hover:translate-x-1 transition-transform">READ STUDY →</span>
+            <span class="text-gold group-hover:translate-x-1 transition-transform whitespace-nowrap">READ STUDY →</span>
           </div>
         </a>
       );
     })}
   </div>
 
-  <!-- Archive Summary Banner -->
-  <div class="rounded-xl border border-charcoal/80 bg-obsidian p-6 md:p-8 flex flex-col md:flex-row items-center justify-between gap-6">
+  <!-- Bottom CTA Rail -->
+  <div class="rounded-xl border border-charcoal bg-obsidian p-8 flex flex-col md:flex-row items-center justify-between gap-6">
     <div>
-      <div class="font-display font-bold text-titanium text-lg mb-1">
-        20-Year Retrospective Catalog
-      </div>
-      <p class="text-xs text-titanium-muted font-light">
-        Includes Master's thesis research (DANM), early web experiments, interactive spatial retail installations, and generative software art.
-      </p>
+      <div class="font-mono text-xs text-cyan mb-1">// EXPLORE COMPLETE RETROSPECTIVE</div>
+      <div class="text-lg font-display font-bold text-titanium">Discover 20+ years of patents, code, and systems.</div>
     </div>
-
-    <div class="flex flex-wrap gap-2">
-      <a href="/portfolio?category=frontier-ai" class="font-mono text-[11px] px-3 py-1.5 rounded bg-charcoal/40 border border-charcoal text-cyan hover:border-cyan">
-        [ Frontier AI ]
+    <div class="flex flex-wrap gap-3">
+      <a 
+        href="/portfolio" 
+        class="font-mono text-xs px-5 py-2.5 rounded bg-gold text-obsidian font-semibold hover:bg-gold-hover transition-colors shadow-glow-gold"
+      >
+        BROWSE PORTFOLIO ARCHIVE →
       </a>
-      <a href="/portfolio?category=venture-strategy" class="font-mono text-[11px] px-3 py-1.5 rounded bg-charcoal/40 border border-charcoal text-gold hover:border-gold">
-        [ Venture & Strategy ]
-      </a>
-      <a href="/portfolio?category=experiential-spatial" class="font-mono text-[11px] px-3 py-1.5 rounded bg-charcoal/40 border border-charcoal text-magenta hover:border-magenta">
-        [ Experiential & Spatial ]
-      </a>
-      <a href="/portfolio?category=creative-tech" class="font-mono text-[11px] px-3 py-1.5 rounded bg-charcoal/40 border border-charcoal text-lime hover:border-lime">
-        [ Creative Tech ]
+      <a 
+        href="/experience/timeline" 
+        class="font-mono text-xs px-5 py-2.5 rounded border border-charcoal bg-charcoal/30 text-titanium hover:border-gold hover:text-gold transition-colors"
+      >
+        VIEW UNIFIED TIMELINE →
       </a>
     </div>
   </div>

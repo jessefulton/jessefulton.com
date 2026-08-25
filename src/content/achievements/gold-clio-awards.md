@@ -1,12 +1,15 @@
 ---
-title: "Gold Clio Awards — Innovation & Interactive"
+title: "Clio Awards (Gold & Silver Clios)"
 type: "award"
 year: 2018
 organization: "Clio Awards"
 category: "frontier-ai"
-description: "Honored with multiple Gold Clio Awards in Innovation, Audio, and Interactive Media for the Destiny 2 Ghost Skill."
+description: "Honored with Gold Clio for Apps (Games) and Silver Clio for Innovation (Games) for the Destiny 2 Ghost Alexa Companion."
+link: "https://clios.com/entertainment/winner/games-digital-mobile/destiny-2/destiny-2-ghost-skill-42726"
 associatedProject: "destiny-2-ghost-companion"
 featured: true
+showOnTimeline: true
 ---
 
-Recognizing outstanding creative and technical achievement in modern interactive consumer experiences.
+- **Gold Clio (2018)**: Apps (Games) — [Destiny 2 Ghost Skill Clio Winner](https://clios.com/entertainment/winner/games-digital-mobile/destiny-2/destiny-2-ghost-skill-42726)
+- **Silver Clio (2018)**: Innovation (Games) — [Destiny 2 Ghost Skill Innovation](https://clios.com/entertainment/winner/games-innovation/destiny-2/destiny-2-ghost-skill-42724)

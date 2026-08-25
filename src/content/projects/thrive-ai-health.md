@@ -1,33 +1,27 @@
 ---
-title: "Thrive AI Health — Agent Runtimes & Evals"
-byline: "Frontier AI Systems, Evaluation Suites & HIPAA-Compliant Architecture"
-briefDescription: "Engineered deterministic evaluation harnesses, HIPAA-compliant generative agent frameworks, and developer infrastructure yielding 5x engineering velocity."
+title: "Thrive AI Health — Deterministic Agent Runtimes"
+byline: "Building HIPAA-ready multi-modal agent runtimes with deterministic evaluation harnesses."
+briefDescription: "Architected agent orchestration runtimes, context compilation pipelines, and synthetic eval frameworks at Thrive AI Health, accelerating developer velocity by 5x while meeting strict clinical HIPAA compliance."
 category: "frontier-ai"
-client: "Thrive AI Health"
 employer: "Thrive AI Health"
-role: "Innovation Architect & AI Systems Engineer"
-industries: ["HealthTech", "Frontier AI", "Enterprise Software"]
-achievements: ["5x Velocity Acceleration", "HIPAA Generative Agent Architecture"]
-tags: ["Generative AI", "LLM Evals", "HIPAA Compliance", "Agent Harnesses", "System Architecture"]
+role: "Principal Product Engineer / Fractional AI Systems Lead"
 year: 2024
 featured: true
 archive: true
-metrics: ["5x Dev Velocity", "Deterministic Evals", "Audit-Ready Runtimes"]
+showOnTimeline: true
+tags: ["frontier-ai", "llm-evals", "agent-runtimes", "hipaa-compliance", "rag-systems"]
+metrics:
+  - "5x Developer Velocity Acceleration"
+  - "Deterministic LLM Evaluation Harness"
+  - "Enterprise HIPAA Audit Architecture"
 ---
 
-## Executive Context & Challenge
+At Thrive AI Health, Jesse established the core engineering frameworks and deterministic runtime harnesses powering conversational healthcare agents.
 
-As healthcare enters the frontier AI era, generative systems must bridge two traditionally opposing mandates: rapid zero-to-one innovation velocity and rigorous, audit-ready clinical reliability. Deploying non-deterministic LLMs in health contexts requires bulletproof safety guardrails, deterministic evaluation pipelines, and strict compliance with HIPAA privacy standards.
+### The Challenge: Clinical Determinism in Probabilistic Systems
+LLM-based health coaching requires absolute safety, zero hallucination on critical biometric guidelines, and rigorous HIPAA auditability. 
 
-## Architectural Mandate & Solution
-
-Spearheaded the zero-to-one product engineering and systems architecture for Thrive AI Health's generative agent infrastructure:
-
-- **Deterministic Evaluation Suites:** Designed continuous evaluation harnesses capable of grading conversational responses against golden clinical baselines, flagging hallucinations, and validating safety bounds prior to release.
-- **HIPAA-Compliant Agent Runtimes:** Built secure, decoupled agent runtimes that isolate PHI (Protected Health Information), ensuring token streams and retrieval-augmented generation (RAG) contexts never leak sensitive user data.
-- **5x Engineering Velocity:** Implemented standardized AI developer workflows, automated test generation, and streamlined CI/CD pipelines that accelerated product delivery cycles by 5x across the engineering organization.
-
-## Key Takeaways & Impact
-
-- Transformed generative AI research into hardened, production-grade microservices.
-- Established repeatable evaluation metrics enabling multi-disciplinary product teams to experiment rapidly with frontier models without sacrificing regulatory posture.
+### Key Architectures & Milestones
+- **Deterministic Evals:** Built a synthetic data generation and deterministic evaluation matrix that regression-tests prompt changes, tool-calling definitions, and context window assembly against thousands of clinical edge cases.
+- **Context Compiler:** Designed streaming context compilation pipelines that merge longitudinal biomarker telemetry (sleep, activity, nutrition) with clinical guidelines in sub-50ms latency.
+- **Developer Acceleration:** Streamlined local development environments and CI evaluation gates, elevating the team's shipping frequency fivefold.
