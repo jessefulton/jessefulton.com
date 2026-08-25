@@ -1,0 +1,37 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import HeroCarousel from '../components/HeroCarousel.astro';
+import PillarsSection from '../components/PillarsSection.astro';
+import SystemsMatrix from '../components/SystemsMatrix.astro';
+import ArchiveSection from '../components/ArchiveSection.astro';
+import ContactForm from '../components/ContactForm.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout 
+  title="Jesse Fulton // Creative Venture Catalyst & Innovation Architect"
+  description="Strategic innovation leadership bridging 20 years across venture strategy (HEC Paris MSIE), 10+ years Voice UX pioneering (Destiny 2 Ghost Skill, 6 Patents), and frontier AI systems."
+>
+  <div id="top"></div>
+  <Header />
+  
+  <main class="flex-grow">
+    <!-- Hero Headline & Terminal Matrix Section -->
+    <HeroCarousel />
+
+    <!-- Strategic Capabilities & Four Pillars of Proof -->
+    <PillarsSection />
+
+    <!-- Integrated Systems Architecture Matrix -->
+    <SystemsMatrix />
+
+    <!-- Selected Works & 20-Year Project Archive -->
+    <ArchiveSection />
+
+    <!-- Direct Advisory & Engagement Form -->
+    <ContactForm />
+  </main>
+
+  <Footer />
+</BaseLayout>

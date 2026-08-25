@@ -1,0 +1,95 @@
+---
+const pillars = [
+  {
+    tag: "01 // VENTURE DESIGN",
+    title: "Strategy & Venture Building",
+    accent: "text-gold",
+    borderHover: "hover:border-gold/50",
+    badgeBg: "bg-gold/10 text-gold border-gold/30",
+    description: "MSc in Innovation & Entrepreneurship (HEC Paris). Guiding founders and executive teams through zero-to-one business design, product-market fit discovery, and sustainable venture architecture.",
+    bullets: ["HEC Paris MSIE Alum", "Startup Mentor @ SC Launchpad", "Zero-to-One Incubation"],
+  },
+  {
+    tag: "02 // ENTERPRISE IMPACT",
+    title: "Product Strategy & Alignment",
+    accent: "text-cyan",
+    borderHover: "hover:border-cyan/50",
+    badgeBg: "bg-cyan/10 text-cyan border-cyan/30",
+    description: "Translating ambiguous, high-stakes technology shifts into actionable product roadmaps. Led strategic workshopping and execution for enterprise leaders including Coinbase Cloud and PwC.",
+    bullets: ["Coinbase Cloud Workshopping", "Executive Stakeholder Alignment", "Multi-disciplinary Bridge"],
+  },
+  {
+    tag: "03 // MULTIMODAL HERITAGE",
+    title: "Voice UX & Creative Direction",
+    accent: "text-magenta",
+    borderHover: "hover:border-magenta/50",
+    badgeBg: "bg-magenta/10 text-magenta border-magenta/30",
+    description: "Over a decade of pioneering conversational and voice interaction design. 6 US Patents in Human-Machine Interaction, Cannes Gold/Silver Lions, and speaker at the Game Developers Conference (GDC).",
+    bullets: ["6 US Patents in Interaction", "Cannes Lions & Gold Clios", "Destiny 2 Ghost Skill Pioneer"],
+  },
+  {
+    tag: "04 // FRONTIER VELOCITY",
+    title: "Frontier AI Systems",
+    accent: "text-lime",
+    borderHover: "hover:border-lime/50",
+    badgeBg: "bg-lime/10 text-lime border-lime/30",
+    description: "Engineering audit-ready, HIPAA-compliant generative AI agent frameworks and evaluation harnesses. Proven track record accelerating product engineering velocity by 5x at Thrive AI Health.",
+    bullets: ["HIPAA-Compliant Agent Runtimes", "Evals & System Harnesses", "5x Velocity Acceleration"],
+  },
+];
+---
+
+<section id="strategy" class="max-w-7xl mx-auto px-6 py-20 border-t border-charcoal">
+  <!-- Section Header -->
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+    <div>
+      <div class="font-mono text-xs text-gold tracking-widest uppercase mb-2">
+        // STRATEGIC CAPABILITIES & PROOF PILLARS
+      </div>
+      <h2 class="text-3xl md:text-4xl font-display font-bold text-titanium tracking-tight">
+        The Four Pillars of Proof
+      </h2>
+    </div>
+    <p class="text-titanium-muted max-w-md text-sm font-light leading-relaxed">
+      A 20-year synthesis across business design, creative direction, and frontier systems engineering that turns emerging tech into durable venture value.
+    </p>
+  </div>
+
+  <!-- Pillar Grid -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    {pillars.map((pillar) => (
+      <div class={`rounded-xl border border-charcoal bg-charcoal/20 p-8 backdrop-blur-sm transition-all duration-300 ${pillar.borderHover} group relative overflow-hidden`}>
+        
+        <!-- Pillar Tag Badge -->
+        <div class="flex items-center justify-between mb-6">
+          <span class={`font-mono text-[11px] px-3 py-1 rounded border ${pillar.badgeBg}`}>
+            {pillar.tag}
+          </span>
+          <span class="font-mono text-xs text-titanium-muted opacity-40 group-hover:opacity-100 transition-opacity">
+            SYS_SPEC
+          </span>
+        </div>
+
+        <!-- Pillar Title -->
+        <h3 class="text-2xl font-display font-bold text-titanium mb-4 group-hover:text-white transition-colors">
+          {pillar.title}
+        </h3>
+
+        <!-- Description -->
+        <p class="text-titanium/80 text-sm font-light leading-relaxed mb-6">
+          {pillar.description}
+        </p>
+
+        <!-- Highlights / Bullets -->
+        <div class="flex flex-wrap gap-2 pt-4 border-t border-charcoal/60">
+          {pillar.bullets.map((bullet) => (
+            <span class="font-mono text-[11px] px-2.5 py-1 rounded bg-obsidian border border-charcoal/80 text-titanium/70">
+              ✓ {bullet}
+            </span>
+          ))}
+        </div>
+
+      </div>
+    ))}
+  </div>
+</section>

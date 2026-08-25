@@ -1,0 +1,31 @@
+---
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="w-full border-t border-charcoal bg-obsidian py-12">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
+    
+    <!-- Brand & Legal -->
+    <div class="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-left">
+      <div class="font-display font-bold tracking-wider text-titanium text-sm">
+        JESSE FULTON <span class="text-gold font-mono">// 2026</span>
+      </div>
+      <span class="hidden sm:inline-block text-charcoal">|</span>
+      <p class="font-mono text-xs text-titanium-muted">
+        © {currentYear} Jesse Fulton. All rights reserved.
+      </p>
+    </div>
+
+    <!-- Status & Protocol -->
+    <div class="flex items-center gap-6 font-mono text-xs text-titanium-muted">
+      <div class="flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-cyan animate-pulse"></span>
+        <span>NETLIFY EDGE ACTIVE</span>
+      </div>
+      <a href="#top" class="hover:text-gold transition-colors">
+        ↑ [ TOP ]
+      </a>
+    </div>
+
+  </div>
+</footer>
