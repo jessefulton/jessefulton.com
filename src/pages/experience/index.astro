@@ -1,0 +1,169 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const roles = await getCollection('roles');
+const sortedRoles = roles.sort((a, b) => a.data.order - b.data.order);
+
+const achievements = await getCollection('achievements');
+const patents = achievements.filter(a => a.data.type === 'patent');
+const awards = achievements.filter(a => a.data.type === 'award');
+const speaking = achievements.filter(a => a.data.type === 'speaking');
+---
+
+<BaseLayout 
+  title="Executive Experience & Pedigree // Jesse Fulton"
+  description="Twenty years of multidisciplinary leadership across business strategy (HEC Paris), creative direction (AKQA), enterprise product strategy (Coinbase Cloud), and frontier AI engineering (Thrive AI Health)."
+>
+  <Header />
+
+  <main class="max-w-6xl mx-auto px-6 py-12 md:py-16">
+    <!-- Header Section with View Switcher -->
+    <header class="border-b border-charcoal pb-10 mb-12">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+        <div>
+          <div class="font-mono text-xs text-gold tracking-widest uppercase mb-2">
+            // LEADERSHIP & CAREER CHRONOLOGY
+          </div>
+          <h1 class="text-4xl md:text-5xl font-display font-bold text-titanium tracking-tight mb-4">
+            Executive Experience
+          </h1>
+          <p class="text-titanium-muted max-w-2xl text-base font-light leading-relaxed">
+            A 20-year trajectory bridging venture strategy, executive creative direction, enterprise developer platforms, and frontier AI systems.
+          </p>
+        </div>
+
+        <!-- View Switcher Toggle -->
+        <div class="flex bg-charcoal/40 border border-charcoal rounded-lg p-1 w-fit">
+          <a 
+            href="/experience" 
+            class="font-mono text-xs px-4 py-2 rounded bg-gold text-obsidian font-semibold transition-all shadow-glow-gold"
+          >
+            [ CARDS VIEW ]
+          </a>
+          <a 
+            href="/experience/timeline" 
+            class="font-mono text-xs px-4 py-2 rounded text-titanium/80 hover:text-titanium hover:bg-charcoal/50 transition-all"
+          >
+            [ TIMELINE VIEW ]
+          </a>
+        </div>
+      </div>
+    </header>
+
+    <!-- Leadership Roles Cards List -->
+    <section class="mb-20">
+      <div class="font-mono text-xs text-cyan uppercase tracking-wider mb-8 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-cyan"></span>
+        <span>// CAREER POSITIONS & MANDATES</span>
+      </div>
+
+      <div class="space-y-8">
+        {sortedRoles.map((role) => (
+          <div class="rounded-xl border border-charcoal bg-charcoal/20 p-8 backdrop-blur-sm hover:border-gold/40 transition-all duration-300">
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-4 pb-4 border-b border-charcoal/60">
+              <div>
+                <h2 class="text-2xl font-display font-bold text-titanium">
+                  {role.data.title}
+                </h2>
+                <div class="text-gold font-mono text-sm mt-0.5">
+                  {role.data.company} <span class="text-titanium-muted">({role.data.location})</span>
+                </div>
+              </div>
+              <div class="font-mono text-xs px-3 py-1 rounded bg-obsidian border border-charcoal text-cyan font-medium w-fit">
+                {role.data.period}
+              </div>
+            </div>
+
+            <p class="text-sm text-titanium/85 font-light leading-relaxed mb-6">
+              {role.data.summary}
+            </p>
+
+            <!-- Highlights -->
+            <div class="space-y-2 mb-6">
+              {role.data.highlights.map(h => (
+                <div class="text-xs text-titanium-muted flex items-start gap-2.5">
+                  <span class="text-gold font-mono">▹</span>
+                  <span>{h}</span>
+                </div>
+              ))}
+            </div>
+
+            <!-- Associated Project Links -->
+            {role.data.associatedProjects && role.data.associatedProjects.length > 0 && (
+              <div class="pt-4 border-t border-charcoal/50 flex flex-wrap items-center gap-2">
+                <span class="font-mono text-[11px] text-titanium-muted">KEY CASE STUDIES:</span>
+                {role.data.associatedProjects.map(slug => (
+                  <a 
+                    href={`/portfolio/${slug}`}
+                    class="font-mono text-[11px] px-2.5 py-1 rounded bg-obsidian border border-charcoal text-titanium hover:border-gold hover:text-gold transition-colors"
+                  >
+                    [ {slug.replace(/-/g, ' ').toUpperCase()} → ]
+                  </a>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Patents & Intellectual Property -->
+    <section id="patents" class="mb-20 border-t border-charcoal pt-16">
+      <div class="font-mono text-xs text-gold uppercase tracking-wider mb-8 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-gold"></span>
+        <span>// INTELLECTUAL PROPERTY & PATENTS</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {patents.map(p => (
+          <div class="rounded-xl border border-charcoal bg-obsidian p-6">
+            <div class="font-mono text-xs text-gold mb-2">{p.data.patentNumber}</div>
+            <h3 class="text-lg font-display font-bold text-titanium mb-2">{p.data.title}</h3>
+            <p class="text-xs text-titanium-muted leading-relaxed mb-4">{p.data.description}</p>
+            <div class="font-mono text-[11px] text-cyan">{p.data.organization} // {p.data.year}</div>
+          </div>
+        ))}
+
+        {awards.map(a => (
+          <div class="rounded-xl border border-charcoal bg-obsidian p-6">
+            <div class="font-mono text-xs text-magenta mb-2">HONOR & RECOGNITION</div>
+            <h3 class="text-lg font-display font-bold text-titanium mb-2">{a.data.title}</h3>
+            <p class="text-xs text-titanium-muted leading-relaxed mb-4">{a.data.description}</p>
+            <div class="font-mono text-[11px] text-titanium-muted">{a.data.organization} // {a.data.year}</div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Education & Academic Foundation -->
+    <section id="education" class="border-t border-charcoal pt-16">
+      <div class="font-mono text-xs text-lime uppercase tracking-wider mb-8 flex items-center gap-2">
+        <span class="w-2 h-2 rounded-full bg-lime"></span>
+        <span>// ACADEMIC RIGOR & FOUNDATION</span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="rounded-xl border border-charcoal bg-charcoal/20 p-6">
+          <div class="font-mono text-xs text-gold mb-1">MSIE (MSc in Innovation & Entrepreneurship)</div>
+          <h3 class="text-xl font-display font-bold text-titanium mb-2">HEC Paris</h3>
+          <p class="text-xs text-titanium-muted leading-relaxed">
+            Executive venture strategy, unit economics, startup design, and sustainable business model architecture.
+          </p>
+        </div>
+
+        <div class="rounded-xl border border-charcoal bg-charcoal/20 p-6">
+          <div class="font-mono text-xs text-cyan mb-1">MFA (Digital Arts & New Media)</div>
+          <h3 class="text-xl font-display font-bold text-titanium mb-2">University of California, Santa Cruz</h3>
+          <p class="text-xs text-titanium-muted leading-relaxed">
+            Graduate fellowship research in computational aesthetics, software art, physical computing, and expressive systems.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>
