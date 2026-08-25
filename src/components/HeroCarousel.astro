@@ -1,36 +1,42 @@
 ---
 ---
 
-<section class="max-w-7xl mx-auto px-6 pt-12 md:pt-16 pb-20">
+<section class="max-w-7xl mx-auto px-6 pt-12 md:pt-20 pb-20 relative">
+  
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
     
     <!-- Left Column: Editorial Headline Carousel & Narrative -->
     <div class="lg:col-span-7 flex flex-col justify-center">
       
-      <!-- Live Status Badge -->
-      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-charcoal bg-charcoal/40 text-titanium-muted font-mono text-[11px] w-fit mb-6">
-        <span class="w-2 h-2 rounded-full bg-cyan animate-pulse"></span>
-        <span>EXECUTIVE INNOVATION ARCHITECTURE // 2026</span>
+      <!-- Eyebrow: Special Elite Stamp + Rock Salt Hand-Scribble -->
+      <div class="flex items-center gap-3 mb-6 flex-wrap">
+        <span class="stamp-bw">
+          <span class="w-2 h-2 rounded-full bg-magenta animate-pulse inline-block mr-1"></span>
+          EXECUTIVE VENTURE ARCHITECTURE
+        </span>
+        <span class="hand-scribble text-gold rotate-1 hidden sm:inline-block">
+          ~ 20 years in tech without losing the soul
+        </span>
       </div>
 
-      <!-- Headline Area with Auto-Rotating Statements -->
-      <div class="relative min-h-[150px] sm:min-h-[170px] md:min-h-[210px] mb-6">
+      <!-- Headline Area with Auto-Rotating Statements & Colored Marker Underlines -->
+      <div class="relative min-h-[160px] sm:min-h-[180px] md:min-h-[220px] mb-4">
         <div id="slide-0" class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-700 ease-in-out">
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold tracking-tight leading-none text-titanium">
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold tracking-tight leading-[1.05] text-titanium">
             HUMAN INTELLIGENCE,<br />
-            <span class="text-gold">AMPLIFIED BY CODE.</span>
+            <span class="text-gold marker-underline">AMPLIFIED BY CODE.</span>
           </h1>
         </div>
         <div id="slide-1" class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none">
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold tracking-tight leading-none text-titanium">
-            BUILDING ZERO-TO-ONE<br />
-            VENTURES WITH <span class="text-magenta">DURABLE SOUL.</span>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold tracking-tight leading-[1.05] text-titanium">
+            ZERO-TO-ONE VENTURES<br />
+            WITH <span class="text-magenta marker-underline marker-underline-pink">DURABLE SOUL.</span>
           </h1>
         </div>
         <div id="slide-2" class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none">
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-bold tracking-tight leading-none text-titanium">
-            BRIDGING VOICE UX,<br />
-            <span class="text-cyan">STRATEGY & SYSTEMS.</span>
+          <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold tracking-tight leading-[1.05] text-titanium">
+            FRONTIER AI, VOICE UX<br />
+            & <span class="text-cyan marker-underline marker-underline-cyan">SPATIAL COMPUTING.</span>
           </h1>
         </div>
       </div>
@@ -44,68 +50,72 @@
 
       <!-- Sub-headline Narrative -->
       <p class="text-lg md:text-xl text-titanium/85 font-light leading-relaxed mb-8 max-w-2xl">
-        AI isn't a recent pivot—it’s the logical continuation of <strong class="text-gold font-semibold">10+ years in Voice UX & multimodal systems</strong>, Master's-level venture design (<span class="text-titanium">HEC Paris MSIE</span>), and building products that elevate human agency rather than replacing it.
+        AI isn't a recent pivot—it’s the natural evolution of <strong class="text-gold font-semibold">10+ years in Voice UX & multimodal systems</strong>, Master's-level venture design (<span class="text-titanium">HEC Paris MSIE</span>), and architecting products that elevate human agency rather than replacing it.
       </p>
 
       <!-- Action Buttons -->
       <div class="flex flex-wrap items-center gap-4">
         <a 
           href="#strategy" 
-          class="px-6 py-3 rounded bg-gold text-obsidian font-display font-bold text-sm tracking-wider hover:bg-gold-hover shadow-glow-gold transition-all duration-200"
+          class="px-7 py-3.5 rounded-punk-sm bg-gold text-obsidian font-display font-extrabold text-sm tracking-wide hover:bg-gold-hover shadow-punk-gold transition-all duration-200"
         >
-          EXPLORE THE PLATFORM →
+          EXPLORE CAPABILITIES →
         </a>
         <a 
-          href="#archive" 
-          class="px-6 py-3 rounded border border-charcoal bg-charcoal/30 text-titanium font-mono text-xs hover:border-cyan hover:text-cyan transition-all duration-200"
+          href="/portfolio" 
+          class="px-6 py-3.5 rounded-punk-sm border border-charcoal bg-charcoal/40 text-titanium font-mono text-xs hover:border-magenta hover:text-magenta hover:shadow-punk-pink transition-all duration-200"
         >
-          [ VIEW 20-YEAR ARCHIVE ]
+          [ 20-YEAR WORK ARCHIVE ]
         </a>
       </div>
 
     </div>
 
-    <!-- Right Column: Interactive Terminal Matrix & Proof Pod -->
-    <div class="lg:col-span-5">
-      <div class="rounded-xl border border-charcoal bg-charcoal/30 p-6 md:p-8 backdrop-blur-md relative overflow-hidden group hover:border-gold/40 transition-all duration-300">
+    <!-- Right Column: Asymmetrical Pod with Metric Grid -->
+    <div class="lg:col-span-5 relative">
+      <div class="punk-panel p-6 md:p-8 backdrop-blur-md relative overflow-hidden group">
         
-        <!-- Header Bar of Pod -->
+        <!-- Header Bar of Pod with Clean Monospace Status -->
         <div class="flex items-center justify-between border-b border-charcoal/80 pb-4 mb-6">
           <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-magenta/80"></span>
-            <span class="w-3 h-3 rounded-full bg-gold/80"></span>
-            <span class="w-3 h-3 rounded-full bg-cyan/80"></span>
+            <span class="w-3 h-3 rounded-full bg-magenta"></span>
+            <span class="w-3 h-3 rounded-full bg-gold"></span>
+            <span class="w-3 h-3 rounded-full bg-cyan"></span>
           </div>
-          <span class="font-mono text-[11px] text-titanium-muted">SYS_KERNEL :: METRICS_PROV</span>
+          <span class="font-mono text-[11px] text-cyan font-bold tracking-wider px-2.5 py-0.5 rounded-sm border border-cyan/30 bg-cyan/10">
+            PROVEN AT SCALE
+          </span>
         </div>
 
-        <!-- Metric Grid -->
+        <!-- Metric Grid with Asymmetrical Tiles & Vibrant Color -->
         <div class="grid grid-cols-2 gap-4 mb-6">
-          <div class="p-4 rounded-lg bg-obsidian/80 border border-charcoal/60">
-            <div class="font-mono text-2xl font-bold text-gold">20+ YRS</div>
-            <div class="text-xs text-titanium-muted mt-1">Multidisciplinary Innovation</div>
+          <div class="p-4 rounded-punk-sm bg-obsidian/90 border border-charcoal hover:border-gold/60 transition-colors">
+            <div class="font-display text-3xl font-extrabold text-gold tracking-tight">20+ YRS</div>
+            <div class="text-xs text-titanium-muted mt-1">Multi-Domain Track Record</div>
           </div>
-          <div class="p-4 rounded-lg bg-obsidian/80 border border-charcoal/60">
-            <div class="font-mono text-2xl font-bold text-cyan">6 PATENTS</div>
-            <div class="text-xs text-titanium-muted mt-1">Human-Machine Interaction</div>
+          <div class="p-4 rounded-punk-sm bg-obsidian/90 border border-charcoal hover:border-cyan/60 transition-colors">
+            <div class="font-display text-3xl font-extrabold text-cyan tracking-tight">6 PATENTS</div>
+            <div class="text-xs text-titanium-muted mt-1">USPTO Interaction & Video IP</div>
           </div>
-          <div class="p-4 rounded-lg bg-obsidian/80 border border-charcoal/60">
-            <div class="font-mono text-2xl font-bold text-magenta">CANNES</div>
+          <div class="p-4 rounded-punk-sm bg-obsidian/90 border border-charcoal hover:border-magenta/60 transition-colors">
+            <div class="font-display text-3xl font-extrabold text-magenta tracking-tight">CANNES</div>
             <div class="text-xs text-titanium-muted mt-1">Gold & Silver Lions / Clios</div>
           </div>
-          <div class="p-4 rounded-lg bg-obsidian/80 border border-charcoal/60">
-            <div class="font-mono text-2xl font-bold text-lime">5X VELOCITY</div>
-            <div class="text-xs text-titanium-muted mt-1">Frontier AI Engineering</div>
+          <div class="p-4 rounded-punk-sm bg-obsidian/90 border border-charcoal hover:border-lime/60 transition-colors">
+            <div class="font-display text-3xl font-extrabold text-lime tracking-tight">MSIE / MFA</div>
+            <div class="text-xs text-titanium-muted mt-1">HEC Paris & UC Santa Cruz</div>
           </div>
         </div>
 
-        <!-- Terminal Log Preview -->
-        <div class="p-3.5 rounded bg-obsidian border border-charcoal font-mono text-[12px] text-titanium-muted space-y-1.5">
-          <div class="text-cyan">$ jesse --inspect-pedigree</div>
-          <div class="text-titanium/80">→ HEC Paris MSIE (Innovation & Entrepreneurship)</div>
-          <div class="text-titanium/80">→ UCSC Digital Arts & New Media (MFA)</div>
-          <div class="text-titanium/80">→ AKQA, YML, Code & Theory, Thrive AI Health</div>
-          <div class="text-gold">✔ System integrity verified. Ready for zero-to-one.</div>
+        <!-- Quote / Perspective Card -->
+        <div class="p-4 rounded-punk-sm bg-obsidian/90 border border-charcoal/80 font-sans text-xs text-titanium-muted leading-relaxed space-y-2">
+          <p class="text-titanium/90 font-light italic">
+            "Software shouldn't feel like an industrial spreadsheet. Great systems blend ruthless technical discipline with genuine personality and taste."
+          </p>
+          <div class="font-mono text-[11px] text-gold flex items-center justify-between pt-1 border-t border-charcoal/60">
+            <span>— Jesse Fulton</span>
+            <span class="text-titanium-muted">// ARCHITECTURE PERSPECTIVE</span>
+          </div>
         </div>
 
       </div>

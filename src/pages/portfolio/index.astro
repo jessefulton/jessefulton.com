@@ -28,16 +28,16 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
   <Header />
 
   <main class="max-w-6xl mx-auto px-6 py-12 md:py-16">
-    <!-- Header Section -->
-    <header class="border-b border-charcoal pb-10 mb-12">
-      <div class="font-mono text-xs text-cyan tracking-widest uppercase mb-2">
-        // 20-YEAR CASE ARCHIVE
+    <!-- Header Section following consistent pattern -->
+    <header class="border-b border-charcoal/80 pb-10 mb-12">
+      <div class="font-mono text-xs text-cyan font-bold tracking-widest uppercase mb-2">
+        // COMPLETE ARCHIVE // 2004–2026 WORK CATALOG
       </div>
-      <h1 class="text-4xl md:text-5xl font-display font-bold text-titanium tracking-tight mb-4">
-        Project & Venture Archive
+      <h1 class="text-4xl md:text-5xl font-display font-extrabold text-titanium tracking-tight mb-4">
+        Project & Venture Catalog
       </h1>
       <p class="text-titanium-muted max-w-2xl text-base font-light leading-relaxed">
-        A searchable, filterable repository of executive client engagements, conversational AI companions, developer platforms, and spatial interactive installations.
+        A searchable, filterable retrospective of executive client engagements, conversational AI companions, developer platforms, and spatial interactive installations.
       </p>
     </header>
 
@@ -47,33 +47,33 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
       <div class="flex flex-wrap gap-2" id="filter-tabs">
         <button 
           data-filter="all" 
-          class="filter-btn font-mono text-xs px-3.5 py-1.5 rounded border border-gold bg-gold text-obsidian font-semibold transition-all duration-200"
+          class="filter-btn font-mono text-xs px-3.5 py-1.5 rounded-punk-sm border border-gold bg-gold text-obsidian font-bold shadow-punk-gold transition-all duration-200"
         >
-          [ ALL ({sortedProjects.length}) ]
+          ALL ({sortedProjects.length})
         </button>
         <button 
           data-filter="frontier-ai" 
-          class="filter-btn font-mono text-xs px-3.5 py-1.5 rounded border border-charcoal bg-charcoal/30 text-titanium/80 hover:border-cyan hover:text-cyan transition-all duration-200"
+          class="filter-btn font-mono text-xs px-3.5 py-1.5 rounded-punk-sm border border-charcoal bg-obsidian text-titanium/80 hover:border-cyan hover:text-cyan transition-all duration-200"
         >
-          [ FRONTIER AI ]
+          FRONTIER AI
         </button>
         <button 
           data-filter="venture-strategy" 
-          class="filter-btn font-mono text-xs px-3.5 py-1.5 rounded border border-charcoal bg-charcoal/30 text-titanium/80 hover:border-gold hover:text-gold transition-all duration-200"
+          class="filter-btn font-mono text-xs px-3.5 py-1.5 rounded-punk-sm border border-charcoal bg-obsidian text-titanium/80 hover:border-gold hover:text-gold transition-all duration-200"
         >
-          [ VENTURE & STRATEGY ]
+          VENTURE & STRATEGY
         </button>
         <button 
           data-filter="experiential-spatial" 
-          class="filter-btn font-mono text-xs px-3.5 py-1.5 rounded border border-charcoal bg-charcoal/30 text-titanium/80 hover:border-magenta hover:text-magenta transition-all duration-200"
+          class="filter-btn font-mono text-xs px-3.5 py-1.5 rounded-punk-sm border border-charcoal bg-obsidian text-titanium/80 hover:border-magenta hover:text-magenta transition-all duration-200"
         >
-          [ EXPERIENTIAL & SPATIAL ]
+          EXPERIENTIAL & SPATIAL
         </button>
         <button 
           data-filter="creative-tech" 
-          class="filter-btn font-mono text-xs px-3.5 py-1.5 rounded border border-charcoal bg-charcoal/30 text-titanium/80 hover:border-lime hover:text-lime transition-all duration-200"
+          class="filter-btn font-mono text-xs px-3.5 py-1.5 rounded-punk-sm border border-charcoal bg-obsidian text-titanium/80 hover:border-lime hover:text-lime transition-all duration-200"
         >
-          [ CREATIVE TECH ]
+          CREATIVE TECH
         </button>
       </div>
 
@@ -83,7 +83,7 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
           type="text" 
           id="archive-search" 
           placeholder="Filter by keyword or tag..." 
-          class="w-full sm:w-64 px-4 py-2 rounded bg-charcoal/40 border border-charcoal text-titanium placeholder:text-titanium-muted/40 font-mono text-xs focus:outline-none focus:border-gold"
+          class="w-full sm:w-64 px-4 py-2.5 rounded-punk-sm bg-obsidian border border-charcoal text-titanium placeholder:text-titanium-muted/40 font-mono text-xs focus:outline-none focus:border-gold"
         />
       </div>
     </div>
@@ -100,29 +100,29 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
             data-category={project.data.category}
             data-tags={project.data.tags.join(' ').toLowerCase()}
             data-title={project.data.title.toLowerCase()}
-            class="project-card rounded-xl border border-charcoal bg-charcoal/20 overflow-hidden backdrop-blur-sm hover:border-gold/50 hover:bg-charcoal/35 transition-all duration-300 flex flex-col justify-between group"
+            class="project-card punk-panel rounded-punk-sm overflow-hidden transition-all duration-300 flex flex-col justify-between group"
           >
             <div>
               <!-- Visual Hero Thumbnail -->
               {thumbnail ? (
-                <div class="w-full aspect-video overflow-hidden bg-obsidian border-b border-charcoal relative">
+                <div class="w-full aspect-video overflow-hidden bg-obsidian border-b border-charcoal/80 relative">
                   <img 
                     src={thumbnail} 
                     alt={project.data.title} 
                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
                     loading="lazy"
                   />
-                  <div class="absolute inset-0 bg-gradient-to-t from-obsidian/80 via-transparent to-transparent"></div>
-                  <div class="absolute bottom-2 left-3 font-mono text-[10px] px-2 py-0.5 rounded bg-obsidian/80 border border-charcoal/80 text-titanium backdrop-blur-sm">
+                  <div class="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-2 left-3 font-mono text-[10px] font-bold px-2 py-0.5 rounded-sm bg-obsidian/90 border border-charcoal/80 text-gold backdrop-blur-sm">
                     {project.data.year}
                   </div>
                 </div>
               ) : (
-                <div class="w-full aspect-video bg-gradient-to-br from-charcoal/50 to-obsidian border-b border-charcoal flex items-center justify-center relative p-6">
-                  <div class="font-mono text-xs text-titanium-muted/40 uppercase tracking-widest text-center">
+                <div class="w-full aspect-video bg-charcoal-washed border-b border-charcoal/80 flex items-center justify-center relative p-6">
+                  <div class="font-mono text-xs text-titanium-muted/60 uppercase tracking-widest text-center">
                     // {cat.label}
                   </div>
-                  <div class="absolute bottom-2 left-3 font-mono text-[10px] px-2 py-0.5 rounded bg-obsidian/80 border border-charcoal/80 text-titanium backdrop-blur-sm">
+                  <div class="absolute bottom-2 left-3 font-mono text-[10px] font-bold px-2 py-0.5 rounded-sm bg-obsidian/90 border border-charcoal/80 text-gold backdrop-blur-sm">
                     {project.data.year}
                   </div>
                 </div>
@@ -131,7 +131,7 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
               <div class="p-6">
                 <!-- Top Metadata -->
                 <div class="flex items-center justify-between gap-2 mb-3">
-                  <span class={`font-mono text-[10px] px-2.5 py-0.5 rounded border ${cat.border} ${cat.color} font-medium`}>
+                  <span class={`font-mono text-[10px] font-bold px-2.5 py-0.5 rounded-sm border ${cat.border} ${cat.color} uppercase tracking-wider`}>
                     {cat.label}
                   </span>
                   {project.data.client && (
@@ -157,15 +157,15 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
             <div class="px-6 pb-6 pt-2 border-t border-charcoal/50">
               <div class="flex flex-wrap gap-1.5 mb-3">
                 {project.data.tags.slice(0, 3).map(tag => (
-                  <span class="font-mono text-[10px] px-2 py-0.5 rounded bg-obsidian border border-charcoal text-titanium-muted">
+                  <span class="font-mono text-[10px] px-2 py-0.5 rounded-sm bg-obsidian border border-charcoal text-titanium-muted">
                     #{tag}
                   </span>
                 ))}
               </div>
 
-              <div class="flex items-center justify-between font-mono text-xs text-titanium-muted group-hover:text-gold transition-colors">
-                <span>VIEW CASE STUDY</span>
-                <span class="transform group-hover:translate-x-1 transition-transform">→</span>
+              <div class="flex items-center justify-between text-xs font-mono text-titanium-muted pt-2 border-t border-charcoal/30">
+                <span class="text-gold font-bold group-hover:underline">VIEW STUDY →</span>
+                <span class="text-[10px]">{project.data.year}</span>
               </div>
             </div>
           </a>
@@ -173,38 +173,39 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
       })}
     </div>
 
-    <!-- Empty Filter State -->
-    <div id="no-results" class="hidden text-center py-20">
-      <div class="font-mono text-xs text-magenta mb-2">// NO MATCHING CASE STUDIES</div>
-      <p class="text-titanium-muted text-sm">Try searching for a different keyword or select another category filter.</p>
+    <!-- Empty Results Fallback -->
+    <div id="no-results" class="hidden text-center py-20 border border-dashed border-charcoal rounded-punk-sm my-8">
+      <div class="font-mono text-sm text-gold mb-2">// NO MATCHING CASE STUDIES FOUND</div>
+      <p class="text-xs text-titanium-muted">Try refining your keyword search or switching domain filters.</p>
     </div>
-
   </main>
 
   <Footer />
 </BaseLayout>
 
 <script>
-  // Real-time filtering and search
-  document.addEventListener('DOMContentLoaded', () => {
-    const filterButtons = document.querySelectorAll('.filter-btn');
+  function initFilters() {
+    const buttons = document.querySelectorAll('.filter-btn');
+    const cards = document.querySelectorAll('.project-card') as NodeListOf<HTMLElement>;
     const searchInput = document.getElementById('archive-search') as HTMLInputElement | null;
-    const projectCards = document.querySelectorAll('.project-card') as NodeListOf<HTMLElement>;
     const noResults = document.getElementById('no-results');
 
-    let activeCategory = 'all';
+    let activeFilter = 'all';
     let searchQuery = '';
 
-    function filterProjects() {
+    function applyFilter() {
       let visibleCount = 0;
 
-      projectCards.forEach((card) => {
-        const category = card.dataset.category || '';
-        const tags = card.dataset.tags || '';
-        const title = card.dataset.title || '';
+      cards.forEach(card => {
+        const category = card.getAttribute('data-category') || '';
+        const tags = card.getAttribute('data-tags') || '';
+        const title = card.getAttribute('data-title') || '';
 
-        const matchesCategory = activeCategory === 'all' || category === activeCategory;
-        const matchesSearch = searchQuery === '' || title.includes(searchQuery) || tags.includes(searchQuery);
+        const matchesCategory = activeFilter === 'all' || category === activeFilter;
+        const matchesSearch = !searchQuery || 
+          title.includes(searchQuery) || 
+          tags.includes(searchQuery) || 
+          category.includes(searchQuery);
 
         if (matchesCategory && matchesSearch) {
           card.classList.remove('hidden');
@@ -223,26 +224,29 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
       }
     }
 
-    filterButtons.forEach((btn) => {
+    buttons.forEach(btn => {
       btn.addEventListener('click', () => {
-        filterButtons.forEach((b) => {
-          b.classList.remove('bg-gold', 'text-obsidian', 'border-gold', 'font-semibold');
-          b.classList.add('border-charcoal', 'bg-charcoal/30', 'text-titanium/80');
+        buttons.forEach(b => {
+          b.classList.remove('border-gold', 'bg-gold', 'text-obsidian', 'shadow-punk-gold', 'font-bold');
+          b.classList.add('border-charcoal', 'bg-obsidian', 'text-titanium/80');
         });
 
-        btn.classList.remove('border-charcoal', 'bg-charcoal/30', 'text-titanium/80');
-        btn.classList.add('bg-gold', 'text-obsidian', 'border-gold', 'font-semibold');
+        btn.classList.remove('border-charcoal', 'bg-obsidian', 'text-titanium/80');
+        btn.classList.add('border-gold', 'bg-gold', 'text-obsidian', 'shadow-punk-gold', 'font-bold');
 
-        activeCategory = btn.getAttribute('data-filter') || 'all';
-        filterProjects();
+        activeFilter = btn.getAttribute('data-filter') || 'all';
+        applyFilter();
       });
     });
 
     if (searchInput) {
       searchInput.addEventListener('input', (e) => {
         searchQuery = (e.target as HTMLInputElement).value.toLowerCase().trim();
-        filterProjects();
+        applyFilter();
       });
     }
-  });
+  }
+
+  document.addEventListener('DOMContentLoaded', initFilters);
+  initFilters();
 </script>

@@ -4,39 +4,38 @@
 
 @layer base {
   :root {
-    --color-obsidian: #0D0F12;
-    --color-charcoal: #1E2228;
+    --color-obsidian: #0C0E12;
+    --color-slate-base: #15181E;
+    --color-charcoal: #1A1E24;
+    --color-charcoal-washed: #222831;
     --color-titanium: #F4F5F7;
     --color-gold: #E5B80B;
-    --color-magenta: #FF006E;
-    --color-cyan: #00F5D4;
-    --color-lime: #CCFF00;
+    --color-magenta: #FF2A85;
+    --color-cyan: #00F0FF;
+    --color-lime: #D4FF00;
   }
 
   html {
     scroll-behavior: smooth;
-    background-color: var(--color-obsidian);
-    color: var(--color-titanium);
+    background-color: #0C0E12;
+    color: #F4F5F7;
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
   }
 
   body {
-    background-color: #0D0F12;
+    background-color: #0C0E12;
     color: #F4F5F7;
     overflow-x: hidden;
     min-height: 100vh;
   }
+
+  h1, h2, h3, h4, .font-display {
+    font-family: 'Cabinet Grotesk', 'Clash Display', sans-serif;
+    letter-spacing: -0.02em;
+  }
 }
 
-/* Subtle Cybernetic Grid Pattern */
-.cyber-grid {
-  background-size: 40px 40px;
-  background-image: 
-    linear-gradient(to right, rgba(30, 34, 40, 0.35) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(30, 34, 40, 0.35) 1px, transparent 1px);
-}
-
-/* Radial Glow Ambient Effect */
+/* Subtle Ambient Glow */
 .ambient-glow {
   position: absolute;
   top: 0;
@@ -45,7 +44,7 @@
   width: 100%;
   max-width: 1200px;
   height: 600px;
-  background: radial-gradient(circle at 50% 20%, rgba(229, 184, 11, 0.04) 0%, rgba(0, 245, 212, 0.02) 40%, transparent 70%);
+  background: radial-gradient(circle at 50% 20%, rgba(229, 184, 11, 0.08) 0%, rgba(255, 42, 133, 0.05) 35%, transparent 70%);
   pointer-events: none;
   z-index: 0;
 }
@@ -53,24 +52,104 @@
 /* Editorial Text Outline */
 .text-outline {
   color: transparent;
-  -webkit-text-stroke: 1px #F4F5F7;
+  -webkit-text-stroke: 1.5px #F4F5F7;
 }
 
 .text-outline-gold {
   color: transparent;
-  -webkit-text-stroke: 1px #E5B80B;
+  -webkit-text-stroke: 1.5px #E5B80B;
 }
 
-/* Glassmorphism Surface Container */
-.cyber-panel {
-  background: rgba(13, 15, 18, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(30, 34, 40, 0.8);
+/* Standard Glam-Punk Card Surface (High Contrast against Obsidian) */
+.punk-panel {
+  background: #14181F;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.25rem 0.25rem 1.25rem 0.25rem;
+  box-shadow: 4px 4px 0px 0px #1A1E24;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.cyber-panel:hover {
-  border-color: rgba(229, 184, 11, 0.4);
+.punk-panel:hover {
+  border-color: rgba(229, 184, 11, 0.6);
+  box-shadow: 4px 4px 0px 0px #E5B80B;
+  transform: translate(-1px, -1px);
+}
+
+/* Alternating Isolated Slate Section for Discontinuity / Contrast */
+.section-slate {
+  background-color: #15181E;
+  position: relative;
+}
+
+.section-slate .punk-panel {
+  background-color: #090A0D;
+  border: 1px solid rgba(255, 255, 255, 0.09);
+  box-shadow: 4px 4px 0px 0px #000000;
+}
+
+.section-slate .punk-panel:hover {
+  border-color: rgba(229, 184, 11, 0.6);
+  box-shadow: 4px 4px 0px 0px #E5B80B;
+}
+
+/* Authentic Eroded Grunge Rubber Stamp (Special Elite) */
+.stamp-bw {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.2rem 0.7rem;
+  font-family: 'Special Elite', monospace;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  background: #F4F5F7;
+  color: #08090C;
+  border: 1px solid #FFFFFF;
+  border-radius: 0.125rem;
+  box-shadow: 2.5px 2.5px 0px 0px rgba(0, 0, 0, 0.95);
+  transition: all 0.15s ease;
+}
+
+.stamp-bw:hover {
+  box-shadow: 2.5px 2.5px 0px 0px #E5B80B;
+}
+
+/* Authentic Rock Salt Hand-Scribble for Inside Jokes */
+.hand-scribble, .scribble-note {
+  font-family: 'Rock Salt', cursive, sans-serif;
+  font-size: 0.82rem;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  display: inline-block;
+}
+
+/* Marker Underline Highlights */
+.marker-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.marker-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 100%;
+  height: 4px;
+  background: #E5B80B;
+  border-radius: 2px;
+  opacity: 0.9;
+  transform: rotate(-0.5deg);
+}
+
+.marker-underline-pink::after {
+  background: #FF2A85;
+}
+
+.marker-underline-cyan::after {
+  background: #00F0FF;
 }
 
 /* Custom Scrollbar */
@@ -80,19 +159,14 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #0D0F12;
+  background: #0C0E12;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1E2228;
+  background: #252B35;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: #E5B80B;
-}
-
-/* Code and Mono Highlights */
-code, pre, .font-mono {
-  font-family: 'Space Mono', 'JetBrains Mono', monospace;
 }

@@ -2,67 +2,78 @@
 const systems = [
   {
     category: "VOICE & MULTIMODAL UX",
-    tagColor: "text-cyan",
+    color: "text-cyan",
+    border: "border-cyan/30 bg-cyan/10",
+    accentGlow: "group-hover:border-cyan/50",
     items: [
-      { name: "Conversational Architecture", desc: "Designed award-winning voice agents and multimodal user flows with 10+ years hands-on field experience." },
+      { name: "Conversational Architecture", desc: "Designed award-winning voice agents and multimodal user flows with 10+ years of hands-on field experience." },
       { name: "6 Human-Machine Patents", desc: "Patented interaction methodologies bridging voice, vision, and real-time state synchronization." },
-      { name: "Audio-Spatial Experience", desc: "Interactive audio engines, GDC-featured speaker on game/voice integration." },
+      { name: "Audio-Spatial Experience", desc: "Interactive audio engines and cadence-synced soundscapes; speaker at GDC on game/voice integration." },
     ]
   },
   {
-    category: "VENTURE & PRODUCT STRATEGY",
-    tagColor: "text-gold",
+    category: "VENTURE & STRATEGY",
+    color: "text-gold",
+    border: "border-gold/30 bg-gold/10",
+    accentGlow: "group-hover:border-gold/50",
     items: [
-      { name: "Zero-to-One Incubation", desc: "From whiteboard concept to market viability, building business models and pitch narratives." },
+      { name: "Zero-to-One Incubation", desc: "From whiteboard concept to market viability—building unit economic models, pitch narratives, and customer discovery loops." },
       { name: "Enterprise Workshopping", desc: "Aligning executive leadership, product managers, and engineering teams on high-stakes roadmaps." },
       { name: "Founder Mentorship", desc: "Active startup mentoring with the Santa Cruz Launchpad accelerator ecosystem." },
     ]
   },
   {
-    category: "FRONTIER AI & SYSTEM VELOCITY",
-    tagColor: "text-magenta",
+    category: "FRONTIER AI & VELOCITY",
+    color: "text-magenta",
+    border: "border-magenta/30 bg-magenta/10",
+    accentGlow: "group-hover:border-magenta/50",
     items: [
-      { name: "Agent Runtime & Evals", desc: "Building deterministic evaluation harnesses, guardrails, and HIPAA-compliant generative pipelines." },
-      { name: "5x Developer Velocity", desc: "Implementing modern AI workflows, automated test scaffolding, and continuous delivery loops." },
-      { name: "Full-Stack & Edge Delivery", desc: "Ultra-fast modern web applications, Astro, Netlify, Cloudflare Workers, and distributed state." },
+      { name: "Agent Runtimes & Evals", desc: "Building deterministic evaluation harnesses, guardrails, and HIPAA-compliant generative pipelines." },
+      { name: "5x Developer Velocity", desc: "Implementing modern AI workflows, automated test scaffolding, and lightning-fast continuous delivery loops." },
+      { name: "Full-Stack Edge Architecture", desc: "Ultra-fast modern web applications, Astro, Netlify Edge, Cloudflare Workers, and distributed state." },
     ]
   }
 ];
 ---
 
-<section id="systems" class="max-w-7xl mx-auto px-6 py-20 border-t border-charcoal">
-  <!-- Section Header -->
+<section id="systems" class="max-w-7xl mx-auto px-6 py-20 border-t border-charcoal/80">
+  <!-- Section Header following consistent pattern -->
   <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
     <div>
-      <div class="font-mono text-xs text-cyan tracking-widest uppercase mb-2">
-        // SYSTEM ARCHITECTURE & METHODOLOGY
+      <div class="font-mono text-xs text-cyan font-bold tracking-widest uppercase mb-2">
+        // SYSTEM ARCHITECTURE // METHODOLOGY & INTEGRATION
       </div>
-      <h2 class="text-3xl md:text-4xl font-display font-bold text-titanium tracking-tight">
+      <h2 class="text-3xl md:text-5xl font-display font-extrabold text-titanium tracking-tight">
         Integrated Systems Matrix
       </h2>
     </div>
     <div class="font-mono text-xs text-titanium-muted flex items-center gap-2">
-      <span class="w-2 h-2 rounded-full bg-lime"></span>
-      <span>ACTIVE STATUS: FULL OPERATIONAL INTEGRITY</span>
+      <span class="w-2 h-2 rounded-full bg-cyan animate-pulse"></span>
+      <span>READY FOR AMBITIOUS BUILDS</span>
     </div>
   </div>
 
   <!-- Systems Grid -->
   <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-    {systems.map((system) => (
-      <div class="rounded-xl border border-charcoal bg-obsidian/90 p-6 flex flex-col justify-between">
+    {systems.map((system, idx) => (
+      <div class={`punk-panel p-6 flex flex-col justify-between group ${idx % 2 === 1 ? 'rounded-punk-reverse' : 'rounded-punk'}`}>
         <div>
-          <div class={`font-mono text-xs font-bold tracking-wider mb-6 pb-3 border-b border-charcoal ${system.tagColor}`}>
-            // {system.category}
+          <div class="flex items-center justify-between mb-6 pb-3 border-b border-charcoal/80">
+            <span class={`font-mono text-xs font-bold tracking-wider px-2.5 py-1 rounded-sm border ${system.border} ${system.color}`}>
+              // {system.category}
+            </span>
+            <span class="font-mono text-xs text-titanium-muted">
+              #{idx + 1}
+            </span>
           </div>
           
           <div class="space-y-6">
             {system.items.map((item) => (
-              <div class="group">
-                <h4 class="font-display font-semibold text-titanium text-base group-hover:text-gold transition-colors flex items-center gap-2">
-                  <span class="font-mono text-xs text-titanium-muted">▹</span> {item.name}
+              <div class="group/item">
+                <h4 class="font-display font-bold text-titanium text-base group-hover/item:text-gold transition-colors flex items-center gap-2">
+                  <span class="text-gold font-mono text-xs">▸</span> {item.name}
                 </h4>
-                <p class="text-xs text-titanium-muted font-light leading-relaxed mt-1.5 pl-4 border-l border-charcoal group-hover:border-gold/40 transition-colors">
+                <p class="text-xs text-titanium-muted font-light leading-relaxed mt-1.5 pl-3 border-l border-charcoal group-hover/item:border-gold/50 transition-colors">
                   {item.desc}
                 </p>
               </div>
@@ -70,9 +81,9 @@ const systems = [
           </div>
         </div>
 
-        <div class="mt-8 pt-4 border-t border-charcoal/50 flex justify-between items-center text-[11px] font-mono text-titanium-muted">
-          <span>OPERATOR_READY</span>
-          <span class="text-cyan">✔ COMPILED</span>
+        <div class="mt-8 pt-4 border-t border-charcoal/60 flex justify-between items-center text-[11px] font-mono text-titanium-muted">
+          <span>HIGH RIGOR // REAL IMPACT</span>
+          <span class="text-gold font-bold">★ FIELD TESTED</span>
         </div>
       </div>
     ))}

@@ -2,51 +2,55 @@
 const pillars = [
   {
     tag: "01 // VENTURE DESIGN",
-    title: "Strategy & Venture Building",
+    title: "Strategy & Venture Architecture",
     accent: "text-gold",
-    borderHover: "hover:border-gold/50",
-    badgeBg: "bg-gold/10 text-gold border-gold/30",
-    description: "MSc in Innovation & Entrepreneurship (HEC Paris). Guiding founders and executive teams through zero-to-one business design, product-market fit discovery, and sustainable venture architecture.",
-    bullets: ["HEC Paris MSIE Alum", "Startup Mentor @ SC Launchpad", "Zero-to-One Incubation"],
+    borderHover: "hover:border-gold/70 hover:shadow-punk-gold",
+    badgeBg: "bg-gold/15 text-gold border-gold/40",
+    description: "MSc in Innovation & Entrepreneurship (HEC Paris). Guiding founders and leadership through zero-to-one business model design, unit economic modeling, and sustainable venture mechanics.",
+    bullets: ["HEC Paris MSIE", "Startup Mentor @ SC Launchpad", "Zero-to-One Incubation"],
+    note: "where ideas become viable P&Ls",
   },
   {
     tag: "02 // ENTERPRISE IMPACT",
-    title: "Product Strategy & Alignment",
+    title: "Product Strategy & Executive Alignment",
     accent: "text-cyan",
-    borderHover: "hover:border-cyan/50",
-    badgeBg: "bg-cyan/10 text-cyan border-cyan/30",
-    description: "Translating ambiguous, high-stakes technology shifts into actionable product roadmaps. Led strategic workshopping and execution for enterprise leaders including Coinbase Cloud and PwC.",
-    bullets: ["Coinbase Cloud Workshopping", "Executive Stakeholder Alignment", "Multi-disciplinary Bridge"],
+    borderHover: "hover:border-cyan/70 hover:shadow-punk-cyan",
+    badgeBg: "bg-cyan/15 text-cyan border-cyan/40",
+    description: "Translating ambiguous, high-stakes technology shifts into executable product roadmaps. Led strategic alignment and design execution for leaders including Coinbase Cloud and PwC.",
+    bullets: ["Coinbase Cloud Workshopping", "Executive Alignment", "Cross-Disciplinary Bridge"],
+    note: "turning executive fog into clear execution",
   },
   {
     tag: "03 // MULTIMODAL HERITAGE",
-    title: "Voice UX & Creative Direction",
+    title: "Voice UX & Multimodal Creative Direction",
     accent: "text-magenta",
-    borderHover: "hover:border-magenta/50",
-    badgeBg: "bg-magenta/10 text-magenta border-magenta/30",
+    borderHover: "hover:border-magenta/70 hover:shadow-punk-pink",
+    badgeBg: "bg-magenta/15 text-magenta border-magenta/40",
     description: "Over a decade of pioneering conversational and voice interaction design. 6 US Patents in Human-Machine Interaction, Cannes Gold/Silver Lions, and speaker at the Game Developers Conference (GDC).",
-    bullets: ["6 US Patents in Interaction", "Cannes Lions & Gold Clios", "Destiny 2 Ghost Skill Pioneer"],
+    bullets: ["6 US Patents in Interaction", "Cannes Lions & Gold Clios", "Destiny 2 Ghost Alexa Skill"],
+    note: "10+ years before LLMs made voice cool",
   },
   {
     tag: "04 // FRONTIER VELOCITY",
-    title: "Frontier AI Systems",
+    title: "Frontier AI Systems & Agent Architectures",
     accent: "text-lime",
-    borderHover: "hover:border-lime/50",
-    badgeBg: "bg-lime/10 text-lime border-lime/30",
+    borderHover: "hover:border-lime/70 hover:shadow-[4px_4px_0px_#d4ff00]",
+    badgeBg: "bg-lime/15 text-lime border-lime/40",
     description: "Engineering audit-ready, HIPAA-compliant generative AI agent frameworks and evaluation harnesses. Proven track record accelerating product engineering velocity by 5x at Thrive AI Health.",
-    bullets: ["HIPAA-Compliant Agent Runtimes", "Evals & System Harnesses", "5x Velocity Acceleration"],
+    bullets: ["HIPAA-Compliant Agent Runtimes", "Automated Eval Harnesses", "5x Engineering Velocity"],
+    note: "safe, fast, production-ready",
   },
 ];
 ---
 
-<section id="strategy" class="max-w-7xl mx-auto px-6 py-20 border-t border-charcoal">
-  <!-- Section Header -->
+<section id="strategy" class="max-w-7xl mx-auto px-6 py-20 border-t border-charcoal/80 relative">
+  <!-- Section Header following consistent pattern -->
   <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
     <div>
-      <div class="font-mono text-xs text-gold tracking-widest uppercase mb-2">
-        // STRATEGIC CAPABILITIES & PROOF PILLARS
+      <div class="font-mono text-xs text-gold font-bold tracking-widest uppercase mb-2">
+        // CORE PILLARS // FOUR CAPABILITY DOMAINS
       </div>
-      <h2 class="text-3xl md:text-4xl font-display font-bold text-titanium tracking-tight">
+      <h2 class="text-3xl md:text-5xl font-display font-extrabold text-titanium tracking-tight">
         The Four Pillars of Proof
       </h2>
     </div>
@@ -55,36 +59,38 @@ const pillars = [
     </p>
   </div>
 
-  <!-- Pillar Grid -->
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-    {pillars.map((pillar) => (
-      <div class={`rounded-xl border border-charcoal bg-charcoal/20 p-8 backdrop-blur-sm transition-all duration-300 ${pillar.borderHover} group relative overflow-hidden`}>
+  <!-- Pillar Grid with Alternating Asymmetrical Corners & Stable Headings -->
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    {pillars.map((pillar, idx) => (
+      <div class={`punk-panel p-8 transition-all duration-300 ${pillar.borderHover} ${idx % 2 === 1 ? 'rounded-punk-reverse' : 'rounded-punk'} relative flex flex-col justify-between group`}>
         
-        <!-- Pillar Tag Badge -->
-        <div class="flex items-center justify-between mb-6">
-          <span class={`font-mono text-[11px] px-3 py-1 rounded border ${pillar.badgeBg}`}>
-            {pillar.tag}
-          </span>
-          <span class="font-mono text-xs text-titanium-muted opacity-40 group-hover:opacity-100 transition-opacity">
-            SYS_SPEC
-          </span>
+        <div>
+          <!-- Stable Header Bar with Category & Note -->
+          <div class="flex items-center justify-between gap-3 mb-5 pb-3 border-b border-charcoal/80">
+            <span class={`font-mono text-xs font-bold tracking-wider ${pillar.accent}`}>
+              // {pillar.tag}
+            </span>
+            <span class="font-mono text-[11px] text-titanium-muted">
+              ~ {pillar.note}
+            </span>
+          </div>
+
+          <!-- Pillar Title -->
+          <h3 class="text-2xl sm:text-3xl font-display font-bold text-titanium mb-4 group-hover:text-white transition-colors tracking-tight">
+            {pillar.title}
+          </h3>
+
+          <!-- Description -->
+          <p class="text-titanium/80 text-sm font-light leading-relaxed mb-6">
+            {pillar.description}
+          </p>
         </div>
 
-        <!-- Pillar Title -->
-        <h3 class="text-2xl font-display font-bold text-titanium mb-4 group-hover:text-white transition-colors">
-          {pillar.title}
-        </h3>
-
-        <!-- Description -->
-        <p class="text-titanium/80 text-sm font-light leading-relaxed mb-6">
-          {pillar.description}
-        </p>
-
-        <!-- Highlights / Bullets -->
-        <div class="flex flex-wrap gap-2 pt-4 border-t border-charcoal/60">
+        <!-- Highlights / Bullets with Pop Colors -->
+        <div class="flex flex-wrap gap-2 pt-4 border-t border-charcoal/80">
           {pillar.bullets.map((bullet) => (
-            <span class="font-mono text-[11px] px-2.5 py-1 rounded bg-obsidian border border-charcoal/80 text-titanium/70">
-              ✓ {bullet}
+            <span class="font-mono text-[11px] px-2.5 py-1 rounded-sm bg-obsidian border border-charcoal text-titanium-muted group-hover:text-titanium transition-colors">
+              <span class={pillar.accent}>⚡</span> {bullet}
             </span>
           ))}
         </div>
