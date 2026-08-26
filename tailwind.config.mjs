@@ -1,11 +1,13 @@
+import typography from '@tailwindcss/typography';
+
 /** @type {import('tailwindcss').Config} */
 export default {
   content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Cabinet Grotesk', 'Clash Display', 'Inter', 'sans-serif'],
+        sans: ['Space Grotesk', 'system-ui', '-apple-system', 'sans-serif'],
+        display: ['Clash Display', 'Space Grotesk', 'sans-serif'],
         mono: ['Space Mono', 'JetBrains Mono', 'monospace'],
         stamp: ['Special Elite', 'Space Mono', 'monospace'],
         scribble: ['Rock Salt', 'cursive', 'sans-serif'],
@@ -48,5 +50,5 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [typography],
 };

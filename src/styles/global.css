@@ -19,20 +19,133 @@
     scroll-behavior: smooth;
     background-color: #0C0E12;
     color: #F4F5F7;
-    font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
   }
 
   body {
     background-color: #0C0E12;
     color: #F4F5F7;
+    font-family: 'Space Grotesk', system-ui, -apple-system, sans-serif;
     overflow-x: hidden;
     min-height: 100vh;
   }
 
+  /* Global Display Typography */
   h1, h2, h3, h4, .font-display {
-    font-family: 'Cabinet Grotesk', 'Clash Display', sans-serif;
+    font-family: 'Clash Display', 'Space Grotesk', sans-serif;
     letter-spacing: -0.02em;
   }
+
+  /* ==========================================================================
+     Global Baseline Typography & Vertical Rhythm (8px Base / 4px Sub-Grid)
+     ========================================================================== */
+
+  p {
+    margin-top: 0;
+    margin-bottom: 1.5rem; /* 24px = 3 * 8px */
+    line-height: 1.75rem;  /* 28px = 3.5 * 8px */
+    color: rgba(244, 245, 247, 0.88);
+  }
+
+  /* Law of Proximity on Headings */
+  h2 {
+    font-size: 1.75rem;   /* 28px */
+    line-height: 2.25rem; /* 36px */
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #F4F5F7;
+    margin-top: 3.5rem;   /* 56px = 7 * 8px */
+    margin-bottom: 1rem;  /* 16px = 2 * 8px */
+  }
+
+  h3 {
+    font-size: 1.35rem;   /* 21.6px */
+    line-height: 1.85rem; /* 29.6px */
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: #F4F5F7;
+    margin-top: 2.5rem;   /* 40px = 5 * 8px */
+    margin-bottom: 0.75rem; /* 12px */
+  }
+
+  h4 {
+    font-size: 1.05rem;
+    line-height: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: #E5B80B;
+    margin-top: 2rem;     /* 32px */
+    margin-bottom: 0.5rem; /* 8px */
+  }
+
+  ul, ol {
+    margin-top: 0;
+    margin-bottom: 1.75rem; /* 28px */
+    padding-left: 1.5rem;   /* 24px */
+  }
+
+  li {
+    margin-bottom: 0.625rem;
+    line-height: 1.75rem;
+  }
+
+  ul > li::marker {
+    color: #E5B80B;
+  }
+
+  ol > li::marker {
+    color: #00F0FF;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+  }
+
+  blockquote {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+    padding: 1.25rem 1.75rem;
+    border-left: 3px solid #E5B80B;
+    background: rgba(20, 24, 31, 0.65);
+    border-radius: 0 0.5rem 0.5rem 0;
+    font-style: italic;
+    font-size: 1.125rem;
+    line-height: 1.8rem;
+    color: #F4F5F7;
+  }
+
+  blockquote p {
+    margin-bottom: 0;
+  }
+
+  hr {
+    margin-top: 3.5rem;
+    margin-bottom: 3.5rem;
+    border: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  strong {
+    color: #FFFFFF;
+    font-weight: 700;
+  }
+
+  em {
+    font-style: italic;
+    color: #F4F5F7;
+  }
+}
+
+/* UI Container Overrides (Protecting Compact UI Components from Global Paragraph Spacing) */
+.punk-panel p:last-child,
+.comic-sticker p,
+nav p,
+footer p {
+  margin-bottom: 0;
+}
+
+.punk-panel h2,
+.punk-panel h3,
+.punk-panel h4 {
+  margin-top: 0;
 }
 
 /* Subtle Ambient Glow */
@@ -60,7 +173,7 @@
   -webkit-text-stroke: 1.5px #E5B80B;
 }
 
-/* Standard Glam-Punk Card Surface (High Contrast against Obsidian) */
+/* Standard Glam-Punk Card Surface */
 .punk-panel {
   background: #14181F;
   border: 1px solid rgba(255, 255, 255, 0.08);
@@ -75,7 +188,7 @@
   transform: translate(-1px, -1px);
 }
 
-/* Alternating Isolated Slate Section for Discontinuity / Contrast */
+/* Alternating Isolated Slate Section */
 .section-slate {
   background-color: #15181E;
   position: relative;
@@ -92,7 +205,7 @@
   box-shadow: 4px 4px 0px 0px #E5B80B;
 }
 
-/* Authentic Eroded Grunge Rubber Stamp (Special Elite) */
+/* Authentic Eroded Grunge Rubber Stamp */
 .stamp-bw {
   display: inline-flex;
   align-items: center;
@@ -116,7 +229,7 @@
   box-shadow: 2.5px 2.5px 0px 0px #E5B80B;
 }
 
-/* Authentic Rock Salt Hand-Scribble for Inside Jokes */
+/* Authentic Rock Salt Hand-Scribble */
 .hand-scribble, .scribble-note {
   font-family: 'Rock Salt', cursive, sans-serif;
   font-size: 0.82rem;
@@ -125,7 +238,7 @@
   display: inline-block;
 }
 
-/* Marker Underline Highlights */
+/* Marker Underlines */
 .marker-underline {
   position: relative;
   display: inline-block;
@@ -152,7 +265,7 @@
   background: #00F0FF;
 }
 
-/* Masked Chromatic Line Shimmer for Illustration Lines */
+/* Masked Chromatic Line Shimmer */
 @keyframes chromatic-line-shift {
   0% {
     background-position: 0% 50%;

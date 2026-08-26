@@ -1,0 +1,251 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<BaseLayout 
+  title="Typography Pairing Lab // Jesse Fulton"
+  description="Interactive typography laboratory comparing font suites, leading, and baseline scales."
+>
+  <Header />
+
+  <main class="max-w-6xl mx-auto px-6 py-12 md:py-16">
+    <!-- Lab Header -->
+    <header class="border-b border-charcoal/80 pb-8 mb-12">
+      <div class="flex items-center gap-3 mb-3 flex-wrap">
+        <span class="stamp-bw">
+          <span class="w-2 h-2 rounded-full bg-magenta animate-pulse inline-block mr-1"></span>
+          TYPOGRAPHY LAB
+        </span>
+        <span class="hand-scribble text-gold rotate-1 hidden sm:inline-block">
+          ~ comparing suites, leading & personality
+        </span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-display font-extrabold text-titanium tracking-tight mb-3">
+        Font Suite Comparison
+      </h1>
+      <p class="text-titanium-muted max-w-2xl text-base font-light leading-relaxed">
+        Compare typography pairings rendered with identical headlines, editorial case study excerpts, blockquotes, and UI cards.
+      </p>
+    </header>
+
+    <!-- Suite 1: Pure Space Suite (Space Grotesk Headings + Space Grotesk Body + Space Mono CTAs) -->
+    <section class="mb-20 pb-16 border-b border-charcoal/80">
+      <div class="flex items-center justify-between mb-6 pb-3 border-b border-charcoal/80 flex-wrap gap-3">
+        <div>
+          <span class="font-mono text-xs text-cyan font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-cyan/10 border border-cyan/30">
+            SUITE 01 // THE PURE SPACE SUITE
+          </span>
+          <span class="text-xs text-titanium-muted ml-2 font-mono">
+            Space Grotesk (Headings & Body) + Space Mono (CTAs & Data)
+          </span>
+        </div>
+        <span class="text-xs text-gold font-mono">★ Minimalist & Brutalist</span>
+      </div>
+
+      <div class="punk-panel p-8 md:p-10 space-y-8" style="font-family: 'Space Grotesk', sans-serif;">
+        <!-- Eyebrow -->
+        <div class="flex items-center gap-3 flex-wrap">
+          <span class="stamp-bw">
+            <span class="w-2 h-2 rounded-full bg-gold inline-block mr-1"></span>
+            EXECUTIVE VENTURE ARCHITECTURE
+          </span>
+          <span class="hand-scribble text-gold rotate-1">
+            ~ 20 years in tech without losing the soul
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 2.75rem; line-height: 1.1; letter-spacing: -0.03em;" class="text-titanium">
+          HUMAN INTELLIGENCE,<br />
+          <span class="text-gold marker-underline">AMPLIFIED BY CODE.</span>
+        </h2>
+
+        <!-- Subheading & Paragraph -->
+        <p style="font-family: 'Space Grotesk', sans-serif; font-weight: 300; font-size: 1.125rem; line-height: 1.8; color: rgba(244,245,247,0.85);" class="max-w-3xl">
+          AI isn't a recent pivot—it’s the natural evolution of <strong style="font-weight: 600; color: #E5B80B;">10+ years in Voice UX & multimodal systems</strong>, Master's-level venture design (HEC Paris MSIE), and architecting products that elevate human agency rather than replacing it.
+        </p>
+
+        <!-- Blockquote -->
+        <blockquote style="font-family: 'Space Grotesk', sans-serif; font-style: italic; font-weight: 400; font-size: 1.1rem; line-height: 1.75; border-left: 3px solid #E5B80B; background: rgba(20,24,31,0.7); padding: 1.25rem 1.5rem;" class="text-titanium rounded-r-md">
+          "Software shouldn't feel like an industrial spreadsheet. Great systems blend ruthless technical discipline with genuine personality and taste."
+        </blockquote>
+
+        <!-- Action Buttons in Space Mono -->
+        <div class="flex flex-wrap items-center gap-4 pt-4">
+          <a href="#suite-1" style="font-family: 'Space Mono', monospace;" class="px-6 py-3 rounded-punk-sm bg-gold text-obsidian font-bold text-xs hover:bg-gold-hover shadow-punk-gold">
+            EXPLORE CAPABILITIES →
+          </a>
+          <a href="#suite-1" style="font-family: 'Space Mono', monospace;" class="px-5 py-3 rounded-punk-sm border border-charcoal bg-obsidian text-titanium text-xs hover:border-cyan hover:text-cyan">
+            [ 20-YEAR WORK ARCHIVE ]
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Suite 2: Cabinet Grotesk Display + Inter Body + Space Mono CTAs -->
+    <section class="mb-20 pb-16 border-b border-charcoal/80">
+      <div class="flex items-center justify-between mb-6 pb-3 border-b border-charcoal/80 flex-wrap gap-3">
+        <div>
+          <span class="font-mono text-xs text-magenta font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-magenta/10 border border-magenta/30">
+            SUITE 02 // CABINET GROTESK + INTER
+          </span>
+          <span class="text-xs text-titanium-muted ml-2 font-mono">
+            Cabinet Grotesk (Headings) + Inter (Body) + Space Mono (CTAs)
+          </span>
+        </div>
+        <span class="text-xs text-gold font-mono">★ High Editorial Polish</span>
+      </div>
+
+      <div class="punk-panel p-8 md:p-10 space-y-8" style="font-family: 'Inter', sans-serif;">
+        <!-- Eyebrow -->
+        <div class="flex items-center gap-3 flex-wrap">
+          <span class="stamp-bw">
+            <span class="w-2 h-2 rounded-full bg-magenta inline-block mr-1"></span>
+            EXECUTIVE VENTURE ARCHITECTURE
+          </span>
+          <span class="hand-scribble text-magenta rotate-1">
+            ~ 20 years in tech without losing the soul
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <h2 style="font-family: 'Cabinet Grotesk', sans-serif; font-weight: 800; font-size: 3rem; line-height: 1.08; letter-spacing: -0.025em;" class="text-titanium">
+          HUMAN INTELLIGENCE,<br />
+          <span class="text-magenta marker-underline marker-underline-pink">AMPLIFIED BY CODE.</span>
+        </h2>
+
+        <!-- Subheading & Paragraph -->
+        <p style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 1.0625rem; line-height: 1.75; color: rgba(244,245,247,0.85);" class="max-w-3xl">
+          AI isn't a recent pivot—it’s the natural evolution of <strong style="font-weight: 600; color: #FF2A85;">10+ years in Voice UX & multimodal systems</strong>, Master's-level venture design (HEC Paris MSIE), and architecting products that elevate human agency rather than replacing it.
+        </p>
+
+        <!-- Blockquote -->
+        <blockquote style="font-family: 'Inter', sans-serif; font-style: italic; font-weight: 400; font-size: 1.1rem; line-height: 1.75; border-left: 3px solid #FF2A85; background: rgba(20,24,31,0.7); padding: 1.25rem 1.5rem;" class="text-titanium rounded-r-md">
+          "Software shouldn't feel like an industrial spreadsheet. Great systems blend ruthless technical discipline with genuine personality and taste."
+        </blockquote>
+
+        <!-- Action Buttons in Space Mono -->
+        <div class="flex flex-wrap items-center gap-4 pt-4">
+          <a href="#suite-2" style="font-family: 'Space Mono', monospace;" class="px-6 py-3 rounded-punk-sm bg-magenta text-white font-bold text-xs hover:opacity-90 shadow-punk-pink">
+            EXPLORE CAPABILITIES →
+          </a>
+          <a href="#suite-2" style="font-family: 'Space Mono', monospace;" class="px-5 py-3 rounded-punk-sm border border-charcoal bg-obsidian text-titanium text-xs hover:border-gold hover:text-gold">
+            [ 20-YEAR WORK ARCHIVE ]
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Suite 3: Space Grotesk Headings + Inter Body + Space Mono CTAs -->
+    <section class="mb-20 pb-16 border-b border-charcoal/80">
+      <div class="flex items-center justify-between mb-6 pb-3 border-b border-charcoal/80 flex-wrap gap-3">
+        <div>
+          <span class="font-mono text-xs text-gold font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-gold/10 border border-gold/30">
+            SUITE 03 // SPACE GROTESK (HEADINGS) + INTER (BODY)
+          </span>
+          <span class="text-xs text-titanium-muted ml-2 font-mono">
+            Space Grotesk (Headings) + Inter (Reading Body) + Space Mono (CTAs)
+          </span>
+        </div>
+        <span class="text-xs text-gold font-mono">★ Balanced Tech & Editorial</span>
+      </div>
+
+      <div class="punk-panel p-8 md:p-10 space-y-8" style="font-family: 'Inter', sans-serif;">
+        <!-- Eyebrow -->
+        <div class="flex items-center gap-3 flex-wrap">
+          <span class="stamp-bw">
+            <span class="w-2 h-2 rounded-full bg-gold inline-block mr-1"></span>
+            EXECUTIVE VENTURE ARCHITECTURE
+          </span>
+          <span class="hand-scribble text-gold rotate-1">
+            ~ 20 years in tech without losing the soul
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <h2 style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 2.85rem; line-height: 1.1; letter-spacing: -0.03em;" class="text-titanium">
+          HUMAN INTELLIGENCE,<br />
+          <span class="text-gold marker-underline">AMPLIFIED BY CODE.</span>
+        </h2>
+
+        <!-- Subheading & Paragraph -->
+        <p style="font-family: 'Inter', sans-serif; font-weight: 400; font-size: 1.0625rem; line-height: 1.75; color: rgba(244,245,247,0.85);" class="max-w-3xl">
+          AI isn't a recent pivot—it’s the natural evolution of <strong style="font-weight: 600; color: #E5B80B;">10+ years in Voice UX & multimodal systems</strong>, Master's-level venture design (HEC Paris MSIE), and architecting products that elevate human agency rather than replacing it.
+        </p>
+
+        <!-- Blockquote -->
+        <blockquote style="font-family: 'Inter', sans-serif; font-style: italic; font-weight: 400; font-size: 1.1rem; line-height: 1.75; border-left: 3px solid #E5B80B; background: rgba(20,24,31,0.7); padding: 1.25rem 1.5rem;" class="text-titanium rounded-r-md">
+          "Software shouldn't feel like an industrial spreadsheet. Great systems blend ruthless technical discipline with genuine personality and taste."
+        </blockquote>
+
+        <!-- Action Buttons in Space Mono -->
+        <div class="flex flex-wrap items-center gap-4 pt-4">
+          <a href="#suite-3" style="font-family: 'Space Mono', monospace;" class="px-6 py-3 rounded-punk-sm bg-gold text-obsidian font-bold text-xs hover:bg-gold-hover shadow-punk-gold">
+            EXPLORE CAPABILITIES →
+          </a>
+          <a href="#suite-3" style="font-family: 'Space Mono', monospace;" class="px-5 py-3 rounded-punk-sm border border-charcoal bg-obsidian text-titanium text-xs hover:border-magenta hover:text-magenta">
+            [ 20-YEAR WORK ARCHIVE ]
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Suite 4: Clash Display Headings + Space Grotesk Body + Space Mono CTAs -->
+    <section class="mb-12">
+      <div class="flex items-center justify-between mb-6 pb-3 border-b border-charcoal/80 flex-wrap gap-3">
+        <div>
+          <span class="font-mono text-xs text-lime font-bold tracking-wider uppercase px-2.5 py-1 rounded bg-lime/10 border border-lime/30">
+            SUITE 04 // CLASH DISPLAY + SPACE GROTESK
+          </span>
+          <span class="text-xs text-titanium-muted ml-2 font-mono">
+            Clash Display (Headings) + Space Grotesk (Body) + Space Mono (CTAs)
+          </span>
+        </div>
+        <span class="text-xs text-gold font-mono">★ Expressive Contrast</span>
+      </div>
+
+      <div class="punk-panel p-8 md:p-10 space-y-8" style="font-family: 'Space Grotesk', sans-serif;">
+        <!-- Eyebrow -->
+        <div class="flex items-center gap-3 flex-wrap">
+          <span class="stamp-bw">
+            <span class="w-2 h-2 rounded-full bg-lime inline-block mr-1"></span>
+            EXECUTIVE VENTURE ARCHITECTURE
+          </span>
+          <span class="hand-scribble text-lime rotate-1">
+            ~ 20 years in tech without losing the soul
+          </span>
+        </div>
+
+        <!-- Headline -->
+        <h2 style="font-family: 'Clash Display', sans-serif; font-weight: 700; font-size: 2.85rem; line-height: 1.1; letter-spacing: -0.02em;" class="text-titanium">
+          HUMAN INTELLIGENCE,<br />
+          <span class="text-lime marker-underline">AMPLIFIED BY CODE.</span>
+        </h2>
+
+        <!-- Subheading & Paragraph -->
+        <p style="font-family: 'Space Grotesk', sans-serif; font-weight: 300; font-size: 1.125rem; line-height: 1.8; color: rgba(244,245,247,0.85);" class="max-w-3xl">
+          AI isn't a recent pivot—it’s the natural evolution of <strong style="font-weight: 600; color: #D4FF00;">10+ years in Voice UX & multimodal systems</strong>, Master's-level venture design (HEC Paris MSIE), and architecting products that elevate human agency rather than replacing it.
+        </p>
+
+        <!-- Blockquote -->
+        <blockquote style="font-family: 'Space Grotesk', sans-serif; font-style: italic; font-weight: 400; font-size: 1.1rem; line-height: 1.75; border-left: 3px solid #D4FF00; background: rgba(20,24,31,0.7); padding: 1.25rem 1.5rem;" class="text-titanium rounded-r-md">
+          "Software shouldn't feel like an industrial spreadsheet. Great systems blend ruthless technical discipline with genuine personality and taste."
+        </blockquote>
+
+        <!-- Action Buttons in Space Mono -->
+        <div class="flex flex-wrap items-center gap-4 pt-4">
+          <a href="#suite-4" style="font-family: 'Space Mono', monospace;" class="px-6 py-3 rounded-punk-sm bg-lime text-obsidian font-bold text-xs hover:opacity-90 shadow-[4px_4px_0px_#d4ff00]">
+            EXPLORE CAPABILITIES →
+          </a>
+          <a href="#suite-4" style="font-family: 'Space Mono', monospace;" class="px-5 py-3 rounded-punk-sm border border-charcoal bg-obsidian text-titanium text-xs hover:border-gold hover:text-gold">
+            [ 20-YEAR WORK ARCHIVE ]
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer />
+</BaseLayout>

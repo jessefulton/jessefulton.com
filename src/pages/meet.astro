@@ -67,7 +67,7 @@ const { calLink = "jessefulton/30min" } = Astro.props;
   <Footer />
 </BaseLayout>
 
-<!-- Cal.com Official Embed Snippet with Custom Brand Theming -->
+<!-- Cal.com Official Embed Snippet with Custom Brand Theming & Font Settings -->
 <script type="text/javascript">
   (function (C, A, L) { 
     let p = function (a, ar) { a.q.push(ar); }; 
@@ -109,6 +109,13 @@ const { calLink = "jessefulton/30min" } = Astro.props;
     styles: {
       branding: {
         brandColor: "#E5B80B"
+      }
+    },
+    appearance: {
+      theme: "dark",
+      variables: {
+        fontFamily: "'Inter', system-ui, -apple-system, sans-serif",
+        colorPrimary: "#E5B80B"
       }
     },
     hideEventTypeDetails: false,

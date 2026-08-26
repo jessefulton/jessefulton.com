@@ -44,7 +44,7 @@ npm run preview
 - **Framework**: [Astro 4](https://astro.build/) (Static Site Generation with `@astrojs/netlify`)
 - **Styling**: [Tailwind CSS](https://tailwindcss.com/) with custom Glam-Punk design tokens
 - **Data Layer**: Typed Markdown Content Collections (`src/content/`) governed by Zod schemas in `src/content/config.ts`
-- **Typography**: `Cabinet Grotesk` & `Clash Display` (Display), `Special Elite` (Stamps), `Rock Salt` (Marker notes), `Inter` (Body), and `Space Mono` (Data)
+- **Typography**: `Clash Display` (Display Headings with `Space Grotesk` backup), `Space Grotesk` (Body & Reading copy), `Space Mono` (CTAs, Code & Data), `Special Elite` (Stamps), and `Rock Salt` (Marker notes)
 - **Scheduling**: [Cal.com](https://cal.com) dark-theme embed integration on `/meet`
 - **Deployment**: Netlify Edge with automated build triggers
 
