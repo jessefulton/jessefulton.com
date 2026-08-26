@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const allProjects = await getCollection('projects');
+const tagCounts = new Map<string, { name: string; slug: string; count: number }>();
+
+allProjects.forEach(project => {
+  if (!project.data.unlisted && project.data.tags) {
+    project.data.tags.forEach(tag => {
+      const slug = tag.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      if (!tagCounts.has(slug)) {
+        tagCounts.set(slug, { name: tag, slug, count: 0 });
+      }
+      tagCounts.get(slug)!.count++;
+    });
+  }
+});
+
+const sortedTags = Array.from(tagCounts.values()).sort((a, b) => b.count - a.count);
+---
+
+<BaseLayout 
+  title="Technical Capabilities & Tag Index // Jesse Fulton"
+  description="Index of all technical capabilities, domain specializations, and system tags across 20+ years of work."
+>
+  <Header />
+
+  <main class="max-w-5xl mx-auto px-6 py-12 md:py-16">
+    <!-- Header Section -->
+    <header class="border-b border-charcoal/80 pb-10 mb-12">
+      <div class="flex items-center gap-3 mb-2 flex-wrap">
+        <span class="stamp-bw">
+          CAPABILITY INDEX
+        </span>
+        <span class="font-mono text-xs text-gold font-bold">
+          // {sortedTags.length} UNIQUE CAPABILITIES
+        </span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-display font-extrabold text-titanium tracking-tight mb-3">
+        Capabilities & Tag Index
+      </h1>
+      <p class="text-titanium-muted max-w-xl text-base font-light leading-relaxed">
+        Browse case studies, venture initiatives, and systems filtered by specific technical domains, frameworks, and architectures.
+      </p>
+    </header>
+
+    <!-- Tag Cloud Grid -->
+    <div class="punk-panel p-8">
+      <div class="flex flex-wrap gap-3">
+        {sortedTags.map(tagItem => (
+          <a 
+            href={`/tags/${tagItem.slug}`}
+            class="group inline-flex items-center gap-2 px-3.5 py-2 rounded-punk-sm bg-obsidian border border-charcoal hover:border-gold hover:shadow-punk-gold transition-all duration-200"
+          >
+            <span class="font-mono text-xs text-titanium group-hover:text-gold transition-colors font-medium">
+              #{tagItem.name}
+            </span>
+            <span class="font-mono text-[10px] px-1.5 py-0.5 rounded-sm bg-charcoal-washed text-titanium-muted group-hover:text-gold group-hover:bg-gold/15 transition-colors">
+              {tagItem.count}
+            </span>
+          </a>
+        ))}
+      </div>
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

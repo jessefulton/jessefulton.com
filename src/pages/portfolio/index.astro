@@ -30,8 +30,16 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
   <main class="max-w-6xl mx-auto px-6 py-12 md:py-16">
     <!-- Header Section following consistent pattern -->
     <header class="border-b border-charcoal/80 pb-10 mb-12">
-      <div class="font-mono text-xs text-cyan font-bold tracking-widest uppercase mb-2">
-        // COMPLETE ARCHIVE // 2004–2026 WORK CATALOG
+      <div class="flex items-center justify-between gap-4 mb-2 flex-wrap">
+        <div class="font-mono text-xs text-cyan font-bold tracking-widest uppercase">
+          // COMPLETE ARCHIVE // 2004–2026 WORK CATALOG
+        </div>
+        <a 
+          href="/tags" 
+          class="font-mono text-xs px-3 py-1.5 rounded-punk-sm border border-charcoal bg-obsidian text-titanium-muted hover:border-gold hover:text-gold transition-colors"
+        >
+          [ EXPLORE BY CAPABILITY TAGS → ]
+        </a>
       </div>
       <h1 class="text-4xl md:text-5xl font-display font-extrabold text-titanium tracking-tight mb-4">
         Project & Venture Catalog
@@ -77,13 +85,14 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
         </button>
       </div>
 
-      <!-- Quick Search Bar -->
+      <!-- Quick Search Bar with Clarified Placeholder -->
       <div class="w-full sm:w-auto">
         <input 
           type="text" 
           id="archive-search" 
-          placeholder="Filter by keyword or tag..." 
-          class="w-full sm:w-64 px-4 py-2.5 rounded-punk-sm bg-obsidian border border-charcoal text-titanium placeholder:text-titanium-muted/40 font-mono text-xs focus:outline-none focus:border-gold"
+          placeholder="Search titles, tags, or domains..." 
+          aria-label="Search titles, capabilities, or domains"
+          class="w-full sm:w-72 px-4 py-2.5 rounded-punk-sm bg-obsidian border border-charcoal text-titanium placeholder:text-titanium-muted/50 font-mono text-xs focus:outline-none focus:border-gold"
         />
       </div>
     </div>

@@ -1,0 +1,175 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+export async function getStaticPaths() {
+  const allProjects = await getCollection('projects');
+  const tagMap = new Map<string, { originalTag: string; projects: typeof allProjects }>();
+
+  allProjects.forEach(project => {
+    if (!project.data.unlisted && project.data.tags) {
+      project.data.tags.forEach(tag => {
+        const slug = tag.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+        if (!tagMap.has(slug)) {
+          tagMap.set(slug, { originalTag: tag, projects: [] });
+        }
+        tagMap.get(slug)!.projects.push(project);
+      });
+    }
+  });
+
+  return Array.from(tagMap.entries()).map(([slug, { originalTag, projects }]) => {
+    // Sort projects by year desc
+    const sorted = [...projects].sort((a, b) => {
+      const yearA = typeof a.data.year === 'number' ? a.data.year : parseInt(String(a.data.year)) || 2020;
+      const yearB = typeof b.data.year === 'number' ? b.data.year : parseInt(String(b.data.year)) || 2020;
+      return yearB - yearA;
+    });
+
+    return {
+      params: { tag: slug },
+      props: { tagName: originalTag, projects: sorted },
+    };
+  });
+}
+
+const { tag } = Astro.params;
+const { tagName, projects } = Astro.props;
+
+const categoryConfig: Record<string, { label: string; color: string; border: string }> = {
+  'frontier-ai': { label: 'FRONTIER AI', color: 'text-cyan', border: 'border-cyan/40 bg-cyan/10' },
+  'venture-strategy': { label: 'VENTURE & STRATEGY', color: 'text-gold', border: 'border-gold/40 bg-gold/10' },
+  'experiential-spatial': { label: 'EXPERIENTIAL & SPATIAL', color: 'text-magenta', border: 'border-magenta/40 bg-magenta/10' },
+  'creative-tech': { label: 'CREATIVE TECH', color: 'text-lime', border: 'border-lime/40 bg-lime/10' },
+};
+---
+
+<BaseLayout 
+  title={`#${tagName} Case Studies // Jesse Fulton`}
+  description={`Retrospective of projects and systems featuring ${tagName} technical capabilities and domain architecture.`}
+>
+  <Header />
+
+  <main class="max-w-6xl mx-auto px-6 py-12 md:py-16">
+    <!-- Header Section -->
+    <header class="border-b border-charcoal/80 pb-10 mb-12">
+      <div class="flex items-center justify-between gap-4 mb-4 flex-wrap">
+        <div class="flex items-center gap-3">
+          <span class="stamp-bw">
+            CAPABILITY ARCHIVE
+          </span>
+          <span class="font-mono text-xs text-gold font-bold">
+            // {projects.length} CASE {projects.length === 1 ? 'STUDY' : 'STUDIES'}
+          </span>
+        </div>
+        <div class="flex items-center gap-3">
+          <a 
+            href="/tags" 
+            class="font-mono text-xs px-3 py-1.5 rounded-punk-sm border border-charcoal bg-obsidian text-titanium/80 hover:border-gold hover:text-gold transition-colors"
+          >
+            [ ALL TAGS ]
+          </a>
+          <a 
+            href="/portfolio" 
+            class="font-mono text-xs px-3 py-1.5 rounded-punk-sm border border-charcoal bg-obsidian text-titanium/80 hover:border-cyan hover:text-cyan transition-colors"
+          >
+            [ ALL PROJECTS → ]
+          </a>
+        </div>
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-display font-extrabold text-titanium tracking-tight mb-3 flex items-center gap-2">
+        <span class="text-gold font-mono text-3xl md:text-4xl">#</span>{tagName}
+      </h1>
+      <p class="text-titanium-muted max-w-2xl text-base font-light leading-relaxed">
+        Curated retrospective of client engagements, enterprise roadmaps, and patented systems utilizing <strong class="text-titanium font-semibold">{tagName}</strong>.
+      </p>
+    </header>
+
+    <!-- Projects Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {projects.map((project) => {
+        const cat = categoryConfig[project.data.category] || { label: project.data.category, color: 'text-titanium', border: 'border-charcoal bg-charcoal/20' };
+        const thumbnail = project.data.heroImage || project.data.gallery?.[0];
+
+        return (
+          <a 
+            href={`/portfolio/${project.slug}`}
+            class="project-card punk-panel rounded-punk-sm overflow-hidden transition-all duration-300 flex flex-col justify-between group"
+          >
+            <div>
+              <!-- Visual Hero Thumbnail -->
+              {thumbnail ? (
+                <div class="w-full aspect-video overflow-hidden bg-obsidian border-b border-charcoal/80 relative">
+                  <img 
+                    src={thumbnail} 
+                    alt={project.data.title} 
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 opacity-90 group-hover:opacity-100"
+                    loading="lazy"
+                  />
+                  <div class="absolute inset-0 bg-gradient-to-t from-obsidian/90 via-transparent to-transparent"></div>
+                  <div class="absolute bottom-2 left-3 font-mono text-[10px] font-bold px-2 py-0.5 rounded-sm bg-obsidian/90 border border-charcoal/80 text-gold backdrop-blur-sm">
+                    {project.data.year}
+                  </div>
+                </div>
+              ) : (
+                <div class="w-full aspect-video bg-charcoal-washed border-b border-charcoal/80 flex items-center justify-center relative p-6">
+                  <div class="font-mono text-xs text-titanium-muted/60 uppercase tracking-widest text-center">
+                    // {cat.label}
+                  </div>
+                  <div class="absolute bottom-2 left-3 font-mono text-[10px] font-bold px-2 py-0.5 rounded-sm bg-obsidian/90 border border-charcoal/80 text-gold backdrop-blur-sm">
+                    {project.data.year}
+                  </div>
+                </div>
+              )}
+
+              <div class="p-6">
+                <!-- Top Metadata -->
+                <div class="flex items-center justify-between gap-2 mb-3">
+                  <span class={`font-mono text-[10px] font-bold px-2.5 py-0.5 rounded-sm border ${cat.border} ${cat.color} uppercase tracking-wider`}>
+                    {cat.label}
+                  </span>
+                  {project.data.client && (
+                    <span class="font-mono text-[11px] text-titanium-muted truncate max-w-[140px]">
+                      {project.data.client}
+                    </span>
+                  )}
+                </div>
+
+                <!-- Title & Byline -->
+                <h2 class="text-xl font-display font-bold text-titanium mb-2 group-hover:text-gold transition-colors line-clamp-2">
+                  {project.data.title}
+                </h2>
+
+                <!-- Description -->
+                <p class="text-xs text-titanium/80 font-light leading-relaxed line-clamp-3 mb-4">
+                  {project.data.briefDescription}
+                </p>
+              </div>
+            </div>
+
+            <!-- Footer / Tags -->
+            <div class="px-6 pb-6 pt-2 border-t border-charcoal/50">
+              <div class="flex flex-wrap gap-1.5 mb-3">
+                {project.data.tags.slice(0, 3).map(t => (
+                  <span class={`font-mono text-[10px] px-2 py-0.5 rounded-sm border ${t.toLowerCase() === tagName.toLowerCase() ? 'bg-gold/20 border-gold text-gold font-bold' : 'bg-obsidian border-charcoal text-titanium-muted'}`}>
+                    #{t}
+                  </span>
+                ))}
+              </div>
+
+              <div class="flex items-center justify-between text-xs font-mono text-titanium-muted pt-2 border-t border-charcoal/30">
+                <span class="text-gold font-bold group-hover:underline">VIEW STUDY →</span>
+                <span class="text-[10px]">{project.data.year}</span>
+              </div>
+            </div>
+          </a>
+        );
+      })}
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>

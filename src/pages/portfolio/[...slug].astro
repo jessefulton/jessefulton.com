@@ -178,11 +178,17 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
           <div>
             <div class="font-mono text-[11px] text-titanium-muted uppercase mb-2">Technical Capabilities</div>
             <div class="flex flex-wrap gap-1.5">
-              {entry.data.tags.map(t => (
-                <span class="font-mono text-xs px-2 py-0.5 rounded bg-obsidian border border-charcoal text-titanium-muted">
-                  #{t}
-                </span>
-              ))}
+              {entry.data.tags.map(t => {
+                const tagSlug = t.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                return (
+                  <a 
+                    href={`/tags/${tagSlug}`}
+                    class="font-mono text-xs px-2.5 py-1 rounded-sm bg-obsidian border border-charcoal text-titanium-muted hover:border-gold hover:text-gold hover:bg-gold/10 transition-colors"
+                  >
+                    #{t}
+                  </a>
+                );
+              })}
             </div>
           </div>
 
