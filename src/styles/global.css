@@ -152,6 +152,59 @@
   background: #00F0FF;
 }
 
+/* Masked Chromatic Line Shimmer for Illustration Lines */
+@keyframes chromatic-line-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.masked-face-shimmer {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    125deg,
+    #FF2A85 0%,
+    #E5B80B 25%,
+    #00F0FF 50%,
+    #D4FF00 75%,
+    #FF2A85 100%
+  );
+  background-size: 250% 250%;
+  animation: chromatic-line-shift 6s ease-in-out infinite;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  mask-position: center;
+  -webkit-mask-size: contain;
+  mask-size: contain;
+  filter: drop-shadow(0 0 10px rgba(229, 184, 11, 0.3)) drop-shadow(0 0 20px rgba(255, 42, 133, 0.2));
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* 70s Comic Zap / Pow Sticker Badges */
+.comic-sticker {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 0.45rem 0.75rem;
+  border-radius: 0.4rem;
+  box-shadow: 3.5px 3.5px 0px 0px #000000;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  cursor: pointer;
+  user-select: none;
+}
+
+.comic-sticker:hover {
+  transform: scale(1.08) rotate(0deg) !important;
+  box-shadow: 5px 5px 0px 0px #000000;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 6px;

@@ -6,7 +6,7 @@
   <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
     
     <!-- Left Column: Editorial Headline Carousel & Narrative -->
-    <div class="lg:col-span-7 flex flex-col justify-center">
+    <div class="lg:col-span-6 flex flex-col justify-center">
       
       <!-- Eyebrow: Special Elite Stamp + Rock Salt Hand-Scribble -->
       <div class="flex items-center gap-3 mb-6 flex-wrap">
@@ -20,21 +20,21 @@
       </div>
 
       <!-- Headline Area with Auto-Rotating Statements & Colored Marker Underlines -->
-      <div class="relative min-h-[160px] sm:min-h-[180px] md:min-h-[220px] mb-4">
+      <div class="relative min-h-[140px] sm:min-h-[160px] md:min-h-[180px] mb-4">
         <div id="slide-0" class="carousel-slide absolute inset-0 opacity-100 transition-opacity duration-700 ease-in-out">
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold tracking-tight leading-[1.05] text-titanium">
+          <h1 class="text-3xl sm:text-4xl md:text-[3rem] md:leading-[1.1] font-display font-extrabold tracking-tight text-titanium">
             HUMAN INTELLIGENCE,<br />
             <span class="text-gold marker-underline">AMPLIFIED BY CODE.</span>
           </h1>
         </div>
         <div id="slide-1" class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none">
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold tracking-tight leading-[1.05] text-titanium">
+          <h1 class="text-3xl sm:text-4xl md:text-[3rem] md:leading-[1.1] font-display font-extrabold tracking-tight text-titanium">
             ZERO-TO-ONE VENTURES<br />
             WITH <span class="text-magenta marker-underline marker-underline-pink">DURABLE SOUL.</span>
           </h1>
         </div>
         <div id="slide-2" class="carousel-slide absolute inset-0 opacity-0 transition-opacity duration-700 ease-in-out pointer-events-none">
-          <h1 class="text-4xl sm:text-5xl md:text-6xl font-display font-extrabold tracking-tight leading-[1.05] text-titanium">
+          <h1 class="text-3xl sm:text-4xl md:text-[3rem] md:leading-[1.1] font-display font-extrabold tracking-tight text-titanium">
             FRONTIER AI, VOICE UX<br />
             & <span class="text-cyan marker-underline marker-underline-cyan">SPATIAL COMPUTING.</span>
           </h1>
@@ -71,54 +71,75 @@
 
     </div>
 
-    <!-- Right Column: Asymmetrical Pod with Metric Grid -->
-    <div class="lg:col-span-5 relative">
-      <div class="punk-panel p-6 md:p-8 backdrop-blur-md relative overflow-hidden group">
+    <!-- Right Column: Open Illustrated Face Stage with Overlapping 70s Stickers (No Container Window) -->
+    <div class="lg:col-span-6 relative flex items-center justify-center py-6 sm:py-8">
+      
+      <!-- Relative Stage for Face + Overlapping Stickers -->
+      <div class="relative w-full max-w-[440px] flex items-center justify-center">
+
+        <!-- Interactive Masked Line Shimmer Face Container (Clickable Toggle) -->
+        <div 
+          id="face-container"
+          class="relative z-10 w-64 sm:w-80 md:w-96 lg:w-[400px] h-80 sm:h-96 md:h-[420px] lg:h-[460px] cursor-pointer group/face transition-transform duration-300 hover:scale-105"
+          title="Click to toggle look!"
+        >
+          <!-- Shimmering Line Mask Element -->
+          <div 
+            id="face-masked-element"
+            class="masked-face-shimmer"
+            style="-webkit-mask-image: url('/media/illustrations/jesse-beanie-white.png'); mask-image: url('/media/illustrations/jesse-beanie-white.png');"
+          ></div>
+        </div>
+
+        <!-- 70s Cartoon / Comic Vinyl Stickers Overlapping the Illustration -->
         
-        <!-- Header Bar of Pod with Clean Monospace Status -->
-        <div class="flex items-center justify-between border-b border-charcoal/80 pb-4 mb-6">
-          <div class="flex items-center gap-2">
-            <span class="w-3 h-3 rounded-full bg-magenta"></span>
-            <span class="w-3 h-3 rounded-full bg-gold"></span>
-            <span class="w-3 h-3 rounded-full bg-cyan"></span>
-          </div>
-          <span class="font-mono text-[11px] text-cyan font-bold tracking-wider px-2.5 py-0.5 rounded-sm border border-cyan/30 bg-cyan/10">
-            PROVEN AT SCALE
+        <!-- Top-Left: 20+ YRS (Gold) -->
+        <div class="comic-sticker -rotate-6 absolute -top-1 left-2 sm:-left-2 z-20 bg-gold text-obsidian border-2 border-white/60">
+          <span class="font-display font-extrabold text-sm sm:text-base leading-none tracking-tight">
+            ⚡ 20+ YRS
+          </span>
+          <span class="font-mono text-[9px] font-bold tracking-wider uppercase opacity-90">
+            FIELD PROVEN
           </span>
         </div>
 
-        <!-- Metric Grid with Asymmetrical Tiles & Vibrant Color -->
-        <div class="grid grid-cols-2 gap-4 mb-6">
-          <div class="p-4 rounded-punk-sm bg-obsidian/90 border border-charcoal hover:border-gold/60 transition-colors">
-            <div class="font-display text-3xl font-extrabold text-gold tracking-tight">20+ YRS</div>
-            <div class="text-xs text-titanium-muted mt-1">Multi-Domain Track Record</div>
-          </div>
-          <div class="p-4 rounded-punk-sm bg-obsidian/90 border border-charcoal hover:border-cyan/60 transition-colors">
-            <div class="font-display text-3xl font-extrabold text-cyan tracking-tight">6 PATENTS</div>
-            <div class="text-xs text-titanium-muted mt-1">USPTO Interaction & Video IP</div>
-          </div>
-          <div class="p-4 rounded-punk-sm bg-obsidian/90 border border-charcoal hover:border-magenta/60 transition-colors">
-            <div class="font-display text-3xl font-extrabold text-magenta tracking-tight">CANNES</div>
-            <div class="text-xs text-titanium-muted mt-1">Gold & Silver Lions / Clios</div>
-          </div>
-          <div class="p-4 rounded-punk-sm bg-obsidian/90 border border-charcoal hover:border-lime/60 transition-colors">
-            <div class="font-display text-3xl font-extrabold text-lime tracking-tight">MSIE / MFA</div>
-            <div class="text-xs text-titanium-muted mt-1">HEC Paris & UC Santa Cruz</div>
-          </div>
+        <!-- Top-Right: 6 PATENTS (Cyan) -->
+        <div class="comic-sticker rotate-6 absolute top-8 right-2 sm:-right-2 z-20 bg-cyan text-obsidian border-2 border-white/60">
+          <span class="font-display font-extrabold text-sm sm:text-base leading-none tracking-tight">
+            💥 6 PATENTS
+          </span>
+          <span class="font-mono text-[9px] font-bold tracking-wider uppercase opacity-90">
+            USPTO INTERACTION IP
+          </span>
         </div>
 
-        <!-- Quote / Perspective Card -->
-        <div class="p-4 rounded-punk-sm bg-obsidian/90 border border-charcoal/80 font-sans text-xs text-titanium-muted leading-relaxed space-y-2">
-          <p class="text-titanium/90 font-light italic">
-            "Software shouldn't feel like an industrial spreadsheet. Great systems blend ruthless technical discipline with genuine personality and taste."
-          </p>
-          <div class="font-mono text-[11px] text-gold flex items-center justify-between pt-1 border-t border-charcoal/60">
-            <span>— Jesse Fulton</span>
-            <span class="text-titanium-muted">// ARCHITECTURE PERSPECTIVE</span>
-          </div>
+        <!-- Bottom-Left: CANNES LIONS (Hot Pink) -->
+        <div class="comic-sticker rotate-3 absolute bottom-12 left-1 sm:-left-3 z-20 bg-magenta text-white border-2 border-white/60">
+          <span class="font-display font-extrabold text-sm sm:text-base leading-none tracking-tight">
+            🏆 CANNES
+          </span>
+          <span class="font-mono text-[9px] font-bold tracking-wider uppercase opacity-90">
+            GOLD & SILVER LIONS
+          </span>
+        </div>
+
+        <!-- Bottom-Right: HEC / UCSC (Acid Lime) -->
+        <div class="comic-sticker -rotate-3 absolute bottom-2 right-1 sm:-right-3 z-20 bg-lime text-obsidian border-2 border-white/60">
+          <span class="font-display font-extrabold text-sm sm:text-base leading-none tracking-tight">
+            🎓 MSIE / MFA
+          </span>
+          <span class="font-mono text-[9px] font-bold tracking-wider uppercase opacity-90">
+            HEC PARIS & UC SANTA CRUZ
+          </span>
+        </div>
+
+        <!-- Subtle Bottom Hint Note -->
+        <div class="absolute -bottom-6 left-1/2 -translate-x-1/2 z-20 font-marker text-xs text-gold pointer-events-none whitespace-nowrap hidden sm:block">
+          ~ click face to swap look ⤷
         </div>
 
       </div>
+
     </div>
 
   </div>
@@ -165,6 +186,25 @@
     startAutoplay();
   }
 
+  // Interactive Face Toggle (Beanie vs Bald mask image)
+  function initFaceToggle() {
+    const container = document.getElementById('face-container');
+    const maskedElement = document.getElementById('face-masked-element');
+    
+    if (container && maskedElement) {
+      let isBeanie = true;
+      container.addEventListener('click', () => {
+        isBeanie = !isBeanie;
+        const newUrl = isBeanie 
+          ? "url('/media/illustrations/jesse-beanie-white.png')" 
+          : "url('/media/illustrations/jesse-bald-white.png')";
+        
+        maskedElement.style.webkitMaskImage = newUrl;
+        maskedElement.style.maskImage = newUrl;
+      });
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     for (let i = 0; i < totalSlides; i++) {
       const dot = document.getElementById(`dot-${i}`);
@@ -176,5 +216,6 @@
       }
     }
     startAutoplay();
+    initFaceToggle();
   });
 </script>
