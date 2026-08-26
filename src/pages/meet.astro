@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  calLink?: string;
+}
+
+const { calLink = "jessefulton/30min" } = Astro.props;
+---
+
+<BaseLayout 
+  title="Schedule a Session // Jesse Fulton"
+  description="Book an executive advisory session, zero-to-one venture consultation, or introductory chat directly with Jesse Fulton."
+>
+  <Header />
+
+  <main class="max-w-5xl mx-auto px-6 py-12 md:py-16">
+    <!-- Page Header with Special Elite Stamp & Rock Salt Scribble -->
+    <div class="mb-10 text-center md:text-left">
+      <div class="flex items-center justify-center md:justify-start gap-3 mb-3 flex-wrap">
+        <span class="stamp-bw">
+          <span class="w-2 h-2 rounded-full bg-magenta animate-pulse inline-block mr-1"></span>
+          SCHEDULE A SESSION
+        </span>
+        <span class="hand-scribble text-gold text-sm rotate-1 hidden sm:inline-block">
+          ~ 30-min strategy or advisory intro
+        </span>
+      </div>
+      <h1 class="text-4xl md:text-5xl font-display font-extrabold text-titanium tracking-tight mb-3">
+        Let’s Connect Directly.
+      </h1>
+      <p class="text-titanium-muted max-w-xl text-base font-light leading-relaxed">
+        Select a time on the live calendar below for executive advisory, venture architecture inquiries, or collaboration discussions.
+      </p>
+    </div>
+
+    <!-- Cal.com Embedded Scheduler Container -->
+    <div class="punk-panel p-4 md:p-8 min-h-[700px] relative overflow-hidden bg-obsidian border border-charcoal/80">
+      
+      <!-- Cal.com Inline Embed Target Element -->
+      <div 
+        id="cal-inline-embed" 
+        style="width:100%;height:100%;min-height:650px;overflow:auto" 
+        data-cal-link={calLink} 
+        data-cal-namespace=""
+        data-cal-config='{"layout":"month_view","theme":"dark"}'
+      ></div>
+
+      <!-- Fallback / Direct Link if iframe loading is blocked -->
+      <div class="mt-6 pt-4 border-t border-charcoal/60 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono text-titanium-muted">
+        <span>TROUBLE LOADING CALENDAR?</span>
+        <a 
+          href={`https://cal.com/${calLink}`} 
+          target="_blank" 
+          rel="noopener noreferrer" 
+          class="text-gold hover:underline font-bold"
+        >
+          [ OPEN DIRECTLY ON CAL.COM ↗ ]
+        </a>
+      </div>
+
+    </div>
+  </main>
+
+  <Footer />
+</BaseLayout>
+
+<!-- Cal.com Official Embed Snippet with Custom Brand Theming -->
+<script type="text/javascript">
+  (function (C, A, L) { 
+    let p = function (a, ar) { a.q.push(ar); }; 
+    let d = C.document; 
+    C.Cal = C.Cal || function () { 
+      let cal = C.Cal; 
+      let ar = arguments; 
+      if (!cal.loaded) { 
+        cal.ns = {}; 
+        cal.q = cal.q || []; 
+        d.head.appendChild(d.createElement("script")).src = A; 
+        cal.loaded = true; 
+      } 
+      if (ar[0] === L) { 
+        const api = function () { p(api, arguments); }; 
+        const namespace = ar[1]; 
+        api.q = api.q || []; 
+        if(typeof namespace === "string"){
+          cal.ns[namespace] = cal.ns[namespace] || api;
+          p(cal.ns[namespace], ar);
+          p(cal, ["initNamespace", namespace]);
+        } else p(cal, ar); 
+        return; 
+      } 
+      p(cal, ar); 
+    }; 
+  })(window, "https://app.cal.com/embed/embed.js", "init");
+
+  Cal("init", {origin:"https://app.cal.com"});
+
+  Cal("inline", {
+    elementOrSelector: "#cal-inline-embed",
+    config: {"layout":"month_view","theme":"dark"},
+    calLink: "jessefulton/30min"
+  });
+
+  Cal("ui", {
+    theme: "dark",
+    styles: {
+      branding: {
+        brandColor: "#E5B80B"
+      }
+    },
+    hideEventTypeDetails: false,
+    layout: "month_view"
+  });
+</script>
