@@ -32,8 +32,8 @@
 
   /* Global Display Typography */
   h1, h2, h3, h4, .font-display {
-    font-family: 'Clash Display', 'Space Grotesk', sans-serif;
-    letter-spacing: -0.02em;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.1em;
   }
 
   /* ==========================================================================
@@ -51,8 +51,8 @@
   h2 {
     font-size: 1.75rem;   /* 28px */
     line-height: 2.25rem; /* 36px */
-    font-weight: 800;
-    letter-spacing: -0.02em;
+    font-weight: 700;
+    letter-spacing: 0.08em;
     color: #F4F5F7;
     margin-top: 3.5rem;   /* 56px = 7 * 8px */
     margin-bottom: 1rem;  /* 16px = 2 * 8px */
@@ -62,17 +62,18 @@
     font-size: 1.35rem;   /* 21.6px */
     line-height: 1.85rem; /* 29.6px */
     font-weight: 700;
-    letter-spacing: -0.015em;
+    letter-spacing: 0.06em;
     color: #F4F5F7;
     margin-top: 2.5rem;   /* 40px = 5 * 8px */
     margin-bottom: 0.75rem; /* 12px */
   }
 
   h4 {
+    font-family: 'Space Mono', monospace;
     font-size: 1.05rem;
     line-height: 1.5rem;
     font-weight: 700;
-    letter-spacing: 0.02em;
+    letter-spacing: 0.08em;
     color: #E5B80B;
     margin-top: 2rem;     /* 32px */
     margin-bottom: 0.5rem; /* 8px */

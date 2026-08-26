@@ -7,10 +7,13 @@ export default {
     extend: {
       fontFamily: {
         sans: ['Space Grotesk', 'system-ui', '-apple-system', 'sans-serif'],
-        display: ['Clash Display', 'Space Grotesk', 'sans-serif'],
+        display: ['Space Grotesk', 'sans-serif'],
         mono: ['Space Mono', 'JetBrains Mono', 'monospace'],
         stamp: ['Special Elite', 'Space Mono', 'monospace'],
         scribble: ['Rock Salt', 'cursive', 'sans-serif'],
+      },
+      letterSpacing: {
+        'display': '0.1em',
       },
       colors: {
         slate: {
