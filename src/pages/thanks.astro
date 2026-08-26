@@ -11,26 +11,32 @@ import Footer from '../components/Footer.astro';
   <Header />
 
   <main class="flex-grow flex items-center justify-center py-24 px-6">
-    <div class="max-w-xl w-full text-center rounded-2xl border border-charcoal bg-obsidian p-10 backdrop-blur-md">
-      <div class="w-12 h-12 rounded-full bg-gold/10 border border-gold/40 text-gold flex items-center justify-center mx-auto mb-6 font-mono text-xl">
+    <div class="max-w-xl w-full text-center punk-panel p-10 backdrop-blur-md">
+      <div class="w-14 h-14 rounded-full bg-gold/15 border border-gold/40 text-gold flex items-center justify-center mx-auto mb-6 font-mono text-2xl">
         ✔
       </div>
 
-      <div class="font-mono text-xs text-gold uppercase tracking-widest mb-2">
-        // TRANSMISSION SUCCESSFUL
+      <div class="flex items-center justify-center gap-3 mb-4 flex-wrap">
+        <span class="stamp-bw">
+          <span class="w-2 h-2 rounded-full bg-gold inline-block mr-1"></span>
+          MISSION BRIEF RECEIVED
+        </span>
+        <span class="hand-scribble text-gold rotate-1 hidden sm:inline-block">
+          ~ on my radar now
+        </span>
       </div>
 
-      <h1 class="text-3xl font-display font-bold text-titanium mb-4">
-        Message Received.
+      <h1 class="text-3xl font-display font-extrabold text-titanium mb-4">
+        Transmission Confirmed.
       </h1>
 
       <p class="text-titanium/80 text-sm font-light leading-relaxed mb-8">
-        Thank you for reaching out. I review incoming mission briefs and strategic inquiries promptly and will be in touch shortly.
+        Thank you for reaching out. I review incoming strategic inquiries and venture collaborations promptly and will be in touch shortly.
       </p>
 
       <a 
         href="/" 
-        class="inline-block px-6 py-3 rounded bg-gold text-obsidian font-display font-bold text-sm tracking-wider uppercase hover:bg-gold-hover shadow-glow-gold transition-all duration-200"
+        class="inline-block px-7 py-3.5 rounded-punk-sm bg-gold text-obsidian font-display font-extrabold text-sm tracking-wider uppercase hover:bg-gold-hover shadow-punk-gold transition-all duration-200"
       >
         ← RETURN TO PLATFORM
       </a>

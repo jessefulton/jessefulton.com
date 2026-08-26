@@ -28,11 +28,17 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
   <Header />
 
   <main class="max-w-6xl mx-auto px-6 py-12 md:py-16">
-    <!-- Header Section following consistent pattern -->
+    <!-- Header Section with Stamp + Rock Salt Scribble Pairing -->
     <header class="border-b border-charcoal/80 pb-10 mb-12">
-      <div class="flex items-center justify-between gap-4 mb-2 flex-wrap">
-        <div class="font-mono text-xs text-cyan font-bold tracking-widest uppercase">
-          // COMPLETE ARCHIVE // 2004–2026 WORK CATALOG
+      <div class="flex items-center justify-between gap-4 mb-3 flex-wrap">
+        <div class="flex items-center gap-3 flex-wrap">
+          <span class="stamp-bw">
+            <span class="w-2 h-2 rounded-full bg-cyan inline-block mr-1"></span>
+            COMPLETE ARCHIVE
+          </span>
+          <span class="hand-scribble text-gold rotate-1 hidden sm:inline-block">
+            ~ everything from 2004 to present
+          </span>
         </div>
         <a 
           href="/tags" 
