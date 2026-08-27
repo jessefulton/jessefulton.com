@@ -66,16 +66,13 @@ const awards = achievements.filter(a => a.data.type === 'award');
     <!-- Header Section with View Switcher -->
     <header class="border-b border-charcoal/80 pb-10 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
       <div>
-        <div class="flex items-center gap-3 mb-3 flex-wrap">
-          <span class="stamp-bw">
-            <span class="w-2 h-2 rounded-full bg-gold inline-block mr-1"></span>
-            CAREER PEDIGREE
-          </span>
-          <span class="hand-scribble text-gold rotate-1 hidden sm:inline-block">
-            ~ 20 years across leadership & ventures
+        <div class="flex items-center gap-2 mb-3">
+          <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+          <span class="font-mono text-xs text-gold uppercase tracking-widest font-semibold">
+            // CAREER PEDIGREE // 20-YEAR LEADERSHIP RETROSPECTIVE
           </span>
         </div>
-        <h1 class="text-4xl md:text-5xl font-display font-extrabold text-titanium tracking-tight mb-4">
+        <h1 class="text-4xl md:text-5xl font-display font-bold tracking-tight mb-4 heading-glow-gold">
           Experience & Impact
         </h1>
         <p class="text-titanium-muted max-w-2xl text-base font-light leading-relaxed">
@@ -103,16 +100,16 @@ const awards = achievements.filter(a => a.data.type === 'award');
     <!-- Quick Jump Sub-Navigation -->
     <div class="flex flex-wrap gap-3 mb-16 pb-4 border-b border-charcoal/60 font-mono text-xs">
       <a href="#roles" class="px-3 py-1 rounded bg-charcoal/30 text-titanium hover:border-gold hover:text-gold border border-charcoal transition-colors">
-        ↓ EXECUTIVE ROLES ({sortedRoles.length})
+        [ EXECUTIVE ROLES ({sortedRoles.length}) ]
       </a>
       <a href="#patents" class="px-3 py-1 rounded bg-charcoal/30 text-gold hover:border-gold border border-charcoal transition-colors">
-        ↓ 6 US PATENTS
+        [ 6 US PATENTS ]
       </a>
       <a href="#awards" class="px-3 py-1 rounded bg-charcoal/30 text-magenta hover:border-magenta border border-charcoal transition-colors">
-        ↓ HONORS & AWARDS ({awards.length})
+        [ HONORS & AWARDS ({awards.length}) ]
       </a>
       <a href="#education" class="px-3 py-1 rounded bg-charcoal/30 text-lime hover:border-lime border border-charcoal transition-colors">
-        ↓ ACADEMIC FOUNDATION
+        [ ACADEMIC FOUNDATION ]
       </a>
     </div>
 
@@ -150,7 +147,7 @@ const awards = achievements.filter(a => a.data.type === 'award');
             <ul class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
               {role.data.highlights.map(h => (
                 <li class="font-mono text-xs text-titanium/80 flex items-start gap-2 bg-obsidian/60 p-2.5 rounded border border-charcoal/80">
-                  <span class="text-cyan">⚡</span>
+                  <span class="text-cyan">▹</span>
                   <span>{h}</span>
                 </li>
               ))}

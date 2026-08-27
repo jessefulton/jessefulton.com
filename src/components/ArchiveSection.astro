@@ -13,28 +13,19 @@ const categoryConfig: Record<string, { label: string; color: string; border: str
 ---
 
 <section id="archive" class="max-w-7xl mx-auto px-6 py-20 border-t border-charcoal/80">
-  <!-- Section Header with Stamp + Rock Salt Scribble Pairing -->
-  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+  <!-- Section Header with Architectural Headline & Action -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-16">
     <div>
-      <div class="flex items-center gap-3 mb-3 flex-wrap">
-        <span class="stamp-bw">
-          <span class="w-2 h-2 rounded-full bg-magenta inline-block mr-1"></span>
-          SELECTED WORK
-        </span>
-        <span class="hand-scribble text-magenta rotate-1 hidden sm:inline-block">
-          ~ highlights from the trenches
-        </span>
-      </div>
-      <h2 class="text-3xl md:text-5xl font-display font-extrabold text-titanium tracking-tight">
+      <h2 class="text-3xl md:text-5xl font-display font-bold tracking-tight heading-glow-magenta">
         Featured Case Studies
       </h2>
     </div>
     <div class="flex items-center gap-4">
       <a 
         href="/portfolio" 
-        class="font-mono text-xs px-4 py-2.5 rounded-punk-sm border border-charcoal bg-obsidian text-titanium hover:border-gold hover:text-gold hover:shadow-punk-gold transition-all duration-200"
+        class="font-mono text-xs px-4 py-2.5 rounded-punk-sm border border-white/10 bg-obsidian text-titanium hover:border-gold hover:text-gold hover:shadow-[0_4px_16px_rgba(229,184,11,0.15)] transition-all duration-200"
       >
-        VIEW ALL {allProjects.length} PROJECTS →
+        VIEW COMPLETE {allProjects.length}-PROJECT CATALOG →
       </a>
     </div>
   </div>

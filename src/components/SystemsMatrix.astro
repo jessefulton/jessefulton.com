@@ -37,49 +37,44 @@ const systems = [
 ---
 
 <section id="systems" class="max-w-7xl mx-auto px-6 py-20 border-t border-charcoal/80">
-  <!-- Section Header with Stamp + Rock Salt Scribble Pairing -->
-  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+  <!-- Clean Single Header with Grounded Telemetry Description Panel on Right -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-16">
     <div>
-      <div class="flex items-center gap-3 mb-3 flex-wrap">
-        <span class="stamp-bw">
-          <span class="w-2 h-2 rounded-full bg-cyan inline-block mr-1"></span>
-          SYSTEM ARCHITECTURE
-        </span>
-        <span class="hand-scribble text-cyan rotate-1 hidden sm:inline-block">
-          ~ how the gears actually turn
-        </span>
-      </div>
-      <h2 class="text-3xl md:text-5xl font-display font-extrabold text-titanium tracking-tight">
+      <h2 class="text-3xl md:text-5xl font-display font-bold tracking-tight heading-glow-cyan">
         Integrated Systems Matrix
       </h2>
     </div>
-    <div class="font-mono text-xs text-titanium-muted flex items-center gap-2">
-      <span class="w-2 h-2 rounded-full bg-cyan animate-pulse"></span>
-      <span>READY FOR AMBITIOUS BUILDS</span>
+    
+    <div class="punk-panel p-5 bg-[#0E1117]/85 border-l-2 border-l-cyan max-w-lg">
+      <div class="flex items-center gap-2 font-mono text-xs text-cyan uppercase tracking-wider font-semibold mb-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse"></span>
+        <span>CAPABILITY ARCHITECTURE</span>
+      </div>
+      <p class="text-titanium/80 text-xs sm:text-sm font-light leading-relaxed mb-0">
+        Disciplines engineered to intersect: strategy feeds interface design, interface design drives technical architecture, and architecture delivers market outcomes.
+      </p>
     </div>
   </div>
 
-  <!-- Systems Grid -->
-  <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-    {systems.map((system, idx) => (
-      <div class={`punk-panel p-6 flex flex-col justify-between group ${idx % 2 === 1 ? 'rounded-punk-reverse' : 'rounded-punk'}`}>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    {systems.map(system => (
+      <div class={`punk-panel p-8 transition-all duration-300 ${system.accentGlow} relative flex flex-col justify-between group`}>
         <div>
-          <div class="flex items-center justify-between mb-6 pb-3 border-b border-charcoal/80">
-            <span class={`font-mono text-xs font-bold tracking-wider px-2.5 py-1 rounded-sm border ${system.border} ${system.color}`}>
+          <div class="flex items-center justify-between pb-4 border-b border-charcoal/80 mb-6">
+            <span class={`font-mono text-xs font-bold tracking-wider ${system.color}`}>
               // {system.category}
             </span>
-            <span class="font-mono text-xs text-titanium-muted">
-              #{idx + 1}
-            </span>
+            <span class="w-2 h-2 rounded-full bg-titanium/20 group-hover:bg-gold transition-colors"></span>
           </div>
-          
+
           <div class="space-y-6">
-            {system.items.map((item) => (
-              <div class="group/item">
-                <h4 class="font-display font-bold text-titanium text-base group-hover/item:text-gold transition-colors flex items-center gap-2">
-                  <span class="text-gold font-mono text-xs">▸</span> {item.name}
-                </h4>
-                <p class="text-xs text-titanium-muted font-light leading-relaxed mt-1.5 pl-3 border-l border-charcoal group-hover/item:border-gold/50 transition-colors">
+            {system.items.map(item => (
+              <div class="border-b border-charcoal/40 pb-5 last:border-b-0 last:pb-0">
+                <h3 class="font-display font-bold text-base text-titanium mb-1.5 group-hover:text-gold transition-colors flex items-center gap-2">
+                  <span class="text-gold text-xs">▹</span>
+                  {item.name}
+                </h3>
+                <p class="text-xs text-titanium/80 leading-relaxed font-light pl-4">
                   {item.desc}
                 </p>
               </div>
@@ -87,9 +82,9 @@ const systems = [
           </div>
         </div>
 
-        <div class="mt-8 pt-4 border-t border-charcoal/60 flex justify-between items-center text-[11px] font-mono text-titanium-muted">
-          <span>HIGH RIGOR // REAL IMPACT</span>
-          <span class="text-gold font-bold">★ FIELD TESTED</span>
+        <div class="pt-6 mt-6 border-t border-charcoal/60 flex items-center justify-between font-mono text-[11px] text-titanium-muted">
+          <span>STATUS: PRODUCTION_READY</span>
+          <span class="text-gold">● ACTIVE</span>
         </div>
       </div>
     ))}

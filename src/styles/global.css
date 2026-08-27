@@ -33,7 +33,7 @@
   /* Global Display Typography */
   h1, h2, h3, h4, .font-display {
     font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
   }
 
   /* ==========================================================================
@@ -52,7 +52,7 @@
     font-size: 1.75rem;   /* 28px */
     line-height: 2.25rem; /* 36px */
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     color: #F4F5F7;
     margin-top: 3.5rem;   /* 56px = 7 * 8px */
     margin-bottom: 1rem;  /* 16px = 2 * 8px */
@@ -62,7 +62,7 @@
     font-size: 1.35rem;   /* 21.6px */
     line-height: 1.85rem; /* 29.6px */
     font-weight: 700;
-    letter-spacing: 0.06em;
+    letter-spacing: 0.04em;
     color: #F4F5F7;
     margin-top: 2.5rem;   /* 40px = 5 * 8px */
     margin-bottom: 0.75rem; /* 12px */
@@ -73,7 +73,7 @@
     font-size: 1.05rem;
     line-height: 1.5rem;
     font-weight: 700;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.06em;
     color: #E5B80B;
     margin-top: 2rem;     /* 32px */
     margin-bottom: 0.5rem; /* 8px */
@@ -137,6 +137,7 @@
 
 /* UI Container Overrides (Protecting Compact UI Components from Global Paragraph Spacing) */
 .punk-panel p:last-child,
+.telemetry-chip p,
 .comic-sticker p,
 nav p,
 footer p {
@@ -174,19 +175,20 @@ footer p {
   -webkit-text-stroke: 1.5px #E5B80B;
 }
 
-/* Standard Glam-Punk Card Surface */
+/* Refined Glam-Punk Card Surface (Hairline Precision + Subtle Frosted Depth) */
 .punk-panel {
-  background: #14181F;
+  background: #11141B;
   border: 1px solid rgba(255, 255, 255, 0.08);
   border-radius: 1.25rem 0.25rem 1.25rem 0.25rem;
-  box-shadow: 4px 4px 0px 0px #1A1E24;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.04);
   transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
 }
 
 .punk-panel:hover {
-  border-color: rgba(229, 184, 11, 0.6);
-  box-shadow: 4px 4px 0px 0px #E5B80B;
-  transform: translate(-1px, -1px);
+  border-color: rgba(229, 184, 11, 0.45);
+  box-shadow: 0 0 24px -4px rgba(229, 184, 11, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
 }
 
 /* Alternating Isolated Slate Section */
@@ -198,12 +200,69 @@ footer p {
 .section-slate .punk-panel {
   background-color: #090A0D;
   border: 1px solid rgba(255, 255, 255, 0.09);
-  box-shadow: 4px 4px 0px 0px #000000;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.04);
 }
 
 .section-slate .punk-panel:hover {
+  border-color: rgba(229, 184, 11, 0.45);
+  box-shadow: 0 0 24px -4px rgba(229, 184, 11, 0.18);
+}
+
+/* Luxury Frosted Telemetry Chips (Precision HUD Metrics) */
+.telemetry-chip {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 0.55rem 0.85rem;
+  border-radius: 0.35rem;
+  background: rgba(16, 20, 27, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 16px -2px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.telemetry-chip:hover {
   border-color: rgba(229, 184, 11, 0.6);
-  box-shadow: 4px 4px 0px 0px #E5B80B;
+  box-shadow: 0 0 16px rgba(229, 184, 11, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Illuminated Heading Outer Glow & Chromatic Halo System
+   ========================================================================== */
+
+.heading-glow-gold {
+  color: #F4F5F7;
+  text-shadow: 
+    0 0 10px rgba(229, 184, 11, 0.7),
+    0 0 24px rgba(229, 184, 11, 0.45),
+    0 0 50px rgba(229, 184, 11, 0.2);
+}
+
+.heading-glow-cyan {
+  color: #F4F5F7;
+  text-shadow: 
+    0 0 10px rgba(0, 240, 255, 0.7),
+    0 0 24px rgba(0, 240, 255, 0.45),
+    0 0 50px rgba(0, 240, 255, 0.2);
+}
+
+.heading-glow-magenta {
+  color: #F4F5F7;
+  text-shadow: 
+    0 0 10px rgba(255, 42, 133, 0.7),
+    0 0 24px rgba(255, 42, 133, 0.45),
+    0 0 50px rgba(255, 42, 133, 0.2);
+}
+
+.heading-glow-lime {
+  color: #F4F5F7;
+  text-shadow: 
+    0 0 10px rgba(212, 255, 0, 0.7),
+    0 0 24px rgba(212, 255, 0, 0.45),
+    0 0 50px rgba(212, 255, 0, 0.2);
 }
 
 /* Authentic Eroded Grunge Rubber Stamp */
@@ -251,11 +310,10 @@ footer p {
   left: 0;
   bottom: -4px;
   width: 100%;
-  height: 4px;
+  height: 3px;
   background: #E5B80B;
   border-radius: 2px;
   opacity: 0.9;
-  transform: rotate(-0.5deg);
 }
 
 .marker-underline-pink::after {
@@ -300,23 +358,6 @@ footer p {
   mask-size: contain;
   filter: drop-shadow(0 0 10px rgba(229, 184, 11, 0.3)) drop-shadow(0 0 20px rgba(255, 42, 133, 0.2));
   transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-/* 70s Comic Zap / Pow Sticker Badges */
-.comic-sticker {
-  display: inline-flex;
-  flex-direction: column;
-  padding: 0.45rem 0.75rem;
-  border-radius: 0.4rem;
-  box-shadow: 3.5px 3.5px 0px 0px #000000;
-  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
-  cursor: pointer;
-  user-select: none;
-}
-
-.comic-sticker:hover {
-  transform: scale(1.08) rotate(0deg) !important;
-  box-shadow: 5px 5px 0px 0px #000000;
 }
 
 /* Custom Scrollbar */

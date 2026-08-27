@@ -4,65 +4,63 @@ const pillars = [
     tag: "01 // VENTURE DESIGN",
     title: "Strategy & Venture Architecture",
     accent: "text-gold",
-    borderHover: "hover:border-gold/70 hover:shadow-punk-gold",
+    borderHover: "hover:border-gold/60",
     badgeBg: "bg-gold/15 text-gold border-gold/40",
     description: "MSc in Innovation & Entrepreneurship (HEC Paris). Guiding founders and leadership through zero-to-one business model design, unit economic modeling, and sustainable venture mechanics.",
     bullets: ["HEC Paris MSIE", "Startup Mentor @ SC Launchpad", "Zero-to-One Incubation"],
-    note: "where ideas become viable P&Ls",
+    note: "viable business models",
   },
   {
     tag: "02 // ENTERPRISE IMPACT",
     title: "Product Strategy & Executive Alignment",
     accent: "text-cyan",
-    borderHover: "hover:border-cyan/70 hover:shadow-punk-cyan",
+    borderHover: "hover:border-cyan/60",
     badgeBg: "bg-cyan/15 text-cyan border-cyan/40",
     description: "Translating ambiguous, high-stakes technology shifts into executable product roadmaps. Led strategic alignment and design execution for leaders including Coinbase Cloud and PwC.",
     bullets: ["Coinbase Cloud Workshopping", "Executive Alignment", "Cross-Disciplinary Bridge"],
-    note: "turning executive fog into clear execution",
+    note: "executive alignment",
   },
   {
     tag: "03 // MULTIMODAL HERITAGE",
     title: "Voice UX & Multimodal Creative Direction",
     accent: "text-magenta",
-    borderHover: "hover:border-magenta/70 hover:shadow-punk-pink",
+    borderHover: "hover:border-magenta/60",
     badgeBg: "bg-magenta/15 text-magenta border-magenta/40",
     description: "Over a decade of pioneering conversational and voice interaction design. 6 US Patents in Human-Machine Interaction, Cannes Gold/Silver Lions, and speaker at the Game Developers Conference (GDC).",
     bullets: ["6 US Patents in Interaction", "Cannes Lions & Gold Clios", "Destiny 2 Ghost Alexa Skill"],
-    note: "10+ years before LLMs made voice cool",
+    note: "10+ yrs multimodal IP",
   },
   {
     tag: "04 // FRONTIER VELOCITY",
     title: "Frontier AI Systems & Agent Architectures",
     accent: "text-lime",
-    borderHover: "hover:border-lime/70 hover:shadow-[4px_4px_0px_#d4ff00]",
+    borderHover: "hover:border-lime/60",
     badgeBg: "bg-lime/15 text-lime border-lime/40",
     description: "Engineering audit-ready, HIPAA-compliant generative AI agent frameworks and evaluation harnesses. Proven track record accelerating product engineering velocity by 5x at Thrive AI Health.",
     bullets: ["HIPAA-Compliant Agent Runtimes", "Automated Eval Harnesses", "5x Engineering Velocity"],
-    note: "safe, fast, production-ready",
+    note: "production velocity",
   },
 ];
 ---
 
 <section id="strategy" class="max-w-7xl mx-auto px-6 py-20 border-t border-charcoal/80 relative">
-  <!-- Section Header with Stamp + Rock Salt Scribble Pairing -->
-  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
+  <!-- Clean Single Header with Grounded Telemetry Description Panel on Right -->
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-8 mb-16">
     <div>
-      <div class="flex items-center gap-3 mb-3 flex-wrap">
-        <span class="stamp-bw">
-          <span class="w-2 h-2 rounded-full bg-gold inline-block mr-1"></span>
-          CORE PILLARS
-        </span>
-        <span class="hand-scribble text-gold rotate-1 hidden sm:inline-block">
-          ~ four distinct ways I add value
-        </span>
-      </div>
-      <h2 class="text-3xl md:text-5xl font-display font-extrabold text-titanium tracking-tight">
+      <h2 class="text-3xl md:text-5xl font-display font-bold tracking-tight heading-glow-gold">
         The Four Pillars of Proof
       </h2>
     </div>
-    <p class="text-titanium-muted max-w-md text-sm font-light leading-relaxed">
-      A 20-year synthesis across business design, creative direction, and frontier systems engineering that turns emerging tech into durable venture value.
-    </p>
+    
+    <div class="punk-panel p-5 bg-[#0E1117]/85 border-l-2 border-l-gold max-w-lg">
+      <div class="flex items-center gap-2 font-mono text-xs text-gold uppercase tracking-wider font-semibold mb-1.5">
+        <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+        <span>CORE VALUE DOMAINS</span>
+      </div>
+      <p class="text-titanium/80 text-xs sm:text-sm font-light leading-relaxed mb-0">
+        A 20-year synthesis across business design, creative direction, and frontier systems engineering that turns emerging tech into durable venture value.
+      </p>
+    </div>
   </div>
 
   <!-- Pillar Grid with Alternating Asymmetrical Corners & Stable Headings -->
@@ -77,28 +75,30 @@ const pillars = [
               // {pillar.tag}
             </span>
             <span class="font-mono text-[11px] text-titanium-muted">
-              ~ {pillar.note}
+              [ {pillar.note} ]
             </span>
           </div>
 
-          <!-- Pillar Title -->
-          <h3 class="text-2xl sm:text-3xl font-display font-bold text-titanium mb-4 group-hover:text-white transition-colors tracking-tight">
+          <!-- Solid Display Heading -->
+          <h3 class="text-xl md:text-2xl font-display font-bold text-titanium mb-4 group-hover:text-gold transition-colors">
             {pillar.title}
           </h3>
 
-          <!-- Description -->
-          <p class="text-titanium/80 text-sm font-light leading-relaxed mb-6">
+          <!-- Narrative Body -->
+          <p class="text-sm text-titanium/80 leading-relaxed font-light mb-6">
             {pillar.description}
           </p>
         </div>
 
-        <!-- Highlights / Bullets with Pop Colors -->
-        <div class="flex flex-wrap gap-2 pt-4 border-t border-charcoal/80">
-          {pillar.bullets.map((bullet) => (
-            <span class="font-mono text-[11px] px-2.5 py-1 rounded-sm bg-obsidian border border-charcoal text-titanium-muted group-hover:text-titanium transition-colors">
-              <span class={pillar.accent}>⚡</span> {bullet}
-            </span>
-          ))}
+        <!-- Evidence Tags & Bullets -->
+        <div class="pt-4 border-t border-charcoal/60">
+          <div class="flex flex-wrap gap-2">
+            {pillar.bullets.map((bullet) => (
+              <span class="font-mono text-[11px] px-2.5 py-1 rounded bg-obsidian border border-charcoal/80 text-titanium-muted group-hover:border-titanium/30 transition-colors">
+                • {bullet}
+              </span>
+            ))}
+          </div>
         </div>
 
       </div>

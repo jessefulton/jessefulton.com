@@ -114,16 +114,13 @@ const categoryThemes: Record<string, { color: string; bg: string; border: string
     <header class="border-b border-charcoal/80 pb-10 mb-12">
       <div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
         <div>
-          <div class="flex items-center gap-3 mb-3 flex-wrap">
-            <span class="stamp-bw">
-              <span class="w-2 h-2 rounded-full bg-cyan inline-block mr-1"></span>
-              UNIFIED TIMELINE
-            </span>
-            <span class="hand-scribble text-cyan rotate-1 hidden sm:inline-block">
-              ~ chronologically sorted from day one
+          <div class="flex items-center gap-2 mb-3">
+            <span class="w-1.5 h-1.5 rounded-full bg-cyan animate-pulse"></span>
+            <span class="font-mono text-xs text-cyan uppercase tracking-widest font-semibold">
+              // UNIFIED TIMELINE // CHRONOLOGICAL EVENT STREAM
             </span>
           </div>
-          <h1 class="text-4xl md:text-5xl font-display font-extrabold text-titanium tracking-tight mb-4">
+          <h1 class="text-4xl md:text-5xl font-display font-bold tracking-tight mb-4 heading-glow-cyan">
             Unified Chronology
           </h1>
           <p class="text-titanium-muted max-w-2xl text-base font-light leading-relaxed">
@@ -162,19 +159,19 @@ const categoryThemes: Record<string, { color: string; bg: string; border: string
           data-type="role" 
           class="tl-filter-btn font-mono text-xs px-3.5 py-1.5 rounded border border-charcoal bg-charcoal/30 text-titanium/80 hover:border-gold hover:text-gold transition-all duration-200"
         >
-          [ 🏢 ROLES ({roles.length}) ]
+          [ ROLES ({roles.length}) ]
         </button>
         <button 
           data-type="project" 
           class="tl-filter-btn font-mono text-xs px-3.5 py-1.5 rounded border border-charcoal bg-charcoal/30 text-titanium/80 hover:border-cyan hover:text-cyan transition-all duration-200"
         >
-          [ 🚀 CASE STUDIES ({projects.length}) ]
+          [ CASE STUDIES ({projects.length}) ]
         </button>
         <button 
           data-type="achievement" 
           class="tl-filter-btn font-mono text-xs px-3.5 py-1.5 rounded border border-charcoal bg-charcoal/30 text-titanium/80 hover:border-magenta hover:text-magenta transition-all duration-200"
         >
-          [ ⚡ PATENTS & HONORS ({achievements.length}) ]
+          [ PATENTS & HONORS ({achievements.length}) ]
         </button>
       </div>
 

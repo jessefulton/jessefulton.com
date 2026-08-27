@@ -1,13 +1,13 @@
 ---
-import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import ProjectCarousel from '../../components/ProjectCarousel.astro';
+import { getCollection } from 'astro:content';
 
 export async function getStaticPaths() {
   const projects = await getCollection('projects');
-  return projects.map((entry) => ({
+  return projects.map(entry => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
@@ -16,31 +16,43 @@ export async function getStaticPaths() {
 const { entry } = Astro.props;
 const { Content } = await entry.render();
 
-const categoryLabels: Record<string, { label: string; color: string; border: string }> = {
-  'frontier-ai': { label: 'FRONTIER AI & SYSTEMS', color: 'text-cyan', border: 'border-cyan/40 bg-cyan/10' },
-  'venture-strategy': { label: 'VENTURE & PRODUCT STRATEGY', color: 'text-gold', border: 'border-gold/40 bg-gold/10' },
-  'experiential-spatial': { label: 'EXPERIENTIAL & SPATIAL', color: 'text-magenta', border: 'border-magenta/40 bg-magenta/10' },
-  'creative-tech': { label: 'CREATIVE TECH & ART', color: 'text-lime', border: 'border-lime/40 bg-lime/10' },
+const categoryLabels: Record<string, { label: string; color: string; border: string; bg: string }> = {
+  'frontier-ai': { 
+    label: 'FRONTIER AI & VELOCITY', 
+    color: 'text-cyan', 
+    border: 'border-cyan/40', 
+    bg: 'bg-cyan/10' 
+  },
+  'venture-strategy': { 
+    label: 'VENTURE & PRODUCT STRATEGY', 
+    color: 'text-gold', 
+    border: 'border-gold/40', 
+    bg: 'bg-gold/10' 
+  },
+  'experiential-spatial': { 
+    label: 'EXPERIENTIAL & SPATIAL UX', 
+    color: 'text-magenta', 
+    border: 'border-magenta/40', 
+    bg: 'bg-magenta/10' 
+  },
+  'creative-tech': { 
+    label: 'CREATIVE COMPUTATION & ART', 
+    color: 'text-lime', 
+    border: 'border-lime/40', 
+    bg: 'bg-lime/10' 
+  },
 };
 
-const catInfo = categoryLabels[entry.data.category] || { label: entry.data.category, color: 'text-titanium', border: 'border-charcoal bg-charcoal/20' };
+const catInfo = categoryLabels[entry.data.category] || { 
+  label: entry.data.category.toUpperCase(), 
+  color: 'text-titanium', 
+  border: 'border-charcoal', 
+  bg: 'bg-charcoal/20' 
+};
 
-// Collect gallery images
-const galleryImages: string[] = [];
-if (entry.data.heroImage) galleryImages.push(entry.data.heroImage);
-if (entry.data.gallery && Array.isArray(entry.data.gallery)) {
-  entry.data.gallery.forEach(img => {
-    if (!galleryImages.includes(img)) galleryImages.push(img);
-  });
-}
-
-const hasMedia = Boolean(entry.data.cloudinaryVideo || galleryImages.length > 0);
-
-// Query all projects for previous/next navigation
-const allProjects = await getCollection('projects');
-const currentIndex = allProjects.findIndex(p => p.slug === entry.slug);
-const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null;
-const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null;
+// Filter out broken / missing asset references to guarantee clean media render
+const galleryImages = (entry.data.gallery || []).filter(img => img && !img.includes('undefined') && !img.includes('null'));
+const hasMedia = !!entry.data.cloudinaryVideo || !!entry.data.heroImage || galleryImages.length > 0;
 ---
 
 <BaseLayout 
@@ -59,60 +71,74 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
       <span class="text-titanium">{entry.data.title}</span>
     </nav>
 
-    <!-- Case Study Header with Stamp + Rock Salt Scribble Pairing -->
-    <header class="border-b border-charcoal/80 pb-10 mb-12">
-      <div class="flex flex-wrap items-center gap-3 mb-4">
-        <span class="stamp-bw">
-          <span class="w-2 h-2 rounded-full bg-gold inline-block mr-1"></span>
-          {catInfo.label}
-        </span>
-        <span class="hand-scribble text-gold rotate-1 hidden sm:inline-block">
-          ~ {entry.data.year}{entry.data.client ? ` · ${entry.data.client}` : entry.data.employer ? ` · ${entry.data.employer}` : ''}
-        </span>
+    <!-- Master Unified Layout Grid: Sidebar Aligned to Page Heading Top -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-start">
+      
+      <!-- Left Spine: Header + Media + Narrative (8 Columns) -->
+      <div class="lg:col-span-8 flex flex-col">
+        
+        <!-- Case Study Header -->
+        <header class="border-b border-charcoal/80 pb-8 mb-10">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-titanium tracking-tight mb-4">
+            {entry.data.title}
+          </h1>
+
+          {entry.data.byline && (
+            <p class="text-xl md:text-2xl text-gold font-sans font-light leading-relaxed mb-5">
+              {entry.data.byline}
+            </p>
+          )}
+
+          <p class="text-base sm:text-lg text-titanium/85 font-light leading-relaxed mb-6">
+            {entry.data.briefDescription}
+          </p>
+
+          <!-- Provenance Metadata -->
+          <div class="pt-4 border-t border-charcoal/60 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
+            <span class="text-titanium-muted">CASE RETROSPECTIVE</span>
+            <div class="flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
+              <span class="text-gold uppercase tracking-wider font-semibold">
+                // {catInfo.label} // {entry.data.year}
+              </span>
+            </div>
+          </div>
+        </header>
+
+        <!-- Media Reel Carousel (Inside Left Spine) -->
+        {hasMedia && (
+          <section class="mb-12">
+            <ProjectCarousel 
+              videoUrl={entry.data.cloudinaryVideo}
+              poster={entry.data.heroImage}
+              images={galleryImages} 
+              title={entry.data.title} 
+            />
+          </section>
+        )}
+
+        <!-- Main Narrative Body with 8px Baseline Vertical Rhythm -->
+        <article class="prose-editorial max-w-none">
+          <Content />
+        </article>
+
       </div>
 
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-titanium tracking-tight mb-4">
-        {entry.data.title}
-      </h1>
-
-      {entry.data.byline && (
-        <p class="text-xl md:text-2xl text-gold font-sans font-light leading-relaxed mb-6">
-          {entry.data.byline}
-        </p>
-      )}
-
-      <p class="text-lg text-titanium/80 font-light leading-relaxed max-w-4xl">
-        {entry.data.briefDescription}
-      </p>
-    </header>
-
-    <!-- Unified Media Carousel Section (Video Reel First + Images) -->
-    {hasMedia && (
-      <section class="mb-12">
-        <ProjectCarousel 
-          videoUrl={entry.data.cloudinaryVideo}
-          poster={entry.data.heroImage}
-          images={galleryImages} 
-          title={entry.data.title} 
-        />
-      </section>
-    )}
-
-    <!-- Content Grid (Body + Specs Sidebar) -->
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-      
-      <!-- Main Narrative Body with 8px Baseline Vertical Rhythm -->
-      <article class="lg:col-span-8 prose-editorial max-w-none">
-        <Content />
-      </article>
-
-      <!-- Specifications Sidebar -->
-      <aside class="lg:col-span-4 space-y-6">
-        <div class="rounded-xl border border-charcoal bg-charcoal/20 p-6 backdrop-blur-sm space-y-6 sticky top-24">
+      <!-- Right Column: Specifications Sidebar (Aligned with Heading from Top) -->
+      <aside class="lg:col-span-4 space-y-6 lg:sticky lg:top-24">
+        <div class="rounded-xl border border-charcoal bg-charcoal/20 p-6 backdrop-blur-sm space-y-6">
           <div class="font-mono text-xs text-gold uppercase tracking-wider pb-3 border-b border-charcoal/80 flex items-center justify-between">
             <span>// PROJECT SPECS</span>
             <span>SYS_METADATA</span>
           </div>
+
+          <!-- Client / Brand Partner -->
+          {entry.data.client && (
+            <div>
+              <div class="font-mono text-[11px] text-titanium-muted uppercase mb-1">Client / Partner</div>
+              <div class="text-sm font-semibold text-gold">{entry.data.client}</div>
+            </div>
+          )}
 
           <!-- Role -->
           <div>
@@ -120,7 +146,7 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
             <div class="text-sm font-semibold text-titanium">{entry.data.role}</div>
           </div>
 
-          <!-- Employer / Org -->
+          <!-- Employer / Agency -->
           {entry.data.employer && (
             <div>
               <div class="font-mono text-[11px] text-titanium-muted uppercase mb-1">Organization / Agency</div>
@@ -135,7 +161,7 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
               <div class="space-y-1.5">
                 {entry.data.metrics.map(m => (
                   <div class="font-mono text-xs px-2.5 py-1 rounded bg-obsidian border border-charcoal text-cyan flex items-center gap-2">
-                    <span>⚡</span> {m}
+                    <span class="text-cyan">▹</span> {m}
                   </div>
                 ))}
               </div>
@@ -170,66 +196,69 @@ const nextProject = currentIndex < allProjects.length - 1 ? allProjects[currentI
             </div>
           )}
 
-          <!-- Tags -->
-          <div>
-            <div class="font-mono text-[11px] text-titanium-muted uppercase mb-2">Technical Capabilities</div>
-            <div class="flex flex-wrap gap-1.5">
-              {entry.data.tags.map(t => {
-                const tagSlug = t.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
-                return (
-                  <a 
-                    href={`/tags/${tagSlug}`}
-                    class="font-mono text-xs px-2.5 py-1 rounded-sm bg-obsidian border border-charcoal text-titanium-muted hover:border-gold hover:text-gold hover:bg-gold/10 transition-colors"
-                  >
-                    #{t}
-                  </a>
-                );
-              })}
+          <!-- Technical Capabilities Tags (Linked to /tags/[tag]) -->
+          {entry.data.tags && entry.data.tags.length > 0 && (
+            <div>
+              <div class="font-mono text-[11px] text-titanium-muted uppercase mb-1">Technical Capabilities</div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                {entry.data.tags.map(tag => {
+                  const tagSlug = tag.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+                  return (
+                    <a 
+                      href={`/tags/${tagSlug}`}
+                      class="font-mono text-[11px] px-2.5 py-1 rounded bg-obsidian border border-charcoal/80 text-titanium-muted hover:border-gold hover:text-gold hover:bg-gold/10 transition-all duration-150 inline-block"
+                      title={`View all ${tag} case studies`}
+                    >
+                      #{tag}
+                    </a>
+                  );
+                })}
+              </div>
             </div>
-          </div>
+          )}
 
-          <!-- External Links / Primary Link -->
-          {entry.data.primaryLink && (
-            <div class="pt-4 border-t border-charcoal/60">
+          <!-- Deliverables / Artifacts -->
+          {entry.data.deliverables && entry.data.deliverables.length > 0 && (
+            <div>
+              <div class="font-mono text-[11px] text-titanium-muted uppercase mb-1">Key Deliverables</div>
+              <div class="flex flex-wrap gap-1">
+                {entry.data.deliverables.map(del => (
+                  <span class="font-mono text-[11px] px-2 py-0.5 rounded bg-obsidian border border-charcoal text-titanium/80">
+                    {del}
+                  </span>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <!-- Direct Live Links -->
+          {entry.data.liveUrl && (
+            <div class="pt-4 border-t border-charcoal/80">
               <a 
-                href={entry.data.primaryLink} 
+                href={entry.data.liveUrl} 
                 target="_blank" 
-                rel="noopener noreferrer"
-                class="font-mono text-xs px-4 py-2.5 rounded bg-gold text-obsidian font-semibold hover:bg-gold-hover transition-colors flex items-center justify-center gap-2 w-full shadow-glow-gold"
+                rel="noopener noreferrer" 
+                class="block w-full text-center font-mono text-xs font-bold px-4 py-2.5 rounded bg-gold text-obsidian hover:bg-gold-hover shadow-punk-gold transition-colors"
               >
-                <span>OPEN EXTERNAL SYSTEM</span>
-                <span>↗</span>
+                VISIT LIVE SYSTEM ↗
               </a>
             </div>
           )}
+
         </div>
       </aside>
 
     </div>
 
-    <!-- Bottom Navigation (Previous / Next Case Study) -->
-    <nav class="border-t border-charcoal mt-20 pt-10 grid grid-cols-1 sm:grid-cols-2 gap-6">
-      {prevProject ? (
-        <a 
-          href={`/portfolio/${prevProject.slug}`} 
-          class="rounded-xl border border-charcoal bg-charcoal/20 p-6 hover:border-gold/50 transition-colors group text-left"
-        >
-          <div class="font-mono text-xs text-titanium-muted mb-1">← PREVIOUS CASE STUDY</div>
-          <div class="font-display font-bold text-lg text-titanium group-hover:text-gold transition-colors">{prevProject.data.title}</div>
-        </a>
-      ) : <div />}
-
-      {nextProject ? (
-        <a 
-          href={`/portfolio/${nextProject.slug}`} 
-          class="rounded-xl border border-charcoal bg-charcoal/20 p-6 hover:border-gold/50 transition-colors group text-right sm:col-start-2"
-        >
-          <div class="font-mono text-xs text-titanium-muted mb-1">NEXT CASE STUDY →</div>
-          <div class="font-display font-bold text-lg text-titanium group-hover:text-gold transition-colors">{nextProject.data.title}</div>
-        </a>
-      ) : <div />}
-    </nav>
-
+    <!-- Related Navigation Footer -->
+    <div class="mt-16 pt-8 border-t border-charcoal/80 flex items-center justify-between font-mono text-xs">
+      <a href="/portfolio" class="text-titanium-muted hover:text-gold transition-colors flex items-center gap-2">
+        <span>←</span> BACK TO COMPLETE CATALOG
+      </a>
+      <a href="#top" class="text-titanium-muted hover:text-gold transition-colors">
+        ↑ TOP OF CASE STUDY
+      </a>
+    </div>
   </main>
 
   <Footer />
