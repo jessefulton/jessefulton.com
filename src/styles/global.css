@@ -265,6 +265,85 @@ footer p {
     0 0 50px rgba(212, 255, 0, 0.2);
 }
 
+/* ==========================================================================
+   Luxury Action Buttons (Clean Solid Face -> Animated White Backplate on Hover)
+   ========================================================================== */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #E5B80B;
+  color: #08090C;
+  border: 1px solid #E5B80B;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  border-radius: 0.75rem 0.15rem 0.75rem 0.15rem;
+  box-shadow: 0 0 0 0 transparent;
+  transform: translate(0, 0);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.btn-primary:hover {
+  background-color: #F0C419;
+  color: #08090C;
+  border-color: #F0C419;
+  box-shadow: 3.5px 3.5px 0px 0px #FFFFFF;
+  transform: translate(-2px, -2px);
+}
+
+.btn-primary-cyan {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #00F0FF;
+  color: #08090C;
+  border: 1px solid #00F0FF;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  border-radius: 0.75rem 0.15rem 0.75rem 0.15rem;
+  box-shadow: 0 0 0 0 transparent;
+  transform: translate(0, 0);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.btn-primary-cyan:hover {
+  background-color: #33F3FF;
+  color: #08090C;
+  border-color: #33F3FF;
+  box-shadow: 3.5px 3.5px 0px 0px #FFFFFF;
+  transform: translate(-2px, -2px);
+}
+
+.btn-primary-magenta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #FF2A85;
+  color: #FFFFFF;
+  border: 1px solid #FF2A85;
+  font-family: 'Space Mono', monospace;
+  font-weight: 700;
+  border-radius: 0.75rem 0.15rem 0.75rem 0.15rem;
+  box-shadow: 0 0 0 0 transparent;
+  transform: translate(0, 0);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+  user-select: none;
+}
+
+.btn-primary-magenta:hover {
+  background-color: #FF4797;
+  color: #FFFFFF;
+  border-color: #FF4797;
+  box-shadow: 3.5px 3.5px 0px 0px #FFFFFF;
+  transform: translate(-2px, -2px);
+}
+
 /* Authentic Eroded Grunge Rubber Stamp */
 .stamp-bw {
   display: inline-flex;
