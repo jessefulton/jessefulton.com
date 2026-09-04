@@ -1,21 +1,26 @@
 ---
-title: "Zero-to-One Venture Design & Startup Mentorship"
-byline: "HEC Paris MSIE & Santa Cruz Launchpad Startup Incubation"
-briefDescription: "Synthesizing Master's-level startup design (HEC Paris) and hands-on accelerator mentorship (SC Launchpad) to guide early-stage founders from ideation to scalable business models."
+title: "Zero-to-One Venture Design & Startup Incubation"
+byline: "HEC Paris MSIE & Santa Cruz Launchpad early-stage founder mentorship."
+briefDescription: "Synthesizing executive business rigor (HEC Paris MSc in Innovation & Entrepreneurship) with 20 years of hands-on technical architecture to mentor early-stage founders across product validation and venture design."
 category: "venture-strategy"
 role: "Venture Architect & Startup Mentor"
-industries: ["Venture Capital", "Startup Incubation", "Executive Advisory"]
-achievements: ["MSc Innovation & Entrepreneurship (HEC Paris)", "Santa Cruz Launchpad Mentor"]
-tags: ["Venture Design", "Business Modeling", "Startup Incubation", "Mentorship", "HEC Paris"]
 year: 2023
 featured: false
 archive: true
-metrics: ["HEC Paris MSIE", "Zero-to-One Frameworks", "Active Mentorship"]
+showOnTimeline: true
+achievements:
+  - "MSc Innovation & Entrepreneurship (HEC Paris)"
+  - "Santa Cruz Launchpad Startup Mentor"
+tags: ["venture-design", "business-modeling", "startup-incubation", "mentorship", "hec-paris", "unit-economics"]
+metrics:
+  - "HEC Paris MSc in Innovation & Entrepreneurship"
+  - "Zero-to-One Feasibility & Business Modeling"
+  - "Active Tech & Creative Founder Mentorship"
 ---
 
-## Overview
+A structured synthesis of advanced business model design, economic feasibility modeling, and over twenty years of frontline software and creative engineering leadership.
 
-A structured synthesis of academic business rigor and 20 years of hands-on startup execution:
-
-- **HEC Paris MSc in Innovation & Entrepreneurship (MSIE):** Formalized frameworks for business model design, venture financing, unit economics, and scalable organizational governance.
-- **Santa Cruz Launchpad Mentorship:** Active advisor to emerging technology and creative founders, guiding zero-to-one product validation, pitch narrative formulation, and technical feasibility reviews.
+### Academic Business Rigor & Venture Strategy
+- **HEC Paris MSIE:** I completed the Master of Science in Innovation & Entrepreneurship (MSIE) at HEC Paris, formalizing frameworks in venture financing, unit economic modeling, scalable corporate innovation, and organizational governance.
+- **Santa Cruz Launchpad Mentorship:** I serve as an active mentor to early-stage technology, AI, and creative founders within the Santa Cruz Launchpad accelerator and regional venture ecosystems.
+- **De-risking Early-Stage Bets:** I guide zero-to-one founders through technical feasibility reviews, customer discovery synthesis, pitch narrative formulation, and transitioning raw prototypes into sustainable, scalable business models.

@@ -6,12 +6,12 @@ startYear: 2020
 endYear: 2023
 location: "San Francisco / Silicon Valley"
 category: "venture-strategy"
-summary: "Directed enterprise product strategy, developer experience workshopping, and innovation initiatives for Coinbase Cloud, PwC, and high-growth ventures."
+summary: "Directed enterprise product strategy, executive discovery roadshows, and platform transformation for PwC, Coinbase, and high-growth ventures."
 highlights:
-  - "Led strategic product discovery and DX roadmap for Coinbase Cloud."
-  - "Facilitated high-stakes executive workshopping aligning technical and commercial stakeholders."
-  - "Built cross-functional product design and engineering practices across distributed client engagements."
-associatedProjects: ["coinbase-cloud", "pwc-enterprise-alignment"]
+  - "Architected the 8-BU discovery roadshow for PwC Sightline, growing it into the agency's largest account in <12 months."
+  - "Led strategic platform workshops and discovery aligning technical engineering with C-suite commercial strategy."
+  - "Built cross-functional product design and engineering practices across distributed enterprise engagements."
+associatedProjects: ["pwc-enterprise-alignment", "coinbase-cloud"]
 featured: true
 order: 3
 ---

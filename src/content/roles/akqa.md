@@ -6,12 +6,13 @@ startYear: 2016
 endYear: 2020
 location: "San Francisco, CA"
 category: "experiential-spatial"
-summary: "Led the creative engineering discipline, architecting award-winning conversational AI companions, 6 US Patents, and spatial retail installations for Activision, Nike, and Jordan."
+summary: "Led the creative engineering discipline, architecting award-winning conversational voice companions, multimodal AI narratives, connected enterprise platforms, and spatial activations for Activision, Nike, Jiffy Lube / Shell, Visa, and Optus."
 highlights:
-  - "Architected the Destiny 2 Ghost Alexa Skill, winning Cannes Gold/Silver Lions and Clio Awards."
-  - "Invented 6 US Patents in Human-Machine Interaction and Multimodal State Synchronization."
-  - "Led engineering for global Nike & Jordan flagship interactive retail environments."
-associatedProjects: ["destiny-2-ghost-companion", "nike-jordan-retail"]
+  - "Architected the Destiny 2 Ghost Alexa Skill, winning Cannes Silver Lion, Clio Awards, and speaking at GDC."
+  - "Engineered Terminal Tours for Call of Duty, scaling to 6M+ interactive sessions and winning Cannes Gold Lion."
+  - "Directed platform architecture for My Jiffy Lube, synchronizing distributed on-prem franchise servers with Salesforce cloud."
+  - "Directed spatial and AR campaigns for Nike LunarEpic, Visa RioPOOL (Olympics), and Optus Smart Home."
+associatedProjects: ["destiny-2-ghost-companion", "terminal-tours", "nike-jordan-retail", "my-jiffy-lube", "visa-riopool", "optus-house"]
 featured: true
 order: 4
 ---

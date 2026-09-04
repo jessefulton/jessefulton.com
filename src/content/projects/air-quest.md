@@ -1,7 +1,7 @@
 ---
-title: "Air Quest — Civic Engagement Mobile Gaming"
-byline: "Educating players on air quality telemetry and environmental policy through Unity3D gameplay."
-briefDescription: "Lead developer at UC Berkeley Social Apps Lab, building a 6-level Unity3D mobile game educating players on regional air quality indices and civic action."
+title: "Air Quest — Pediatric Environmental Health Gaming"
+byline: "Translating air quality telemetry and pediatric health into a 6-level Unity3D iPad game."
+briefDescription: "Served as Lead Developer at the UC Berkeley Social Apps Lab, translating environmental health research and community biology assets into a 6-level educational Unity3D game on California Central Valley air quality."
 category: "creative-tech"
 client: "UC Berkeley / UCSB / UCSC"
 employer: "UC Berkeley Social Apps Lab"
@@ -14,8 +14,18 @@ heroImage: "/media/projects/air-quest/game-map_l.jpg"
 gallery:
   - "/media/projects/air-quest/game-map_l.jpg"
   - "/media/projects/air-quest/game-map_m.jpg"
-tags: ["games", "unity3d", "civic-tech", "research", "uc-berkeley", "mobile"]
+tags: ["games", "unity3d", "civic-tech", "research", "uc-berkeley", "mobile-ios"]
+metrics:
+  - "6 Playable Unity3D Educational Mini-Game Levels"
+  - "UC Berkeley Social Apps Lab Interdisciplinary Build"
+  - "Central Valley Air Quality & Respiratory Education"
 primaryLink: "http://socialappslab.com/airquest/"
 ---
 
-*Air Quest* is an educational iOS game developed in Unity3D at the UC Berkeley Social Apps Lab. It consists of six mini-game style levels connected by a narrative focused on actionable interventions for worsening air quality conditions in California's Central Valley.
+Developed in partnership with the UC Berkeley Social Apps Lab, *Air Quest* is an educational iPad game designed to empower young patients and students to understand environmental air quality, pollution telemetry, and respiratory health management in California's Central Valley.
+
+### Technical & Design Leadership in Academic Research
+As the lead seasoned engineer on an interdisciplinary university research grant:
+- **Translating Scientific Research into Play:** I bridged high-level academic concepts from faculty researchers into concrete, playable game loops across six distinct mini-game levels in Unity3D.
+- **Interdisciplinary Creative Pipeline:** I worked closely with university biology researchers to adapt custom scientific illustrations into optimized 2D/3D sprites, animation rigs, and user interfaces.
+- **Civic & Health Telemetry:** We gamified regional air quality indices (AQI), illustrating the real-world impact of agricultural emissions, wildfire smoke, and vehicular traffic while teaching practical health interventions for pediatric pulmonary conditions.

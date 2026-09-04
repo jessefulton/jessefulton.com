@@ -1,7 +1,7 @@
 ---
-title: "Nike & Jordan — Connected Physical Retail Systems"
-byline: "Bridging digital customization and physical store environments at flagship global scale."
-briefDescription: "Architected connected retail experiences at Huge and AKQA, including the in-store Nike SwooshID interactive customization wall and the Nike LunarEpic treadmill-synced audio-visual installation."
+title: "Nike & Jordan — Connected Spatial Retail & On-Demand Fabrication"
+byline: "Bridging real-time 3D customization, in-store fabrication, and treadmill telemetry across flagship stores."
+briefDescription: "Engineered connected physical retail environments for Nike, including the Cinder C++ SwooshID interactive wall in Portland with on-demand shoe fabrication, and the LunarEpic treadmill-synced planetary simulator in NYC."
 category: "experiential-spatial"
 client: "Nike / Jordan"
 employer: "Huge / AKQA"
@@ -16,17 +16,22 @@ gallery:
   - "/media/projects/nike-jordan-retail/swooshid-portland.png"
   - "/media/projects/nike-jordan-retail/lunarepic-blackburn.jpg"
 cloudinaryVideo: "https://res.cloudinary.com/jessefulton/video/upload/v1/projects/Nike%20Swoosh%20ID.mp4"
-tags: ["retail-tech", "spatial-experiences", "iot", "in-store-customization", "touch-interfaces"]
+tags: ["retail-tech", "spatial-experiences", "cinder", "cpp", "on-demand-manufacturing", "touch-interfaces"]
 metrics:
-  - "Nike Flagship Store Launch (Portland, OR)"
-  - "Direct-to-Shoe In-Store Customization Pipeline"
-  - "Interactive Cadence-Synced Audio/Visual System"
+  - "SwooshID: 1-Hour In-Store Shoe Fabrication Pipeline"
+  - "Cinder C++ 3D Configurator Calibrated to Store Lighting"
+  - "LunarEpic: 3 NYC Flagship Stores Deployed Overnight"
 ---
 
-Nike SwooshID brought digital footwear customization into the physical retail footprint at Nike's flagship store in Portland, OR.
+Across multiple high-profile retail initiatives for Nike and Jordan, I bridged generative 3D visualizers, physical retail architecture, and real-time hardware synchronization.
 
-### Spatial Interface Engineering
-Jesse designed and engineered the integrated display wall touch application and backend inventory dispatch system:
-- **Embedded Touch Surfaces:** Touch screens embedded directly behind shoe wall fixtures allowed shoppers to customize colors, textures, and laser-engraved IDs.
-- **Store Inventory & POS Pipeline:** Transmitted completed custom render assets directly to the in-store fabrication lab, enabling same-day shoe pickup.
-- **LunarEpic Audio/Visual Installation:** Synced treadmill pace telemetry with real-time dynamic soundscapes and Apple Music integration in Nike NYC stores.
+### Nike SwooshID: In-Store 3D Design & Live Fabrication (Portland Flagship)
+I relocated to Portland, OR for 6–9 months to lead end-to-end technical architecture for the Nike SwooshID flagship experience:
+- **Cinder C++ 3D Configurator:** I engineered a high-performance touch application in Cinder featuring interactive 3D shoe models, physics-driven dynamic laces, customizable lighting shaders, and generative graphic pattern overlays.
+- **Flawless Physical Integration:** We embedded high-resolution touch displays directly behind Nike’s iconic "waffle iron" shoe wall fixtures, meticulously color-calibrated to match the physical retail space's lighting temperature down to the millimeter.
+- **End-to-End Manufacturing Loop:** We connected the on-floor consumer UI with mobile POS checkout, associate iPad inventory apps, and a custom in-store textile printer. Customers designed their custom footwear on screen, placed their order, and received an automated SMS notification when their freshly printed sneakers were ready for pickup at the register within one hour.
+
+### Nike LunarEpic: Treadmill Planetary Simulator (NYC Flagships)
+In an intensive one-week sprint, I flew red-eye to New York City to deploy the LunarEpic launch across three flagship Manhattan locations in a single overnight push:
+- **Spatial Telemetry Sync:** We synchronized treadmill speed and runner cadence with Beats headphones and large display screens running a virtual CGI planetary landscape simulator.
+- **Overnight Retail Sprint:** We conducted 2 AM hardware supply runs to the 24/7 5th Avenue Apple Store for iPhones and audio adapters, cabbing across Manhattan to wire networks, mount displays, and calibrate treadmills before morning store openings.
