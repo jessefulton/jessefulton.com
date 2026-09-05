@@ -21,12 +21,16 @@ metrics:
   - "15' Floating 360° Seamless Marquee & Local Edge DB"
 ---
 
-At Sage Summit in New Orleans, I directed technology and creative engineering across two major architectural installations, transforming enterprise finance and accounting themes into dynamic spatial spectacles.
+At Sage Summit in New Orleans, I directed technology across two major architectural installations, taking traditionally dry corporate accounting themes and turning them into vibrant, dynamic spatial experiences.
 
-### 30' x 10' Curved Interactive Canvas & VR Pre-Vis
-- **Virtual Reality Pre-Visualization:** Without a warehouse large enough to stage the physical 30-foot curved display, my team and I built the full convention footprint in 3D and calibrated typography, sightlines, and low-res pixel density inside a VR headset.
-- **WebSockets to OSC to Resolume:** We powered three distinct interactive touchscreen stations that unified into a single 30' x 10' synchronized panoramic video takeover during idle mode. Interactive web applications transmitted touch events via WebSockets into OSC control messages driving Resolume media servers.
+### 30-Foot Curved Canvas & VR Pre-Visualization
+Our main attraction was a massive 30' x 10' curved interactive display fronted by three standalone touchscreen stations. During active use, attendees explored independent interactive workflows; during idle mode, all three stations unified into a single synchronized 30-foot panoramic video takeover.
 
-### 15' Seamless 360° Floating Circular Marquee
-- **Seamless Cylindrical Rendering:** We engineered custom rendering drivers for a 15-foot-diameter floating digital ring above the central hub. Content seamlessly animated vertically onto the display before orbiting 360 degrees horizontally with zero edge-seam artifacts.
-- **Offline-Resilient Local Edge DB:** We solved notoriously unreliable convention Wi-Fi by deploying an on-site local database and moderation CMS, ingesting live Twitter feeds, dynamic conference schedules, and marketing announcements in real time without cloud dependency.
+Because we lacked a physical warehouse large enough to stage and test a 30-foot curved display before shipping to Louisiana, my team and I built the entire convention hall footprint in 3D. We used VR headsets to walk the virtual floor, testing asset sizing, sightlines, and typography against the low-density pixel pitch of the physical panels. We connected the touchscreen web applications to Resolume media servers via WebSockets and OSC control messages, managing multi-channel video playback and looping smoothly.
+
+### The 15-Foot Seamless 360° Floating Marquee
+Our second installation was an unassuming, 15-foot-diameter cylindrical display ring suspended above the central information hub. 
+
+Because the screen was a continuous loop with no physical seams, we wrote custom rendering drivers to wrap and animate web content seamlessly—animating cards vertically onto the ring, then orbiting them 360 degrees horizontally with zero edge artifacts. 
+
+Convention Wi-Fi is notoriously unstable, so we deployed a local-first on-site database and CMS. We ingested live Twitter hashtags, dynamic conference schedule updates, and marketing announcements locally, giving the Sage team a real-time moderation dashboard that operated completely uninterrupted by flaky venue internet.

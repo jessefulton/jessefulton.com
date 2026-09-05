@@ -22,11 +22,16 @@ metrics:
 primaryLink: "https://www.pwc.com/us/en/services/tax/sightline.html"
 ---
 
-PwC Sightline is the flagship enterprise tax technology platform powering corporate compliance, audit, and tax strategy for PricewaterhouseCoopers clients—handling over **$50 billion in annual corporate revenues** across Fortune 10s, multinational conglomerates, energy giants, and sovereign entities.
+PwC Sightline is the core technology platform behind PricewaterhouseCoopers' corporate tax practice, handling compliance and strategy for multinational enterprises representing well over $50 billion in annual revenues. 
 
-### From Dallas Discovery to Enterprise Roadshow
-PwC stakeholders spoke spreadsheets, not product design. The challenge was building software that respected the immense complexity of global tax law while delivering intuitive, modern product UX:
-- **The Two-Week Sprint:** I designed and built a complete enterprise discovery workshop curriculum in two weeks, flew to Dallas for a high-intensity week with senior CPAs, Managing Partners, and VPs, and delivered actionable synthesis within two weeks.
-- **The Repeatable "Roadshow" Framework:** I scaled this engagement into a repeatable monthly cadence executed across **7–8 distinct business units** (1 week stakeholder interviews → synthesis → multi-day co-creation workshop → 1-week rapid design sprint → prototype synthesis and executive presentation).
-- **Scale of Discovery:** We conducted over **100 deep-dive user interviews** and tested **50+ interactive prototypes** directly with front-line practitioners and firm leadership.
-- **Commercial Impact:** By skipping fluffy consulting jargon and building genuine trust with partners, I helped transform a modest **$60k initial workshop into the agency's single largest revenue account** in under twelve months.
+My first project at YML (which later merged with Code & Theory) was to help PwC’s internal technology leadership define the long-term vision for this platform. Tax is extraordinarily complicated, spanning Fortune 10s, sovereign funds, energy conglomerates, and high-net-worth individuals. The stakeholders we worked with—from frontline CPAs to equity Partners and VPs—did not think in terms of product design; they spoke pure spreadsheets.
+
+### The Dallas Kickoff Sprint
+I put together our entire workshop program in two weeks, flew to Dallas for an intensive one-week executive workshop, and spent two weeks synthesizing the output. 
+
+Senior partners were naturally skeptical of outside design consultants, but once we proved we were there to solve practical problems rather than pitch consulting theater, they leaned in. They cared deeply about the firm's efficiency because their own equity was tied to it. The initial engagement went so well that PwC immediately extended our contract into prototype development, and then into designing their entire multi-year platform roadmap.
+
+### The Repeatable Enterprise Roadshow
+To tackle the entire firm, I turned our workshop process into a repeatable "road show" running across 7 to 8 distinct business units. 
+
+For each business unit, we ran a disciplined monthly loop: one week of stakeholder interviews, several days of synthesis, a collaborative co-creation workshop, and a rapid design sprint, followed by prototype finalization and executive presentations. Across the entire program, we conducted over 100 user interviews and tested more than 50 interactive prototypes. By focusing on real workflow pain points instead of corporate buzzwords, we expanded what started as a modest $60k pilot into the agency’s largest account by revenue in under twelve months.

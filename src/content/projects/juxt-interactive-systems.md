@@ -16,10 +16,14 @@ metrics:
   - "Delivered Flagship Systems for NFL, IBM, Cisco, & Salesforce"
 ---
 
-At digital agency JUXT in San Francisco, I served as Director of Technology and interim Creative Director, leading a close-knit team of creative developers, architects, and visual designers building interactive systems at the intersection of web, mobile, and physical computing.
+Serving as Director of Technology and interim Creative Director at JUXT in San Francisco was one of my favorite roles. We were a boutique SWAT team of fewer than twenty people—engineers, architects, and visual designers with deep devotion to their craft.
 
-### The Creative Technologist Tandem & SWAT Team Culture
-I formed an intimate creative-technical leadership partnership with our Creative Director, establishing a culture of high craft, technical ambition, and deep empathy across a boutique team of under 20 practitioners:
-- **Flagship Brand Delivery:** I directed architecture and deployment for interactive experiences spanning Salesforce IQ (Dreamforce), Sage Summit (New Orleans), live installations for IBM, Cisco, and Plantronics, as well as digital fan platforms for the NFL.
-- **Pioneering "Co-Design in Code":** We eliminated cumbersome, lossy handoffs from static design mockups. Our visual designers and creative technologists sat shoulder-to-shoulder pairing directly inside live codebases, TouchDesigner networks, and shader pipelines, rapidly refining micro-interactions, physics, and typography in real time.
-- **Lean Startup Prototyping:** I introduced structured hypothesis-driven prototyping cycles to de-risk high-stakes physical and digital builds on aggressive agency turnarounds.
+### The Creative-Technologist Tandem
+I worked in close lockstep with our Creative Director, operating as a creative-technologist leadership duo. Together, we directed interactive campaigns, full-stack web platforms, and live physical computing installations for clients including Salesforce, Sage, IBM, Cisco, Plantronics, and the NFL.
+
+### Pioneering "Co-Design in Code"
+One of our biggest operational breakthroughs was introducing Lean Startup prototyping and eliminating lossy design handoffs. For our most ambitious interactive projects, we completely stopped producing static design mockups. 
+
+Instead, our visual designers sat side-by-side with our creative developers, pairing directly inside live codebases, TouchDesigner networks, and shader pipelines. They tweaked typography, particle physics, motion curves, and layout states together in real time. This cut our concept-to-deployment timelines in half and ensured that what was designed was exactly what ran on the physical hardware.
+
+While we eventually began transitioning the agency toward longer-term product and platform plays, inconsistent agency cash flow forced our SF headquarters to fold into our parent company. Even so, the tight, collaborative engineering culture we built remains the benchmark for how I lead technical teams today.

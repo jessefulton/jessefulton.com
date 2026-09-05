@@ -22,10 +22,16 @@ metrics:
   - "Ambient In-Room Guest Telemetry & Personalization"
 ---
 
-The Disney MagicBand and MyMagic+ initiative revolutionized theme park hospitality by bridging wearable RFID hardware with real-time guest telemetry across Walt Disney World.
+The Disney MagicBand and MyMagic+ initiative revolutionized hospitality and theme park interaction by connecting physical RFID wearables to real-time park management infrastructure.
 
-### The Catalytic Spark: Disney Special Projects
-Originally working as a full-stack web developer and architect at Disney Parks, I was hand-picked to join Disney's covert **Special Projects team** tasked with prototyping an RFID-enabled wristband to track and personalize guest presence:
-- **Ambient Hotel Room Experience:** I engineered proof-of-concept hardware allowing guests to bypass the front desk entirely, walk directly to their resort room, unlock the physical door with their wristband, and experience an automated ambient greeting where in-room lighting engaged and the television woke up displaying personalized guest itineraries and park profiles.
-- **The Physical Computing Awakening:** Building these early prototypes was my first time ever wiring physical breadboards, resistors, and microcontrollers to remote cloud servers—a transformative realization of how code could reach out of the screen and animate the physical world, sparking my lifelong career as a spatial creative technologist.
-- **Scale and Legacy:** These core interaction experiments laid the foundational architecture for Disney’s **$1+ billion MyMagic+ program**, permanently reshaping guest interaction across global theme parks.
+### The Catalytic Spark: Special Projects
+This was the project that really kick-started my career as a creative technologist. I started at Disney Parks as an architect and full-stack web developer before being pulled onto the Special Projects team to help prototype an RFID wristband capable of identifying guests across the entire resort.
+
+Our focus was the hotel room entry and in-room ambient experience. We built proof-of-concept hardware allowing guests to skip the front desk entirely: you could walk straight to your hotel door, tap your wristband to unlock it, and have the room wake up to greet you. The lights would gently turn on, and the TV would illuminate with your name, family profile, FastPass reservations, and custom park itinerary.
+
+### Seeing My First Breadboard
+Working on this team was the first time I had ever seen a physical breadboard. It completely opened my eyes to what was possible with software. 
+
+As a kid, I was in awe that a bunch of ones and zeros on a magnetic floppy disk could render an entire interactive world on a screen. Now, I was seeing how a handful of resistors, silicon chips, and radio frequencies could talk to remote servers, verify a person's presence, and trigger physical actions in real space. 
+
+Seeing technology bridge theme parks, physical resorts, and consumer devices was deeply inspiring, and it laid the foundation for the billion-dollar MyMagic+ ecosystem that followed.

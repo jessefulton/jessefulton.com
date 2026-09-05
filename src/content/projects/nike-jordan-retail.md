@@ -23,15 +23,16 @@ metrics:
   - "LunarEpic: 3 NYC Flagship Stores Deployed Overnight"
 ---
 
-Across multiple high-profile retail initiatives for Nike and Jordan, I bridged generative 3D visualizers, physical retail architecture, and real-time hardware synchronization.
+Across multiple flagship retail initiatives for Nike and Jordan, I led the engineering that connected generative 3D visualizers, physical store architecture, and on-demand fabrication.
 
-### Nike SwooshID: In-Store 3D Design & Live Fabrication (Portland Flagship)
-I relocated to Portland, OR for 6–9 months to lead end-to-end technical architecture for the Nike SwooshID flagship experience:
-- **Cinder C++ 3D Configurator:** I engineered a high-performance touch application in Cinder featuring interactive 3D shoe models, physics-driven dynamic laces, customizable lighting shaders, and generative graphic pattern overlays.
-- **Flawless Physical Integration:** We embedded high-resolution touch displays directly behind Nike’s iconic "waffle iron" shoe wall fixtures, meticulously color-calibrated to match the physical retail space's lighting temperature down to the millimeter.
-- **End-to-End Manufacturing Loop:** We connected the on-floor consumer UI with mobile POS checkout, associate iPad inventory apps, and a custom in-store textile printer. Customers designed their custom footwear on screen, placed their order, and received an automated SMS notification when their freshly printed sneakers were ready for pickup at the register within one hour.
+### Nike SwooshID: 3D Design to On-Demand Printing (Portland Flagship)
+I relocated to Portland, Oregon for six to nine months to lead technical architecture for Nike SwooshID. The goal was ambitious: allow shoppers to design custom footwear on screen, print their graphics directly onto the shoe in the store, and have it ready for pickup within an hour.
 
-### Nike LunarEpic: Treadmill Planetary Simulator (NYC Flagships)
-In an intensive one-week sprint, I flew red-eye to New York City to deploy the LunarEpic launch across three flagship Manhattan locations in a single overnight push:
-- **Spatial Telemetry Sync:** We synchronized treadmill speed and runner cadence with Beats headphones and large display screens running a virtual CGI planetary landscape simulator.
-- **Overnight Retail Sprint:** We conducted 2 AM hardware supply runs to the 24/7 5th Avenue Apple Store for iPhones and audio adapters, cabbing across Manhattan to wire networks, mount displays, and calibrate treadmills before morning store openings.
+The attention to physical detail was immaculate. We built the consumer-facing 3D configurator in C++ using Cinder, featuring real-time 3D shoe models, dynamic physics-based laces, customizable lighting shaders, and graphic pattern overlays. We embedded high-resolution displays directly behind the store’s iconic "waffle iron" shoe wall fixtures, color-calibrating the software to match the store's physical ambient lighting down to the millimeter.
+
+Behind the scenes, we built the entire manufacturing pipeline: connecting the touch interface to mobile checkout, store inventory, an iPad app for sales associates, and a custom in-store textile printer. Customers placed their orders, paid via mobile POS, and received an automated SMS notification when their freshly fabricated sneakers were ready at the counter. I still have the custom sneakers I printed on that system today.
+
+### Nike LunarEpic: Overnight NYC Running Simulator
+In contrast to the long Portland build, LunarEpic was an intensive one-week sprint. I took a red-eye flight to New York City to turn up interactive treadmill installations across three flagship Manhattan locations in a single night.
+
+We synchronized runner cadence on physical treadmills with Beats headphones and large display screens running a virtual CGI planetary landscape simulator. We spent the night cabbing up and down Manhattan, making 2 AM supply runs to the 24/7 Apple Store on 5th Avenue for iPhones and audio adapters, wiring networks, mounting displays, and calibrating treadmill sensors before doors opened in the morning.

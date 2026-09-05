@@ -18,9 +18,12 @@ metrics:
   - "Active Tech & Creative Founder Mentorship"
 ---
 
-A structured synthesis of advanced business model design, economic feasibility modeling, and over twenty years of frontline software and creative engineering leadership.
+My work in venture design connects twenty years of frontline software engineering and creative technology leadership with formal executive business modeling.
 
-### Academic Business Rigor & Venture Strategy
-- **HEC Paris MSIE:** I completed the Master of Science in Innovation & Entrepreneurship (MSIE) at HEC Paris, formalizing frameworks in venture financing, unit economic modeling, scalable corporate innovation, and organizational governance.
-- **Santa Cruz Launchpad Mentorship:** I serve as an active mentor to early-stage technology, AI, and creative founders within the Santa Cruz Launchpad accelerator and regional venture ecosystems.
-- **De-risking Early-Stage Bets:** I guide zero-to-one founders through technical feasibility reviews, customer discovery synthesis, pitch narrative formulation, and transitioning raw prototypes into sustainable, scalable business models.
+### Academic Business Rigor at HEC Paris
+I completed my Master of Science in Innovation & Entrepreneurship (MSIE) at HEC Paris, one of Europe's top business schools. The program formalized frameworks for evaluating venture feasibility, unit economics, capital allocation, scalable corporate innovation, and organizational governance. It provided the structured business theory to complement two decades of practical, hands-on startup execution.
+
+### Active Mentorship with Santa Cruz Launchpad
+Through Santa Cruz Launchpad and regional startup incubators, I actively mentor early-stage founders across AI, emerging technology, and creative platforms. 
+
+I help zero-to-one founders de-risk their technical bets, evaluate real-world feasibility, synthesize customer discovery interviews, and refine their product narratives. My focus is helping builders look past startup hype to build clear unit economics, sustainable business models, and scalable software architectures.

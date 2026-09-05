@@ -23,10 +23,11 @@ metrics:
   - "Verified Santa Cruz Mountain Wildlife Corridors"
 ---
 
-The UCSC Wildlife Tracker was an interdisciplinary social research game developed in collaboration between the Digital Arts & New Media (DANM) program and the Environmental Studies department at UC Santa Cruz.
+The Wildlife Tracker was an interdisciplinary social research game developed in collaboration between the Digital Arts & New Media (DANM) program and the Environmental Studies department at UC Santa Cruz.
 
-### Human Computation & Consensus Mechanics
-Long before automated computer vision APIs could accurately parse low-light field imagery, we applied Luis von Ahn's seminal "Games with a Purpose" (ESP Game) human-computation framework to ecological research:
-- **Facebook Social Game Loop:** I built a Facebook application that connected players in real-time or asynchronous pairs, displaying motion-activated camera trap photos captured across the dense Santa Cruz Mountains.
-- **Consensus-Driven Confidence Scoring:** When two independent players submitted matching species tags without communicating, our system generated high-confidence ground-truth labels.
-- **Field Telemetry Scale:** We successfully classified thousands of challenging wildlife photos—tagging mountain lions, skunks, raccoons, coyotes, and scavengers—producing scientific-grade biodiversity and migration telemetry for university researchers.
+### Human Computation in the Wild
+Years before automated computer vision models were readily available to parse messy outdoor photography, university researchers had thousands of unindexed motion-sensor photos from cameras hidden across the Santa Cruz Mountains. 
+
+We took inspiration from Luis von Ahn's "ESP Game" and the "Games for Good" human-computation framework. In these games, two players who cannot communicate are shown the same image and asked to type descriptive words; when their tags match, they earn points, generating high-confidence training labels as a byproduct of play.
+
+I built a social game inside Facebook that paired users up to view and label these field photographs. Players competed to identify visible species—mountain lions, skunks, raccoons, coyotes, and scavengers (including a particularly memorable series of a vulture tearing into a carcass). The consensus scoring mechanism filtered out noise and produced verified, scientific-grade ground truth biodiversity datasets that helped researchers map local wildlife corridors.

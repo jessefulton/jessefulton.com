@@ -30,15 +30,18 @@ metrics:
   - "Multimodal Video & Surveillance Synthesis"
 ---
 
-Created for Activision's *Call of Duty: Infinite Warfare*, *Terminal Tours (Hostile Takeover)* was a landmark multimodal conversational simulation that transformed social messaging channels into an immersive military espionage briefing.
+Created for Activision’s *Call of Duty: Infinite Warfare*, *Terminal Tours (Hostile Takeover)* was an interactive narrative campaign built inside Facebook Messenger. We turned a social chat channel into a dark, episodic military espionage briefing that engaged millions of players worldwide.
 
-### High-Concurrency State Machines & Multimodal Delivery
-Long before modern LLMs, creating convincing conversational intelligence required engineering robust deterministic state machines:
-- **PullString Conversational Engine:** We built atop the PullString state-machine CMS, utilizing natural language processing and intent pattern-matching to dynamically route players across complex narrative branches.
-- **Rich Multimodal Synthesis:** We layered dynamic text responses with in-lore animated graphics, classified surveillance feeds, and real-time video clips, producing an episodic interactive thriller inside Facebook Messenger.
-- **Cracking the Code in 24 Hours:** The platform sustained immense viral traffic surges as millions of players swarmed the experience, collaborating across Discord and Reddit to solve cryptographic ARG puzzles and crack the narrative within 24 hours.
+### Multimodal State-Machine Storytelling
+Years before modern LLMs, creating convincing conversational intelligence required engineering sophisticated deterministic state machines. 
 
-### Embracing Player Chaos & Easter Eggs
-Knowing that gaming communities aggressively attempt to break conversational guardrails, we embraced user mischief rather than resisting it:
-- **Hidden Edge-Case Logic:** We embedded character inside jokes, satirical responses, and covert storyline teases within deep conversational fallback states.
-- **Lineage to Modern Agents:** The principles of deterministic state management, guardrail boundaries, and multimodal synthesis I developed on Terminal Tours directly established the architectural frameworks I utilize in healthcare agent runtimes today.
+We built the experience on the PullString conversational platform, which provided a CMS to manage dialogue states, narrative decision trees, and natural language pattern matching. Rather than just returning plain text, our chat was fully multimodal—responding with dynamic copy, classified surveillance stills, animated graphics, and short video clips depending on the branch the user chose.
+
+The traffic was staggering. Call of Duty fans swarmed the bot at launch, generating over 6 million interactive sessions in the first 24 hours. The gaming community organized on Reddit and Discord to crack the hidden cryptographic puzzles, tearing through our complex alternate-reality game (ARG) in under a single day.
+
+### Embracing Player Mischief
+Gamers will try everything in their power to break a chatbot. Instead of trying to fight that instinct with generic error messages, we embraced it. 
+
+We planted secret Easter eggs, character inside jokes, and covert story teases throughout our edge cases. If a player asked an unhinged question or mentioned a specific character from the franchise, the bot fired back with an in-universe joke or subtle hint. 
+
+Building high-concurrency state machines with multimodal guardrails on Terminal Tours proved to be foundational experience—the same principles of state management and safety boundaries directly inform how I architect autonomous agent runtimes at Thrive AI Health today.

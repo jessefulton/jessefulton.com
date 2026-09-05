@@ -21,15 +21,16 @@ metrics:
   - "3-Week Concept-to-Floor Delivery"
 ---
 
-Created for Salesforce and agency partner George P. Johnson at Dreamforce, Salesforce IQ transformed relationship intelligence concepts into a high-energy, competitive convention floor attraction.
+At JUXT, our sister agency George P. Johnson produced Dreamforce and approached us to build an experiential marketing activation for Salesforce’s relationship intelligence platform (Einstein).
 
-### The Pitch & Spatial Architecture
-I pitched and designed a fast-paced multiplayer trivia mechanic inspired by *You Don't Know Jack*'s iconic Jack Attack speed round (questions posed, rapid multiple-choice reveals, points scaled by millisecond reaction speed):
-- **The "Q" Pavilion:** Housed within a massive architectural structure sculpted into the shape of a capital "Q", creating an intimate yet visible arena on the convention floor.
-- **6K Curved TouchDesigner Engine:** Powered by TouchDesigner, driving three overhead 120" 4K displays mounted in a dramatic vertical curve, accompanied by reactive spatial sound design.
-- **Physical Arcade Controls:** We engineered custom illuminated arcade buzzers wired to microcontrollers (Arduino / Raspberry Pi) that flashed and pulse-synced with game states.
-- **Crowd Reaction Feeds:** We integrated stealth cameras between display bezel gaps, broadcasting live player expressions and match excitement to onlookers gathered outside the installation.
+### Pitching the Game & 6K Spatial Architecture
+I pitched a fast-paced multiplayer trivia game inspired by *You Don't Know Jack*’s speed round: a question appeared, answers were revealed sequentially one by one, and players earned points based on how many milliseconds it took to buzz in on the correct answer.
 
-### High-Velocity Execution & Redundancy
-- **Three-Week Delivery:** We engineered the complete hardware, networking, creative software, and game mechanics from scratch in three weeks.
-- **Onsite Screen Crisis:** When a stagehand accidentally shattered one of the 120" 4K panels during load-in, our team activated backup hardware, completed emergency optical recalibration, and went live on time to packed crowds.
+We built the game inside a massive architectural pavilion sculpted into the shape of a capital "Q". The game engine was built in TouchDesigner, rendering a 6K real-time canvas across three 120" 4K displays mounted in a dramatic vertical curve directly overhead, paired with dynamic reactive sound design. 
+
+For the controllers, we built giant illuminated arcade buzzer buttons wired to local microcontrollers that flashed and pulse-synced with game states. We also embedded hidden cameras between the screen bezels, broadcasting live player reactions and competition to the crowds gathered outside the pavilion.
+
+### The Three-Week Turnaround
+We built the entire game, hardware integrations, and network infrastructure from scratch in about three weeks. 
+
+During load-in on the convention floor, an onsite handler accidentally cracked one of our primary 120" 4K displays. Fortunately, we had brought a full hardware backup; our team swapped the panel, recalibrated the 6K video alignment in TouchDesigner, and launched on schedule. The activation was an instant hit with convention attendees, packing lines throughout Dreamforce.

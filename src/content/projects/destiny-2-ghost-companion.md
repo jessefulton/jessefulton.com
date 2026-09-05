@@ -31,15 +31,18 @@ primaryLink: "https://www.akqa.com/work/activision/destiny-2-ghost-skill/"
 youtubeId: "86UlSLgyAVk"
 ---
 
-The Destiny 2 Ghost Voice Companion brought the iconic AI assistant out of the game and into the player's living room, creating the first-ever conversational voice companion synced directly to a live AAA console gaming ecosystem.
+This was easily one of my favorite projects of all time. It started shortly after I joined AKQA when a creative director walked up with an idea: *"The Ghost character in Destiny is basically the in-game equivalent of Alexa. What if you could talk to Ghost in real life?"*
 
-### From 3D-Printed Prototype to Bungie HQ
-The project began with a singular creative provocation from my creative director: *"What if you could talk to Ghost in real life?"*
-- **The Bellevue Prototype:** My team and I built an initial proof-of-concept using a custom Alexa skill with extracted Ghost audio clips, wired into Bungie's live player API, and packed into a 3D-printed Ghost shell with a Bluetooth speaker. We flew to Bungie's Bellevue, WA headquarters and demonstrated live voice-controlled loadout swaps in real time, earning immediate executive greenlight.
-- **Deep Game Integration:** Armed with early preview access to *Destiny 2*, we mapped thousands of game lore entries, player progression states, and clan mechanics into a generative response engine capable of delivering millions of dynamic dialogue permutations.
-- **Physical IoT Companion:** We partnered to engineer and retail a standalone, internet-connected physical IoT Ghost replica that illuminated in sync with in-game voice and gameplay events.
+### Prototyping for Bungie HQ
+We immediately started building. My team created a custom Alexa skill with audio clips extracted from the game, connected it to Bungie's live player API, and packed a Bluetooth speaker inside a rough 3D-printed Ghost shell. 
 
-### Pioneering Voice UX & Game Balance Constraints
-Building voice interaction in 2017 meant inventing the Voice UX rulebook from scratch:
-- **State-Dependent Voice Fallbacks:** We designed context-aware dialogue guardrails around Bungie's strict competitive balance rules (e.g., loadout swaps permitted in peaceful social hubs like The Tower, with witty in-lore character refusals when players demanded cheat-level weapon swaps mid-combat).
-- **Industry Impact:** Our breakthroughs earned a **Cannes Silver Lion (Innovation in Voice)**, **Gold Clio**, **Project Isaac Award**, and an invited presentation at the **Game Developers Conference (GDC 2018)** establishing foundational Voice UX best practices for the gaming industry.
+We flew to Bungie's headquarters in Bellevue, Washington, walked into their conference room, and used live voice commands to swap weapon loadouts right on the screen. Bungie bought in on the spot. We got preview access to *Destiny 2* ahead of launch so we could study the game mechanics, the lore, and the player community inside and out.
+
+### Writing the Rules for Voice UX
+In 2017, Voice UX in gaming did not exist. We had to research and define the interaction patterns ourselves, building a dynamic response engine capable of generating millions of unique dialogue responses voiced by Nolan North. We also worked with manufacturing partners to build and sell a physical, WiFi-connected IoT Ghost that illuminated and synced with in-game audio and gameplay events.
+
+The biggest challenge was designing within Bungie’s strict game-balance rules. Bungie’s APIs were blazing fast, but to keep player-versus-player matches fair, you were never allowed to hot-swap weapons via API during combat. You could manage gear in social hubs like The Tower, but if you screamed at Ghost to give you a rocket launcher in the middle of a raid or PvP match, the API locked you out. 
+
+Our job was turning those technical restrictions into entertaining character moments. Instead of throwing a sterile error message, Ghost would deliver a witty in-character refusal reminding the player to focus on the fight. 
+
+The project won a Cannes Silver Lion for Innovation in Voice, multiple Clio Awards, and gave us the opportunity to present our Voice UX best practices at the Game Developers Conference (GDC).

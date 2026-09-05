@@ -19,14 +19,13 @@ metrics:
   - "Eyebeam NYC New Media Exhibition"
 ---
 
-Across landmark digital arts institutions and festivals, I exhibited experimental software systems, WebGL browser interventions, and performative projection-mapped visuals.
+Throughout my graduate and post-graduate practice, I exhibited software artworks, WebGL browser experiments, and live projection-mapped visual performances across major digital arts festivals and venues.
 
-### The Creators Project (San Francisco / Intel & Vice)
-- **WebGL Flying Toasters (Honorable Mention):** I was awarded Honorable Mention for an interactive browser-based recreation of the iconic *Flying Toasters* (After Dark) screensaver. Built as an early WebGL and audio experiment, the webpage emulated a vintage Windows OS desktop complete with startup chimes, interactive Notepad guides, and the original nostalgic soundtrack.
+### The Creators Project SF (Intel & Vice)
+At The Creators Project in San Francisco, I won Honorable Mention for an interactive, browser-based recreation of the classic Windows *Flying Toasters* screensaver from After Dark. Built as an early WebGL and Web Audio experiment, the webpage fully emulated a vintage desktop operating system—complete with the authentic Windows startup chime, nostalgic music, and an interactive Notepad file explaining the code under the hood.
 
-### ZERO1 Biennial (San Jose) & Live VJ Culture
-- **Live Generative VJ Sets:** I co-performed live visual sets with collaborator James during the ZERO1 Biennial in downtown San Jose.
-- **Architectural Projection Mapping:** We deployed custom projection mapping rigs across non-standard architectural surfaces for underground arts spaces, raves, and music events throughout the San Francisco Bay Area.
+### Live VJ Performance & ZERO1 Biennial
+At the ZERO1 Biennial in San Jose, my collaborator James and I co-VJ'ed live generative visual sets for musical performances in downtown San Jose. This was part of an active run of live projection-mapping performances we staged across underground Bay Area art shows, raves, and music events, where we mapped custom real-time shaders and reactive graphics onto non-standard architectural surfaces.
 
 ### Eyebeam Art+Technology Center (New York)
-- **Exhibition of Computational Media:** I presented graduate research artworks exploring algorithmic authority and network telemetry within New York City's premier creative technology center.
+In New York, I presented computational research artworks at Eyebeam, exploring network telemetry and the algorithmic authority of corporate web platforms.

@@ -21,11 +21,13 @@ metrics:
   - "Perspective-Corrected 3D Depth-Tracked Projection"
 ---
 
-Optus House in Sydney, Australia was a premier experiential showcase illustrating the seamless future of ambient IoT, telecommunications, and connected home ecosystems.
+Optus House in Sydney, Australia was a large-scale interactive environment built to demonstrate the future of consumer IoT, connected entertainment, and ambient home automation.
 
-### Turnkey Concrete Build-Out & Spatial R&D
-I relocated to Sydney for an intensive six-week sprint, leading technology architecture for a multi-level experiential build-out starting from raw concrete foundations:
-- **Physical Building Codes & Systems:** I coordinated electrical load balancing, plumbing, HVAC, and spatial construction logistics to support multi-zone interactive installations.
-- **Ambient Voice to Microcontroller Webhooks:** We built custom Google Home / Assistant skills and conversational handlers that dispatched cloud webhooks directly to local IoT microcontrollers (ESP32 / Arduino), triggering real-time physical actuations across lights, appliances, and smart fixtures.
-- **Interactive Netflix Entertainment:** We synced voice commands with interactive video experiences and ambient media playback.
-- **Perspective-Corrected 3D Projection Mapping:** We integrated 3D depth camera tracking (computer vision) with perspective-corrected projection mapping, creating the optical illusion of a fully furnished, living family room that dynamically extended the physical store's architectural footprint.
+### Turnkey Build-Out from Raw Concrete
+I relocated to Sydney for six weeks to direct technology architecture for the installation. We performed a full physical build-out starting directly from raw concrete floors, managing electrical codes, plumbing, HVAC logistics, and rapid prototyping under tight deadlines.
+
+### Ambient Voice and Microcontroller Pipelines
+We built custom conversational skills for Google Home and Google Assistant. When a visitor spoke a voice trigger or asked a question, our cloud conversational app fired webhooks down to local microcontrollers (ESP32 and Arduino boards) wired directly into physical appliances, dynamic lighting fixtures, and media systems throughout the house. We also integrated interactive entertainment experiences with Netflix, allowing voice-driven narrative exploration.
+
+### 3D Perspective Projection Mapping
+One of the visual centerpieces was an interactive projection-mapped room powered by 3D depth-sensing cameras. We filmed and calibrated the digital family living area entirely in forced perspective: when visitors stood in the physical retail space, the projection mapped seamlessly onto the architectural walls, creating the optical illusion that the digital living room was a direct physical extension of the room they were standing in.

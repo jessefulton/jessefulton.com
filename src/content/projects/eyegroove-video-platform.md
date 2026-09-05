@@ -26,16 +26,14 @@ primaryLink: "https://en.wikipedia.org/wiki/Eyegroove"
 youtubeId: "vAlNaQQ4RgU"
 ---
 
-Eyegroove was a pioneering mobile video creation and augmented reality platform founded by renowned interactive computational artist Scott Snibbe. Working from a freezing, unheated San Francisco warehouse, I joined as Lead Backend Engineer to build and scale the cloud infrastructure and media processing engine.
+Eyegroove was a visionary mobile creative platform founded by interactive computational artist Scott Snibbe. We were building real-time OpenGL shaders and audio-reactive video filters on mobile phones long before AR lenses were everywhere. I was honored to work closely with Scott, who was one of my long-time creative idols, even if our headquarters was an unheated San Francisco warehouse and my desk was parked directly outside the bathroom.
 
 ### Solo Backend Architecture & Transcoding Pipelines
-I engineered the entire distributed backend architecture solo from inception to **40,000 Daily Active Users (DAUs)** before expanding the engineering team:
-- **Dual-Rendered Video Transcoding:** I ingested high-resolution raw video alongside OpenGL shader-rendered layers, executing real-time server-side compositing and transcoding across variable bitrates and resolutions for adaptive HLS streaming (from cellular 3G to broadband WiFi).
-- **Acoustic Intelligence & Song Similarity:** I engineered audio-muxing pipelines and integrated multi-dimensional acoustic feature analysis to drive song recommendation and musical discovery algorithms.
-- **The Concurrency Horror Bug:** Two years after leaving the company, I was called back to troubleshoot a critical cross-request data bleed. Over two weeks of rigorous forensic debugging, I isolated an undocumented framework behavior that dynamically mutated the scope of `this` from request-level to global server-level under high concurrency, leaking user avatar URLs across active sessions.
+I joined as the lead backend engineer and built the entire distributed infrastructure solo from scratch, scaling it to 40,000 daily active users before bringing on additional engineering help.
 
-### Issued US Utility Patents & Meta Acquisition
-The interaction architectures and media synchronization mechanisms co-invented at Eyegroove yielded **6 issued US Utility Patents**:
+Our media processing pipelines were intense. We had to ingest large video uploads, store both raw video and shader-rendered compositions, and transcode them across a demanding matrix of bitrates, codecs, and resolutions for adaptive HLS streaming over spotty 3G cellular and WiFi connections. We also ran separate audio-muxing channels and integrated multi-dimensional acoustic feature extraction to power song similarity search and music recommendations. 
+
+The foundational interaction design and synchronization systems we developed yielded **6 issued US Utility Patents** covering touch choreography, media modification, and metadata persistence:
 1. **[US10031921](https://patentimages.storage.googleapis.com/79/7f/89/eddaa4e967dd7b/US10031921.pdf)** (2018): *Methods and systems for storage of media item metadata*
 2. **[US10002642](https://patentimages.storage.googleapis.com/4d/9d/8e/0797db550ad9eb/US10002642.pdf)** (2018): *Methods and devices for generating media items*
 3. **[US9268787](https://patentimages.storage.googleapis.com/44/84/f5/f17376b186928e/US9268787.pdf)** (2016): *Methods and devices for synchronizing and sharing media items*
@@ -43,4 +41,9 @@ The interaction architectures and media synchronization mechanisms co-invented a
 5. **[US9207844](https://patentimages.storage.googleapis.com/76/f7/bf/9e0762caa6e457/US9207844.pdf)** (2015): *Methods and devices for touch-based media creation*
 6. **[US9116912](https://patentimages.storage.googleapis.com/b6/b2/05/30b15e82006751/US9116912.pdf)** (2015): *Methods and devices for modifying pre-existing media items*
 
-In 2016, Eyegroove was acquired by Facebook (Meta), directly infusing its patent-backed video synthesis and gesture interaction paradigms into Instagram Stories, Reels, and Meta AR tools.
+In 2016, Eyegroove was acquired by Facebook (Meta), directly infusing its patent-backed video interaction paradigms and real-time shader pipelines into Instagram Stories, Reels, and Meta AR tools.
+
+### The Phantom Concurrency Bug
+The wildest engineering story happened two years after I had left the company. I was called back in to help debug a critical issue where user avatar URLs were mysteriously leaking into other people's live sessions during high-traffic spikes.
+
+I spent two weeks testing, stress-testing, and isolating the issue. The culprit turned out to be an undocumented (yet intentional) behavior in the web framework itself: under specific conditions, the execution scope shifted from session-level to global server-level, silently changing the meaning of the `this` keyword. Because middleware was assigning media URLs to `this.profile_url`, incoming concurrent requests were overwriting each other’s values at the server level. Fixing it permanently closed the leak.

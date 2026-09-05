@@ -20,14 +20,14 @@ metrics:
   - "Franchise-Funded Digital Adoption & Loyalty Platform"
 ---
 
-My Jiffy Lube transformed the automotive maintenance experience across North America by bridging vehicle diagnostics, digital loyalty, and point-of-sale systems across more than 2,000 service locations.
+My Jiffy Lube was an enterprise initiative at AKQA aimed at modernizing vehicle care and driver retention across more than 2,000 service locations nationwide.
 
 ### The Franchise Dilemma: Closet Servers to Cloud
-Jiffy Lube's decentralized franchise model created immense technical and political hurdles:
-- **Distributed Legacy Architecture:** Individual retail service centers operated ancient on-prem servers tucked away in physical broom closets. I architected a distributed data pipeline that synchronized customer histories, service logs, and inventory data between on-prem retail servers, corporate self-hosted clusters, and the central cloud.
-- **Data Isolation & Segmentation:** I designed granular data flow models that isolated regional franchise revenue data while providing corporate with aggregated operational visibility.
-- **Salesforce Stack Integration:** We integrated data streams into Salesforce core technologies, layering modern consumer-facing web and mobile applications on top.
+Building modern digital software for a franchise business is notoriously difficult, both technically and politically. Jiffy Lube service centers are independently owned and operated, and their local IT infrastructure was decades old—individual retail locations literally ran on-premise servers sitting in physical utility closets.
 
-### Franchise Diplomacy & Digital Adoption
-Because regional franchise budgets partially funded the digital transformation, the challenge required rigorous storytelling and change management:
-- **Overcoming Digital Resistance:** We transitioned paper-coupon-dependent shop owners toward digital mobile coupons, predictive maintenance notifications, and frictionless bay check-ins by demonstrating clear customer retention and revenue upside.
+I architected a distributed data pipeline that synchronized customer service histories, oil-life telemetry, and inventory between these legacy closet servers, corporate self-hosted environments, and the central cloud. We integrated the data flows into Salesforce core technologies, designing strict data-isolation rules so regional franchise financials stayed segregated while corporate leadership gained aggregated operational visibility.
+
+### Selling Franchisees on the Digital Future
+Because the project was partially funded directly from regional franchise marketing budgets, corporate could not just dictate a digital overhaul—we had to actively pitch and prove its value to franchise owners.
+
+Many shop owners were deeply attached to traditional paper coupons and skeptical of digital tooling. We designed consumer mobile and web applications centered around predictive maintenance reminders and digital coupons, proving to franchisees that mobile check-ins and oil-life alerts would measurably drive recurring bay visits and customer retention.

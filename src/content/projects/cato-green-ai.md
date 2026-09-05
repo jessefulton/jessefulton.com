@@ -16,14 +16,14 @@ metrics:
   - "Circular Enterprise GPU Supercomputing Mesh"
 ---
 
-Cato Digital pioneered the circular economy for compute infrastructure, repurposing enterprise-grade datacenter equipment to deliver low-cost, low-carbon bare metal cloud capacity for AI training and inference.
+Cato Digital focused on the circular economy for compute infrastructure, pulling enterprise datacenter gear out of the relentless upgrade cycle and turning it into low-cost bare-metal capacity for AI training and inference workloads.
 
-### The Ground Truth vs. Hyperscaler Hype
-While the frontier AI ecosystem was burning billions on brand-new GPUs with 18-month backorders, enterprise cloud infrastructure was discarding underutilized, battle-tested silicon at pennies on the dollar. Hyperscalers charge a 10x premium for the illusion of four-nines hardware perfection. In reality, physical machines fail constantly; resilience is engineered in the hypervisor, VM orchestration, and distributed application mesh.
+### The Hyperscaler Lie vs. The Ground Truth
+While the rest of the AI world was setting piles of cash on fire trying to secure brand-new GPUs with 18-month lead times, enterprise datacenters were discarding underutilized, battle-tested silicon at pennies on the dollar. Most cloud workloads simply do not need the latest and greatest chips. These machines are built to last and take a beating.
 
-### Tactical Engineering & Physical Turnup
-As Chief of Staff and strategic product lead, I bridged physical power engineering, capital economics, and bare-metal orchestration:
-- **Off-Grid Supercomputing Sprint:** I orchestrated the physical installation, power distribution, and network fabric configuration for **72 NVIDIA DGX-2 servers in an off-grid data center in under 24 hours**.
-- **NVLink / DGLink Cluster Fusing:** We interconnected high-density DGX-2 nodes into unified supercomputing clusters capable of running frontier model training workloads—the exact class of iron originally used to train GPT-2.
-- **Power-Distribution SLAs:** I architected a tiered SLA and pricing model pegged directly to datacenter power availability, offering performant compute at fraction-of-market pricing for fault-tolerant AI training workloads.
-- **Datacenter Unit Economics:** I formulated spatial square-foot revenue optimization models balancing containerized cooling, power delivery, and hardware CapEx vs. OpEx.
+Hyperscalers charge a 10x premium for the illusion of four-nines hardware perfection. In reality, physical hardware fails constantly across any datacenter. Real resilience lives in the hypervisor, VM orchestration, and distributed application mesh, not in pristine silicon. Because we tied our compute pricing directly to a custom power-distribution SLA, we could sell fast GPU compute at cut-rate prices to teams running fault-tolerant training jobs.
+
+### Racking Supercomputers Off-Grid in a Single Day
+My role as Chief of Staff bridged physical logistics, datacenter thermodynamics, and capital economics. I spent my days calculating revenue per square foot against power draw, cooling capacity, and hardware depreciation.
+
+The most intense sprint was racking 72 NVIDIA DGX-2 servers in an off-grid datacenter in under twenty-four hours. We calculated the floor loads, designed the racks, configured the network fabric, and fused the machines together over NVLink into supercomputing clusters capable of training frontier models—the exact class of iron originally used to train GPT-2.

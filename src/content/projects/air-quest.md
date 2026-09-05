@@ -22,10 +22,8 @@ metrics:
 primaryLink: "http://socialappslab.com/airquest/"
 ---
 
-Developed in partnership with the UC Berkeley Social Apps Lab, *Air Quest* is an educational iPad game designed to empower young patients and students to understand environmental air quality, pollution telemetry, and respiratory health management in California's Central Valley.
+Air Quest was an educational iPad game developed through the UC Berkeley Social Apps Lab in collaboration with researchers from UC Santa Barbara and UC Santa Cruz. 
 
-### Technical & Design Leadership in Academic Research
-As the lead seasoned engineer on an interdisciplinary university research grant:
-- **Translating Scientific Research into Play:** I bridged high-level academic concepts from faculty researchers into concrete, playable game loops across six distinct mini-game levels in Unity3D.
-- **Interdisciplinary Creative Pipeline:** I worked closely with university biology researchers to adapt custom scientific illustrations into optimized 2D/3D sprites, animation rigs, and user interfaces.
-- **Civic & Health Telemetry:** We gamified regional air quality indices (AQI), illustrating the real-world impact of agricultural emissions, wildfire smoke, and vehicular traffic while teaching practical health interventions for pediatric pulmonary conditions.
+The project focused on educating young students and pediatric asthma patients in California’s Central Valley about regional air pollution, environmental telemetry, and respiratory health management. 
+
+As the lead developer, my job was to take broad academic concepts from the faculty leads and translate them into a playable, six-level educational game in Unity3D. Our design team consisted of biology researchers rather than traditional game artists, so I worked closely with them to turn their hand-drawn scientific illustrations and diagrams into functional 2D sprites, animations, and interactive mini-game mechanics. It was a fun, exploratory project that made complex environmental air quality indices accessible and engaging for kids.

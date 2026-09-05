@@ -19,12 +19,13 @@ metrics:
   - "Exhibited Nationally (Eyebeam NYC) & Internationally (Berlin)"
 ---
 
-Completed within the Digital Arts & New Media (DANM) MFA program at UC Santa Cruz, *Software as Art* was my graduate thesis examining how algorithmic search personalization, platform monopolies, and predictive engines shape human cognition, information access, and social reality—anticipating the "Filter Bubble" phenomenon well before it entered mainstream discourse.
+My MFA thesis in the Digital Arts & New Media (DANM) program at UC Santa Cruz focused on how major technology platforms and search engines control human mindshare. In 2009, well before the term "Filter Bubble" entered the public lexicon, I was researching and building systems to critique how personalization algorithms, search engine optimization, and predictive feeds shape what we see, how we think, and how we are influenced online.
 
-### Key Artworks & Computational Interventions
-I engineered a body of provocative functional software systems and physical drawing machines exhibited across the San Francisco Bay Area, New York City (Eyebeam), and internationally in Berlin:
-- **Everybody's Google:** An interactive installation allowing users to experience search engine algorithms through the simulated personas and demographic lenses of alternative users, exposing algorithmic bias.
-- **Captchafy:** A browser extension and fine art print series converting standard web pages into machine-*unreadable* optical puzzles, subverting the traditional CAPTCHA paradigm that exploits human cognitive labor to train corporate OCR models.
-- **Saving Mary Jessica:** A custom physical CNC robotic drawing machine executing precision 2D pen-and-paper replications of fine artworks.
-- **Social Media Surrogate:** An early autonomous AI agent that hijacked my personal Facebook account to autonomously generate posts, navigate social interactions, and perform artificial presence.
-- **The Establishment:** An infinite-loop algorithmic video installation sequencing hundreds of politicians swearing oaths to God on the floor of the US Congress.
+### Artworks, Autonomous Bots & Drawing Machines
+To explore these dynamics, I produced a series of software artworks and physical installations that were exhibited across the Bay Area, in New York at Eyebeam, and internationally in Berlin:
+
+- **Everybody's Google:** An interactive installation that allowed users to browse search results through simulated user personas and diverse demographic lenses, exposing the invisible filter bubble around different users.
+- **Captchafy:** A browser extension and print series that transformed standard web pages into machine-*unreadable* optical images. It reversed the concept of a CAPTCHA—which relies on free human cognitive labor to train corporate optical character recognition (OCR) models—by protecting human content from automated machine scrapers.
+- **Saving Mary Jessica:** A custom CNC robotic drawing machine that executed precise 2D pen-and-paper illustrations, exploring how physical drawing gestures could be translated algorithmically into code and mechanical motion.
+- **Social Media Surrogate:** An early autonomous AI agent that hijacked my personal Facebook account, generating updates, navigating social interactions, and performing digital presence on my behalf.
+- **The Establishment:** An infinite-loop algorithmic video installation that continuously sequenced footage of politicians swearing oaths to God on the floor of the US Congress.
