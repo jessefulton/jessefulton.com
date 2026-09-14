@@ -1,16 +1,25 @@
 ---
 company: "Eyegroove"
 title: "Head of Creative Technology & Prototyping"
-period: "2015 – 2016"
-startYear: 2015
-endYear: 2016
+period: "OCT 2013 ‒ OCT 2014"
+startDate: "2013-10"
+endDate: "2014-10"
+startMonth: "Oct"
+endMonth: "Oct"
+startYear: 2013
+endYear: 2014
 location: "San Francisco, CA"
 category: "experiential-spatial"
-summary: "Spearheaded real-time mobile video synthesis, audio-reactive shader filters, and interactive iOS prototyping (acquired by Facebook)."
+act: "act-4"
+actNum: "ACT IV"
+typeLabel: "CORE TEAM / INVENTOR"
+summary: "Solo-engineered backend infrastructure scaling to 40k DAUs; co-invented 6 core US patents in media synthesis (Acquired by Facebook / Meta)."
 highlights:
-  - "Engineered real-time OpenGL shaders and audio-reactive video rendering pipelines on mobile."
-  - "Collaborated with founders on zero-to-one product design through acquisition by Facebook."
+  - "Built automated video transcoding & HLS streaming pipeline on AWS EC2/S3"
+  - "Co-authored 6 US Utility Patents in interactive touch & video synthesis"
+  - "Collaborated directly with founders through acquisition by Facebook"
 associatedProjects: ["eyegroove-video-platform"]
+metric: "Acquired by Facebook // 6 US Patents"
 featured: true
 order: 5
 ---

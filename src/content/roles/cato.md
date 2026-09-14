@@ -1,17 +1,24 @@
 ---
-company: "Cato Data Infrastructure"
-title: "Venture & Systems Strategist"
-period: "2023 – 2024"
-startYear: 2023
-endYear: 2024
-location: "San Francisco Bay Area"
+company: "Cato Digital"
+title: "Chief of Staff to the CEO"
+period: "APR 2024 ‒ APR 2025"
+startDate: "2024-04"
+endDate: "2025-04"
+startMonth: "Apr"
+endMonth: "Apr"
+startYear: 2024
+endYear: 2025
+location: "Milpitas, CA"
 category: "frontier-ai"
-summary: "Led product strategy and industrial branding for sustainable AI infrastructure, power distribution, and bare-metal second-life hardware clouds."
+act: "act-1"
+actNum: "ACT I"
+typeLabel: "EXECUTIVE ROLE"
+summary: "Developed data-driven forecasting model for server allocation and cost efficiency, increasing valuation by $25M+; directed 72 DGX-2 cluster deployment across $4M of projects."
 highlights:
-  - "Formulated bare-metal cloud platform strategy utilizing refurbished enterprise silicon."
-  - "Designed comprehensive ECL Rack industrial brand system and hardware architecture."
-  - "Bridged electrical/mechanical engineering constraints with enterprise SaaS positioning."
+  - "72 liquid-cooled NVIDIA DGX-2 supercomputer off-grid deployment in Iowa in under 24 hrs"
+  - "Coordinated cross-functional teams across $4M in bare-metal compute contracts"
 associatedProjects: ["cato-green-ai"]
+metric: "+$25M Valuation // 72 DGX-2 Cluster"
 featured: true
 order: 2
 ---

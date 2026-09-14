@@ -3,8 +3,14 @@ title: "Zero-to-One Venture Design & Startup Incubation"
 byline: "HEC Paris MSIE & Santa Cruz Launchpad early-stage founder mentorship."
 briefDescription: "Synthesizing executive business rigor (HEC Paris MSc in Innovation & Entrepreneurship) with 20 years of hands-on technical architecture to mentor early-stage founders across product validation and venture design."
 category: "venture-strategy"
+archetype: "strategy-executive-alignment"
+act: "act-2"
+actNum: "ACT II"
+startDate: "2021-02"
+endDate: "2022-06"
+dateRange: "Feb 2021 – Jun 2022"
 role: "Venture Architect & Startup Mentor"
-year: 2023
+year: 2022
 featured: false
 archive: true
 showOnTimeline: true
@@ -18,12 +24,17 @@ metrics:
   - "Active Tech & Creative Founder Mentorship"
 ---
 
-My work in venture design connects twenty years of frontline software engineering and creative technology leadership with formal executive business modeling.
+My work in venture design bridges two decades of hands-on technical architecture with executive business modeling, helping early-stage founders transform ambiguous technical innovations into durable venture mechanics.
 
-### Academic Business Rigor at HEC Paris
-I completed my Master of Science in Innovation & Entrepreneurship (MSIE) at HEC Paris, one of Europe's top business schools. The program formalized frameworks for evaluating venture feasibility, unit economics, capital allocation, scalable corporate innovation, and organizational governance. It provided the structured business theory to complement two decades of practical, hands-on startup execution.
+## 01 // The Strategic Context & Organizational Fragmentation
+Early-stage founders and corporate innovation labs frequently stumble into the same trap: over-indexing on technical novelties while ignoring unit economic viability, customer acquisition unit economics, regulatory compliance, and defensible distribution moats. 
 
-### Active Mentorship with Santa Cruz Launchpad
-Through Santa Cruz Launchpad and regional startup incubators, I actively mentor early-stage founders across AI, emerging technology, and creative platforms. 
+## 02 // The Unifying Framework & Alignment Model
+* **HEC Paris MSIE Methodology:** Completed an MSc in Innovation & Entrepreneurship from HEC Paris, formalizing rigorous corporate innovation frameworks, quantitative unit economic modeling, capital structure strategy, and venture feasibility evaluation.
+* **0-to-1 Incubation Framework:** Developed disciplined discovery playbooks synthesizing qualitative user interviews with quantitative payback period and LTV/CAC modeling.
 
-I help zero-to-one founders de-risk their technical bets, evaluate real-world feasibility, synthesize customer discovery interviews, and refine their product narratives. My focus is helping builders look past startup hype to build clear unit economics, sustainable business models, and scalable software architectures.
+## 03 // Cross-Functional Execution
+Through the Santa Cruz Launchpad accelerator and private advisory engagements, I actively mentor early-stage founders across AI, developer infrastructure, and creative platforms. I guide leadership teams through technical de-risking, go-to-market architecture, investor narrative refinement, and regulatory roadmap planning.
+
+## 04 // Commercial & Venture Outcomes
+Transformed early-stage concept drafts into viable, fundable venture models with validated customer discovery loops and de-risked engineering architectures, helping founders secure pre-seed and seed capital while avoiding premature scaling pitfalls.

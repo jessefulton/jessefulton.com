@@ -3,6 +3,12 @@ title: "Coinbase Cloud — Developer Platform & Rebrand Architecture"
 byline: "Transforming $30B+ staking infrastructure into a unified web3 developer platform and leading the post-acquisition digital rebrand."
 briefDescription: "Led product strategy, digital rebrand execution, and developer platform primitives at Coinbase Cloud, transitioning Bison Trails from a white-glove institutional staking platform into a self-serve web3 ecosystem."
 category: "venture-strategy"
+archetype: "scaled-emerging-products"
+act: "act-2"
+actNum: "ACT II"
+startDate: "2021-03"
+endDate: "2022-06"
+dateRange: "Mar 2021 – Jun 2022"
 client: "Coinbase"
 employer: "Coinbase"
 role: "Product Manager — Developer Platform"
@@ -22,14 +28,17 @@ metrics:
 primaryLink: "https://coinbase.com/cloud"
 ---
 
-Coinbase acquired Bison Trails to anchor their institutional crypto infrastructure. The platform started as a high-touch staking powerhouse securing over $30 billion in assets. My job as Product Manager was to take that infrastructure and turn it into a self-serve developer platform with composable crypto primitives, while keeping the underlying staking operations rock-solid.
+Following Coinbase's landmark acquisition of Bison Trails, I served as Product Manager for Developer Platform, tasked with transforming a bespoke, white-glove institutional staking operation securing $30B+ in assets into a self-serve, multi-chain Web3 developer ecosystem.
 
-### Standardizing Primitives Across Blockchains
-Defining platform primitives that behave consistently across 25+ wildly different blockchain protocols was a massive architectural challenge. Every protocol has its own quirks, state rules, and consensus models. We had to abstract that complexity into clean APIs and SDKs so everyday software engineers could build without needing a PhD in cryptography, all while passing rigorous security reviews on every single endpoint.
+## 01 // The Strategic Context & Organizational Fragmentation
+Bison Trails was an exceptional engineering engine built for high-touch enterprise clients, but lacked self-serve developer tooling, composable API primitives, and standard documentation. Following the acquisition, we faced intense organizational friction: reconciling the scrappy startup culture of Bison Trails with Coinbase’s public-company governance, SOC2 compliance, and unified brand standards.
 
-### The Rebrand and Post-Acquisition Reality
-Alongside the core platform work, I was the de facto product manager for everything outside direct blockchain node implementations. I led the complete public rebrand from Bison Trails to Coinbase Cloud, overseeing our marketing sites, developer documentation, and martech integrations.
+## 02 // The Unifying Framework & Alignment Model
+* **Multi-Chain API Normalization:** Abstracted the disparate consensus rules, block finality models, and node architectures of 25+ independent blockchain networks into unified, developer-friendly REST and WebSocket API primitives.
+* **Public Rebrand Architecture:** Directed the public product transition from Bison Trails to Coinbase Cloud—overseeing marketing sites, interactive developer docs, API key provisioning portals, and martech analytics.
 
-It was an intense crash course in M&A dynamics. I was actually the first hire on the Bison Trails team to go through official Coinbase corporate onboarding, which put me right in the middle of a cultural tug-of-war between scrappy acquired startup habits and public-company standards. 
+## 03 // Cross-Functional Execution
+As the first hire to navigate the official Coinbase post-acquisition onboarding, I acted as the bridge between the acquired engineering founders, Coinbase executive leadership, corporate legal, and product marketing. We established continuous security review frameworks to ensure every developer endpoint met strict crypto-custody audit standards while preserving engineering velocity.
 
-When the 2022 crypto winter hit, Coinbase eventually consolidated and sunsetted the Cloud platform. While getting laid off in a macro downturn was tough, building infrastructure at that scale and navigating high-stakes post-acquisition politics taught me lessons you simply cannot learn in business school.
+## 04 // Commercial & Venture Outcomes
+The initiative successfully consolidated fragmented crypto infrastructure into a coherent developer platform brand, securing tens of billions in staked assets and onboarding thousands of developers into the Coinbase ecosystem prior to the 2022 macroeconomic restructuring.

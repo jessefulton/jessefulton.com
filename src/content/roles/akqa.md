@@ -1,18 +1,26 @@
 ---
 company: "AKQA"
 title: "Director of Creative Technology"
-period: "2016 – 2020"
+period: "FEB 2016 ‒ NOV 2020"
+startDate: "2016-02"
+endDate: "2020-11"
+startMonth: "Feb"
+endMonth: "Nov"
 startYear: 2016
 endYear: 2020
 location: "San Francisco, CA"
 category: "experiential-spatial"
-summary: "Led the creative engineering discipline, architecting award-winning conversational voice companions, multimodal AI narratives, connected enterprise platforms, and spatial activations for Activision, Nike, Jiffy Lube / Shell, Visa, and Optus."
+act: "act-3"
+actNum: "ACT III"
+typeLabel: "DIRECTOR ROLE"
+summary: "Scaled creative tech team from 4 to 12; won 6 Cannes Lions & 12 Clios; delivered $20M+ new business (Activision, Nike, Visa, Google)."
 highlights:
-  - "Architected the Destiny 2 Ghost Alexa Skill, winning Cannes Silver Lion, Clio Awards, and speaking at GDC."
-  - "Engineered Terminal Tours for Call of Duty, scaling to 6M+ interactive sessions and winning Cannes Gold Lion."
-  - "Directed platform architecture for My Jiffy Lube, synchronizing distributed on-prem franchise servers with Salesforce cloud."
-  - "Directed spatial and AR campaigns for Nike LunarEpic, Visa RioPOOL (Olympics), and Optus Smart Home."
+  - "Destiny 2 Ghost Alexa Companion (Cannes Silver Lion, Gold Clio, GDC Keynote)"
+  - "Call of Duty Hostile Takeover narrative chatbot (6M+ sessions, Cannes Gold Lion)"
+  - "My Jiffy Lube distributed franchise sync & connected car loyalty platform"
+  - "Nike LunarEpic & Visa RioPOOL Olympic spatial AR campaigns"
 associatedProjects: ["destiny-2-ghost-companion", "terminal-tours", "nike-jordan-retail", "my-jiffy-lube", "visa-riopool", "optus-house"]
+metric: "6 Cannes Lions // $20M+ New Business"
 featured: true
 order: 4
 ---

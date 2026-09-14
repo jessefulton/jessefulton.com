@@ -3,9 +3,15 @@ title: "Salesforce IQ — Dreamforce Immersive Gaming Pavilion"
 byline: "6K TouchDesigner multiplayer speed-trivia installation in a custom walk-in 'Q' structure at Dreamforce."
 briefDescription: "Architected the interactive Salesforce IQ speed-trivia gaming pavilion at Dreamforce, driving a 6K TouchDesigner canvas across three curved 120\" 4K displays, illuminated arcade buzzers, and real-time crowd cameras in a 3-week sprint."
 category: "experiential-spatial"
+archetype: "bespoke-creative-tech"
+act: "act-3"
+actNum: "ACT III"
+startDate: "2015-07"
+endDate: "2015-10"
+dateRange: "2015"
 client: "Salesforce / George P. Johnson"
 employer: "JUXT"
-role: "Technology Director"
+role: "Director of Technology"
 year: 2015
 featured: false
 archive: true
@@ -21,16 +27,20 @@ metrics:
   - "3-Week Concept-to-Floor Delivery"
 ---
 
-At JUXT, our sister agency George P. Johnson produced Dreamforce and approached us to build an experiential marketing activation for Salesforce’s relationship intelligence platform (Einstein).
+At JUXT, our sister agency George P. Johnson brought us in to create a premier experiential marketing gaming pavilion for Salesforce at Dreamforce to showcase their relationship intelligence platform.
 
-### Pitching the Game & 6K Spatial Architecture
-I pitched a fast-paced multiplayer trivia game inspired by *You Don't Know Jack*’s speed round: a question appeared, answers were revealed sequentially one by one, and players earned points based on how many milliseconds it took to buzz in on the correct answer.
+## 01 // The Sensory & Physical Brief
+Dreamforce is a loud, crowded trade show floor with thousands of attendees. Rather than a dry enterprise software demo, I conceived and pitched a high-octane multiplayer speed-trivia competition modeled on *You Don't Know Jack*. Questions flashed, multiple-choice answers revealed sequentially, and players raced to buzz in with sub-millisecond reflexes. The installation sat inside a massive architectural pavilion sculpted into a physical capital "Q".
 
-We built the game inside a massive architectural pavilion sculpted into the shape of a capital "Q". The game engine was built in TouchDesigner, rendering a 6K real-time canvas across three 120" 4K displays mounted in a dramatic vertical curve directly overhead, paired with dynamic reactive sound design. 
+## 02 // Bespoke Hardware & Algorithmic Stack
+* **6K TouchDesigner Curved Canvas:** Engineered a real-time 6K graphics and game logic engine in TouchDesigner, driving three 120" 4K displays arranged in a seamless vertical curve directly over the players' heads.
+* **Microcontroller-Wired Arcade Buzzers:** Built bespoke physical player podiums featuring giant illuminated arcade buttons wired to local microcontrollers. Podium LEDs pulse-synced with game countdowns and buzzed in realtime with microsecond serial polling.
+* **Crowd Video Feed Integration:** Embedded hidden high-speed cameras between display bezels, mixing live crowd reactions into the game visuals for spectators outside the pavilion.
 
-For the controllers, we built giant illuminated arcade buzzer buttons wired to local microcontrollers that flashed and pulse-synced with game states. We also embedded hidden cameras between the screen bezels, broadcasting live player reactions and competition to the crowds gathered outside the pavilion.
+## 03 // Live Deployment & What Broke
+We designed, engineered, and fabricated the entire hardware, software, and physical system in a brutal three-week sprint. 
 
-### The Three-Week Turnaround
-We built the entire game, hardware integrations, and network infrastructure from scratch in about three weeks. 
+During load-in on the Moscone Center convention floor, an onsite rigging crew accidentally cracked one of our primary 120" 4K display panels. Because I insisted on carrying hot-standby redundant hardware, our engineering team swapped the massive display, re-mapped and calibrated the 6K canvas coordinates in TouchDesigner, and went live with zero downtime.
 
-During load-in on the convention floor, an onsite handler accidentally cracked one of our primary 120" 4K displays. Fortunately, we had brought a full hardware backup; our team swapped the panel, recalibrated the 6K video alignment in TouchDesigner, and launched on schedule. The activation was an instant hit with convention attendees, packing lines throughout Dreamforce.
+## 04 // Breakthroughs, IP & Cultural Legacy
+The pavilion became one of the most crowded and viral activations on the Dreamforce floor, running back-to-back multiplayer tournaments throughout the conference and setting the standard for enterprise product gamification.

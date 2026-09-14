@@ -50,6 +50,32 @@ const catInfo = categoryLabels[entry.data.category] || {
   bg: 'bg-charcoal/20' 
 };
 
+const archetypeLabels: Record<string, { label: string; tag: string; color: string; border: string; bg: string }> = {
+  'bespoke-creative-tech': {
+    label: 'NEAR-FRONTIER R&D & BESPOKE CREATIVE TECH',
+    tag: 'ARCHETYPE 01 // R&D & BESPOKE PROTOTYPE',
+    color: 'text-magenta',
+    border: 'border-magenta/40',
+    bg: 'bg-magenta/10'
+  },
+  'scaled-emerging-products': {
+    label: 'SCALED EMERGING TECH PRODUCTS & PLATFORMS',
+    tag: 'ARCHETYPE 02 // PRODUCTION ENGINE',
+    color: 'text-cyan',
+    border: 'border-cyan/40',
+    bg: 'bg-cyan/10'
+  },
+  'strategy-executive-alignment': {
+    label: 'STRATEGY, PRODUCT DESIGN & EXECUTIVE ALIGNMENT',
+    tag: 'ARCHETYPE 03 // STRATEGY & ALIGNMENT',
+    color: 'text-gold',
+    border: 'border-gold/40',
+    bg: 'bg-gold/10'
+  },
+};
+
+const archInfo = entry.data.archetype ? archetypeLabels[entry.data.archetype] : null;
+
 // Filter out broken / missing asset references to guarantee clean media render
 const galleryImages = (entry.data.gallery || []).filter(img => img && !img.includes('undefined') && !img.includes('null'));
 const hasMedia = !!entry.data.cloudinaryVideo || !!entry.data.heroImage || galleryImages.length > 0;
@@ -79,6 +105,18 @@ const hasMedia = !!entry.data.cloudinaryVideo || !!entry.data.heroImage || galle
         
         <!-- Case Study Header -->
         <header class="border-b border-charcoal/80 pb-8 mb-10">
+          <div class="flex items-center gap-2 mb-3">
+            {archInfo ? (
+              <span class={`font-mono text-[10px] px-2.5 py-0.5 rounded border ${archInfo.border} ${archInfo.bg} ${archInfo.color} font-bold uppercase tracking-wider`}>
+                {archInfo.tag}
+              </span>
+            ) : (
+              <span class="font-mono text-[10px] px-2.5 py-0.5 rounded border border-charcoal text-titanium-muted uppercase">
+                CASE RETROSPECTIVE
+              </span>
+            )}
+          </div>
+
           <h1 class="text-3xl sm:text-4xl md:text-5xl font-display font-bold text-titanium tracking-tight mb-4">
             {entry.data.title}
           </h1>
@@ -95,11 +133,11 @@ const hasMedia = !!entry.data.cloudinaryVideo || !!entry.data.heroImage || galle
 
           <!-- Provenance Metadata -->
           <div class="pt-4 border-t border-charcoal/60 flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
-            <span class="text-titanium-muted">CASE RETROSPECTIVE</span>
+            <span class="text-titanium-muted">CHRONOLOGY // {entry.data.year}</span>
             <div class="flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
               <span class="text-gold uppercase tracking-wider font-semibold">
-                // {catInfo.label} // {entry.data.year}
+                // {catInfo.label}
               </span>
             </div>
           </div>
@@ -131,6 +169,16 @@ const hasMedia = !!entry.data.cloudinaryVideo || !!entry.data.heroImage || galle
             <span>// PROJECT SPECS</span>
             <span>SYS_METADATA</span>
           </div>
+
+          <!-- Project Archetype -->
+          {archInfo && (
+            <div>
+              <div class="font-mono text-[11px] text-titanium-muted uppercase mb-1">Project Archetype</div>
+              <div class={`text-xs font-mono font-bold ${archInfo.color}`}>
+                {archInfo.label}
+              </div>
+            </div>
+          )}
 
           <!-- Client / Brand Partner -->
           {entry.data.client && (

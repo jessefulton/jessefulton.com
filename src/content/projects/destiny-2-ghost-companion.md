@@ -3,9 +3,15 @@ title: "Destiny 2 Ghost — Alexa Voice Companion"
 byline: "First-ever voice companion integrated with a live AAA console game ecosystem."
 briefDescription: "Architected the Destiny 2 Ghost Alexa Skill and IoT hardware companion for Activision and Bungie, pioneering voice UX in gaming and winning Cannes Silver Lion, Gold Clio, and presenting at GDC."
 category: "frontier-ai"
+archetype: "bespoke-creative-tech"
+act: "act-3"
+actNum: "ACT III"
+startDate: "2017-01"
+endDate: "2018-03"
+dateRange: "2017 – 2018"
 client: "Activision / Bungie"
 employer: "AKQA"
-role: "Group Technical Director"
+role: "Group Technical Director / Creative Tech Director"
 year: 2017
 featured: true
 archive: true
@@ -31,18 +37,18 @@ primaryLink: "https://www.akqa.com/work/activision/destiny-2-ghost-skill/"
 youtubeId: "86UlSLgyAVk"
 ---
 
-This was easily one of my favorite projects of all time. It started shortly after I joined AKQA when a creative director walked up with an idea: *"The Ghost character in Destiny is basically the in-game equivalent of Alexa. What if you could talk to Ghost in real life?"*
+The Destiny 2 Ghost Skill was the world's first voice companion integrated directly into a live AAA console gaming ecosystem, connecting Amazon Alexa to millions of players across Activision and Bungie's global servers.
 
-### Prototyping for Bungie HQ
-We immediately started building. My team created a custom Alexa skill with audio clips extracted from the game, connected it to Bungie's live player API, and packed a Bluetooth speaker inside a rough 3D-printed Ghost shell. 
+## 01 // The Production Frontier & Regulatory Stakes
+In 2017, conversational voice interfaces in gaming were entirely unexplored territory. Gamers expect zero-latency responsiveness and deep lore authenticity. The mandate was to enable players to talk naturally to their in-game AI companion (Ghost, voiced by Nolan North) in their living rooms, managing character loadouts, checking clan milestones, and requesting tactical advice in real time.
 
-We flew to Bungie's headquarters in Bellevue, Washington, walked into their conference room, and used live voice commands to swap weapon loadouts right on the screen. Bungie bought in on the spot. We got preview access to *Destiny 2* ahead of launch so we could study the game mechanics, the lore, and the player community inside and out.
+## 02 // Systems Architecture & Data Plumbing
+* **Real-Time Bungie API Integration:** Built a high-throughput middleware bridge authenticating player Xbox, PlayStation, and PC accounts via OAuth, executing low-latency inventory calls against Bungie's live player state API.
+* **Dynamic Response Engine:** Engineered a conversational engine synthesizing thousands of recorded dialogue stems into millions of contextually aware voice responses, factoring in player subclass, active planetary location, and progression level.
+* **WiFi-Connected IoT Hardware:** Collaborated with hardware manufacturers to engineer a standalone, illuminated WiFi-connected physical Ghost replica synchronized via WebSockets to in-game audio and voice events.
 
-### Writing the Rules for Voice UX
-In 2017, Voice UX in gaming did not exist. We had to research and define the interaction patterns ourselves, building a dynamic response engine capable of generating millions of unique dialogue responses voiced by Nolan North. We also worked with manufacturing partners to build and sell a physical, WiFi-connected IoT Ghost that illuminated and synced with in-game audio and gameplay events.
+## 03 // The Engineering Crucible
+The critical challenge was designing around Bungie's strict competitive balance constraints. To maintain integrity during competitive Player-versus-Player (PvP) matches and high-stakes Raids, Bungie's API strictly forbade in-combat inventory swapping. If a player screamed at Ghost for a rocket launcher mid-firefight, the API returned a hard lock error. Rather than exposing sterile API error codes, we architected dynamic conversational fallback logic: Ghost delivered witty, in-character banter chastising the player to keep their focus on the battle.
 
-The biggest challenge was designing within Bungie’s strict game-balance rules. Bungie’s APIs were blazing fast, but to keep player-versus-player matches fair, you were never allowed to hot-swap weapons via API during combat. You could manage gear in social hubs like The Tower, but if you screamed at Ghost to give you a rocket launcher in the middle of a raid or PvP match, the API locked you out. 
-
-Our job was turning those technical restrictions into entertaining character moments. Instead of throwing a sterile error message, Ghost would deliver a witty in-character refusal reminding the player to focus on the fight. 
-
-The project won a Cannes Silver Lion for Innovation in Voice, multiple Clio Awards, and gave us the opportunity to present our Voice UX best practices at the Game Developers Conference (GDC).
+## 04 // Hard Performance & Defensibility
+The Ghost skill processed millions of live voice invocations with sub-second roundtrip latency, establishing the foundational design patterns for conversational interfaces in entertainment. The project earned a **Cannes Silver Lion for Innovation in Voice**, **Gold and Silver Clio Awards**, the **Project Isaac Award for Invention**, and led to our featured presentation on Voice UX design at the **Game Developers Conference (GDC 2018)**.

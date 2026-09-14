@@ -3,8 +3,14 @@ title: "Software as Art — Algorithmic Hegemony & Thesis Research"
 byline: "Graduate fellowship thesis anticipating the Filter Bubble through robotic drawing machines and algorithmic subversions."
 briefDescription: "MFA thesis research at UC Santa Cruz (DANM), anticipating algorithmic bias and platform monopolies through robotic drawing machines, anti-OCR browser extensions, and autonomous social AI agents."
 category: "creative-tech"
+archetype: "bespoke-creative-tech"
+act: "act-5"
+actNum: "ACT V"
+startDate: "2008-09"
+endDate: "2010-06"
+dateRange: "2008 – 2010"
 employer: "University of California, Santa Cruz (DANM)"
-role: "Graduate Researcher & Media Artist"
+role: "MFA Researcher & Fellow"
 year: 2009
 featured: true
 archive: true
@@ -19,13 +25,19 @@ metrics:
   - "Exhibited Nationally (Eyebeam NYC) & Internationally (Berlin)"
 ---
 
-My MFA thesis in the Digital Arts & New Media (DANM) program at UC Santa Cruz focused on how major technology platforms and search engines control human mindshare. In 2009, well before the term "Filter Bubble" entered the public lexicon, I was researching and building systems to critique how personalization algorithms, search engine optimization, and predictive feeds shape what we see, how we think, and how we are influenced online.
+My MFA thesis in the Digital Arts & New Media (DANM) program at UC Santa Cruz explored how emerging web monopolies and personalization algorithms control human attention, perception, and labor.
 
-### Artworks, Autonomous Bots & Drawing Machines
-To explore these dynamics, I produced a series of software artworks and physical installations that were exhibited across the Bay Area, in New York at Eyebeam, and internationally in Berlin:
+## 01 // The Sensory & Physical Brief
+In 2009, years before "Filter Bubble" or surveillance capitalism became mainstream concepts, I set out to make the invisible biases of algorithmic platforms tactile and visible. The brief was to create physical machines, browser subversions, and autonomous agents that exposed how corporate algorithms commodify human interaction and OCR cognitive labor.
 
-- **Everybody's Google:** An interactive installation that allowed users to browse search results through simulated user personas and diverse demographic lenses, exposing the invisible filter bubble around different users.
-- **Captchafy:** A browser extension and print series that transformed standard web pages into machine-*unreadable* optical images. It reversed the concept of a CAPTCHA—which relies on free human cognitive labor to train corporate optical character recognition (OCR) models—by protecting human content from automated machine scrapers.
-- **Saving Mary Jessica:** A custom CNC robotic drawing machine that executed precise 2D pen-and-paper illustrations, exploring how physical drawing gestures could be translated algorithmically into code and mechanical motion.
-- **Social Media Surrogate:** An early autonomous AI agent that hijacked my personal Facebook account, generating updates, navigating social interactions, and performing digital presence on my behalf.
-- **The Establishment:** An infinite-loop algorithmic video installation that continuously sequenced footage of politicians swearing oaths to God on the floor of the US Congress.
+## 02 // Bespoke Hardware & Algorithmic Stack
+* **Saving Mary Jessica (Robotic Pen Plotter):** Engineered a custom CNC robotic drawing machine executing micro-precise physical pen-and-paper illustrations from generative code, bridging mathematical vectors with ink bleeds and mechanical friction.
+* **Captchafy (Anti-OCR Subversion):** Built browser extensions converting web text into adversarial images that humans could read easily but machine OCR models failed to parse—reversing the dynamic of commercial CAPTCHAs harvesting free human training labor.
+* **Everybody's Google:** Built an interactive installation allowing users to browse search results simultaneously through simulated demographic personas, exposing algorithmic isolation.
+* **Social Media Surrogate:** Programmed an early autonomous bot that took over my personal Facebook account to simulate digital presence and test social graph interactions.
+
+## 03 // Live Deployment & What Broke
+Exhibiting experimental robotics and live scraping software across galleries in San Francisco, New York (Eyebeam), and Berlin meant debugging mechanical stepper motors on gallery floors and constantly patching scrapers as Google and Facebook modified their undocumented markup and rate-limiting APIs.
+
+## 04 // Breakthroughs, IP & Cultural Legacy
+The thesis laid the foundational theoretical framework for my entire career: treating code not merely as functional plumbing, but as a cultural, philosophical, and expressive architecture. It formed the philosophical bedrock for my later work in human-machine interaction, voice UX, and ethical AI evaluation.

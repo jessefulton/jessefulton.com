@@ -3,9 +3,15 @@ title: "Sage Summit — Interactive Curved Walls & 360° Marquee"
 byline: "30-foot interactive curved mega-canvas, VR pre-vis, and floating 360-degree seamless digital ring in New Orleans."
 briefDescription: "Engineered experiential showpiece installations at Sage Summit in New Orleans, pre-visualizing in VR, driving Resolume video servers via WebSockets/OSC, and rendering a 360-degree seamless floating marquee."
 category: "experiential-spatial"
+archetype: "bespoke-creative-tech"
+act: "act-3"
+actNum: "ACT III"
+startDate: "2015-02"
+endDate: "2015-08"
+dateRange: "2015"
 client: "Sage"
 employer: "JUXT"
-role: "Technology Director"
+role: "Director of Technology"
 year: 2015
 featured: false
 archive: true
@@ -21,16 +27,18 @@ metrics:
   - "15' Floating 360° Seamless Marquee & Local Edge DB"
 ---
 
-At Sage Summit in New Orleans, I directed technology across two major architectural installations, taking traditionally dry corporate accounting themes and turning them into vibrant, dynamic spatial experiences.
+At Sage Summit in New Orleans, I directed technology strategy and systems architecture across flagship spatial showpieces, transforming traditionally dry enterprise accounting software into dynamic, high-engagement physical environments.
 
-### 30-Foot Curved Canvas & VR Pre-Visualization
-Our main attraction was a massive 30' x 10' curved interactive display fronted by three standalone touchscreen stations. During active use, attendees explored independent interactive workflows; during idle mode, all three stations unified into a single synchronized 30-foot panoramic video takeover.
+## 01 // The Strategic Context & Organizational Fragmentation
+Enterprise B2B conferences struggle to demonstrate abstract cloud accounting capabilities in visceral, memorable ways. Sage leadership needed to position their next-generation ERP and payroll cloud solutions to thousands of enterprise attendees, partners, and media without relying on static slide presentations.
 
-Because we lacked a physical warehouse large enough to stage and test a 30-foot curved display before shipping to Louisiana, my team and I built the entire convention hall footprint in 3D. We used VR headsets to walk the virtual floor, testing asset sizing, sightlines, and typography against the low-density pixel pitch of the physical panels. We connected the touchscreen web applications to Resolume media servers via WebSockets and OSC control messages, managing multi-channel video playback and looping smoothly.
+## 02 // The Unifying Framework & Alignment Model
+* **VR Spatial Pre-Visualization Framework:** Because we had no physical staging facility large enough to construct a 30' x 10' curved display before shipping to New Orleans, I architected a 3D VR pre-visualization suite. Executive stakeholders and designers walked the virtual convention floor in VR headsets, validating viewing angles, pixel pitch legibility, and physical ergonomics.
+* **Unified State & Media Routing:** Built a distributed protocol bridging web touchscreens with Resolume media servers via WebSockets and Open Sound Control (OSC) packets.
 
-### The 15-Foot Seamless 360° Floating Marquee
-Our second installation was an unassuming, 15-foot-diameter cylindrical display ring suspended above the central information hub. 
+## 03 // Cross-Functional Execution
+* **30-Foot Panoramic Curved Mega-Canvas:** Three standalone touchscreen stations allowed independent exploration during active interactions, while automatically unifying into a continuous 30-foot synchronized visual takeover during idle cycles.
+* **360° Floating Cylindrical Marquee:** Suspended a 15-foot continuous circular LED ring over the convention hub. To combat notorious convention WiFi dropouts, we engineered an on-premise local-first edge database caching live social feeds, keynote schedules, and real-time announcements.
 
-Because the screen was a continuous loop with no physical seams, we wrote custom rendering drivers to wrap and animate web content seamlessly—animating cards vertically onto the ring, then orbiting them 360 degrees horizontally with zero edge artifacts. 
-
-Convention Wi-Fi is notoriously unstable, so we deployed a local-first on-site database and CMS. We ingested live Twitter hashtags, dynamic conference schedule updates, and marketing announcements locally, giving the Sage team a real-time moderation dashboard that operated completely uninterrupted by flaky venue internet.
+## 04 // Commercial & Venture Outcomes
+The installations anchored the central convention floor for over 10,000 global attendees, establishing an engaging interactive standard for Sage's enterprise brand and driving record partner engagement across product demos.

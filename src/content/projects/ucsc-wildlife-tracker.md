@@ -3,9 +3,15 @@ title: "UCSC Wildlife Tracker — Crowdsourced Ecological Vision"
 byline: "Gamifying field camera trap identification through ESP-style human consensus games."
 briefDescription: "Engineered a cooperative citizen-science game at UCSC DANM in partnership with Environmental Studies, crowdsourcing species labeling across thousands of rugged camera trap photos to train ecological models."
 category: "creative-tech"
+archetype: "bespoke-creative-tech"
+act: "act-5"
+actNum: "ACT V"
+startDate: "2009-09"
+endDate: "2011-06"
+dateRange: "2009 – 2011"
 employer: "University of California, Santa Cruz (DANM)"
-role: "Graduate Student Researcher & Developer"
-year: 2011
+role: "Lead Systems Architect & Research Fellow"
+year: 2010
 featured: false
 archive: true
 showOnTimeline: true
@@ -23,11 +29,17 @@ metrics:
   - "Verified Santa Cruz Mountain Wildlife Corridors"
 ---
 
-The Wildlife Tracker was an interdisciplinary social research game developed in collaboration between the Digital Arts & New Media (DANM) program and the Environmental Studies department at UC Santa Cruz.
+The Wildlife Tracker was an interdisciplinary human-computation experiment built in collaboration between the Digital Arts & New Media (DANM) program and the Environmental Studies department at UC Santa Cruz.
 
-### Human Computation in the Wild
-Years before automated computer vision models were readily available to parse messy outdoor photography, university researchers had thousands of unindexed motion-sensor photos from cameras hidden across the Santa Cruz Mountains. 
+## 01 // The Sensory & Physical Brief
+Years before off-the-shelf computer vision models existed to parse messy outdoor imagery, ecologists had tens of thousands of motion-sensor photos from cameras hidden across the rugged Santa Cruz Mountains. The photos were unindexed, poorly lit, and filled with false triggers (windblown branches, night shadows). The challenge was to crowdsource verified ground-truth species labels without paying expensive manual labor.
 
-We took inspiration from Luis von Ahn's "ESP Game" and the "Games for Good" human-computation framework. In these games, two players who cannot communicate are shown the same image and asked to type descriptive words; when their tags match, they earn points, generating high-confidence training labels as a byproduct of play.
+## 02 // Bespoke Hardware & Algorithmic Stack
+* **Human-Computation Consensus Protocol:** Drawing inspiration from Luis von Ahn's "ESP Game" and "Games for Good," I engineered a two-player cooperative game inside Facebook. Two anonymous players were shown the same camera-trap photo simultaneously without communication channels. When their descriptive tags matched, they scored points.
+* **Ground-Truth Consensus Engine:** Implemented backend consensus algorithms that validated agreed-upon tags against taxonomic dictionaries, filtering spam while creating verified ML training labels.
 
-I built a social game inside Facebook that paired users up to view and label these field photographs. Players competed to identify visible species—mountain lions, skunks, raccoons, coyotes, and scavengers (including a particularly memorable series of a vulture tearing into a carcass). The consensus scoring mechanism filtered out noise and produced verified, scientific-grade ground truth biodiversity datasets that helped researchers map local wildlife corridors.
+## 03 // Live Deployment & What Broke
+Field photos from motion-sensor cameras in deep redwood forests were chaotic: blinding sun streaks, night IR grain, and graphic wildlife behavior—including a particularly gnarly series of a vulture tearing into a mountain carcass. Handling real-time player matchmaking inside the early Facebook Canvas API required constant tuning of latency buffers and session timeouts to keep asynchronous players in sync.
+
+## 04 // Breakthroughs, IP & Cultural Legacy
+The game crowdsourced scientific-grade classifications across thousands of field images, enabling UCSC ecologists to map critical mountain lion and predator movement corridors across the Santa Cruz Mountains. It gave me early hands-on mastery of human-in-the-loop validation—a discipline that later became central to evaluating modern frontier LLM systems.

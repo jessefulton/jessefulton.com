@@ -4,275 +4,1301 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 
-const roles = await getCollection('roles');
-const sortedRoles = roles.sort((a, b) => a.data.order - b.data.order);
+// Fetch all collections
+const allProjects = await getCollection('projects');
+const allRoles = await getCollection('roles');
+const allAchievements = await getCollection('achievements');
 
-const achievements = await getCollection('achievements');
-const patents = [
-  {
-    number: 'US10031921',
-    title: 'Methods and systems for storage of media item metadata',
-    year: 2018,
-    url: 'https://patentimages.storage.googleapis.com/79/7f/89/eddaa4e967dd7b/US10031921.pdf',
-    desc: 'Utility patent for efficient metadata indexing, state persistence, and storage pipelines in distributed media systems.'
+// Project map by slug for fast lookups
+const projectMap = new Map(allProjects.map(p => [p.slug, p]));
+const roleMap = new Map(allRoles.map(r => [r.slug, r]));
+
+// Archetype configuration
+const archetypeConfig: Record<string, { label: string; color: string; border: string; bg: string }> = {
+  'bespoke-creative-tech': { 
+    label: 'Bespoke Creative Tech', 
+    color: 'text-lime', 
+    border: 'border-lime/40', 
+    bg: 'bg-lime/10' 
   },
-  {
-    number: 'US10002642',
-    title: 'Methods and devices for generating media items',
-    year: 2018,
-    url: 'https://patentimages.storage.googleapis.com/4d/9d/8e/0797db550ad9eb/US10002642.pdf',
-    desc: 'Interactive runtime mechanisms for compositing dynamic multimedia elements with real-time hardware telemetry.'
+  'scaled-emerging-products': { 
+    label: 'Scaled Emerging Product', 
+    color: 'text-cyan', 
+    border: 'border-cyan/40', 
+    bg: 'bg-cyan/10' 
   },
-  {
-    number: 'US9268787',
-    title: 'Methods and devices for synchronizing and sharing media items',
-    year: 2016,
-    url: 'https://patentimages.storage.googleapis.com/44/84/f5/f17376b186928e/US9268787.pdf',
-    desc: 'Distributed peer synchronization and real-time state sharing architectures across heterogeneous mobile devices.'
+  'strategy-executive-alignment': { 
+    label: 'Strategy & Alignment', 
+    color: 'text-gold', 
+    border: 'border-gold/40', 
+    bg: 'bg-gold/10' 
   },
+};
+
+// 5-Act Structure Definition with Role/Tenure Pill Modules & Overlapping Milestone Dots
+const acts = [
   {
-    number: 'US9207857',
-    title: 'Methods and devices for presenting interactive media items',
-    year: 2015,
-    url: 'https://patentimages.storage.googleapis.com/cb/31/8d/9e75b31776b79c/US9207857.pdf',
-    desc: 'Responsive presentation systems for time-synced interactive multimedia overlays and live touch feedback.'
+    id: 'act-1',
+    actNum: 'ACT I',
+    period: '2022 – PRESENT',
+    themeColor: 'cyan',
+    glowClass: 'heading-glow-cyan',
+    dotBg: 'bg-cyan',
+    dotBorder: 'border-cyan/60 ring-cyan/30',
+    pillBorder: 'border-cyan/40',
+    pillBg: 'bg-cyan/10',
+    pillBorderHover: 'border-cyan',
+    pillBgHover: 'bg-cyan/20',
+    bridgeBorder: 'bg-cyan/60',
+    badgeClass: 'text-cyan border-cyan/40 bg-cyan/10',
+    title: 'Near-Frontier R&D & Special Projects Leadership',
+    subtitle: '72 DGX-2s Off-Grid, HIPAA Agent Evals & High-Velocity AI',
+    focusPills: ['FRONTIER AI RUNTIMES', 'OFF-GRID COMPUTE', 'SOVEREIGN ADVISORY'],
+    
+    modules: [
+      {
+        id: 'module-thrive',
+        company: 'Thrive AI Health',
+        role: 'Principal Product Engineer',
+        shortRole: 'Principal Product Eng',
+        period: 'APR 2025 ‒ PRESENT',
+        location: 'San Francisco, CA',
+        typeLabel: 'EXECUTIVE ROLE',
+        summary: 'Architected white-labeled, HIPAA compliant agent framework for critical healthcare functions, accelerating GTM strategies and Series A valuation.',
+        highlights: [
+          'Engineered agent SDLC harnesses & audit controls for HIPAA compliance (5x dev velocity)',
+          'Built performance & cost-tracking dashboards driving 40% infra cost reduction'
+        ],
+        metric: '5x Dev Velocity // 40% Cost Drop',
+        link: '/portfolio/thrive-ai-health',
+        linkText: 'VIEW THRIVE CASE STUDY →',
+        milestones: [
+          {
+            id: 'dot-thrive-build',
+            dateLabel: '2025',
+            typeLabel: 'SCALED EMERGING PRODUCT',
+            archetype: 'scaled-emerging-products',
+            title: 'Thrive AI Health Deterministic Runtimes',
+            subtitle: 'Healthcare Multimodal Agent Framework',
+            description: 'Context compilation pipelines, synthetic conversation simulators, and HIPAA-audit-ready reasoning inspection runtimes.',
+            metric: '5x Developer Velocity Acceleration',
+            link: '/portfolio/thrive-ai-health',
+            linkText: 'READ CASE STUDY →'
+          }
+        ]
+      },
+      {
+        id: 'module-cato',
+        company: 'Cato Digital',
+        role: 'Chief of Staff to the CEO',
+        shortRole: 'Chief of Staff',
+        period: 'APR 2024 ‒ APR 2025',
+        location: 'Milpitas, CA',
+        typeLabel: 'EXECUTIVE ROLE',
+        summary: 'Developed data-driven forecasting model for server allocation and cost efficiency, increasing valuation by $25M+; directed 72 DGX-2 cluster deployment across $4M of projects.',
+        highlights: [
+          '72 liquid-cooled NVIDIA DGX-2 supercomputer off-grid deployment in Iowa in under 24 hrs',
+          'Coordinated cross-functional teams across $4M in bare-metal compute contracts'
+        ],
+        metric: '+$25M Valuation // 72 DGX-2 Cluster',
+        link: '/portfolio/cato-green-ai',
+        linkText: 'VIEW CATO GREEN AI →',
+        milestones: [
+          {
+            id: 'dot-cato-cluster',
+            dateLabel: '2024',
+            typeLabel: 'STRATEGY & EXECUTIVE ALIGNMENT',
+            archetype: 'strategy-executive-alignment',
+            title: '72 DGX-2 Off-Grid Supercomputer Cluster',
+            subtitle: 'Cato Digital Circular Silicon Infrastructure',
+            description: 'Racked, unified, and launched 72 liquid-cooled supercomputers off-grid in Iowa in 24 hours to commercialize circular second-life silicon.',
+            metric: '72 Liquid-Cooled DGX-2 Supercomputers',
+            link: '/portfolio/cato-green-ai',
+            linkText: 'READ CASE STUDY →'
+          }
+        ]
+      },
+      {
+        id: 'module-code-theory',
+        company: 'Code & Theory',
+        role: 'Director, Product Management',
+        shortRole: 'Director, Product Mgmt',
+        period: 'AUG 2022 ‒ OCT 2023',
+        location: 'Remote',
+        typeLabel: 'LEADERSHIP ROLE',
+        summary: 'Scaled PwC account into the agency\'s largest client (20x revenue in 6 months); led 9-month research across 9 multibillion-dollar business units.',
+        highlights: [
+          'Engineered 8-BU iterative prototype roadshow (100+ partner interviews)',
+          'Coached 20 team members transitioning into product management'
+        ],
+        metric: '20x Account Growth // 9 BUs',
+        link: '/portfolio/pwc-enterprise-alignment',
+        linkText: 'VIEW PWC SIGHTLINE →',
+        milestones: [
+          {
+            id: 'dot-terminal-tours',
+            dateLabel: '2023',
+            typeLabel: 'SCALED EMERGING PRODUCT',
+            archetype: 'scaled-emerging-products',
+            title: 'Terminal Tours Multimodal Narrative',
+            subtitle: 'Interactive Conversational Experience',
+            description: 'Real-time procedural branching state machines delivering high-concurrency narrative immersion across millions of sessions.',
+            metric: '6M+ Interactive Sessions',
+            link: '/portfolio/terminal-tours',
+            linkText: 'READ CASE STUDY →'
+          }
+        ]
+      }
+    ]
   },
+
   {
-    number: 'US9207844',
-    title: 'Methods and devices for touch-based media creation',
-    year: 2015,
-    url: 'https://patentimages.storage.googleapis.com/76/f7/bf/9e0762caa6e457/US9207844.pdf',
-    desc: 'Touch-first gesture mapping and tactile video shader manipulation algorithms for mobile creative tools.'
+    id: 'act-2',
+    actNum: 'ACT II',
+    period: '2018 – 2022',
+    themeColor: 'gold',
+    glowClass: 'heading-glow-gold',
+    dotBg: 'bg-gold',
+    dotBorder: 'border-gold/60 ring-gold/30',
+    pillBorder: 'border-gold/40',
+    pillBg: 'bg-gold/10',
+    pillBorderHover: 'border-gold',
+    pillBgHover: 'bg-gold/20',
+    bridgeBorder: 'bg-gold/60',
+    badgeClass: 'text-gold border-gold/40 bg-gold/10',
+    title: 'Product & Business Strategy / Design Leadership',
+    subtitle: 'Enterprise Roadshows, Multi-Chain Web3 & HEC Paris MSIE',
+    focusPills: ['ENTERPRISE ROADSHOWS', '$30B+ WEB3 PLATFORMS', 'VENTURE INCUBATION'],
+    
+    modules: [
+      {
+        id: 'module-coinbase',
+        company: 'Coinbase',
+        role: 'Product Manager, Developer Platform',
+        shortRole: 'PM, Dev Platform',
+        period: 'MAR 2021 ‒ JUN 2022',
+        location: 'Remote',
+        typeLabel: 'PRODUCT MANAGEMENT',
+        summary: 'Revamped Coinbase Cloud to enable self-service Web3 developer onboarding; deployed telemetry across $30B of managed staking assets.',
+        highlights: [
+          'Standardized developer primitives across 25+ distinct blockchain protocols',
+          'Monitored 60,000 nodes across 32 blockchain protocols with dynamic validator reward billing'
+        ],
+        metric: '$30B+ Managed Assets // 32 Blockchains',
+        link: '/portfolio/coinbase-cloud',
+        linkText: 'VIEW COINBASE CLOUD →',
+        milestones: [
+          {
+            id: 'dot-coinbase-launch',
+            dateLabel: '2021',
+            typeLabel: 'SCALED EMERGING PRODUCT',
+            archetype: 'scaled-emerging-products',
+            title: 'Coinbase Cloud Self-Service Platform',
+            subtitle: 'Enterprise Web3 Infrastructure',
+            description: 'Unified multi-chain API primitives and custom financial performance dashboards managing $30B+ in institutional staked assets.',
+            metric: '$30B+ Staked Assets // 60k Nodes',
+            link: '/portfolio/coinbase-cloud',
+            linkText: 'READ CASE STUDY →'
+          }
+        ]
+      },
+      {
+        id: 'module-hec',
+        company: 'HEC Paris',
+        role: 'MSc Innovation & Entrepreneurship',
+        shortRole: 'MSc Innovation & Entr.',
+        period: 'FEB 2021 ‒ JUN 2022',
+        location: 'Paris, France',
+        typeLabel: 'ACADEMIC RIGOR',
+        summary: 'Master of Science in Innovation & Entrepreneurship. Corporate venture strategy, unit economics, startup incubation, and business transformation.',
+        highlights: [
+          'Venture mechanics, financial modeling, and sustainable corporate growth architecture',
+          'Bridge between executive boardrooms and deep technical engineering'
+        ],
+        metric: 'MSc Degree with Honors',
+        link: '/portfolio/hec-paris-venture-design',
+        linkText: 'VIEW HEC VENTURE DESIGN →',
+        milestones: [
+          {
+            id: 'dot-pwc',
+            dateLabel: '2022',
+            typeLabel: 'STRATEGY & EXECUTIVE ALIGNMENT',
+            archetype: 'strategy-executive-alignment',
+            title: 'PwC Sightline Enterprise Tax Platform',
+            subtitle: '8-Business-Unit Roadshow ($50B+ Tax Practice)',
+            description: 'Transformed a $60k discovery pilot into the agency\'s #1 account by revenue in under 12 months through 100+ partner interviews and 50+ rapid prototypes.',
+            metric: '$60k Discovery to #1 Agency Account',
+            link: '/portfolio/pwc-enterprise-alignment',
+            linkText: 'READ CASE STUDY →'
+          },
+          {
+            id: 'dot-hec-degree',
+            dateLabel: '2022',
+            typeLabel: 'ACADEMIC DEGREE',
+            title: 'HEC Paris MSIE Degree with Honors',
+            subtitle: 'Executive Master of Science',
+            description: 'Specialized in venture capital mechanics, unit economic validation, and deep-tech commercialization.',
+            metric: 'MSc Innovation & Entrepreneurship',
+            link: '/portfolio/hec-paris-venture-design',
+            linkText: 'VIEW HEC VENTURE DESIGN →'
+          },
+          {
+            id: 'dot-hec-venture',
+            dateLabel: '2020',
+            typeLabel: 'STRATEGY & EXECUTIVE ALIGNMENT',
+            archetype: 'strategy-executive-alignment',
+            title: 'HEC Paris Venture Incubation System',
+            subtitle: 'Executive Venture Design Frameworks',
+            description: 'Systematizing 20 years of operational intuition into formal corporate finance, unit economic modeling, and repeatable venture design frameworks.',
+            metric: 'Formal Venture Mechanics & Unit Economics',
+            link: '/portfolio/hec-paris-venture-design',
+            linkText: 'READ CASE STUDY →'
+          }
+        ]
+      }
+    ]
   },
+
   {
-    number: 'US9116912',
-    title: 'Methods and devices for modifying pre-existing media items',
-    year: 2015,
-    url: 'https://patentimages.storage.googleapis.com/b6/b2/05/30b15e82006751/US9116912.pdf',
-    desc: 'Non-destructive pipeline architectures for real-time video filter synthesis and audio-reactive timeline warping.'
+    id: 'act-3',
+    actNum: 'ACT III',
+    period: '2014 – 2018',
+    themeColor: 'magenta',
+    glowClass: 'heading-glow-magenta',
+    dotBg: 'bg-magenta',
+    dotBorder: 'border-magenta/60 ring-magenta/30',
+    pillBorder: 'border-magenta/40',
+    pillBg: 'bg-magenta/10',
+    pillBorderHover: 'border-magenta',
+    pillBgHover: 'bg-magenta/20',
+    bridgeBorder: 'bg-magenta/60',
+    badgeClass: 'text-magenta border-magenta/40 bg-magenta/10',
+    title: 'Technical Director & Agency Scale Firefighting',
+    subtitle: 'Destiny 2 Voice UX, 3 AM Rio Drills & "Co-Design in Code"',
+    focusPills: ['VOICE UX AT BUNGIE', 'RIO 2016 OLYMPICS', 'CO-DESIGN IN CODE', '2,000+ POS SYNC'],
+    
+    modules: [
+      {
+        id: 'module-akqa',
+        company: 'AKQA',
+        role: 'Group Technical Director',
+        shortRole: 'GTD @ AKQA',
+        period: 'FEB 2016 ‒ NOV 2020',
+        location: 'San Francisco, CA',
+        typeLabel: 'EXECUTIVE ROLE',
+        summary: 'Led creative engineering discipline winning 13 major industry awards across Bungie, Nike, Shell, Visa, and Activision. Created #1 gaming skill on Alexa.',
+        highlights: [
+          'Destiny 2 Ghost Alexa Skill (Cannes Silver Lion, Gold Clio, GDC 2018 speaker)',
+          'Managed team of 16 engineers and 80-person department (utilization +12%)'
+        ],
+        metric: '13 Major Industry Awards // 16 Engineers',
+        link: '/portfolio/destiny-2-ghost-companion',
+        linkText: 'VIEW DESTINY 2 GHOST →',
+        milestones: [
+          {
+            id: 'dot-destiny-build',
+            dateLabel: '2017',
+            typeLabel: 'BESPOKE CREATIVE TECH',
+            archetype: 'bespoke-creative-tech',
+            title: 'Destiny 2 Ghost Companion',
+            subtitle: 'Bungie / Activision / Amazon',
+            description: 'Custom Alexa skill inside 3D-printed Ghost shell with real-time Bungie combat API integration and fallback state machines.',
+            metric: '#1 Gaming Skill on Alexa',
+            link: '/portfolio/destiny-2-ghost-companion',
+            linkText: 'READ CASE STUDY →'
+          },
+          {
+            id: 'dot-cannes-silver',
+            dateLabel: '2018',
+            typeLabel: 'INTERNATIONAL HONOR',
+            title: 'Cannes Silver Lion & Gold Clio Awards',
+            subtitle: 'Destiny 2 Ghost Alexa Companion',
+            description: 'Awarded Cannes Silver Lion for Innovative Use of Technology, Gold Clio, and Project Isaac Award for inventing voice UX in AAA gaming.',
+            metric: 'Cannes Silver Lion // Gold Clio',
+            link: 'https://www.canneslions.com/',
+            linkText: 'VIEW CANNES ENTRY ↗'
+          },
+          {
+            id: 'dot-gdc-speaker',
+            dateLabel: 'MAR 2018',
+            typeLabel: 'KEYNOTE TALK',
+            title: 'GDC 2018 Invited Speaker: Voice UX in Gaming',
+            subtitle: 'Game Developers Conference (San Francisco)',
+            description: 'Presented conversational state machine architecture, in-character fallback trees, and combat API integration on behalf of Amazon Games.',
+            metric: 'GDC 2018 Official Presentation',
+            link: 'https://gdconf.com/',
+            linkText: 'VIEW GDC ARCHIVE ↗'
+          },
+          {
+            id: 'dot-cannes-gold',
+            dateLabel: '2017',
+            typeLabel: 'INTERNATIONAL HONOR',
+            title: 'Cannes Gold Lion: Terminal Tours',
+            subtitle: 'Call of Duty Infinite Warfare Social Narrative',
+            description: 'Cannes Gold Lion (Innovative Use of Social) for architecting real-time branching narrative bot scaling to 6M+ interactive user sessions.',
+            metric: 'Cannes Gold Lion // 6M+ Sessions',
+            link: '/portfolio/terminal-tours',
+            linkText: 'READ CASE STUDY →'
+          },
+          {
+            id: 'dot-jiffy-lube',
+            dateLabel: '2017',
+            typeLabel: 'SCALED EMERGING PRODUCT',
+            archetype: 'scaled-emerging-products',
+            title: 'My Jiffy Lube Distributed Telemetry',
+            subtitle: 'Shell / Jiffy Lube Enterprise Architecture',
+            description: 'Synchronized 2,000+ franchise service closet servers to central Salesforce cloud telemetry for real-time customer vehicle tracking.',
+            metric: '2,000+ Franchise POS Servers Synced',
+            link: '/portfolio/my-jiffy-lube',
+            linkText: 'READ CASE STUDY →'
+          },
+          {
+            id: 'dot-optus-house',
+            dateLabel: '2018',
+            typeLabel: 'BESPOKE CREATIVE TECH',
+            archetype: 'bespoke-creative-tech',
+            title: 'Optus House Spatial Smart Home',
+            subtitle: 'Connected Ambient Living Residence',
+            description: 'Turnkey spatial residence built from raw concrete in Sydney integrating ambient Google Home webhooks, microcontrollers, and 3D projection.',
+            metric: 'Turnkey Smart Residence Built from Concrete',
+            link: '/portfolio/optus-house',
+            linkText: 'READ CASE STUDY →'
+          },
+          {
+            id: 'dot-visa-rio',
+            dateLabel: '2016',
+            typeLabel: 'SCALED EMERGING PRODUCT',
+            archetype: 'scaled-emerging-products',
+            title: 'Visa RioPOOL (Rio 2016 Olympics)',
+            subtitle: 'Visa / Uber Real-Time Computer Vision',
+            description: 'In-cab passenger tracking rigs in moving Uber cabs across Rio de Janeiro with UV optical filtration and 3 AM strip mall thermal fixes.',
+            metric: 'Rio 2016 Olympics In-Cab Vision',
+            link: '/portfolio/visa-riopool',
+            linkText: 'READ CASE STUDY →'
+          },
+          {
+            id: 'dot-nike-jordan',
+            dateLabel: '2016',
+            typeLabel: 'BESPOKE CREATIVE TECH',
+            archetype: 'bespoke-creative-tech',
+            title: 'Nike & Jordan Flagship Spatial Systems',
+            subtitle: 'SwooshID & LunarEpic NYC',
+            description: 'Cinder C++ 3D configurators with 1-hour in-store printing in Portland, and 3 AM red-eye supply runs wiring treadmill simulators in NYC.',
+            metric: '1-Hour On-Demand Sneaker Printing',
+            link: '/portfolio/nike-jordan-retail',
+            linkText: 'READ CASE STUDY →'
+          }
+        ]
+      },
+      {
+        id: 'module-pocketchange',
+        company: 'Pocket Change',
+        role: 'VP of Engineering & Product Lead',
+        shortRole: 'VP Eng / Founder',
+        period: 'NOV 2016 ‒ SEP 2017',
+        location: 'Oakland, CA',
+        typeLabel: 'EXECUTIVE ROLE',
+        summary: 'Founded and led behavioral incentivization and micro-reward venture incubation.',
+        highlights: [
+          'Engineered consumer behavioral loops and real-time transaction rewards',
+          'Directed product strategy and early-stage capital formation'
+        ],
+        metric: 'Venture Founder & Product Architect',
+        milestones: [
+          {
+            id: 'dot-pocketchange-build',
+            dateLabel: '2017',
+            typeLabel: 'SCALED EMERGING PRODUCT',
+            title: 'High-Throughput Chatbot Ledger',
+            subtitle: 'Pocket Change Virtual Currency',
+            description: 'Architected microtransaction and virtual reward ledger handling high-concurrency conversational interactions.',
+            metric: 'High-Throughput Virtual Ledger'
+          }
+        ]
+      },
+      {
+        id: 'module-juxt',
+        company: 'JUXT',
+        role: 'Director of Technology',
+        shortRole: 'Director of Tech',
+        period: 'OCT 2014 ‒ JAN 2016',
+        location: 'San Francisco, CA',
+        typeLabel: 'LEADERSHIP ROLE',
+        summary: 'Directed 20-person creative engineering SWAT team pioneering "Co-Design in Code"—pairing designers and developers inside live TouchDesigner and OpenGL shaders.',
+        highlights: [
+          'Delivered 6K curved speed-trivia pavilion for SalesforceIQ at Dreamforce',
+          'Engineered 30-foot interactive curved walls for Sage Summit with VR spatial pre-vis'
+        ],
+        metric: '20-Person SWAT Team // 6K Displays',
+        link: '/portfolio/juxt-interactive-systems',
+        linkText: 'VIEW JUXT SYSTEMS →',
+        milestones: [
+          {
+            id: 'dot-salesforce-iq',
+            dateLabel: '2015',
+            typeLabel: 'BESPOKE CREATIVE TECH',
+            archetype: 'bespoke-creative-tech',
+            title: 'SalesforceIQ 6K Speed-Trivia Pavilion',
+            subtitle: 'Dreamforce Interactive Installation',
+            description: 'Curved multi-display multiplayer trivia pavilion at Dreamforce, swapping cracked 120" display on floor without missing opening keynote.',
+            metric: '6K Curved Real-Time Interactive Canvas',
+            link: '/portfolio/salesforce-iq',
+            linkText: 'READ CASE STUDY →'
+          },
+          {
+            id: 'dot-sage-summit',
+            dateLabel: '2015',
+            typeLabel: 'BESPOKE CREATIVE TECH',
+            archetype: 'bespoke-creative-tech',
+            title: 'Sage Summit 30-Foot Curved Walls',
+            subtitle: 'Spatial Pre-Visualization in VR',
+            description: '30-foot interactive curved wall systems in New Orleans using VR spatial pre-visualization to calibrate sightlines before physical buildout.',
+            metric: '30-Foot Interactive Curved Display',
+            link: '/portfolio/sage-summit',
+            linkText: 'READ CASE STUDY →'
+          },
+          {
+            id: 'dot-juxt-codesign',
+            dateLabel: '2014–15',
+            typeLabel: 'BESPOKE CREATIVE TECH',
+            archetype: 'bespoke-creative-tech',
+            title: 'JUXT "Co-Design in Code" Framework',
+            subtitle: 'Live Shader & TouchDesigner Prototyping',
+            description: 'Pioneered rapid co-design workflow eliminating static mockups for NFL, Cisco, and IBM.',
+            metric: '15+ Interactive Deployments',
+            link: '/portfolio/juxt-interactive-systems',
+            linkText: 'READ CASE STUDY →'
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'act-4',
+    actNum: 'ACT IV',
+    period: '2010 – 2014',
+    themeColor: 'gold',
+    glowClass: 'heading-glow-gold',
+    dotBg: 'bg-gold',
+    dotBorder: 'border-gold/60 ring-gold/30',
+    pillBorder: 'border-gold/40',
+    pillBg: 'bg-gold/10',
+    pillBorderHover: 'border-gold',
+    pillBgHover: 'bg-gold/20',
+    bridgeBorder: 'bg-gold/60',
+    badgeClass: 'text-gold border-gold/40 bg-gold/10',
+    title: 'Creative Technology, GPU Shaders & 6 US Patents',
+    subtitle: 'Performative Code, 60fps Shaders & Meta Acquisition',
+    focusPills: ['6 US PATENTS', '60FPS SHADERS', 'META ACQUISITION', 'ZERO1 VJ SETS'],
+    
+    modules: [
+      {
+        id: 'module-eyegroove',
+        company: 'Eyegroove',
+        role: 'Lead Back-End Engineer',
+        shortRole: 'Lead Back-End Eng',
+        period: 'OCT 2013 ‒ OCT 2014',
+        location: 'San Francisco, CA',
+        typeLabel: 'CORE TEAM / INVENTOR',
+        summary: 'Solo-architected distributed cloud transcoding pipelines, audio feature extraction, and real-time GPU shader pipelines. Resulted in 6 US Patents; acquired by Facebook (Meta) in 2016.',
+        highlights: [
+          'Built 60fps mobile GPU shader pipelines in unheated warehouse with Scott Snibbe',
+          'Co-authored 6 issued US Utility Patents powering modern short-form video'
+        ],
+        metric: '6 US Patents // Acquired by Meta',
+        link: '/portfolio/eyegroove-video-platform',
+        linkText: 'VIEW EYEGROOVE CASE STUDY →',
+        milestones: [
+          {
+            id: 'dot-eyegroove-build',
+            dateLabel: '2014',
+            typeLabel: 'SCALED EMERGING PRODUCT',
+            archetype: 'scaled-emerging-products',
+            title: 'Eyegroove Real-Time Video Platform',
+            subtitle: 'Mobile GPU Shaders & Cloud Pipelines (Acquired by Meta)',
+            description: 'Real-time 60fps video with GPU shaders, gesture-driven timelines, and audio-reactive effects running natively on mobile hardware before TikTok existed.',
+            metric: '60fps GPU Mobile Pipelines // Acquired by Meta',
+            link: '/portfolio/eyegroove-video-platform',
+            linkText: 'READ CASE STUDY →'
+          },
+          {
+            id: 'dot-patent-10031921',
+            dateLabel: '2018',
+            typeLabel: 'US UTILITY PATENT',
+            title: 'US Patent US10031921: Media Metadata Storage',
+            subtitle: 'Methods & systems for storage of media item metadata',
+            description: 'Utility patent for efficient metadata indexing, state persistence, and distributed media storage pipelines in mobile interactive systems.',
+            metric: 'Issued US Patent US10031921',
+            link: 'https://patentimages.storage.googleapis.com/79/7f/89/eddaa4e967dd7b/US10031921.pdf',
+            linkText: 'VIEW PATENT PDF (USPTO) ↗'
+          },
+          {
+            id: 'dot-patent-10002642',
+            dateLabel: '2018',
+            typeLabel: 'US UTILITY PATENT',
+            title: 'US Patent US10002642: Generating Media Items',
+            subtitle: 'Methods & devices for generating media items',
+            description: 'Interactive runtime mechanisms for compositing dynamic multimedia elements with real-time hardware telemetry and live filters.',
+            metric: 'Issued US Patent US10002642',
+            link: 'https://patentimages.storage.googleapis.com/4d/9d/8e/0797db550ad9eb/US10002642.pdf',
+            linkText: 'VIEW PATENT PDF (USPTO) ↗'
+          },
+          {
+            id: 'dot-patent-9268787',
+            dateLabel: '2016',
+            typeLabel: 'US UTILITY PATENT',
+            title: 'US Patent US9268787: Synchronizing Media Items',
+            subtitle: 'Methods & devices for synchronizing & sharing media items',
+            description: 'Distributed peer synchronization and real-time state sharing architectures across heterogeneous mobile devices.',
+            metric: 'Issued US Patent US9268787',
+            link: 'https://patentimages.storage.googleapis.com/44/84/f5/f17376b186928e/US9268787.pdf',
+            linkText: 'VIEW PATENT PDF (USPTO) ↗'
+          },
+          {
+            id: 'dot-patent-9207857',
+            dateLabel: '2015',
+            typeLabel: 'US UTILITY PATENT',
+            title: 'US Patent US9207857: Presenting Interactive Media',
+            subtitle: 'Methods & devices for presenting interactive media items',
+            description: 'Responsive presentation systems for time-synced interactive multimedia overlays and live touch feedback.',
+            metric: 'Issued US Patent US9207857',
+            link: 'https://patentimages.storage.googleapis.com/cb/31/8d/9e75b31776b79c/US9207857.pdf',
+            linkText: 'VIEW PATENT PDF (USPTO) ↗'
+          },
+          {
+            id: 'dot-patent-9207844',
+            dateLabel: '2015',
+            typeLabel: 'US UTILITY PATENT',
+            title: 'US Patent US9207844: Touch-Based Media Creation',
+            subtitle: 'Methods & devices for touch-based media creation',
+            description: 'Touch-first gesture mapping and tactile video shader manipulation algorithms for mobile creative tools.',
+            metric: 'Issued US Patent US9207844',
+            link: 'https://patentimages.storage.googleapis.com/76/f7/bf/9e0762caa6e457/US9207844.pdf',
+            linkText: 'VIEW PATENT PDF (USPTO) ↗'
+          },
+          {
+            id: 'dot-patent-9116912',
+            dateLabel: '2015',
+            typeLabel: 'US UTILITY PATENT',
+            title: 'US Patent US9116912: Modifying Media Items',
+            subtitle: 'Methods & devices for modifying pre-existing media items',
+            description: 'Non-destructive pipeline architectures for real-time video filter synthesis and audio-reactive timeline warping.',
+            metric: 'Issued US Patent US9116912',
+            link: 'https://patentimages.storage.googleapis.com/b6/b2/05/30b15e82006751/US9116912.pdf',
+            linkText: 'VIEW PATENT PDF (USPTO) ↗'
+          }
+        ]
+      },
+      {
+        id: 'module-huge-2012',
+        company: 'Huge',
+        role: 'Senior Creative Technologist & Tech Lead',
+        shortRole: 'Lead Technologist',
+        period: 'MAY 2012 ‒ FEB 2013',
+        location: 'Los Angeles, CA',
+        typeLabel: 'TECHNICAL LEAD',
+        summary: 'Architected enterprise technical architectures, multi-platform discovery, and client systems integration.',
+        highlights: [
+          'Enterprise solution design and distributed cloud systems architecture',
+          'Technical discovery and client capability roadmaps'
+        ],
+        metric: 'Nike SwooshID // Air Quest',
+        milestones: [
+          {
+            id: 'dot-air-quest',
+            dateLabel: '2013',
+            typeLabel: 'BESPOKE CREATIVE TECH',
+            archetype: 'bespoke-creative-tech',
+            title: 'Air Quest Environmental Sensor Network',
+            subtitle: 'UC Berkeley Civic Health Research',
+            description: 'Gamified mobile environmental sensor interface measuring urban air quality and respiratory health correlations.',
+            metric: 'UC Berkeley Sensor Network',
+            link: '/portfolio/air-quest',
+            linkText: 'READ CASE STUDY →'
+          }
+        ]
+      },
+      {
+        id: 'module-ucsc-art',
+        company: 'UC Santa Cruz & ZERO1',
+        role: 'MFA Researcher & Media Artist',
+        shortRole: 'MFA Researcher',
+        period: 'SEP 2010 ‒ JUN 2012',
+        location: 'Santa Cruz & San Jose, CA',
+        typeLabel: 'ACADEMIC RESEARCH',
+        summary: 'Research in computational aesthetics, software art, and interactive physical systems.',
+        highlights: [
+          'Exhibited network art at Eyebeam NYC and ZERO1 Biennial',
+          'Creators Project SF Honorable Mention for WebGL Flying Toasters'
+        ],
+        metric: 'Computational Media Research',
+        milestones: [
+          {
+            id: 'dot-ucsc-mfa-degree',
+            dateLabel: '2012',
+            typeLabel: 'ACADEMIC DEGREE',
+            title: 'UCSC DANM MFA Terminal Degree',
+            subtitle: 'Digital Arts & New Media',
+            description: 'Terminal graduate MFA exploring software as art, algorithmic criticism, and robotic drawing machines.',
+            metric: 'Terminal Graduate MFA Degree',
+            link: '/portfolio/software-as-art-thesis',
+            linkText: 'VIEW THESIS →'
+          },
+          {
+            id: 'dot-zero1',
+            dateLabel: '2012',
+            typeLabel: 'BESPOKE CREATIVE TECH',
+            archetype: 'bespoke-creative-tech',
+            title: 'ZERO1 Biennial & Eyebeam NYC Exhibits',
+            subtitle: 'Live Projection VJ Sets & WebGL Flying Toasters',
+            description: 'Live projection-mapped VJ performances in San Jose and network art installations exhibited at Eyebeam NYC.',
+            metric: 'Creators Project SF Award // ZERO1 Biennial',
+            link: '/portfolio/zero1-eyebeam-exhibits',
+            linkText: 'READ CASE STUDY →'
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    id: 'act-5',
+    actNum: 'ACT V',
+    period: '1995 – 2010',
+    themeColor: 'lime',
+    glowClass: 'heading-glow-lime',
+    dotBg: 'bg-lime',
+    dotBorder: 'border-lime/60 ring-lime/30',
+    pillBorder: 'border-lime/40',
+    pillBg: 'bg-lime/10',
+    pillBorderHover: 'border-lime',
+    pillBgHover: 'bg-lime/20',
+    bridgeBorder: 'bg-lime/60',
+    badgeClass: 'text-lime border-lime/40 bg-lime/10',
+    title: 'The Hacker & Experimental Foundations',
+    subtitle: 'Cognitive Models, Robotic Plotters & The First Disney Breadboard',
+    focusPills: ['DISNEY SPECIAL PROJECTS', 'DANM MFA FELLOWSHIP', 'CIVIC DATA', 'JOHNS HOPKINS CS & PSYCH'],
+    
+    modules: [
+      {
+        id: 'module-huge-2009',
+        company: 'Huge',
+        role: 'Experience Technologist',
+        shortRole: 'Exp Technologist',
+        period: 'SEP 2009 ‒ AUG 2010',
+        location: 'New York, NY',
+        typeLabel: 'DEVELOPMENT',
+        summary: 'Built rich front-end interfaces, dynamic templates, and high-performance interactive web systems.',
+        highlights: [
+          'High-fidelity interactive front-end web development',
+          'Pixel-precise typography and responsive layout engineering'
+        ],
+        metric: 'Front-End Interactive Engineering',
+        milestones: [
+          {
+            id: 'dot-huge-dev',
+            dateLabel: '2009–10',
+            typeLabel: 'CREATIVE TECH',
+            title: 'Interactive Web Systems & Prototyping',
+            subtitle: 'Fortune 500 Agency Prototyping',
+            description: 'Engineered high-fidelity responsive front-ends and interactive prototypes for global brand transformations.',
+            metric: 'Agency Interactive Engineering'
+          }
+        ]
+      },
+      {
+        id: 'module-disney',
+        company: 'Disney Experiences',
+        role: 'Senior Web Developer & Special Projects',
+        shortRole: 'Sr Dev / Special Projects',
+        period: 'OCT 2006 ‒ SEP 2009',
+        location: 'Glendale, CA',
+        typeLabel: 'SKUNKWORKS & DEV',
+        summary: 'Special Projects skunkworks: wired the original RFID hardware breadboard prototypes in hotel mockups catalyzing the MagicBand & MyMagic+ rollout.',
+        highlights: [
+          'Wired RFID receivers, microcontrollers, and serial relays into hotel mockups',
+          'Proved seamless guest tap-to-unlock and room itinerary personalization'
+        ],
+        metric: 'Billion-Dollar MagicBand Catalyst',
+        link: '/portfolio/my-disney-experience',
+        linkText: 'VIEW DISNEY CASE STUDY →',
+        milestones: [
+          {
+            id: 'dot-disney-breadboard',
+            dateLabel: '2009–10',
+            typeLabel: 'SCALED EMERGING PRODUCT',
+            archetype: 'scaled-emerging-products',
+            title: 'My Disney Experience & MagicBand Prototype',
+            subtitle: 'Disney Parks Special Projects Skunkworks',
+            description: 'The first physical RFID breadboard prototype proving a guest could tap a wristband to wake up a hotel room, sparking Disney\'s billion-dollar MagicBand platform.',
+            metric: 'Original RFID Breadboard Prototype',
+            link: '/portfolio/my-disney-experience',
+            linkText: 'READ CASE STUDY →'
+          }
+        ]
+      },
+      {
+        id: 'module-ucsc-danm-res',
+        company: 'UC Santa Cruz (DANM)',
+        role: 'DANM Research Fellow',
+        shortRole: 'DANM Fellow',
+        period: 'AUG 2008 ‒ JUN 2010',
+        location: 'Santa Cruz, CA',
+        typeLabel: 'ACADEMIC FELLOW',
+        summary: 'Graduate Research Fellowship. Algorithmic culture, computational media, physical robotics, and interactive environments.',
+        highlights: [
+          'Saving Mary Jessica custom CNC robotic pen plotter',
+          'Captchafy anti-OCR algorithms and crowdsourced computer vision training'
+        ],
+        metric: 'Graduate Research Fellowship',
+        link: '/portfolio/software-as-art-thesis',
+        linkText: 'VIEW MFA THESIS →',
+        milestones: [
+          {
+            id: 'dot-software-art',
+            dateLabel: '2009',
+            typeLabel: 'BESPOKE CREATIVE TECH',
+            archetype: 'bespoke-creative-tech',
+            title: 'Software as Art Thesis: Saving Mary Jessica',
+            subtitle: 'Custom CNC Robotic Pen Plotter & Captchafy',
+            description: 'Algorithmic curation critique translating search engine bias into physical ink bleeds, and adversarial anti-OCR image rendering.',
+            metric: 'Custom CNC Robotics & Anti-OCR',
+            link: '/portfolio/software-as-art-thesis',
+            linkText: 'READ CASE STUDY →'
+          },
+          {
+            id: 'dot-danm-fellowship',
+            dateLabel: '2009',
+            typeLabel: 'FELLOWSHIP AWARD',
+            title: 'DANM Graduate Research Fellowship',
+            subtitle: 'UC Santa Cruz Digital Arts & New Media',
+            description: 'Awarded full academic merit fellowship for research in expressive software, algorithmic bias, and physical robotics.',
+            metric: 'Full Academic Research Fellowship',
+            link: '/portfolio/software-as-art-thesis',
+            linkText: 'VIEW RESEARCH →'
+          },
+          {
+            id: 'dot-wildlife-tracker',
+            dateLabel: '2009',
+            typeLabel: 'BESPOKE CREATIVE TECH',
+            archetype: 'bespoke-creative-tech',
+            title: 'UCSC Wildlife Tracker Citizen Science',
+            subtitle: 'Facebook Gamified Computer Vision Labeling',
+            description: 'ESP-inspired game crowdsourcing camera-trap wildlife labels across the Santa Cruz Mountains to train early computer vision datasets.',
+            metric: 'Early Computer Vision Dataset Crowdsourcing',
+            link: '/portfolio/ucsc-wildlife-tracker',
+            linkText: 'READ CASE STUDY →'
+          }
+        ]
+      },
+      {
+        id: 'module-vmt',
+        company: 'VMT LLC',
+        role: 'Founding Software Engineer',
+        shortRole: 'Founding Engineer',
+        period: 'APR 2005 ‒ AUG 2006',
+        location: 'Baltimore, MD',
+        typeLabel: 'EARLY ENGINEERING',
+        summary: 'Software engineering, database architecture, and backend systems programming.',
+        highlights: [
+          'Relational database architecture and query optimization',
+          'Core application logic and backend systems programming'
+        ],
+        metric: 'Foundational Systems Engineering',
+        milestones: [
+          {
+            id: 'dot-vmt-video',
+            dateLabel: '2005–06',
+            typeLabel: 'CREATIVE TECH',
+            title: 'Real-Time Video Surveillance & Streaming',
+            subtitle: 'Low-Latency C++ Video Pipelines',
+            description: 'Low-latency C++ video streaming pipelines and motion-detection algorithms.',
+            metric: 'Foundational Systems Engineering'
+          }
+        ]
+      },
+      {
+        id: 'module-jhu',
+        company: 'Johns Hopkins University',
+        role: 'BA Computer Science & BA Psychology',
+        shortRole: 'Dual BA CS & Psych',
+        period: 'AUG 2001 ‒ DEC 2004',
+        location: 'Baltimore, MD',
+        typeLabel: 'ACADEMIC DEGREE',
+        summary: 'Dual degree simultaneously pursuing Computer Science and Psychology. Software engineering, cognitive models, human perception, and HCI.',
+        highlights: [
+          'Algorithms, data structures, systems programming, and computer graphics',
+          'Perceptual psychology, cognitive mental models, and decision-making'
+        ],
+        metric: 'Dual Degree: CS & Psychology',
+        milestones: [
+          {
+            id: 'dot-jhu-degree',
+            dateLabel: '2004',
+            typeLabel: 'ACADEMIC DEGREE',
+            title: 'Dual BA: Computer Science & Psychology',
+            subtitle: 'Johns Hopkins University',
+            description: 'Dual degree simultaneously pursuing Computer Science and Psychology. Software engineering, cognitive models, human perception, and HCI.',
+            metric: 'Dual BA CS & Psychology'
+          }
+        ]
+      }
+    ]
   }
 ];
-
-const awards = achievements.filter(a => a.data.type === 'award');
 ---
 
 <BaseLayout 
-  title="Pedigree & Leadership // Jesse Fulton"
-  description="Leadership pedigree, executive roles, 6 utility patents, and international innovation awards."
+  title="30-Year Career Retrospective & Temporal HUD // Jesse Fulton"
+  description="Reverse-chronological career retrospective combining first-person narrative memoir with a sleek interactive temporal HUD rail spanning 30 years of roles, 6 US patents, Cannes Lions, and verified builds."
 >
   <Header />
 
-  <main class="max-w-6xl mx-auto px-6 py-12 md:py-16">
-    <!-- Header Section with View Switcher -->
-    <header class="border-b border-charcoal/80 pb-10 mb-12 flex flex-col md:flex-row md:items-end justify-between gap-6">
-      <div>
-        <div class="flex items-center gap-2 mb-3">
-          <span class="w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
-          <span class="font-mono text-xs text-gold uppercase tracking-widest font-semibold">
-            // CAREER PEDIGREE // 20-YEAR LEADERSHIP RETROSPECTIVE
-          </span>
-        </div>
-        <h1 class="text-4xl md:text-5xl font-display font-bold tracking-tight mb-4 heading-glow-gold">
-          Experience & Impact
-        </h1>
-        <p class="text-titanium-muted max-w-2xl text-base font-light leading-relaxed">
-          Over 18 years of technical executive leadership across venture design, distributed developer platforms, conversational AI companions, and connected spatial experiences.
-        </p>
+  <main class="max-w-7xl mx-auto px-6 py-12 md:py-16">
+    <!-- Top Hero Section -->
+    <header class="border-b border-charcoal/80 pb-10 mb-8">
+      <div class="flex items-center gap-2 mb-3">
+        <span class="w-2 h-2 rounded-full bg-gold animate-pulse"></span>
+        <span class="font-mono text-xs text-gold uppercase tracking-widest font-semibold">
+          // CAREER RETROSPECTIVE // 30-YEAR EVOLUTION // 1995 – PRESENT
+        </span>
       </div>
-
-      <!-- View Switcher -->
-      <div class="flex items-center gap-2 p-1.5 rounded-lg border border-charcoal bg-obsidian">
-        <a 
-          href="/experience" 
-          class="font-mono text-xs px-3.5 py-1.5 rounded bg-gold text-obsidian font-semibold transition-colors shadow-glow-gold"
-        >
-          [ CARDS VIEW ]
-        </a>
-        <a 
-          href="/experience/timeline" 
-          class="font-mono text-xs px-3.5 py-1.5 rounded text-titanium-muted hover:text-titanium hover:bg-charcoal/40 transition-colors"
-        >
-          [ TIMELINE VIEW ]
-        </a>
-      </div>
+      <h1 class="text-4xl md:text-6xl font-display font-bold tracking-tight mb-4 heading-glow-gold">
+        The Unpaved Road
+      </h1>
+      <p class="text-titanium-muted max-w-3xl text-base md:text-lg font-light leading-relaxed">
+        My career has never been a sterile corporate ladder. It has been a thirty-year collision between radical creative curiosity and unforgiving engineering realities—starting on physical breadboards at Disney, freezing in unheated warehouses writing GPU shaders with Scott Snibbe, drilling enclosures at 3 AM in Rio during the Olympics, and running 72 liquid-cooled supercomputers off-grid in Iowa.
+      </p>
     </header>
 
-    <!-- Quick Jump Sub-Navigation -->
-    <div class="flex flex-wrap gap-3 mb-16 pb-4 border-b border-charcoal/60 font-mono text-xs">
-      <a href="#roles" class="px-3 py-1 rounded bg-charcoal/30 text-titanium hover:border-gold hover:text-gold border border-charcoal transition-colors">
-        [ EXECUTIVE ROLES ({sortedRoles.length}) ]
+    <!-- Sticky Act Jump Navigation Bar -->
+    <nav class="sticky top-[69px] z-40 bg-obsidian/95 backdrop-blur-md border-y border-charcoal/80 py-3.5 mb-16 -mx-6 px-6 flex items-center justify-between gap-4 overflow-x-auto">
+      <div class="flex items-center gap-2 min-w-max">
+        <span class="font-mono text-[11px] text-titanium-muted uppercase tracking-wider hidden sm:inline mr-2">
+          JUMP TO ERA:
+        </span>
+        <a 
+          href="#act-1" 
+          class="font-mono text-xs px-3 py-1.5 rounded bg-charcoal/40 border border-charcoal text-cyan hover:border-cyan hover:bg-cyan/10 transition-all font-semibold"
+        >
+          [ ACT I // 2022–NOW ]
+        </a>
+        <a 
+          href="#act-2" 
+          class="font-mono text-xs px-3 py-1.5 rounded bg-charcoal/40 border border-charcoal text-gold hover:border-gold hover:bg-gold/10 transition-all font-semibold"
+        >
+          [ ACT II // 2018–2022 ]
+        </a>
+        <a 
+          href="#act-3" 
+          class="font-mono text-xs px-3 py-1.5 rounded bg-charcoal/40 border border-charcoal text-magenta hover:border-magenta hover:bg-magenta/10 transition-all font-semibold"
+        >
+          [ ACT III // 2014–2018 ]
+        </a>
+        <a 
+          href="#act-4" 
+          class="font-mono text-xs px-3 py-1.5 rounded bg-charcoal/40 border border-charcoal text-gold hover:border-gold hover:bg-gold/10 transition-all font-semibold"
+        >
+          [ ACT IV // 2010–2014 ]
+        </a>
+        <a 
+          href="#act-5" 
+          class="font-mono text-xs px-3 py-1.5 rounded bg-charcoal/40 border border-charcoal text-lime hover:border-lime hover:bg-lime/10 transition-all font-semibold"
+        >
+          [ ACT V // 1995–2010 ]
+        </a>
+      </div>
+
+      <a 
+        href="/portfolio" 
+        class="font-mono text-xs px-3 py-1.5 rounded border border-charcoal bg-obsidian text-titanium hover:border-gold hover:text-gold transition-colors min-w-max hidden md:block"
+      >
+        FULL 20-PROJECT CATALOG →
       </a>
-      <a href="#patents" class="px-3 py-1 rounded bg-charcoal/30 text-gold hover:border-gold border border-charcoal transition-colors">
-        [ 6 US PATENTS ]
-      </a>
-      <a href="#awards" class="px-3 py-1 rounded bg-charcoal/30 text-magenta hover:border-magenta border border-charcoal transition-colors">
-        [ HONORS & AWARDS ({awards.length}) ]
-      </a>
-      <a href="#education" class="px-3 py-1 rounded bg-charcoal/30 text-lime hover:border-lime border border-charcoal transition-colors">
-        [ ACADEMIC FOUNDATION ]
-      </a>
+    </nav>
+
+    <!-- Master 5-Act Narrative & Interactive HUD Streams -->
+    <div class="space-y-28 md:space-y-36">
+
+      {acts.map((act) => (
+        <section id={act.id} class="scroll-mt-36 border-t border-charcoal pt-10">
+          
+          <!-- Act Header Banner -->
+          <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 pb-8 mb-10 border-b border-charcoal/60">
+            <div>
+              <div class="flex items-center gap-2 mb-2">
+                <span class={`w-2.5 h-2.5 rounded-full ${act.dotBg} animate-pulse`}></span>
+                <span class={`font-mono text-xs font-bold ${act.themeColor === 'cyan' ? 'text-cyan' : (act.themeColor === 'magenta' ? 'text-magenta' : (act.themeColor === 'lime' ? 'text-lime' : 'text-gold'))} uppercase tracking-widest`}>
+                  {act.actNum} // {act.period} // {act.title}
+                </span>
+              </div>
+              <h2 class={`text-3xl md:text-4xl font-display font-bold text-titanium mt-0 mb-2 ${act.glowClass}`}>
+                {act.subtitle}
+              </h2>
+            </div>
+
+            <div class="flex flex-wrap gap-2">
+              {act.focusPills.map(pill => (
+                <span class={`font-mono text-[10px] px-2.5 py-1 rounded border uppercase font-bold ${act.badgeClass}`}>
+                  {pill}
+                </span>
+              ))}
+            </div>
+          </div>
+
+          <!-- 2-Column Grid: Narrative Left (7 Cols) + Sleek Temporal HUD Rail Right (5 Cols) -->
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-start">
+            
+            <!-- LEFT COLUMN: Gonzo Narrative Story (Strictly First-Person) -->
+            <div class="lg:col-span-7 space-y-6 text-base text-titanium/90 font-light leading-relaxed">
+              
+              {act.id === 'act-1' && (
+                <>
+                  <p>
+                    We start at the bleeding edge. While public tech discourse remains caught up in consumer chatbot wrappers and vanity benchmarks, the actual engineering crucible is where compute physics collide head-on with deterministic agent runtimes.
+                  </p>
+                  <p>
+                    At <a href="/portfolio/cato-green-ai" class="text-gold underline font-medium">Cato Digital</a>, as Chief of Staff to the CEO, we set out to break the hyperscaler monopoly on compute by commercializing circular second-life silicon. In our most intense operational sprint, our team racked and unified <strong>72 liquid-cooled NVIDIA DGX-2 supercomputers</strong> in an off-grid Iowa datacenter in under 24 hours. We built custom power-distribution SLAs, re-engineered cooling matrices, and developed data-driven forecasting models that increased company valuation by $25M+ following back-to-back down-rounds.
+                  </p>
+                  
+                  <div class="punk-panel p-6 bg-obsidian border-l-4 border-l-cyan my-6">
+                    <div class="font-mono text-xs text-cyan uppercase tracking-wider font-bold mb-2">
+                      // CRITICAL FIELD NOTE: DETERMINISTIC AGENT EVALS
+                    </div>
+                    <p class="text-xs sm:text-sm text-titanium-muted leading-relaxed font-light mb-0">
+                      "In healthcare, a hallucination isn't a glitch—it's a clinical violation. When an AI agent conducts patient intake on chronic sleep or metabolic risk, auditors demand zero-tolerance compliance and step-by-step reasoning inspection. If you can't prove why an agent made a clinical inference, it has no business in production."
+                    </p>
+                  </div>
+
+                  <p>
+                    At <a href="/portfolio/thrive-ai-health" class="text-cyan underline font-medium">Thrive AI Health</a>, I stepped into exactly that arena as Principal Product Engineer. There were no established playbooks for deploying autonomous generative agents into clinical behavior change. I architected deterministic agent orchestration runtimes, context compilation pipelines, and synthetic conversation simulators. Building automated regression test harnesses and HIPAA audit controls gave our engineering team the confidence to accelerate developer velocity by 5x while reducing infrastructure costs by 40%.
+                  </p>
+                  <p>
+                    Beyond operational builds, I regularly advise enterprise executives, sovereign AI initiatives, and high-velocity founders—bringing thirty years of multidisciplinary breadth and deep technical spikes to separate durable systems architecture from vendor slideware.
+                  </p>
+                </>
+              )}
+
+              {act.id === 'act-2' && (
+                <>
+                  <p>
+                    If the first decade of my career was about proving I could build anything with code, hardware, and raw persistence, this chapter was about an equally critical discipline: technical brilliance is useless if the business model is broken or organizational politics paralyze execution.
+                  </p>
+                  <p>
+                    At Code & Theory, I directed product management and engineering for <a href="/portfolio/pwc-enterprise-alignment" class="text-gold underline font-medium">PwC Sightline</a> ($50B+ corporate tax practice). Senior equity partners spoke exclusively in spreadsheets, had seen multiple design agencies flame out, and harbored deep skepticism toward agency jargon. Rather than presenting polished static mockups, I designed an iterative 9-month research and prototype roadshow across 9 multibillion-dollar business units—conducting 100+ partner interviews and stress-testing 50+ rapid prototypes. We turned a modest $60k discovery pilot into the agency's #1 account by revenue, growing revenue 20x in six months and securing three years of additional project funding.
+                  </p>
+                  <p>
+                    At Coinbase, following the acquisition of Bison Trails, I served as Product Manager for Developer Platform, tasked with transforming $30B+ in institutional staking infrastructure into a self-serve Web3 developer ecosystem. I standardized API primitives and developer workflows across 25+ distinct blockchains while deploying customizable telemetry dashboards across 60,000 nodes deployed on 32 blockchain protocols.
+                  </p>
+                  <p>
+                    To formalize twenty years of operational gut intuition with institutional rigor, I completed my Master of Science in Innovation & Entrepreneurship (MSIE) at <a href="/portfolio/hec-paris-venture-design" class="text-gold underline font-medium">HEC Paris</a>. Anchoring my engineering background in corporate finance, unit economic modeling, and venture incubation frameworks gave me the vocabulary to bridge boardrooms and engineering trenches seamlessly.
+                  </p>
+                </>
+              )}
+
+              {act.id === 'act-3' && (
+                <>
+                  <p>
+                    This was the high-wire act of global agency firefighting. When Fortune 50 clients commit millions to international launches, there is no safety net, no sandbox mode, and no "we'll patch it in sprint four."
+                  </p>
+                  <p>
+                    At <a href="/portfolio/juxt-interactive-systems" class="text-gold underline font-medium">JUXT</a>, as Director of Technology, I directed a 20-person creative engineering SWAT team. We banned static Figma handoffs and pioneered <em>"Co-Design in Code"</em>—pairing visual designers and developers directly inside live TouchDesigner nodes, GLSL shaders, and React canvases. At Dreamforce, we delivered the <a href="/portfolio/salesforce-iq" class="text-gold underline font-medium">SalesforceIQ 6K curved speed-trivia pavilion</a> (swapping a cracked 120" display on the floor during load-in without missing the keynote). For <a href="/portfolio/sage-summit" class="text-gold underline font-medium">Sage Summit</a> in New Orleans, we engineered 30-foot interactive curved walls using VR spatial pre-visualization to calibrate sightlines before physical buildout.
+                  </p>
+                  <p>
+                    Moving to AKQA as Group Technical Director escalated the operational stakes:
+                  </p>
+
+                  <div class="space-y-4 my-6">
+                    <div class="punk-panel p-6 bg-obsidian border-l-4 border-l-magenta">
+                      <div class="font-mono text-xs text-magenta uppercase tracking-wider font-bold mb-1">
+                        // DESTINY 2 GHOST COMPANION (BUNGIE / ACTIVISION / AMAZON)
+                      </div>
+                      <p class="text-xs sm:text-sm text-titanium/90 font-light leading-relaxed mb-0">
+                        We packed a custom Alexa skill into a 3D-printed Ghost, flew to Bungie HQ in Bellevue, and literally invented the rules of Voice UX for live AAA console gaming. Working around Bungie's strict combat API rate limits, we designed in-character dialog fallback state machines for Nolan North's voice lines, earning a Cannes Silver Lion, Gold Clio, Project Isaac Award, and presenting our findings at GDC 2018 on behalf of Amazon Games.
+                      </p>
+                    </div>
+
+                    <div class="punk-panel p-6 bg-obsidian border-l-4 border-l-cyan">
+                      <div class="font-mono text-xs text-cyan uppercase tracking-wider font-bold mb-1">
+                        // VISA RIOPOOL (RIO 2016 OLYMPICS / UBER)
+                      </div>
+                      <p class="text-xs sm:text-sm text-titanium/90 font-light leading-relaxed mb-0">
+                        We mounted real-time computer vision rigs into moving Uber cabs across Rio de Janeiro. We battled optical IR washout with specialized UV window film, tracked down a power drill at 3 AM from an Uber driver's brother in a strip mall to punch thermal holes in overheating enclosures, and rescued an unplugged router minutes before the international press arrived.
+                      </p>
+                    </div>
+
+                    <div class="punk-panel p-6 bg-obsidian border-l-4 border-l-lime">
+                      <div class="font-mono text-xs text-lime uppercase tracking-wider font-bold mb-1">
+                        // NIKE & JORDAN FLAGSHIP SPATIAL SYSTEMS
+                      </div>
+                      <p class="text-xs sm:text-sm text-titanium/90 font-light leading-relaxed mb-0">
+                        Built Cinder C++ 3D configurators with 1-hour in-store sneaker printing in Portland (SwooshID), and executed 3 AM red-eye Manhattan supply runs to wire interactive treadmill simulators across three NYC flagships (LunarEpic).
+                      </p>
+                    </div>
+                  </div>
+
+                  <p>
+                    Simultaneously, for Shell and <a href="/portfolio/my-jiffy-lube" class="text-cyan underline font-medium">My Jiffy Lube</a>, we architected distributed data pipelines synchronizing 2,000+ franchise service closet servers directly to central Salesforce cloud telemetry.
+                  </p>
+                </>
+              )}
+
+              {act.id === 'act-4' && (
+                <>
+                  <p>
+                    The early 2010s were the golden era of creative computing—a wild frontier where GPUs were just landing in mobile pockets and the browser was suddenly capable of hardware-accelerated 3D rendering.
+                  </p>
+                  <p>
+                    I was performing live projection-mapped VJ sets at the <a href="/portfolio/zero1-eyebeam-exhibits" class="text-gold underline font-medium">ZERO1 Biennial</a> in San Jose, exhibiting network art at Eyebeam NYC, and coding WebGL tributes like <em>Flying Toasters</em> (earning Honorable Mention at The Creators Project SF).
+                  </p>
+                  <p>
+                    Then interactive media pioneer Scott Snibbe recruited me to <a href="/portfolio/eyegroove-video-platform" class="text-gold underline font-medium">Eyegroove</a> as Lead Back-End Engineer. Long before TikTok, Musical.ly, or Instagram Stories existed, our premise was simple: the mobile phone is an expressive, performative instrument. We set out to build real-time interactive video with GPU shaders, gesture-driven timelines, and audio-reactive effects running at 60fps directly on mobile hardware.
+                  </p>
+
+                  <div class="punk-panel p-6 bg-obsidian border-l-4 border-l-gold my-6">
+                    <div class="font-mono text-xs text-gold uppercase tracking-wider font-bold mb-2">
+                      // THE RUNTIME CRUCIBLE: UNHEATED WAREHOUSE SHADERS
+                    </div>
+                    <p class="text-xs sm:text-sm text-titanium-muted leading-relaxed font-light mb-0">
+                      "We operated out of an unheated San Francisco warehouse where my desk was parked directly outside the bathroom door. I sat there in heavy winter coats solo-architecting the distributed cloud transcoding pipeline from scratch—asynchronous video encoding across multiple bitrates and codecs for adaptive HLS streaming, plus acoustic feature extraction for music recommendations, scaling to 40k DAUs."
+                    </p>
+                  </div>
+
+                  <p>
+                    Collaborating directly with Scott on mathematical interaction models resulted in <strong>6 issued US Utility Patents</strong> covering touch choreography, real-time media modification, and distributed state synchronization. In 2016, Eyegroove was acquired by Facebook (Meta), infusing our patents and shader pipelines directly into Instagram Reels and Meta AR cameras.
+                  </p>
+                </>
+              )}
+
+              {act.id === 'act-5' && (
+                <>
+                  <p>
+                    Everything began with a foundational curiosity: how machines execute logic, and how the human mind interprets meaning.
+                  </p>
+                  <p>
+                    At Johns Hopkins University, I pursued Computer Science and Psychology simultaneously. That dual foundation established an invariant that has guided my entire career: computer science is only half the battle. If a system doesn't align with human mental models, cognitive limits, and perceptual attention, its architecture is essentially useless.
+                  </p>
+                  <p>
+                    At UC Santa Cruz, during my Digital Arts & New Media (DANM) graduate research fellowship, I treated code as an adversarial cultural medium. In 2009—years before the term "Filter Bubble" was coined—my <a href="/portfolio/software-as-art-thesis" class="text-lime underline font-medium">Software as Art Thesis</a> investigated algorithmic curation and attention commodification. I built <em>Saving Mary Jessica</em> (a custom CNC robotic pen plotter translating search engine bias into physical ink bleeds), <em>Captchafy</em> (rendering web text into adversarial anti-OCR images to defend human writing from automated machine scrapers), and autonomous bot takeovers.
+                  </p>
+                  <p>
+                    We bridged that research into civic science with the <a href="/portfolio/ucsc-wildlife-tracker" class="text-cyan underline font-medium">UCSC Wildlife Tracker</a>, an ESP-inspired Facebook game crowdsourcing camera-trap wildlife labels across the Santa Cruz Mountains to train early computer vision datasets for biologists.
+                  </p>
+
+                  <div class="punk-panel p-6 bg-obsidian border-l-4 border-l-lime my-6">
+                    <div class="font-mono text-xs text-lime uppercase tracking-wider font-bold mb-2">
+                      // THE FIRST HARDWARE BREADBOARD: DISNEY SPECIAL PROJECTS
+                    </div>
+                    <p class="text-xs sm:text-sm text-titanium-muted leading-relaxed font-light mb-0">
+                      "Then Disney Parks pulled me onto their Special Projects skunkworks unit. That was the first time in my life I had ever wired a physical hardware breadboard. We wired RFID receivers, microcontrollers, and serial relays inside a hotel mock-up, proving that a guest could tap a wristband and have the room wake up with personalized lighting and itineraries. That breadboard prototype became the direct catalyst for Disney's multi-billion dollar <a href='/portfolio/my-disney-experience' class='text-lime underline font-medium'>MagicBand & MyMagic+ rollout</a>."
+                    </p>
+                  </div>
+                </>
+              )}
+
+            </div>
+
+            <!-- RIGHT COLUMN: Sleek Temporal HUD Rail (Role/Tenure Pills with Overlapping Project Milestones) -->
+            <div class="lg:col-span-5 relative">
+              
+              <!-- Sticky Rail Container (Compact & Supplementary) -->
+              <div class="lg:sticky lg:top-32 rounded-xl border border-charcoal/80 bg-charcoal/15 p-4 sm:p-5 backdrop-blur-sm">
+                
+                <!-- Rail Header -->
+                <div class="flex items-center justify-between gap-2 pb-3 mb-5 border-b border-charcoal/60">
+                  <div class="flex items-center gap-2">
+                    <span class={`w-2 h-2 rounded-full ${act.dotBg}`}></span>
+                    <span class="font-mono text-[11px] text-titanium-muted uppercase tracking-wider font-bold">
+                      // {act.actNum} TEMPORAL MODULES
+                    </span>
+                  </div>
+                  <span class="font-mono text-[10px] text-titanium-muted">
+                    HOVER / TAP FOR SPECS
+                  </span>
+                </div>
+
+                <!-- Vertical Modules List -->
+                <div class="space-y-6">
+                  {act.modules.map((module) => (
+                    <div class="relative flex items-stretch gap-3 group/module py-0.5">
+                      
+                      <!-- 1. The Role / Tenure Pill Capsule -->
+                      <div class="relative hud-node shrink-0 flex flex-col items-center" data-node-id={module.id}>
+                        <button 
+                          type="button"
+                          class={`h-full min-h-[140px] w-8 sm:w-9 rounded-full border ${act.pillBorder} ${act.pillBg} hover:${act.pillBorderHover} hover:${act.pillBgHover} transition-all cursor-pointer flex flex-col items-center justify-between py-2.5 px-1 relative focus:outline-none shadow-sm group/pill`}
+                          aria-expanded="false"
+                          aria-label={`View role specs for ${module.role} at ${module.company}`}
+                        >
+                          <!-- Top Cap Dot -->
+                          <span class={`w-1.5 h-1.5 rounded-full ${act.dotBg} shrink-0 opacity-80 group-hover/pill:opacity-100 group-hover/pill:scale-110 transition-all`}></span>
+                          
+                          <!-- Rotated text inside capsule -->
+                          <span class="font-mono text-[9px] tracking-wider text-titanium/90 group-hover/pill:text-white uppercase [writing-mode:vertical-rl] rotate-180 font-bold whitespace-nowrap overflow-hidden text-ellipsis max-h-[160px] my-auto">
+                            {module.shortRole || module.role} @ {module.company}
+                          </span>
+                          
+                          <!-- Bottom Cap Dot -->
+                          <span class={`w-1.5 h-1.5 rounded-full ${act.dotBg} shrink-0 opacity-80 group-hover/pill:opacity-100 group-hover/pill:scale-110 transition-all`}></span>
+                        </button>
+
+                        <!-- Role Popover emerging from Pill -->
+                        <div class="hud-popover hidden group-hover/pill:block group-focus-within:block absolute left-full top-0 ml-3 w-80 max-w-[calc(100vw-2rem)] p-5 rounded-xl border border-charcoal bg-[#0F1218]/95 backdrop-blur-xl shadow-2xl shadow-black/90 z-50 pointer-events-auto text-left">
+                          <div class="flex items-center justify-between gap-2 pb-2 mb-2 border-b border-charcoal/60">
+                            <span class={`font-mono text-[9px] px-2 py-0.5 rounded border ${act.badgeClass} font-bold uppercase`}>
+                              {module.typeLabel}
+                            </span>
+                            <span class="font-mono text-[10px] text-titanium-muted">{module.period}</span>
+                          </div>
+
+                          <h3 class="text-sm font-display font-bold text-titanium mt-0 mb-0.5">
+                            {module.company}
+                          </h3>
+                          <div class="font-mono text-xs text-gold mb-2">
+                            {module.role} // {module.location}
+                          </div>
+
+                          <p class="text-xs text-titanium/85 font-light leading-relaxed mb-3">
+                            {module.summary}
+                          </p>
+
+                          {module.highlights && module.highlights.length > 0 && (
+                            <ul class="space-y-1 mb-3">
+                              {module.highlights.map(h => (
+                                <li class="font-mono text-[10px] text-titanium-muted flex items-start gap-1.5">
+                                  <span class="text-gold">▹</span>
+                                  <span>{h}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          )}
+
+                          {module.metric && (
+                            <div class="font-mono text-[10px] text-cyan mb-3 px-2 py-1 rounded bg-obsidian border border-cyan/30">
+                              ⚡ {module.metric}
+                            </div>
+                          )}
+
+                          {module.link && (
+                            <a 
+                              href={module.link} 
+                              class="font-mono text-[11px] text-gold hover:underline flex items-center justify-end gap-1 font-bold pt-1"
+                            >
+                              <span>{module.linkText || 'VIEW CASE STUDY →'}</span>
+                            </a>
+                          )}
+                        </div>
+                      </div>
+
+                      <!-- 2. Overlapping Milestone Dots along right edge of the Pill -->
+                      <div class="flex-1 flex flex-col justify-around space-y-2 py-1">
+                        {module.milestones.map((milestone) => (
+                          <div class="relative hud-node group/milestone flex items-center gap-2" data-node-id={milestone.id}>
+                            
+                            <!-- Hairline branch from pill edge -->
+                            <div class={`w-3 h-0.5 ${act.bridgeBorder} shrink-0 -ml-4 z-10 opacity-70 group-hover/milestone:opacity-100 transition-opacity`}></div>
+                            
+                            <!-- Overlapping Glowing Dot on right of pill -->
+                            <div class={`w-2.5 h-2.5 rounded-full ${act.dotBg} border-2 border-obsidian ring-2 ${act.dotBorder} group-hover/milestone:scale-125 transition-transform shrink-0 -ml-1 z-20 cursor-pointer`}></div>
+
+                            <!-- Milestone Item Trigger -->
+                            <button
+                              type="button"
+                              class="flex-1 text-left p-1.5 sm:p-2 rounded-lg hover:bg-charcoal/40 transition-all cursor-pointer flex items-center justify-between gap-2 focus:outline-none group/btn"
+                              aria-expanded="false"
+                            >
+                              <div class="flex items-center gap-2 min-w-0">
+                                <span class="font-mono text-[9px] sm:text-[10px] text-titanium-muted shrink-0 font-medium">
+                                  {milestone.dateLabel}
+                                </span>
+                                <span class="font-display text-xs text-titanium/90 group-hover/btn:text-gold transition-colors truncate">
+                                  {milestone.title}
+                                </span>
+                              </div>
+                              <span class="font-mono text-[10px] text-titanium-muted group-hover/btn:text-gold transition-colors shrink-0">
+                                →
+                              </span>
+                            </button>
+
+                            <!-- Milestone Popover -->
+                            <div class="hud-popover hidden group-hover/milestone:block group-focus-within:block absolute right-0 sm:right-auto sm:left-full top-0 sm:ml-3 w-80 max-w-[calc(100vw-2rem)] p-5 rounded-xl border border-charcoal bg-[#0F1218]/95 backdrop-blur-xl shadow-2xl shadow-black/90 z-50 pointer-events-auto text-left">
+                              <div class="flex items-center justify-between gap-2 pb-2 mb-2 border-b border-charcoal/60">
+                                <span class={`font-mono text-[9px] px-2 py-0.5 rounded border ${act.badgeClass} font-bold uppercase`}>
+                                  {milestone.typeLabel}
+                                </span>
+                                <span class="font-mono text-[10px] text-titanium-muted">{milestone.dateLabel}</span>
+                              </div>
+
+                              <h3 class="text-sm font-display font-bold text-titanium mt-0 mb-0.5">
+                                {milestone.title}
+                              </h3>
+                              {milestone.subtitle && (
+                                <div class="font-mono text-xs text-gold mb-2">
+                                  {milestone.subtitle}
+                                </div>
+                              )}
+
+                              <p class="text-xs text-titanium/85 font-light leading-relaxed mb-3">
+                                {milestone.description}
+                              </p>
+
+                              {milestone.metric && (
+                                <div class="font-mono text-[10px] text-cyan mb-3 px-2 py-1 rounded bg-obsidian border border-cyan/30">
+                                  ⚡ {milestone.metric}
+                                </div>
+                              )}
+
+                              {milestone.link && (
+                                <a 
+                                  href={milestone.link} 
+                                  target={milestone.link.startsWith('http') ? '_blank' : undefined}
+                                  rel={milestone.link.startsWith('http') ? 'noopener noreferrer' : undefined}
+                                  class="font-mono text-[11px] text-gold hover:underline flex items-center justify-end gap-1 font-bold pt-1"
+                                >
+                                  <span>{milestone.linkText || 'READ CASE STUDY →'}</span>
+                                </a>
+                              )}
+                            </div>
+
+                          </div>
+                        ))}
+                      </div>
+
+                    </div>
+                  ))}
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </section>
+      ))}
+
     </div>
 
-    <!-- Career Milestones List -->
-    <section id="roles" class="space-y-12 mb-20">
-      <div class="font-mono text-xs text-cyan uppercase tracking-wider mb-6 flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-cyan"></span>
-        <span>// EXECUTIVE & LEADERSHIP POSITIONS</span>
-      </div>
-
-      {sortedRoles.map(role => (
-        <article class="rounded-xl border border-charcoal bg-charcoal/20 p-8 backdrop-blur-sm hover:border-gold/50 transition-all duration-300">
-          <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 border-b border-charcoal/60 mb-6">
-            <div>
-              <div class="font-mono text-xs text-gold uppercase tracking-wider mb-1">
-                {role.data.period} // {role.data.location}
-              </div>
-              <h2 class="text-2xl md:text-3xl font-display font-bold text-titanium">
-                {role.data.company}
-              </h2>
-              <div class="text-lg text-titanium/80 font-light mt-0.5">
-                {role.data.title}
-              </div>
-            </div>
-          </div>
-
-          <p class="text-sm text-titanium/90 leading-relaxed mb-6 font-light">
-            {role.data.summary}
-          </p>
-
-          <div>
-            <div class="font-mono text-xs text-titanium-muted uppercase tracking-wider mb-3">
-              Key Strategic Milestones:
-            </div>
-            <ul class="grid grid-cols-1 md:grid-cols-2 gap-2.5">
-              {role.data.highlights.map(h => (
-                <li class="font-mono text-xs text-titanium/80 flex items-start gap-2 bg-obsidian/60 p-2.5 rounded border border-charcoal/80">
-                  <span class="text-cyan">▹</span>
-                  <span>{h}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </article>
-      ))}
-    </section>
-
-    <!-- 6 US Patents Section with Clickable PDF Links -->
-    <section id="patents" class="border-t border-charcoal pt-16 mb-20">
-      <div class="font-mono text-xs text-gold uppercase tracking-wider mb-8 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-gold"></span>
-          <span>// INTELLECTUAL PROPERTY & PATENTS (6 US PATENTS)</span>
+    <!-- Bottom CTA Bar -->
+    <section class="mt-28 p-10 rounded-2xl border border-charcoal bg-charcoal/20 text-center relative overflow-hidden">
+      <div class="max-w-2xl mx-auto space-y-4 relative z-10">
+        <div class="font-mono text-xs text-gold uppercase tracking-widest font-semibold">
+          // EXPLORE DEEPER OR COLLABORATE
         </div>
-        <span class="text-titanium-muted">USPTO OFFICIAL REGISTRY</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {patents.map(p => (
-          <a 
-            href={p.url} 
-            target="_blank" 
-            rel="noopener noreferrer"
-            class="rounded-xl border border-charcoal bg-obsidian p-6 hover:border-gold transition-all duration-300 group flex flex-col justify-between"
-          >
-            <div>
-              <div class="flex items-center justify-between mb-2">
-                <span class="font-mono text-xs px-2.5 py-1 rounded bg-gold/10 border border-gold/40 text-gold font-bold">
-                  {p.number}
-                </span>
-                <span class="font-mono text-xs text-titanium-muted">{p.year}</span>
-              </div>
-              <h3 class="text-base font-display font-bold text-titanium group-hover:text-gold transition-colors mb-2">
-                {p.title}
-              </h3>
-              <p class="text-xs text-titanium-muted leading-relaxed mb-4">
-                {p.desc}
-              </p>
-            </div>
-            <div class="pt-3 border-t border-charcoal/60 flex items-center justify-between font-mono text-[11px] text-titanium-muted group-hover:text-gold transition-colors">
-              <span>VIEW PATENT PDF (USPTO)</span>
-              <span>↗</span>
-            </div>
+        <h3 class="text-2xl sm:text-3xl font-display font-bold text-titanium">
+          Ready to Build on Unpaved Frontiers?
+        </h3>
+        <p class="text-titanium-muted text-sm font-light leading-relaxed">
+          Whether you need advisory on near-frontier AI agent runtimes, sovereign infrastructure architecture, or executive venture design, let's talk.
+        </p>
+        <div class="flex flex-wrap items-center justify-center gap-4 pt-4">
+          <a href="/#contact" class="btn-primary text-xs px-6 py-2.5">
+            LET'S TALK →
           </a>
-        ))}
-      </div>
-    </section>
-
-    <!-- Honors & Awards Section with Direct Links -->
-    <section id="awards" class="border-t border-charcoal pt-16 mb-20">
-      <div class="font-mono text-xs text-magenta uppercase tracking-wider mb-8 flex items-center justify-between">
-        <div class="flex items-center gap-2">
-          <span class="w-2 h-2 rounded-full bg-magenta"></span>
-          <span>// HONORS & INTERNATIONAL RECOGNITION</span>
-        </div>
-        <span class="text-titanium-muted">OFFICIAL ARCHIVE</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {awards.map(a => (
-          <div class="rounded-xl border border-charcoal bg-obsidian p-6 flex flex-col justify-between">
-            <div>
-              <div class="font-mono text-xs text-magenta mb-2">HONOR & RECOGNITION</div>
-              <h3 class="text-lg font-display font-bold text-titanium mb-2">{a.data.title}</h3>
-              <p class="text-xs text-titanium-muted leading-relaxed mb-4">{a.data.description}</p>
-            </div>
-            <div class="pt-4 border-t border-charcoal/60 flex items-center justify-between">
-              <span class="font-mono text-[11px] text-titanium-muted">{a.data.organization} // {a.data.year}</span>
-              {a.data.link && (
-                <a 
-                  href={a.data.link} 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  class="font-mono text-xs text-gold hover:underline flex items-center gap-1"
-                >
-                  <span>OFFICIAL ENTRY</span>
-                  <span>↗</span>
-                </a>
-              )}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- Education & Academic Foundation -->
-    <section id="education" class="border-t border-charcoal pt-16">
-      <div class="font-mono text-xs text-lime uppercase tracking-wider mb-8 flex items-center gap-2">
-        <span class="w-2 h-2 rounded-full bg-lime"></span>
-        <span>// ACADEMIC RIGOR & FOUNDATION</span>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="rounded-xl border border-charcoal bg-charcoal/20 p-6">
-          <div class="font-mono text-xs text-gold mb-1">MSc (Innovation & Entrepreneurship)</div>
-          <h3 class="text-xl font-display font-bold text-titanium mb-2">HEC Paris</h3>
-          <p class="text-xs text-titanium-muted leading-relaxed">
-            Executive venture strategy, unit economics, startup design, and sustainable business model architecture.
-          </p>
-        </div>
-
-        <div class="rounded-xl border border-charcoal bg-charcoal/20 p-6">
-          <div class="font-mono text-xs text-cyan mb-1">MFA (Digital Arts & New Media)</div>
-          <h3 class="text-xl font-display font-bold text-titanium mb-2">University of California, Santa Cruz</h3>
-          <p class="text-xs text-titanium-muted leading-relaxed">
-            Graduate fellowship research in computational aesthetics, software art, physical computing, and expressive systems.
-          </p>
-        </div>
-
-        <div class="rounded-xl border border-charcoal bg-charcoal/20 p-6">
-          <div class="font-mono text-xs text-lime mb-1">BA (Computer Science)</div>
-          <h3 class="text-xl font-display font-bold text-titanium mb-2">Johns Hopkins University</h3>
-          <p class="text-xs text-titanium-muted leading-relaxed">
-            Algorithms, data structures, software engineering, systems programming, and computer graphics foundations.
-          </p>
-        </div>
-
-        <div class="rounded-xl border border-charcoal bg-charcoal/20 p-6">
-          <div class="font-mono text-xs text-magenta mb-1">BA (Psychology)</div>
-          <h3 class="text-xl font-display font-bold text-titanium mb-2">Johns Hopkins University</h3>
-          <p class="text-xs text-titanium-muted leading-relaxed">
-            Cognitive psychology, human perception, behavioral decision-making, and user interaction mental models.
-          </p>
+          <a href="/portfolio" class="font-mono text-xs px-5 py-2.5 rounded border border-charcoal bg-obsidian text-titanium hover:border-gold hover:text-gold transition-colors">
+            EXPLORE COMPLETE 20-PROJECT ARCHIVE →
+          </a>
         </div>
       </div>
     </section>
@@ -281,3 +1307,63 @@ const awards = achievements.filter(a => a.data.type === 'award');
 
   <Footer />
 </BaseLayout>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Touch & Click Popover Handler for Mobile and Desktop
+    const hudNodes = document.querySelectorAll('.hud-node');
+
+    hudNodes.forEach(node => {
+      const button = node.querySelector('button');
+      const popover = node.querySelector('.hud-popover');
+
+      if (!button || !popover) return;
+
+      button.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const isCurrentlyOpen = !popover.classList.contains('hidden');
+
+        // Close all other popovers
+        document.querySelectorAll('.hud-popover').forEach(p => {
+          if (p !== popover) {
+            p.classList.add('hidden');
+          }
+        });
+
+        // Toggle current popover
+        if (isCurrentlyOpen) {
+          popover.classList.add('hidden');
+          button.setAttribute('aria-expanded', 'false');
+        } else {
+          popover.classList.remove('hidden');
+          button.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+
+    // Close open popovers when clicking outside
+    document.addEventListener('click', (e) => {
+      const target = e.target as HTMLElement;
+      if (!target.closest('.hud-node')) {
+        document.querySelectorAll('.hud-popover').forEach(p => {
+          p.classList.add('hidden');
+        });
+        document.querySelectorAll('.hud-node button').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+
+    // Close open popover on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        document.querySelectorAll('.hud-popover').forEach(p => {
+          p.classList.add('hidden');
+        });
+        document.querySelectorAll('.hud-node button').forEach(b => {
+          b.setAttribute('aria-expanded', 'false');
+        });
+      }
+    });
+  });
+</script>

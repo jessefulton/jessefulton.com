@@ -3,10 +3,16 @@ title: "Nike & Jordan — Connected Spatial Retail & On-Demand Fabrication"
 byline: "Bridging real-time 3D customization, in-store fabrication, and treadmill telemetry across flagship stores."
 briefDescription: "Engineered connected physical retail environments for Nike, including the Cinder C++ SwooshID interactive wall in Portland with on-demand shoe fabrication, and the LunarEpic treadmill-synced planetary simulator in NYC."
 category: "experiential-spatial"
+archetype: "bespoke-creative-tech"
+act: "act-3"
+actNum: "ACT III"
+startDate: "2014-06"
+endDate: "2016-08"
+dateRange: "2014 – 2016"
 client: "Nike / Jordan"
 employer: "Huge / AKQA"
 role: "Solutions Architect & Associate Technical Director"
-year: 2014
+year: 2016
 featured: true
 archive: true
 showOnTimeline: true
@@ -23,16 +29,22 @@ metrics:
   - "LunarEpic: 3 NYC Flagship Stores Deployed Overnight"
 ---
 
-Across multiple flagship retail initiatives for Nike and Jordan, I led the engineering that connected generative 3D visualizers, physical store architecture, and on-demand fabrication.
+Across multiple flagship retail environments for Nike and Jordan, I led the systems engineering that bridged real-time 3D graphics, physical store fixtures, and on-demand manufacturing.
 
-### Nike SwooshID: 3D Design to On-Demand Printing (Portland Flagship)
-I relocated to Portland, Oregon for six to nine months to lead technical architecture for Nike SwooshID. The goal was ambitious: allow shoppers to design custom footwear on screen, print their graphics directly onto the shoe in the store, and have it ready for pickup within an hour.
+## 01 // The Sensory & Physical Brief
+Nike wanted to turn physical retail into an active laboratory. For Nike SwooshID at the Portland flagship, the goal was audacious: let shoppers customize a sneaker on a multi-touch fixture embedded into the store's architectural wall, immediately trigger a textile printing pipeline in the back room, and walk out with custom sneakers within an hour. For Nike LunarEpic in NYC, the brief was experiential kinetic trial: synchronize runner cadence on physical treadmills with interactive CGI planetary landscapes and spatial Beats audio.
 
-The attention to physical detail was immaculate. We built the consumer-facing 3D configurator in C++ using Cinder, featuring real-time 3D shoe models, dynamic physics-based laces, customizable lighting shaders, and graphic pattern overlays. We embedded high-resolution displays directly behind the store’s iconic "waffle iron" shoe wall fixtures, color-calibrating the software to match the store's physical ambient lighting down to the millimeter.
+## 02 // Bespoke Hardware & Algorithmic Stack
+* **Cinder C++ Real-Time Configurator:** Built the Portland SwooshID multi-touch kiosk in C++ using the Cinder creative framework. Features included 3D mesh rendering, physics-based lace dynamics, custom GLSL lighting shaders calibrated to the physical store illumination, and high-DPI graphic composition.
+* **On-Demand Fabrication Pipeline:** Built the middleware bus linking touch wall UI to mobile POS checkout, retail inventory, an iPad queuing tool for store staff, and custom industrial textile printers.
+* **Kinetic Cadence Telemetry:** For LunarEpic in NYC, engineered real-time sensor ingestion mapping treadmill speed directly to visual camera velocity in a custom OpenGL landscape simulator.
 
-Behind the scenes, we built the entire manufacturing pipeline: connecting the touch interface to mobile checkout, store inventory, an iPad app for sales associates, and a custom in-store textile printer. Customers placed their orders, paid via mobile POS, and received an automated SMS notification when their freshly fabricated sneakers were ready at the counter. I still have the custom sneakers I printed on that system today.
+## 03 // Live Deployment & What Broke
+SwooshID required extreme spatial precision—displays had to sit flush behind custom waffle-iron steel fixtures with zero thermal throttling. 
 
-### Nike LunarEpic: Overnight NYC Running Simulator
-In contrast to the long Portland build, LunarEpic was an intensive one-week sprint. I took a red-eye flight to New York City to turn up interactive treadmill installations across three flagship Manhattan locations in a single night.
+LunarEpic was pure deployment adrenaline: a red-eye flight to Manhattan to deploy across three flagship stores in a single night. We spent 3 AM cabbing between SoHo and Midtown, making frantic emergency supply runs to the 24/7 Apple Store on 5th Avenue for extra iPhones, Lightning-to-audio adapters, and network switches, calibrating treadmill optical sensors minutes before store doors unlocked at 8 AM.
 
-We synchronized runner cadence on physical treadmills with Beats headphones and large display screens running a virtual CGI planetary landscape simulator. We spent the night cabbing up and down Manhattan, making 2 AM supply runs to the 24/7 Apple Store on 5th Avenue for iPhones and audio adapters, wiring networks, mounting displays, and calibrating treadmill sensors before doors opened in the morning.
+## 04 // Breakthroughs, IP & Cultural Legacy
+Nike SwooshID pioneered zero-inventory on-demand retail manufacturing, proving consumers would engage with in-store 3D customization if the physical turnaround was instantaneous. The system processed hundreds of custom pairs, and I still have my custom-printed sneakers today. 
+
+These installations set the technical pattern for Nike’s subsequent "House of Innovation" flagship deployments globally.

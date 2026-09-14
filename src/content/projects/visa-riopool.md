@@ -3,6 +3,12 @@ title: "Visa RioPOOL — Olympic Rideshare AR Photobooth"
 byline: "Real-time in-vehicle augmented reality and automated video dispatch uniting Olympic athletes and riders in Rio."
 briefDescription: "Served as Technical Director for Visa RioPOOL at the Rio 2016 Olympic Games, engineering in-car real-time AR costume photobooths across UberPOOL vehicles to bridge language barriers for a global broadcast campaign."
 category: "experiential-spatial"
+archetype: "scaled-emerging-products"
+act: "act-3"
+actNum: "ACT III"
+startDate: "2016-02"
+endDate: "2016-09"
+dateRange: "2016"
 client: "Visa / Uber"
 employer: "AKQA"
 role: "Group Technical Director"
@@ -21,16 +27,20 @@ metrics:
   - "Automated Social Video Generation & Dispatch Pipeline"
 ---
 
-RioPOOL was a major cobranded campaign between Uber and Visa for the Rio 2016 Olympic Games. Uber was launching its rideshare mode globally and wanted to show how sharing a ride could connect people from different cultures, even if they couldn't speak a word of each other's language.
+RioPOOL was a flagship co-branded activation between Uber and Visa for the Rio 2016 Olympic Games, using real-time computer vision in moving vehicles to connect strangers and Olympic athletes across language barriers.
 
-### The In-Car AR Experience
-To break the language barrier, we built an interactive AR photobooth inside UberPOOL cabs. When passengers got into the back seat, they looked into an in-car screen where real-time computer vision tracked their bodies and mapped digital Olympic costumes—divers, soccer players, weightlifters—directly onto their silhouettes. 
+## 01 // The Sensory & Physical Brief
+Uber was launching UberPOOL globally and wanted to demonstrate how shared transit connects people from diverse cultures. The brief was to build an interactive in-vehicle AR photobooth: passengers climbing into the back seat saw real-time computer vision track their bodies, mapping animated Olympic costumes (divers, soccer players, weightlifters) onto their silhouettes, and dispatching polished social clips to their phones within seconds.
 
-Riders could record short video clips dispatched instantly to their email or Facebook Messenger accounts. We filmed dozens of these experiences with GoPros, staging ridealongs with Team Visa medalists that became the centerpiece of global television and digital ad campaigns.
+## 02 // Bespoke Hardware & Algorithmic Stack
+* **In-Car Computer Vision & Depth Tracking:** Deployed 3D depth sensors and camera rigs into passenger headrests, running real-time skeletal tracking and low-latency OpenGL costume overlays.
+* **Automated Video Ingestion & Delivery:** Built cloud rendering pipelines automatically stitching GoPro footage, AR overlays, and brand bumpers, dispatching MP4s via SMS, email, and Facebook Messenger within 60 seconds of trip completion.
 
-### High-Stakes Field Engineering in Rio
-Deploying sensitive computer vision hardware into moving cabs in tropical Rio de Janeiro produced unforgettable field engineering challenges:
+## 03 // Live Deployment & What Broke
+Deploying sensitive optical sensors into moving cabs in tropical Rio produced intense field engineering chaos:
+* **The Optical Physics Hurdle:** Tropical sunlight washed out our infrared depth sensors. I calculated that we needed specialized optical UV/IR blocking film applied across all car windows to stabilize the depth field. When I explained this optical physics fix, the client lead famously remarked: *"Well, you're a fucking wizard aren't you Jesse, you just have it all figured out."*
+* **The 3 AM Drill Hack:** Lab thermal tests assumed air-conditioned cabs, but Brazilian drivers rolled their windows down in 90% humidity, causing in-car tablet enclosures to thermal-throttle. Speaking zero Portuguese, I tracked down an Uber driver's brother at 3 AM to borrow an electric drill, hand-drilling ventilation holes into every enclosure while running mission control out of a dirt-floor room in a local strip mall.
+* **Launch Morning Blackout:** On launch morning, while pulling a critical compiled binary from SF over spotty local broadband, the network flatlined—a local cleaner had unplugged our main router to plug in a vacuum. I plugged it back in, flashed the fleet, and went live.
 
-- **The Optical Physics Hurdle:** Our 3D depth sensors relied on infrared light, which went haywire moving between blinding tropical sun, shadows, and tunnels. When I explained that we had to source and install specialized optical UV/IR film across all vehicle windows to stabilize the depth tracking, our client stakeholder exclaimed: *"Well, you're a fucking wizard aren't you Jesse, you just have it all figured out?"*
-- **The 3 AM Drill Hack:** Lab thermal testing had assumed air-conditioned cars, but Brazilian drivers kept their windows down in the humidity. In-car screens began overheating and shutting down. Speaking zero Portuguese, I tracked down an Uber driver's brother at 3 AM to borrow a power drill, then hand-drilled custom ventilation holes into every enclosure while running mission control out of an unfloored dirt room in a strip mall.
-- **The Launch Morning Router Crisis:** On launch morning, while downloading a critical remote patch binary from San Francisco over slow local bandwidth, the connection suddenly flatlined—a local janitor had unplugged our main router in the dirt room. I plugged it back in, deployed the update, and we launched on schedule across Rio and nine other global cities in under six weeks.
+## 04 // Breakthroughs, IP & Cultural Legacy
+The activation launched simultaneously across Rio and nine global metropolitan centers in under six weeks, capturing spontaneous interactions between riders and Team Visa Olympians that anchored Visa's global Olympic broadcast campaigns.

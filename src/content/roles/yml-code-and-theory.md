@@ -1,17 +1,24 @@
 ---
-company: "YML / Code & Theory"
-title: "Executive Product Strategist & Technology Leader"
-period: "2020 – 2023"
-startYear: 2020
+company: "Code & Theory"
+title: "Director, Product Management"
+period: "AUG 2022 ‒ OCT 2023"
+startDate: "2022-08"
+endDate: "2023-10"
+startMonth: "Aug"
+endMonth: "Oct"
+startYear: 2022
 endYear: 2023
-location: "San Francisco / Silicon Valley"
+location: "Remote"
 category: "venture-strategy"
-summary: "Directed enterprise product strategy, executive discovery roadshows, and platform transformation for PwC, Coinbase, and high-growth ventures."
+act: "act-1"
+actNum: "ACT I"
+typeLabel: "LEADERSHIP ROLE"
+summary: "Scaled PwC account into the agency's largest client (20x revenue in 6 months); led 9-month research across 9 multibillion-dollar business units."
 highlights:
-  - "Architected the 8-BU discovery roadshow for PwC Sightline, growing it into the agency's largest account in <12 months."
-  - "Led strategic platform workshops and discovery aligning technical engineering with C-suite commercial strategy."
-  - "Built cross-functional product design and engineering practices across distributed enterprise engagements."
-associatedProjects: ["pwc-enterprise-alignment", "coinbase-cloud"]
+  - "Engineered 8-BU iterative prototype roadshow (100+ partner interviews)"
+  - "Coached 20 team members transitioning into product management"
+associatedProjects: ["pwc-enterprise-alignment"]
+metric: "20x Account Growth // 9 BUs"
 featured: true
 order: 3
 ---
